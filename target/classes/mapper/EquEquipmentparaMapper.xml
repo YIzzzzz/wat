@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquEquipmentparaMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.EquEquipmentpara">
+        <id column="Equipment_ID" property="equipmentId" />
+        <result column="Para_ID" property="paraId" />
+        <result column="ParaValue" property="paravalue" />
+        <result column="UploadTime" property="uploadtime" />
+        <result column="Unit_ID" property="unitId" />
+        <result column="UpLimit" property="uplimit" />
+        <result column="DownLimit" property="downlimit" />
+    </resultMap>
+
+</mapper>

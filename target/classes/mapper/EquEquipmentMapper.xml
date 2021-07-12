@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquEquipmentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.EquEquipment">
+        <id column="ID" property="id" />
+        <result column="N" property="n" />
+        <result column="EquipmentType_ID" property="equipmenttypeId" />
+        <result column="Manufacturer_ID" property="manufacturerId" />
+        <result column="Status" property="s" />
+        <result column="UploadNum" property="uploadnum" />
+        <result column="Address" property="address" />
+        <result column="SetupTime" property="setuptime" />
+        <result column="SetupPerson" property="setupperson" />
+        <result column="Model" property="model" />
+        <result column="FirstUploadTime" property="firstuploadtime" />
+        <result column="LastUploadTime" property="lastuploadtime" />
+        <result column="LastCollectTime" property="lastcollecttime" />
+        <result column="IPAddress" property="ipaddress" />
+        <result column="Port" property="p" />
+        <result column="Longitude" property="longitude" />
+        <result column="Latitude" property="latitude" />
+        <result column="Version" property="version" />
+        <result column="Manager" property="manager" />
+        <result column="Telephone" property="telephone" />
+        <result column="PowerType" property="powertype" />
+        <result column="PicPath" property="picpath" />
+        <result column="FilePath" property="filepath" />
+        <result column="Des" property="des" />
+        <result column="SetupAddress" property="setupaddress" />
+        <result column="OffLineTimeLimit" property="offlinetimelimit" />
+        <result column="ConnectServerPort" property="connectserverport" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.SysMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.SysMenu">
+        <id column="MenuCode" property="menucode" />
+        <result column="ParentCode" property="parentcode" />
+        <result column="MenuName" property="menuname" />
+        <result column="URL" property="url" />
+        <result column="IconClass" property="iconclass" />
+        <result column="IconURL" property="iconurl" />
+        <result column="MenuSeq" property="menuseq" />
+        <result column="Description" property="description" />
+        <result column="IsVisible" property="isvisible" />
+        <result column="IsEnable" property="isenable" />
+        <result column="CreatePerson" property="createperson" />
+        <result column="CreateDate" property="createdate" />
+        <result column="UpdatePerson" property="updateperson" />
+        <result column="UpdateDate" property="updatedate" />
+    </resultMap>
+
+</mapper>

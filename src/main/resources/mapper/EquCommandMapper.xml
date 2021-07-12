@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquCommandMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.EquCommand">
+        <id column="ID" property="id" />
+        <result column="Equipment_ID" property="equipmentId" />
+        <result column="CommandType" property="commandtype" />
+        <result column="SettingTime" property="settingtime" />
+        <result column="Command" property="command" />
+        <result column="UserCode" property="usercode" />
+        <result column="Status" property="status" />
+        <result column="SendTime" property="sendtime" />
+        <result column="SendNum" property="sendnum" />
+        <result column="ResponseTime" property="responsetime" />
+        <result column="ResponseMessage" property="responsemessage" />
+        <result column="CheckTime" property="checktime" />
+        <result column="CheckUserCode" property="checkusercode" />
+        <result column="Describe" property="describe" />
+        <result column="CheckDescribe" property="checkdescribe" />
+    </resultMap>
+
+</mapper>

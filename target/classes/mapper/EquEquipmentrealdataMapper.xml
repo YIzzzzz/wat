@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquEquipmentrealdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.EquEquipmentrealdata">
+        <id column="Equipment_ID" property="equipmentId" />
+        <result column="DataType_ID" property="datatypeId" />
+        <result column="Value" property="value" />
+        <result column="Unit_ID" property="unitId" />
+        <result column="Position" property="position" />
+        <result column="IfRecord" property="ifrecord" />
+        <result column="IfCurve" property="ifcurve" />
+        <result column="IfAlarm" property="ifalarm" />
+        <result column="IfAccumulate" property="ifaccumulate" />
+        <result column="UpLimit" property="uplimit" />
+        <result column="DownLimit" property="downlimit" />
+        <result column="LastUpdateTime" property="lastupdatetime" />
+    </resultMap>
+
+</mapper>

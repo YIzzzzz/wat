@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquipmentdayaccumulatedataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.Equipmentdayaccumulatedata">
+        <result column="CollectTime" property="collecttime" />
+        <result column="Equipment_ID" property="equipmentId" />
+        <result column="DataType_ID" property="datatypeId" />
+        <result column="UploadTime" property="uploadtime" />
+        <result column="Value" property="value" />
+        <result column="STR" property="str" />
+    </resultMap>
+
+</mapper>

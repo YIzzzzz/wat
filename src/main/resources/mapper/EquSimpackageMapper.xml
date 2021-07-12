@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquSimpackageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.EquSimpackage">
+        <id column="ID" property="id" />
+        <result column="Name" property="name" />
+        <result column="Term" property="term" />
+        <result column="StartFlag" property="startflag" />
+        <result column="AlarmValue" property="alarmvalue" />
+        <result column="AlarmType" property="alarmtype" />
+        <result column="Price" property="price" />
+        <result column="TotalFlow" property="totalflow" />
+        <result column="OverFlowPrice" property="overflowprice" />
+        <result column="Des" property="des" />
+    </resultMap>
+
+</mapper>

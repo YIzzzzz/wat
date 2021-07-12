@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.SysCodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.SysCode">
+        <id column="Code" property="code" />
+        <result column="Value" property="value" />
+        <result column="Text" property="text" />
+        <result column="ParentCode" property="parentcode" />
+        <result column="Seq" property="seq" />
+        <result column="IsEnable" property="isenable" />
+        <result column="IsDefault" property="isdefault" />
+        <result column="Description" property="description" />
+        <result column="CodeTypeName" property="codetypename" />
+        <result column="CodeType" property="codetype" />
+        <result column="CreatePerson" property="createperson" />
+        <result column="CreateDate" property="createdate" />
+        <result column="UpdatePerson" property="updateperson" />
+        <result column="UpdateDate" property="updatedate" />
+    </resultMap>
+
+</mapper>

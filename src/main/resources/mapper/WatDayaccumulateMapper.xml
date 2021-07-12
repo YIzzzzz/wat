@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.WatDayaccumulateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.WatDayaccumulate">
+        <id column="DayTime" property="daytime" />
+        <result column="Equipment_ID" property="equipmentId" />
+        <result column="StartTime" property="starttime" />
+        <result column="EndTime" property="endtime" />
+        <result column="BeforeYesterdayAccmulate" property="beforeyesterdayaccmulate" />
+        <result column="LastAccumulate" property="lastaccumulate" />
+        <result column="Accumulate" property="accumulate" />
+        <result column="SevenDaysAccumulate" property="sevendaysaccumulate" />
+        <result column="LastYearAccumulate" property="lastyearaccumulate" />
+        <result column="AvgFlow" property="avgflow" />
+        <result column="LastDaySameTimeAvgFlow" property="lastdaysametimeavgflow" />
+        <result column="RelativeRatio" property="relativeratio" />
+        <result column="IncreaseNum" property="increasenum" />
+        <result column="DecreaseNum" property="decreasenum" />
+        <result column="ZeroNum" property="zeronum" />
+        <result column="HourMaxAccumulate" property="hourmaxaccumulate" />
+        <result column="HourMaxTime" property="hourmaxtime" />
+        <result column="HourMinAccumulate" property="hourminaccumulate" />
+        <result column="HourMinTime" property="hourmintime" />
+        <result column="PeakAccumulate" property="peakaccumulate" />
+        <result column="ValleyAccumulate" property="valleyaccumulate" />
+        <result column="NormalAccumulate" property="normalaccumulate" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.4.1/mybatis-plus-extension-3.4.1.jar!/com/baomidou/mybatisplus/extension/service/impl/ServiceImpl.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2187">
+              <caret line="148" column="37" selection-start-line="148" selection-start-column="31" selection-end-line="148" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquServerMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-core/3.4.1/mybatis-plus-core-3.4.1.jar!/com/baomidou/mybatisplus/core/mapper/BaseMapper.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-279">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentgroupMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquEquipmentparaService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.4.1/mybatis-plus-extension-3.4.1.jar!/com/baomidou/mybatisplus/extension/service/IService.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1350">
+              <caret line="55" column="47" lean-forward="true" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+              <folding>
+                <element signature="e#2101#2102#0" expanded="true" />
+                <element signature="e#2178#2179#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Agreement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquipmentdataMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SysUserAppapiMapServiceImpl</find>
+      <find>SysUsermenucolumnsettingServiceImpl</find>
+      <find>SysUserorganizemapServiceImpl</find>
+      <find>SysUserrolemapServiceImpl</find>
+      <find>SysUserServiceImpl</find>
+      <find>SysUsersettingServiceImpl</find>
+      <find>WatAlarmparaServiceImpl</find>
+      <find>WatAlarmrecordServiceImpl</find>
+      <find>WatAlarmtypeFlowMapServiceImpl</find>
+      <find>WatAlarmtypeServiceImpl</find>
+      <find>WatCaliberServiceImpl</find>
+      <find>WatDayaccumulateServiceImpl</find>
+      <find>WatFlowServiceImpl</find>
+      <find>WatFlowtypeServiceImpl</find>
+      <find>WatHouraccumulateServiceImpl</find>
+      <find>WatMonthaccumulateServiceImpl</find>
+      <find>WatWeekaccumulateServiceImpl</find>
+      <find>orderBy</find>
+      <find>Service</find>
+      <find>GetCommandData</find>
+      <find>Byte.parseByte</find>
+      <find>QueryWrapper</find>
+      <find>@Au</find>
+      <find>equServerMapper</find>
+      <find>equipmentdataMapper</find>
+      <find>describe</find>
+      <find>funcTimeSynchronization</find>
+      <find>funcLogin</find>
+      <find>EquipmentTabUpdateData</find>
+      <find>0x0F</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquEquipmentrealdata.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/DateTime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/WatApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/EquEquipmentMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquipmentdayaccumulatedataMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquipmentdataMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquDatatypeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquServerMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/BootNettyUdpServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/BootNettyUdpClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/DataCell.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/Send.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/Aggreement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/Agreement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/GlobalParameter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/FrameStructure.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/Encoding.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/CommandParameterHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/Tools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/UdpUtils/EquipmentDataHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/EquipmentDataHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpSimpleChannelInboundHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/CommandParameterHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/DataCell.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/DataFormatHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/DataFormat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/Port.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/ParaCell.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/DataFormat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Send.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/GlobalParameter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/DataFormatHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Encoding.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/entity/ParaCell.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/DateTime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DataHandle.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquBattery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquAlarmrecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquResponserecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquSim.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Agreement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/DataHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/FrameStructure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/Command.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="localRepository" value="D:\Software\Maven\repository" />
+        <option name="mavenHome" value="D:/Software/Maven/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\Software\Maven\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="wat" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="wat" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+    <option name="vmOptions" value="-Dfile.encoding=UTF-8" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../web/SSM/project/fruitBake" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jan.wat.UdpUtils" />
+      <recent name="com.jan.wat" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Little_item\SpringBoot\wat\src\main\java\com\jan\wat\UdpUtils" />
+      <recent name="D:\Little_item\SpringBoot\wat\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WatApplication">
+    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.CodeGenerator" />
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplicationTests.insertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="insertTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplicationTests.testGetServerList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="testGetServerList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplicationTests.testQuetry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="testQuetry" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wat" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jan.wat.WatApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.WatApplicationTests.testQuetry" />
+        <item itemvalue="JUnit.WatApplicationTests.insertTest" />
+        <item itemvalue="JUnit.WatApplicationTests.testGetServerList" />
+        <item itemvalue="Application.CodeGenerator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="" />
+      <created>1624625008418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624625008418</updated>
+      <workItem from="1624625012498" duration="4831000" />
+      <workItem from="1624632742319" duration="3579000" />
+      <workItem from="1624687630215" duration="5896000" />
+      <workItem from="1624717971371" duration="6644000" />
+      <workItem from="1624864561644" duration="4738000" />
+      <workItem from="1624928229360" duration="5515000" />
+      <workItem from="1624925900441" duration="276000" />
+      <workItem from="1624926284519" duration="24000" />
+      <workItem from="1625446760883" duration="6760000" />
+      <workItem from="1625532726119" duration="2018000" />
+      <workItem from="1625558500307" duration="10505000" />
+      <workItem from="1625617581131" duration="22945000" />
+      <workItem from="1625704992292" duration="27543000" />
+      <workItem from="1625792423102" duration="6600000" />
+      <workItem from="1625799852985" duration="7530000" />
+      <workItem from="1625812125146" duration="13280000" />
+      <workItem from="1625878056060" duration="14190000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="WatApplicationTests_testGetServerList - 2021.07.08 at 16h 59m 30s.xml">
+      <configuration name="WatApplicationTests.testGetServerList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_insertTest - 2021.07.09 at 22h 34m 31s.xml">
+      <configuration name="WatApplicationTests.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_insertTest - 2021.07.09 at 22h 34m 52s.xml">
+      <configuration name="WatApplicationTests.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_insertTest - 2021.07.09 at 22h 37m 30s.xml">
+      <configuration name="WatApplicationTests.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_insertTest - 2021.07.09 at 22h 39m 10s.xml">
+      <configuration name="WatApplicationTests.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_insertTest - 2021.07.09 at 22h 43m 26s.xml">
+      <configuration name="WatApplicationTests.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_testQuetry - 2021.07.10 at 09h 10m 27s.xml">
+      <configuration name="WatApplicationTests.testQuetry" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_testQuetry - 2021.07.10 at 09h 11m 50s.xml">
+      <configuration name="WatApplicationTests.testQuetry" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_testQuetry - 2021.07.10 at 09h 16m 59s.xml">
+      <configuration name="WatApplicationTests.testQuetry" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WatApplicationTests_testQuetry - 2021.07.10 at 09h 18m 56s.xml">
+      <configuration name="WatApplicationTests.testQuetry" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="142874000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2675906" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4893918" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32956153" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32936078" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32908848" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2680965" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4893918" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32956153" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32936078" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32908848" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquCommand.java</url>
+          <line>25</line>
+          <properties field="id" class="com.jan.wat.pojo.EquCommand" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>101</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>113</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>81</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>redisTemplate.opsForList()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>redisTemplate.opsForList().rightPop(&quot;equList&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUserAppapiMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUsermenucolumnsetting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUserorganizemap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUserrolemap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUsersetting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatAlarmpara.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatAlarmrecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatAlarmtype.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatCaliber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatClassify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatDayaccumulate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatFlow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatFlowtype.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatHouraccumulate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatMonthaccumulate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatWeekaccumulate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/WatAlarmtypeFlowMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/Port.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquEquipment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/ParaCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/config/AsyncConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/DataFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/GlobalParameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="134" column="24" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/CommandParameterHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="124" column="47" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/DataFormatHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/DateTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-297">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Encoding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="991">
+          <caret line="112" column="28" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="65" selection-start-line="65" selection-end-line="68" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/WatApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="54" column="36" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpSimpleChannelInboundHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="30" column="80" selection-start-line="30" selection-start-column="71" selection-end-line="30" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/Equipmentdata.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Send.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/FrameStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/config/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="10" column="73" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/DataHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/DataCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="50" column="28" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquipmentdataMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/helper/Agreement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.4.1/mybatis-plus-extension-3.4.1.jar!/com/baomidou/mybatisplus/extension/service/IService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1350">
+          <caret line="55" column="47" lean-forward="true" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+          <folding>
+            <element signature="e#2101#2102#0" expanded="true" />
+            <element signature="e#2178#2179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquEquipmentparaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentgroupMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.4.1/mybatis-plus-extension-3.4.1.jar!/com/baomidou/mybatisplus/extension/service/impl/ServiceImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2187">
+          <caret line="148" column="37" selection-start-line="148" selection-start-column="31" selection-end-line="148" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquServerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-core/3.4.1/mybatis-plus-core-3.4.1.jar!/com/baomidou/mybatisplus/core/mapper/BaseMapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-279">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>wat</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
