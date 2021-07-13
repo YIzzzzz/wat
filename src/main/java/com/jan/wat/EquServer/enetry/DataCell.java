@@ -47,7 +47,6 @@ public class DataCell implements Comparable<DataCell> {
     /// </summary>
 
 
-    //2013.6.1,新增加累积类型
     private int ifaccumulate;
     /// <summary>
     /// 是否是累积类型
