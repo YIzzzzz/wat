@@ -3,15 +3,18 @@ package com.jan.wat.EquServer.udpNetty;
 import com.jan.wat.EquServer.handle.EquipmentDataHandle;
 import com.jan.wat.mapper.EquEquipmentMapper;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.DatagramPacket;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 
 @Data
 @Component
+@ChannelHandler.Sharable
 public class BootNettyUdpSimpleChannelInboundHandler extends SimpleChannelInboundHandler<DatagramPacket> {
 
     @Autowired
@@ -22,8 +25,10 @@ public class BootNettyUdpSimpleChannelInboundHandler extends SimpleChannelInboun
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
         try {
-            ByteBuf strdata = msg.content();
 
+            ByteBuf strdata = msg.content();
+            System.out.println(ctx.channel().localAddress().toString());
+            System.out.println(msg.recipient().getPort());
 //            String strdata = msg.content().toString(CharsetUtil.ISO_8859_1);
             byte[] data = new byte[strdata.writerIndex()-strdata.readerIndex()];
             strdata.readBytes(data);

@@ -99,7 +99,7 @@ public class DateTime {
     public static String getMonthStr(Date time){
         Calendar c = Calendar.getInstance();
         c.setTime(time);
-        System.out.println(c);
+//        System.out.println(c);
         return c.get(Calendar.YEAR)+String.format("%02d",c.get(Calendar.MONTH+1));
     }
 

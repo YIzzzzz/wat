@@ -52,7 +52,7 @@ public class WatApplication implements CommandLineRunner {
     @Async
     @Override
     public void run(String... args) throws Exception {
-        bootNettyUdpServer.bind(9999);
+        bootNettyUdpServer.bind(9999,7003,8003);
     }
 
     public static void main(String[] args) {
