@@ -57,5 +57,10 @@ class WatApplicationTests {
         List<EquCommand> list = iEquCommandService.list(queryCommand);
     }
 
+    @Test
+    public void testtimg(){
+        byte[] data = {0x0D,0x0B,0x15,0x11,0x36,0x2B};
+        System.out.println(DateTime.getDate(data,0,6));
+    }
 
 }

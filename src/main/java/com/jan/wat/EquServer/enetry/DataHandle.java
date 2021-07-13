@@ -1,6 +1,7 @@
 package com.jan.wat.EquServer.enetry;
 
 import com.jan.wat.EquServer.enetry.DataCell;
+import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.pojo.EquDatatype;
 import lombok.Data;
@@ -97,8 +98,7 @@ public class DataHandle {
         //数据个数不正确
         if (data.length != (9 + 9 * dataCellNum)) return false;
 
-//        collectTime = new Date(new String(Tools.ByteSubstring(data, 0, 6)));
-        collectTime = new Date();
+       collectTime = DateTime.getDate(data, 0, 6);
         status = data[6];
         equipmentTypeId = data[7];
 

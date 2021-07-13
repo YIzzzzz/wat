@@ -1,5 +1,6 @@
 package com.jan.wat.EquServer.helper;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -46,7 +47,7 @@ public class DateTime {
         yearInt = calendar.get(Calendar.YEAR);
         String year2 = (String)String.valueOf(yearInt).subSequence(2,4);
         year = (byte) Byte.parseByte(year2);
-        month = (byte) calendar.get(Calendar.MONTH);
+        month = (byte) calendar.get(Calendar.MONTH+1);
         day = (byte) calendar.get(Calendar.DAY_OF_MONTH);
         hour = (byte) calendar.get(Calendar.HOUR_OF_DAY);
         minute = (byte) calendar.get(Calendar.MINUTE);
@@ -98,13 +99,28 @@ public class DateTime {
     public static String getMonthStr(Date time){
         Calendar c = Calendar.getInstance();
         c.setTime(time);
-        return c.get(Calendar.YEAR)+String.format("%02d",c.get(Calendar.MONTH));
+        System.out.println(c);
+        return c.get(Calendar.YEAR)+String.format("%02d",c.get(Calendar.MONTH+1));
     }
 
     public static String getMonthNow(){
 //        initNow();
-        return String.valueOf(calendar.get(Calendar.MONTH));
+        return String.valueOf(calendar.get(Calendar.MONTH+1));
 
     }
 
+    public static Date getDate(byte[] data, int i, int i1) {
+        String year = "20" + String.format("%02d",data[0]);
+        String month = String.format("%02d",data[1]);
+        String day = String.format("%02d",data[2]);
+        String hour = String.format("%02d",data[3]);
+        String min = String.format("%02d",data[4]);
+        String s = String.format("%02d",data[5]);
+        try {
+            return format.parse(year+"-"+month+"-"+day+" "+hour+":"+min+":"+s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
