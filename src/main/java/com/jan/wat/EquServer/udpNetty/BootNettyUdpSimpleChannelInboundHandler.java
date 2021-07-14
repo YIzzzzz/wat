@@ -26,10 +26,13 @@ public class BootNettyUdpSimpleChannelInboundHandler extends SimpleChannelInboun
     protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
         try {
 
+
+
             ByteBuf strdata = msg.content();
-            System.out.println(ctx.channel().localAddress().toString());
-            System.out.println(msg.recipient().getPort());
+//            System.out.println(ctx.channel().localAddress().toString());
+//            System.out.println(msg.recipient().getPort());
 //            String strdata = msg.content().toString(CharsetUtil.ISO_8859_1);
+//            System.out.println(strdata);
             byte[] data = new byte[strdata.writerIndex()-strdata.readerIndex()];
             strdata.readBytes(data);
 

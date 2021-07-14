@@ -60,6 +60,4 @@ public class WatApplication implements CommandLineRunner {
 //        SpringApplication app = new SpringApplication(WatApplication.class);
 //        app.run(args);
     }
-
-
 }
