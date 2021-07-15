@@ -47,7 +47,7 @@ public class WatFlowtype implements Serializable {
     @TableField("PressureLoss")
     private Double pressureloss;
 
-    @TableField("MaxValue")
+    @TableField("MaxV")
     private Double maxvalue;
 
     @TableField("Manufacturer")
