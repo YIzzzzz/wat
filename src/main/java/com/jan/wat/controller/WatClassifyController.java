@@ -24,7 +24,7 @@ import java.util.List;
  */
 @CrossOrigin
 @Controller
-@RequestMapping("/wat")
+@RequestMapping("/wat-classify")
 public class WatClassifyController {
 
     @Autowired

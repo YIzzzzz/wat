@@ -23,7 +23,7 @@ import java.util.List;
  */
 @CrossOrigin
 @Controller
-@RequestMapping("/wat")
+@RequestMapping("/wat-flowtype")
 public class WatFlowtypeController {
 
     @Autowired

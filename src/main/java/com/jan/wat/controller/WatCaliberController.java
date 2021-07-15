@@ -23,7 +23,7 @@ import java.util.List;
  */
 @CrossOrigin
 @Controller
-@RequestMapping("/wat")
+@RequestMapping("/wat-caliber")
 public class WatCaliberController {
 
     @Autowired

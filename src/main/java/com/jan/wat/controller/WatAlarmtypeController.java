@@ -21,7 +21,7 @@ import java.util.List;
  * @since 2021-07-08
  */
 @Controller
-@RequestMapping("/wat")
+@RequestMapping("/wat-alarmtype")
 public class WatAlarmtypeController {
 
     @Autowired
