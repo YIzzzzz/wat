@@ -13,7 +13,7 @@
         <result column="HHFlow" property="hhflow" />
         <result column="Des" property="des" />
         <result column="PressureLoss" property="pressureloss" />
-        <result column="MaxValue" property="maxvalue" />
+        <result column="MaxV" property="maxv" />
         <result column="Manufacturer" property="manufacturer" />
     </resultMap>
 
