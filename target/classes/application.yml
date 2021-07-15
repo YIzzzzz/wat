@@ -12,7 +12,7 @@ spring:
     url: jdbc:mysql://localhost:3306/rdas_eng?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
-#    hikari:
+#    hikari :
 #      #连接池名字
 #      pool-name: DataHikariCP
 #      #最小空闲连接出
