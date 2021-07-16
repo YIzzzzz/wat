@@ -3,9 +3,14 @@ package com.jan.wat.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.jan.wat.pojo.SysUser;
-import com.jan.wat.service.ISysUserService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.mapper.EquDatatypeMapper;
+import com.jan.wat.mapper.EquEquipmentMapper;
+import com.jan.wat.pojo.*;
+import com.jan.wat.scheduled.ApplicationContextUtil;
+import com.jan.wat.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,18 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author January
- * @since 2021-07-08
- */
+import java.util.List;
+
 @CrossOrigin
 @Controller
-@RequestMapping("/sys-user")
-public class SysUserController {
+@RequestMapping("/sys")
+public class SysController {
 
     @Autowired
     ISysUserService iSysUserService;

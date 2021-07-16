@@ -1,34 +1,35 @@
 package com.jan.wat.controller;
 
-
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.mapper.EquDatatypeMapper;
 import com.jan.wat.mapper.EquEquipmentMapper;
-import com.jan.wat.pojo.EquEquipment;
+import com.jan.wat.pojo.*;
 import com.jan.wat.scheduled.ApplicationContextUtil;
-import com.jan.wat.service.IEquEquipmentService;
+import com.jan.wat.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Calendar;
 import java.util.List;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author January
- * @since 2021-06-25
- */
+@CrossOrigin
 @Controller
-@RequestMapping("/equ-equipment")
-public class EquEquipmentController {
+@RequestMapping("/equ")
+public class EquController {
 
+    @Autowired
+    IEquEquipmenttypeService iEquEquipmenttypeService;
+
+    @Autowired
+    IEquDatatypeService iEquDatatypeService;
+
+    @Autowired
+    EquDatatypeMapper equDatatypeMapper;
     @Autowired
     EquEquipmentMapper equEquipmentMapper;
 
@@ -38,6 +39,36 @@ public class EquEquipmentController {
     @Autowired
     RedisTemplate redisTemplate;
 
+    @ResponseBody
+    @RequestMapping("/equipmenttype")
+    public String getEquipmenttype(){
+        JSONObject jsonObject = new JSONObject();
+        List<EquEquipmenttype> list = iEquEquipmenttypeService.list(null);
+        jsonObject.put("data",list);
+        return jsonObject.toJSONString();
+    }
+
+    @RequestMapping("datatype")
+    @ResponseBody
+    public String getDatatype(){
+        JSONObject jsonObject = new JSONObject();
+        Page<EquDatatype> page = new Page<>(2, 5);
+//        equDatatypeMapper.selectPage(page,null);
+        equDatatypeMapper.selectPage(page, null);
+        iEquDatatypeService.page(page,null);
+
+//        if(page != null){
+//            System.out.println("2");
+        page.getRecords().forEach(System.out::println);
+//        }else{
+        System.out.println(page.getTotal());
+//        }
+//
+//        Page<EquDatatype> EquDataTypePage = iEquDatatypeService.page(page, null);
+        jsonObject.put("data",page);
+        return jsonObject.toJSONString();
+
+    }
     @ResponseBody
     @RequestMapping("/getAll")
     public String getAll(){
@@ -60,7 +91,7 @@ public class EquEquipmentController {
         return String.valueOf(equEquipmentList);
     }
 
-//    @Scheduled(cron="5/5 * * * * ?")
+    //    @Scheduled(cron="5/5 * * * * ?")
     public void insertDB(){
 
         IEquEquipmentService iEquEquipmentService = (IEquEquipmentService) ApplicationContextUtil.getBean("EquEquipmentServiceImpl");
