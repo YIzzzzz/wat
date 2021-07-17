@@ -33,4 +33,12 @@
         <result column="ConnectServerPort" property="connectserverport" />
     </resultMap>
 
+    <select id="getRealData" resultType="Object">
+        select distinct e.ID,e.Name,e.LastCollectTime as LastCollectTime
+                      ,(case when exists(select ID from equ_alarmrecord ar where ar.Equipment_ID=e.ID and ar.AlarmType=1 and ar.Recovery='false') then 'true' else 'false' end) as EquipmentAlarm
+                      ,(case when exists(select ID from equ_alarmrecord ar where ar.Equipment_ID=e.ID and ar.AlarmType=2 and ar.Recovery='false') then 'true' else 'false' end) as OutLineAlarm
+                      ,(case when exists(select ID from equ_alarmrecord ar where ar.Equipment_ID=e.ID and ar.AlarmType=3 and ar.Recovery='false') then 'true' else 'false' end) as DataOverLimitAlarm
+        from equ_equipment e,equ_equipmentgroup_equipment_map as gem,equ_user_equipmentgroup_map uem
+        where gem.Equipment_ID=e.ID and uem.EquipmentGroup_ID=gem.EquipmentGroup_ID and uem.UserCode='admin';
+    </select>
 </mapper>

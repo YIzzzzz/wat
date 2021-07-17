@@ -5,90 +5,84 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquAlarmrecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquBatteryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquCommandController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquDatatypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentgroupController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentgroupEquipmentMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentparaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentparasettingrecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentparavaluerangeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmentrealdataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquEquipmenttypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquManufacturerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParagroupController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParavalueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquResponserecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquServerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquServerEquipmentMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimappController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimbalancehistoryrecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquUnitController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquUpdateprogramrecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquUserEquipmentgroupMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquipmentdataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquipmentdayaccumulatedataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysAdvertisementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysAppapiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysCodeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysCodetypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysLogController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysLoginhistoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysLoginpagerecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysMenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysMenubuttonmapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysMenucolumnsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysOrganizeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysOrganizerolemapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysParameterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysPermissionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRolemenubuttonmapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRolemenucolumnmapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRolemenumapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRolepermissionmapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysSystemalarmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysUserAppapiMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysUsermenucolumnsettingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysUserorganizemapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysUserrolemapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysUsersettingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatAlarmparaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatAlarmrecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatAlarmtypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatAlarmtypeFlowMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatCaliberController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatClassifyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatDayaccumulateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatFlowController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatFlowtypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatHouraccumulateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatMonthaccumulateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatWeekaccumulateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/WatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EquEquipmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EquEquipmentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquAlarmrecordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquBatteryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquCommandController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquDatatypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquDatatypeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentgroupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentgroupEquipmentMapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentparaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentparasettingrecordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentparavaluerangeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentrealdataController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmenttypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmenttypeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquManufacturerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParagroupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParavalueController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquResponserecordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquServerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquServerEquipmentMapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquSimController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquSimappController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquSimbalancehistoryrecordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquSimpackageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquUnitController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquUpdateprogramrecordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquUserEquipmentgroupMapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquipmentdataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquipmentdayaccumulatedataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysAdvertisementController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysAppapiController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysButtonController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysCodeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysCodetypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysLogController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysLoginhistoryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysLoginpagerecordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysMenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysMenubuttonmapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysMenucolumnsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysOrganizeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysOrganizerolemapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysParameterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysPermissionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRolemenubuttonmapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRolemenucolumnmapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRolemenumapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRolepermissionmapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysSystemalarmController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUserAppapiMapController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUsermenucolumnsettingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUserorganizemapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUserrolemapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUsersettingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatAlarmparaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatAlarmrecordController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatAlarmtypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatAlarmtypeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatAlarmtypeFlowMapController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatCaliberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatCaliberController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatClassifyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatClassifyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatDayaccumulateController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatFlowController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatFlowtypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatFlowtypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/EquAlarmrecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/EquAlarmrecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/WatFlowtype.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/WatFlowtype.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatHouraccumulateController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatMonthaccumulateController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatWeekaccumulateController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquEquipmentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquEquipmentMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wat.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +91,6 @@
   </component>
   <component name="DatabaseLocalColorSettings">
     <colors>
-      <entry key="337dc25a-b044-4107-8a00-94e4f95ff3d8" value="Green" />
       <entry key="417256c2-6245-412a-bff7-59b1359c8de2" value="Blue" />
     </colors>
   </component>
@@ -353,36 +346,18 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyBatisPlusConfig.testPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jan.wat.config.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jan.wat.config" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.config.MyBatisPlusConfig" />
-      <option name="METHOD_NAME" value="testPage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WatApplicationTests.insertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -392,7 +367,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="insertTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -430,7 +405,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.testtimg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.testequipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -440,7 +415,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="testtimg" />
+      <option name="METHOD_NAME" value="testequipment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplicationTests.testequipxdment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="testequipxdment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -455,11 +446,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WatApplicationTests.test" />
+        <item itemvalue="JUnit.WatApplicationTests.testequipxdment" />
+        <item itemvalue="JUnit.WatApplicationTests.testequipment" />
         <item itemvalue="JUnit.WatApplicationTests.testPage" />
         <item itemvalue="JUnit.WatApplicationTests.testQuetry" />
-        <item itemvalue="JUnit.MyBatisPlusConfig.testPage" />
-        <item itemvalue="JUnit.WatApplicationTests.testtimg" />
-        <item itemvalue="JUnit.WatApplicationTests.insertTest" />
       </list>
     </recent_temporary>
   </component>
@@ -499,7 +490,8 @@
       <workItem from="1626244033894" duration="5488000" />
       <workItem from="1626347815618" duration="6660000" />
       <workItem from="1626342614418" duration="7173000" />
-      <workItem from="1626419471514" duration="6057000" />
+      <workItem from="1626419471514" duration="14329000" />
+      <workItem from="1626487210697" duration="17975000" />
     </task>
     <servers />
   </component>
