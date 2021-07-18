@@ -1,6 +1,7 @@
 package com.jan.wat.EquServer.udpNetty;
 
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -36,7 +37,9 @@ public class BootNettyUdpServer {
             serverBootstrap = new Bootstrap();
             serverBootstrap = serverBootstrap.group(eventLoopGroup);
             serverBootstrap = serverBootstrap.channel(NioDatagramChannel.class);
-            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BROADCAST, true);
+//            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BROADCAST, true);
+            serverBootstrap = serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+
             //不需要太多其他的东西，直接这样就可以用
             serverBootstrap = serverBootstrap.handler(bootNettyUdpSimpleChannelInboundHandler);
 
