@@ -1,21 +1,25 @@
 package com.jan.wat;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.mapper.EquDatatypeMapper;
+import com.jan.wat.mapper.EquEquipmentMapper;
 import com.jan.wat.mapper.EquServerMapper;
 import com.jan.wat.mapper.EquipmentdataMapper;
-import com.jan.wat.pojo.EquCommand;
-import com.jan.wat.pojo.EquDatatype;
-import com.jan.wat.pojo.Equipmentdata;
+import com.jan.wat.pojo.*;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
+import org.apache.ibatis.annotations.Select;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -32,13 +36,16 @@ class WatApplicationTests {
     EquServerMapper equServerMapper;
     @Autowired
     IEquCommandService iEquCommandService;
+    @Autowired
+    EquEquipmentMapper equEquipmentMapper;
+
+//    @Test
+//    void contextLoads() {
+//    }
+
 
     @Test
-    void contextLoads() {
-    }
-
-    @Test
-    void insertTest(){
+    public void insertTest(){
         Equipmentdata equipmentdata = new Equipmentdata();
         equipmentdata.setCollecttime(DateTime.DateNow());
         equipmentdata.setData("<D><V i=\"0\">-0.787</V>");
@@ -82,6 +89,29 @@ class WatApplicationTests {
 //        equDatatypeMapper.selectPage(page,null);
 
         page.getRecords().forEach(System.out::println);
+    }
+
+    @Test
+    public void testequipxdment(){
+        List<Object> realData1 = equEquipmentMapper.getRealData();
+
+        System.out.println(realData1);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data",realData1);
+
+//        Select.List realData = realData1;
+        System.out.println(jsonObject.toJSONString());
+
+//        return "2";
+    }
+
+    @Test
+    public void test() throws ParseException {
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+//        System.out.println(df.parse(df.format(new Date())));// new Date()为获取当前系统时间
+        SysUser sysUser = new SysUser();
+        sysUser.setCreatedate(new Date());
+        System.out.println(sysUser.getCreatedate());
     }
 
 }
