@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="">
+    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/RedisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/RedisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/RedisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/RedisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/Simpackage.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -248,6 +247,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -257,7 +258,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -267,12 +268,31 @@
       <recent name="D:\Little_item\SpringBoot\wat\src\main\java\com\jan\wat\UdpUtils" />
       <recent name="D:\Little_item\SpringBoot\wat\src\main\resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.jan.wat.controller" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jan.wat.UdpUtils" />
       <recent name="com.jan.wat" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyBatisPlusConfig.testPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
@@ -362,6 +382,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WatApplicationTests.testtimg" />
         <item itemvalue="JUnit.WatApplicationTests.testPage" />
         <item itemvalue="JUnit.WatApplicationTests.testQuetry" />
         <item itemvalue="JUnit.MyBatisPlusConfig.testPage" />
@@ -407,9 +428,35 @@
       <workItem from="1626347815618" duration="6660000" />
       <workItem from="1626342614418" duration="7173000" />
       <workItem from="1626419471514" duration="6057000" />
-      <workItem from="1626594817455" duration="660000" />
-      <workItem from="1626598185884" duration="4151000" />
+      <workItem from="1626506896955" duration="3005000" />
+      <workItem from="1626510341309" duration="148000" />
+      <workItem from="1626510503272" duration="569000" />
+      <workItem from="1626511123865" duration="198000" />
+      <workItem from="1626511334815" duration="2538000" />
+      <workItem from="1626513889700" duration="4050000" />
     </task>
+    <task id="LOCAL-00001" summary="workspace error">
+      <created>1626429719584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626429719584</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <created>1626429798095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1626429798095</updated>
+    </task>
+    <task id="LOCAL-00003" summary="*">
+      <created>1626513836006</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1626513836006</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -542,15 +589,15 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="workspace error" />
+    <MESSAGE value="1" />
+    <MESSAGE value="*" />
+    <option name="LAST_COMMIT_MESSAGE" value="*" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquCommand.java</url>
-          <line>25</line>
-          <properties field="id" class="com.jan.wat.pojo.EquCommand" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
           <line>37</line>
