@@ -6,19 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquAlarmrecordController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquCommandController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquDatatypeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquEquipmenttypeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquUserEquipmentgroupMapController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatAlarmtypeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatCaliberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatClassifyController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/WatFlowtypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/RedisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/RedisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/RedisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/RedisController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +18,6 @@
   </component>
   <component name="DatabaseLocalColorSettings">
     <colors>
-      <entry key="337dc25a-b044-4107-8a00-94e4f95ff3d8" value="Green" />
       <entry key="417256c2-6245-412a-bff7-59b1359c8de2" value="Blue" />
     </colors>
   </component>
@@ -417,6 +407,8 @@
       <workItem from="1626347815618" duration="6660000" />
       <workItem from="1626342614418" duration="7173000" />
       <workItem from="1626419471514" duration="6057000" />
+      <workItem from="1626594817455" duration="660000" />
+      <workItem from="1626598185884" duration="4151000" />
     </task>
     <servers />
   </component>
