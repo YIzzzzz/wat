@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimappController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/exception/GlobalException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/Simpackage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquSim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquSimpackageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquSimpackageController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -433,7 +437,7 @@
       <workItem from="1626510503272" duration="569000" />
       <workItem from="1626511123865" duration="198000" />
       <workItem from="1626511334815" duration="2538000" />
-      <workItem from="1626513889700" duration="4050000" />
+      <workItem from="1626513889700" duration="15284000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
@@ -456,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626513836006</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="*">
+      <created>1626518722070</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626518722070</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
