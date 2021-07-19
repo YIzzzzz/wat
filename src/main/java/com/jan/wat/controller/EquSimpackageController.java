@@ -15,6 +15,7 @@ import java.util.List;
  * 2021/7/17 下午3:23
  * 1.0
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/equ/simpackage")
 public class EquSimpackageController {
@@ -22,13 +23,13 @@ public class EquSimpackageController {
     IEquSimpackageService equSimpackageService;
 
     @ApiOperation(value = "查询套餐管理列表")
-    @GetMapping("/1")
+    @GetMapping("/getall")
     public List<EquSimpackage> getAllEquSimpackagelist(){
         return equSimpackageService.list();
     }
 
     @ApiOperation(value = "添加套餐管理信息")
-    @PostMapping("/2")
+    @PostMapping("/add")
     public RespBean addEquSimpackage(@RequestBody EquSimpackage equSimpackage){
         if (equSimpackageService.save(equSimpackage)){
             return RespBean.success("添加成功！");
@@ -37,7 +38,7 @@ public class EquSimpackageController {
     }
 
     @ApiOperation(value = "更新套餐信息")
-    @PostMapping("/3")
+    @PostMapping("/update")
     public RespBean updateEquSimpackage(@RequestBody EquSimpackage equSimpackage){
         if (equSimpackageService.updateById(equSimpackage)){
             return RespBean.success("更新成功");
@@ -55,7 +56,7 @@ public class EquSimpackageController {
     }
 
     @ApiOperation(value = "；批量删除套餐信息")
-    @DeleteMapping("/4")
+    @DeleteMapping("/delete")
     public RespBean deleteEquSimpackageByIds(Integer[] ids){
         if (equSimpackageService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");

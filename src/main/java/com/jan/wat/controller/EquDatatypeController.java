@@ -8,9 +8,11 @@ import com.jan.wat.mapper.EquEquipmentMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.scheduled.ApplicationContextUtil;
 import com.jan.wat.service.*;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -20,7 +22,7 @@ import java.util.List;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/equ")
+@RequestMapping("/equ/datatype")
 public class EquDatatypeController {
 
     @Autowired
@@ -30,8 +32,8 @@ public class EquDatatypeController {
     EquDatatypeMapper equDatatypeMapper;
 
 
-    @RequestMapping("datatype")
-    @ResponseBody
+    @ApiOperation(value = "查询数据类型列表")
+    @GetMapping("")
     public String getDatatype(){
         JSONObject jsonObject = new JSONObject();
         Page<EquDatatype> page = new Page<>(2, 5);
