@@ -20,7 +20,7 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("equ/simalarmbyuser")
 @RestController
-public class EquSimalarmbyuser {
+public class EquSimalarmbyuserController {
 
     @Autowired
     IEquSimService equSimService;
