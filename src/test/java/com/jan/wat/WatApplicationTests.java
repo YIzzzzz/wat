@@ -84,4 +84,11 @@ class WatApplicationTests {
         page.getRecords().forEach(System.out::println);
     }
 
+    @Autowired
+    GlobalParameter globalParameter;
+
+    @Test
+    public void testYml(){
+    }
+
 }
