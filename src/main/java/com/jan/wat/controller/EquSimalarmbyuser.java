@@ -2,6 +2,7 @@ package com.jan.wat.controller;
 
 import com.jan.wat.pojo.EquSim;
 import com.jan.wat.service.IEquSimService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class EquSimalarmbyuser {
     @Autowired
     IEquSimService equSimService;
 
+    @ApiOperation(value = "查看列表")
     @GetMapping("getall")
     public List<EquSim> getAllEquSimalarmbyuserlist()
     {

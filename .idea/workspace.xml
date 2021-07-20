@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="增加日志显示底层sql语句功能">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimalarmbyuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimalarmbyuser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquSimpackageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,7 +433,7 @@
       <workItem from="1626510503272" duration="569000" />
       <workItem from="1626511123865" duration="198000" />
       <workItem from="1626511334815" duration="2538000" />
-      <workItem from="1626513889700" duration="19903000" />
+      <workItem from="1626513889700" duration="20352000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
@@ -497,7 +498,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626749911734</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="增加日志显示底层sql语句功能">
+      <created>1626751778925</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1626751778925</updated>
+    </task>
+    <task id="LOCAL-00011" summary="增加日志显示底层sql语句功能">
+      <created>1626751787546</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1626751787546</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -634,7 +649,8 @@
     <MESSAGE value="workspace error" />
     <MESSAGE value="1" />
     <MESSAGE value="*" />
-    <option name="LAST_COMMIT_MESSAGE" value="*" />
+    <MESSAGE value="增加日志显示底层sql语句功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加日志显示底层sql语句功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

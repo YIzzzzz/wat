@@ -37,7 +37,7 @@ public class EquSimpackageController {
     }
 
     @ApiOperation(value = "更新套餐信息")
-    @PostMapping("/update")
+    @PutMapping("/update")
     public RespBean updateEquSimpackage(@RequestBody EquSimpackage equSimpackage){
         if (equSimpackageService.updateById(equSimpackage)){
             return RespBean.success("更新成功");
