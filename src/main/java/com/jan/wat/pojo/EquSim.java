@@ -1,9 +1,11 @@
 package com.jan.wat.pojo;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -24,26 +26,31 @@ public class EquSim implements Serializable {
     @TableId("ID")
     private String id;
 
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-ss",timezone = "Asia/Shanghai")
     @TableField("UpdateDate")
-    private Date updatedate;
+    private LocalDateTime updatedate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
     @TableField("UpdatePerson")
     private String updateperson;
 
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
     @TableField("CreateDate")
-    private Date createdate;
+    private LocalDateTime createdate;
 
     @TableField("CreatePerson")
     private String createperson;
 
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
     @TableField("ActivateTime")
-    private Date activatetime;
+    private LocalDateTime activatetime;
 
     @TableField("Status")
     private String status;
 
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
     @TableField("StatusLastUpdateTime")
-    private Date statuslastupdatetime;
+    private LocalDateTime statuslastupdatetime;
 
     @TableField("SIMPackage_ID")
     private Integer simpackageId;
@@ -60,8 +67,9 @@ public class EquSim implements Serializable {
     @TableField("Balance")
     private Double balance;
 
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
     @TableField("BalanceLastUpdateTime")
-    private Date balancelastupdatetime;
+    private LocalDateTime balancelastupdatetime;
 
     @TableField("Enable")
     private Boolean enable;

@@ -47,13 +47,15 @@ public class EquSimpackageController {
         return RespBean.error("更新失败！");
     }
 
-    @ApiOperation(value = "批量更新SIM卡信息")
-    @PutMapping("updatebatch")
-    public RespBean updateBatchEquSim(@RequestBody List<EquSimpackage> equSimpackages){
-        if(equSimpackageService.updateBatchById(equSimpackages)){
-            return RespBean.success("更新成功");
+    @ApiOperation(value = "批量更新套餐卡信息")
+    @PutMapping("/updatabatch")
+    public RespBean updateBatchEquSimpackage(@RequestBody List<EquSimpackage> equSimpackageList)
+    {
+        if (equSimpackageService.updateBatchById(equSimpackageList))
+        {
+            return RespBean.success("更新成功！");
         }
-        return RespBean.error("更新失败");
+        return RespBean.error("更新失败！");
     }
 
     @ApiOperation(value = "删除套餐信息")
@@ -65,16 +67,13 @@ public class EquSimpackageController {
         return RespBean.error("删除失败");
     }
 
-    @ApiOperation(value = "批量删除套餐信息")
+    @ApiOperation(value = "；批量删除套餐信息")
     @DeleteMapping("/delete")
-    public RespBean deleteEquSimpackageByIds(@RequestBody Integer[] ids){
+    public RespBean deleteEquSimpackageByIds(Integer[] ids){
         if (equSimpackageService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");
         }
         return RespBean.error("删除失败");
     }
-
-
-
 }
 
