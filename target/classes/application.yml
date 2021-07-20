@@ -29,7 +29,7 @@ spring:
       minimum-idle: 5
       #空闲连接存活最大时间，默认60000（18分钟）
       idle-timeout: 180000
-      maximum-pool-size: 18
+      maximum-pool-size: 100
       auto-commit: true
       max-lifetime: 1800000
       connection-timeout: 30000

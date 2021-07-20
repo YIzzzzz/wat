@@ -40,8 +40,6 @@ public class DateTime {
     }
 
 
-    private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-
     public static void Now(){
 //        initNow();
         yearInt = calendar.get(Calendar.YEAR);
@@ -54,11 +52,6 @@ public class DateTime {
         second = (byte) calendar.get(Calendar.SECOND);
     }
 
-
-
-    public static SimpleDateFormat getFormat() {
-        return format;
-    }
 
     public static int getYearInt() {
         return yearInt;
@@ -109,6 +102,7 @@ public class DateTime {
     }
 
     public static Date getDate(byte[] data, int i, int i1) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String year = "20" + String.format("%02d",data[0]);
         String month = String.format("%02d",data[1]);
         String day = String.format("%02d",data[2]);

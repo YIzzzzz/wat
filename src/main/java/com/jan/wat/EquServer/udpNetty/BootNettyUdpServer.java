@@ -10,12 +10,13 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@Scope("")
 public class BootNettyUdpServer {
 
     @Autowired
@@ -33,22 +34,12 @@ public class BootNettyUdpServer {
 
         eventLoopGroup = new NioEventLoopGroup();
         try {
-            //UDP方式使用Bootstrap
             serverBootstrap = new Bootstrap();
             serverBootstrap = serverBootstrap.group(eventLoopGroup);
             serverBootstrap = serverBootstrap.channel(NioDatagramChannel.class);
-            serverBootstrap = serverBootstrap.option(ChannelOption.SO_RCVBUF, 1024 * 1024 * 128);
+            serverBootstrap = serverBootstrap.option(ChannelOption.SO_RCVBUF, 1024 * 1024 * 256);
             serverBootstrap = serverBootstrap.option(ChannelOption.SO_SNDBUF, 1024 * 1024 * 32);
-//            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BACKLOG, 128);
             serverBootstrap = serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
-            //            serverBootstrap = serverBootstrap.option(ChannelOption.RCVBUF_ALLOCATOR);
-
-
-            //            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BROADCAST, true);
-//            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BACKLOG, 2000);
-
-
-            //不需要太多其他的东西，直接这样就可以用
             serverBootstrap = serverBootstrap.handler(bootNettyUdpInitializer);
 
             System.out.println("netty udp start!");
@@ -66,8 +57,4 @@ public class BootNettyUdpServer {
             eventLoopGroup.shutdownGracefully();
         }
     }
-
-
-
-
 }

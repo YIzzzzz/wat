@@ -59,8 +59,10 @@ public class DatabaseHandle {
         equipmentdata.setUploadtime(DateTime.DateNow());
         equipmentdata.setStr(str);
         equipmentdata.setData(dh.getEquipmentDataXml());
+//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"##################################");
+        //3ms
         equipmentdataMapper.insertData("rdasdata"+uploadMonth,equipmentdata);
-
+//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"**********************************");
     }
     public void HandleEquipmentAlarmRecord(DataHandle dh, String id) {
 //bool returnValue = true;
@@ -95,13 +97,10 @@ public class DatabaseHandle {
     }
     public boolean EquipmentTabUpdateData(int flag, int powerType, DataHandle dh, ChannelHandlerContext ctx, FrameStructure frame, InetSocketAddress sender, int port) {
 
-        //if (!dh.Load(data)) return false;//数据个数不正确，返回
-//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-222222222222222222");
         //设备表添加数据
         boolean returnValue = Equipment_Update(dh, powerType, sender, frame.getVersion(), frame.getId(),port);
 
         updateRealData(dh, frame.getId(), returnValue);
-//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-5555555555555555555555555");
         insertEquData(dh, frame.getId(), port, returnValue);
         if(flag == 1 && returnValue){
             findCommand(sender, ctx, frame);
@@ -130,7 +129,7 @@ public class DatabaseHandle {
         return returnValue;
     }
 
-    @Async
+//    @Async("doSomethingExecutor")
     public void findCommand(InetSocketAddress sender,ChannelHandlerContext ctx, FrameStructure frame){
         boolean flag = false;
 
@@ -151,6 +150,7 @@ public class DatabaseHandle {
             //应答
             byte[] sendD = frame.GetBuffer((byte) Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
             sendHandle.sendData(ctx, sendD, sender);
+//            System.out.println("123123123123123");
             //发送命令
             for (EquCommand item : list){
                 sendHandle.sendCommand(item, frame, ctx, sender);
@@ -160,6 +160,8 @@ public class DatabaseHandle {
         {
             byte[] sendD = frame.GetBuffer((byte)Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
             sendHandle.sendData(ctx, sendD, sender);
+//            System.out.println("123123123123123");
+
         }
         //记录应答，临时2017-4-16
         //DataHandle dh = new DataHandle();
@@ -167,7 +169,7 @@ public class DatabaseHandle {
         //RecordResponse(dh.CollectTime, frame.Id, 2, (IPEndPoint)epClient, sendData.ToString());
     }
 
-    @Async
+//    @Async("doSomethingExecutor")
     public void insertEquData(DataHandle dh, String id,int port, boolean returnValue){
 
         if (returnValue)//更新成功再进行以下步骤，也就是数据库中有这个设备
@@ -175,18 +177,9 @@ public class DatabaseHandle {
             //判断RDASData******数据库是否存在
             String uploadMonth = DateTime.getMonthStr(dh.getCollectTime());
 
-            //插入历史数据
-            //if(id=="6000343" || id=="6000561")
-            //    returnValue = (returnValue & EquipmentData_Insert(dh, dh.CollectTime, id, Tools.GetBCDStr(data)));
-            //else returnValue = (returnValue & EquipmentData_Insert(dh, dh.CollectTime, id, ""));
-
-            //returnValue = (returnValue & EquipmentData_Insert(dh, dh.CollectTime, id, ""));
             EquipmentData_Insert(uploadMonth, dh, dh.getCollectTime(), id, "");//20180817，不管成不成功都应答
-//            System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-666666666666666666666666666666");
             //处理报警
-            //returnValue = (returnValue & HandleEquipmentAlarmRecord(dh, id));
             HandleEquipmentAlarmRecord(dh, id);
-//            System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-777777777777777777777777");
             if ( port == GlobalParameter.udpPort_Equipment2)//2018-5-27，只有这一个端口支持数据转发
             {
                 //转给客户端
@@ -205,9 +198,8 @@ public class DatabaseHandle {
 
     }
 
-    @Async
+//    @Async("doSomethingExecutor")
     public void updateRealData(DataHandle dh,  String id, boolean returnValue){
-//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-333333333333333333");
         if (returnValue)//更新成功，再往下进行，也即是数据库中有这个设备，才插入实时数据
         {
 
@@ -232,12 +224,9 @@ public class DatabaseHandle {
                     dataCell.setIfaccumulate(item.getIfaccumulate() == 1 ? true : false);
                     dataCell.setLastupdatetime(dh.getCollectTime());
                     listRealData.add(dataCell);
-                    //returnValue = returnValue & realDataService.InsertEquipmentRealData(dataCell);//插入实时数据
                 }
-//                System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"------------------");
-
+                //5ms
                 iEquEquipmentrealdataService.updateBatchById(listRealData);
-//                System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-==================");
 
             }
             else
@@ -262,13 +251,10 @@ public class DatabaseHandle {
                     listRealData.add(realData);
 
                 }
-//                System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"------------------");
-
+                //5ms
                 iEquEquipmentrealdataService.updateBatchById(listRealData);
-//                System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-==================");
             }
         }
-//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-44444444444444444444444444");
 
     }
 
