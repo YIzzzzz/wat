@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //@Configurable("com.jan.wat.config.RedisConfig")
 
 @SpringBootApplication
-@MapperScan("com.jan.wat.mapper")
 @EnableScheduling
 @EnableAsync
 public class WatApplication implements CommandLineRunner {

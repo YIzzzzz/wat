@@ -1,9 +1,12 @@
 package com.jan.wat.pojo;
 
 import java.time.LocalDateTime;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -27,30 +30,30 @@ public class EquSim implements Serializable {
     private String id;
 
     @JsonFormat(pattern = "yyyy-MM-dd-hh-ss",timezone = "Asia/Shanghai")
-    @TableField("UpdateDate")
+    @TableField(value = "UpdateDate", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedate;
 
     @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
     @TableField("UpdatePerson")
-    private String updateperson;
+    private String updatePerson;
 
     @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
-    @TableField("CreateDate")
+    @TableField(value = "CreateDate", fill = FieldFill.INSERT)
     private LocalDateTime createdate;
 
-    @TableField("CreatePerson")
-    private String createperson;
+    @TableField(value = "CreatePerson", fill = FieldFill.INSERT)
+    private String createPerson;
 
     @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
-    @TableField("ActivateTime")
-    private LocalDateTime activatetime;
+    @TableField(value = "ActivateTime",fill = FieldFill.INSERT_UPDATE)
+    private Date activateTime;
 
     @TableField("Status")
     private String status;
 
     @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
-    @TableField("StatusLastUpdateTime")
-    private LocalDateTime statuslastupdatetime;
+    @TableField(value = "StatusLastUpdateTime", fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime statusLastUpdateTime;
 
     @TableField("SIMPackage_ID")
     private Integer simpackageId;
@@ -68,7 +71,7 @@ public class EquSim implements Serializable {
     private Double balance;
 
     @JsonFormat(pattern = "yyyy-MM-dd-hh-ss")
-    @TableField("BalanceLastUpdateTime")
+    @TableField(value = "BalanceLastUpdateTime", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime balancelastupdatetime;
 
     @TableField("Enable")

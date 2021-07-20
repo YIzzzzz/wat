@@ -32,7 +32,6 @@ public class EquSimalarlmController {
     @ApiOperation(value = "添加SIM卡报警信息")
     @PostMapping("/add")
     public RespBean addEquSim(@RequestBody EquSim equSim){
-        equSim.setCreatedate(LocalDateTime.now());
         if (equSimService.save(equSim)){
             return RespBean.success("添加成功！");
         }

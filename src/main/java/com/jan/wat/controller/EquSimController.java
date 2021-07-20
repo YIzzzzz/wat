@@ -1,5 +1,7 @@
 package com.jan.wat.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquSim;
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.service.IEquSimService;
@@ -7,7 +9,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +24,14 @@ public class EquSimController {
     @Autowired
     IEquSimService equSimService;
 
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public IPage<EquSim> getAllEquSimPage(@PathVariable Integer current, @PathVariable Integer size)
+    {
+        Page<EquSim> page = new Page<>(current, size);
+        return equSimService.page(page);
+    }
+
     @ApiOperation(value = "查询SIM卡管理列表")
     @GetMapping("/getall")
     public List<EquSim> getAllEquSimlist(){
@@ -32,7 +41,6 @@ public class EquSimController {
     @ApiOperation(value = "添加SIM卡")
     @PostMapping("/add")
     public RespBean addEquSim(@RequestBody EquSim equSim){
-        equSim.setCreatedate(LocalDateTime.now());
         if (equSimService.save(equSim)){
             return RespBean.success("添加成功！");
         }
