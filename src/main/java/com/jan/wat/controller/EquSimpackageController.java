@@ -67,7 +67,7 @@ public class EquSimpackageController {
 
     @ApiOperation(value = "；批量删除套餐信息")
     @DeleteMapping("/delete")
-    public RespBean deleteEquSimpackageByIds(Integer[] ids){
+    public RespBean deleteEquSimpackageByIds(@RequestBody Integer[] ids){
         if (equSimpackageService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");
         }
