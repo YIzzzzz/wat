@@ -71,7 +71,7 @@ public class EquSimalarlmController {
 
     @ApiOperation(value = "批量删除SIM卡报警信息")
     @DeleteMapping("/delete")
-    public RespBean deleteEquSimByIds(String[] ids)
+    public RespBean deleteEquSimByIds(@RequestBody String[] ids)
     {
         if (equSimService.removeByIds(Arrays.asList(ids)))
         {

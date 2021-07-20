@@ -73,7 +73,7 @@ public class EquSimbalancehistorydata {
 
     @ApiOperation(value = "批量删除SIM卡金额历史信息")
     @DeleteMapping("/delete")
-    public RespBean deleteEquSimbalancehistoryrecordByIds(Integer[] ids)
+    public RespBean deleteEquSimbalancehistoryrecordByIds(@RequestBody Integer[] ids)
     {
         if (equSimbalancehistoryrecordService.removeByIds(Arrays.asList(ids)))
         {
