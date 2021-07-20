@@ -7,9 +7,12 @@ import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.service.*;
 import io.netty.channel.ChannelHandlerContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Component
 public class EquipmentDataHandle {
@@ -38,8 +41,9 @@ public class EquipmentDataHandle {
                 func.funcLogin(ctx, frame,sender,recipient);
                 break;
             case Command.BatteryPowerUploadData:
-
+//                System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-11111111111111111111");
                 func.funcBatteryPowerUploadData(ctx, frame, sender, recipient);
+//                System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"-8888888888888888888888");
                 break;
             case Command.UploadData:
                 func.funcUploadData(frame,sender,recipient);

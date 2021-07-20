@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class BootNettyUdpServer {
 
     @Autowired
-    BootNettyUdpSimpleChannelInboundHandler bootNettyUdpSimpleChannelInboundHandler;
+    BootNettyUdpInitializer bootNettyUdpInitializer;
 
     private EventLoopGroup eventLoopGroup;
     private Bootstrap serverBootstrap;
@@ -37,11 +37,19 @@ public class BootNettyUdpServer {
             serverBootstrap = new Bootstrap();
             serverBootstrap = serverBootstrap.group(eventLoopGroup);
             serverBootstrap = serverBootstrap.channel(NioDatagramChannel.class);
-//            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BROADCAST, true);
+            serverBootstrap = serverBootstrap.option(ChannelOption.SO_RCVBUF, 1024 * 1024 * 128);
+            serverBootstrap = serverBootstrap.option(ChannelOption.SO_SNDBUF, 1024 * 1024 * 32);
+//            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BACKLOG, 128);
             serverBootstrap = serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+            //            serverBootstrap = serverBootstrap.option(ChannelOption.RCVBUF_ALLOCATOR);
+
+
+            //            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BROADCAST, true);
+//            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BACKLOG, 2000);
+
 
             //不需要太多其他的东西，直接这样就可以用
-            serverBootstrap = serverBootstrap.handler(bootNettyUdpSimpleChannelInboundHandler);
+            serverBootstrap = serverBootstrap.handler(bootNettyUdpInitializer);
 
             System.out.println("netty udp start!");
 
