@@ -67,7 +67,7 @@ public class EquSimappController {
 
     @ApiOperation(value = "批量删除API信息")
     @DeleteMapping("/delete")
-    public RespBean deleteEquSimappByIds(String[] ids)
+    public RespBean deleteEquSimappByIds(@RequestBody String[] ids)
     {
         if (equSimappService.removeByIds(Arrays.asList(ids)))
         {
