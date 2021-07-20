@@ -35,7 +35,7 @@ public class WatFlowtypeController {
     }
 
     @ApiOperation(value = "添加表具型号")
-    @PostMapping("addFlowtype")
+    @PostMapping("/add")
     public RespBean addFlowtype(@RequestBody WatFlowtype watFlowtype){
         if(iWatFlowtypeService.save(watFlowtype) ){
             return RespBean.success("添加成功！");
@@ -44,13 +44,20 @@ public class WatFlowtypeController {
     }
 
     @ApiOperation(value = "更改表具型号")
-    @PostMapping("/updateFlowtype")
+    @PutMapping("/update")
     public RespBean updateFlowtype(@RequestBody WatFlowtype watFlowtype){
         if(iWatFlowtypeService.updateById(watFlowtype)){
-            System.out.println("1");
             return RespBean.success("更新成功");
         }
-        System.out.println("2");
+        return RespBean.error("更新失败");
+    }
+
+    @ApiOperation(value = "批量更新表具型号信息")
+    @PutMapping("updatebatch")
+    public RespBean updateBatchFlowtype(@RequestBody List<WatFlowtype> watFlowtypeList){
+        if(iWatFlowtypeService.updateBatchById(watFlowtypeList)){
+            return RespBean.success("更新成功");
+        }
         return RespBean.error("更新失败");
     }
 
@@ -64,8 +71,8 @@ public class WatFlowtypeController {
     }
 
     @ApiOperation(value = "批量删除表具型号")
-    @DeleteMapping("/deleteFlowtypeByIds")
-    public RespBean deleteFlowtypeByIds(Integer[] ids){
+    @DeleteMapping("/delete")
+    public RespBean deleteFlowtypeByIds(@RequestBody Integer[] ids){
         if(iWatFlowtypeService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");
         }

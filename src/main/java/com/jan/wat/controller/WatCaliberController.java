@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,14 +27,14 @@ public class WatCaliberController {
     IWatCaliberService iWatCaliberService;
 
     @ApiOperation(value = "查询水表口径信息")
-    @GetMapping("")
+    @GetMapping("getall")
     @ResponseBody
     public List<WatCaliber> getAllCaliber(){
         return iWatCaliberService.list(null);
     }
 
     @ApiOperation(value = "添加水表口径信息")
-    @PostMapping("/addCaliber")
+    @PostMapping("/add")
     public RespBean addWatCaliber(@RequestBody WatCaliber watCaliber){
         if (iWatCaliberService.save(watCaliber)){
             return RespBean.success("添加成功！");
@@ -42,7 +43,7 @@ public class WatCaliberController {
     }
 
     @ApiOperation(value = "更新水表口径信息")
-    @PostMapping("/updateCaliber")
+    @PutMapping("/update")
     public RespBean updateWatCaliber(@RequestBody WatCaliber watCaliber){
         if (iWatCaliberService.updateById(watCaliber)){
             return RespBean.success("更新成功");
@@ -50,10 +51,28 @@ public class WatCaliberController {
         return RespBean.error("更新失败！");
     }
 
+    @ApiOperation(value = "批量水表口径信息")
+    @PutMapping("updatebatch")
+    public RespBean updateBatchWatCaliber(@RequestBody List<WatCaliber> watCaliberList){
+        if(iWatCaliberService.updateBatchById(watCaliberList)){
+            return RespBean.success("更新成功");
+        }
+        return RespBean.error("更新失败");
+    }
+
     @ApiOperation(value = "删除水表口径信息")
     @DeleteMapping("/{id}")
     public RespBean deleteWatCaliber(@PathVariable Integer id){
         if (iWatCaliberService.removeById(id)){
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
+
+    @ApiOperation(value = "批量删除水表口径信息")
+    @DeleteMapping("/delete")
+    public RespBean deleteWatCaliberByIds(@RequestBody Integer[] ids){
+        if (iWatCaliberService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");
         }
         return RespBean.error("删除失败");
