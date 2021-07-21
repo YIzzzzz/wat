@@ -19,7 +19,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan("com.jan.wat.mapper")
 @EnableScheduling
 @EnableAsync
-@PropertySource("classpath:udpServer.yml")
 public class WatApplication implements CommandLineRunner {
 
     @Autowired

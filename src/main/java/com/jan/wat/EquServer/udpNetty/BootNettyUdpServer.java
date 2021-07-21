@@ -37,7 +37,7 @@ public class BootNettyUdpServer {
             serverBootstrap = new Bootstrap();
             serverBootstrap = serverBootstrap.group(eventLoopGroup);
             serverBootstrap = serverBootstrap.channel(NioDatagramChannel.class);
-            serverBootstrap = serverBootstrap.option(ChannelOption.SO_RCVBUF, 1024 * 1024 * 256);
+            serverBootstrap = serverBootstrap.option(ChannelOption.SO_RCVBUF, 1024 * 1024 * 512);
             serverBootstrap = serverBootstrap.option(ChannelOption.SO_SNDBUF, 1024 * 1024 * 32);
             serverBootstrap = serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
             serverBootstrap = serverBootstrap.handler(bootNettyUdpInitializer);
