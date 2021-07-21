@@ -19,7 +19,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("equ/simbalancehistorydata")
-public class EquSimbalancehistorydata {
+public class EquSimbalancehistorydataController {
 
     @Autowired
     IEquSimbalancehistoryrecordService equSimbalancehistoryrecordService;
