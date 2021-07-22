@@ -1,5 +1,6 @@
 package com.jan.wat.controller;
 
+import com.jan.wat.pojo.EquSim;
 import com.jan.wat.pojo.EquSimpackage;
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.service.IEquSimpackageService;
@@ -15,6 +16,7 @@ import java.util.List;
  * 2021/7/17 下午3:23
  * 1.0
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/equ/simpackage")
 public class EquSimpackageController {
@@ -37,10 +39,21 @@ public class EquSimpackageController {
     }
 
     @ApiOperation(value = "更新套餐信息")
-    @PostMapping("/update")
+    @PutMapping("/update")
     public RespBean updateEquSimpackage(@RequestBody EquSimpackage equSimpackage){
         if (equSimpackageService.updateById(equSimpackage)){
             return RespBean.success("更新成功");
+        }
+        return RespBean.error("更新失败！");
+    }
+
+    @ApiOperation(value = "批量更新套餐卡信息")
+    @PutMapping("/updatabatch")
+    public RespBean updateBatchEquSimpackage(@RequestBody List<EquSimpackage> equSimpackageList)
+    {
+        if (equSimpackageService.updateBatchById(equSimpackageList))
+        {
+            return RespBean.success("更新成功！");
         }
         return RespBean.error("更新失败！");
     }
@@ -56,14 +69,11 @@ public class EquSimpackageController {
 
     @ApiOperation(value = "；批量删除套餐信息")
     @DeleteMapping("/delete")
-    public RespBean deleteEquSimpackageByIds(Integer[] ids){
+    public RespBean deleteEquSimpackageByIds(@RequestBody Integer[] ids){
         if (equSimpackageService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");
         }
         return RespBean.error("删除失败");
     }
-
-
-
 }
 

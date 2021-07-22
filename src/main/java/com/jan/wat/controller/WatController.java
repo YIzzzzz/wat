@@ -29,43 +29,43 @@ public class WatController {
     @Autowired
     IWatAlarmtypeService iWatAlarmtypeService;
 
-    @RequestMapping("/classify")
-    @ResponseBody
-    public String getClassify(){
-        JSONObject jsonObject = new JSONObject();
-        List<WatClassify> list = iWatClassifyService.list(null);
+//    @RequestMapping("/classify")
+//    @ResponseBody
+//    public String getClassify(){
+//        JSONObject jsonObject = new JSONObject();
+//        List<WatClassify> list = iWatClassifyService.list(null);
+//
+//        jsonObject.put("data",list);
+//        return jsonObject.toJSONString();
+//    }
 
-        jsonObject.put("data",list);
-        return jsonObject.toJSONString();
-    }
+//    @RequestMapping("/caliber")
+//    @ResponseBody
+//    public String getCaliber(){
+//        List<WatCaliber> list = iWatCaliberService.list(null);
+//        JSONObject jsonObject = new JSONObject();
+//
+//        jsonObject.put("data",list);
+//        return jsonObject.toJSONString();
+//
+//    }
 
-    @RequestMapping("/caliber")
-    @ResponseBody
-    public String getCaliber(){
-        List<WatCaliber> list = iWatCaliberService.list(null);
-        JSONObject jsonObject = new JSONObject();
+//    @RequestMapping("/flowtype")
+//    @ResponseBody
+//    public String getFlowtype(){
+//        List<WatFlowtype> list = iWatFlowtypeService.list(null);
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("data",list);
+//        return jsonObject.toJSONString();
+//    }
 
-        jsonObject.put("data",list);
-        return jsonObject.toJSONString();
-
-    }
-
-    @RequestMapping("/flowtype")
-    @ResponseBody
-    public String getFlowtype(){
-        List<WatFlowtype> list = iWatFlowtypeService.list(null);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("data",list);
-        return jsonObject.toJSONString();
-    }
-
-    @RequestMapping("alarmtype")
-    @ResponseBody
-    public String getAlarmtype(){
-        JSONObject jsonObject = new JSONObject();
-        List<WatAlarmtype> list = iWatAlarmtypeService.list(null);
-
-        jsonObject.put("data",list);
-        return jsonObject.toJSONString();
-    }
+//    @RequestMapping("alarmtype")
+//    @ResponseBody
+//    public String getAlarmtype(){
+//        JSONObject jsonObject = new JSONObject();
+//        List<WatAlarmtype> list = iWatAlarmtypeService.list(null);
+//
+//        jsonObject.put("data",list);
+//        return jsonObject.toJSONString();
+//    }
 }
