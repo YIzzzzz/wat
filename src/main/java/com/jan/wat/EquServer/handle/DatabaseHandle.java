@@ -59,13 +59,10 @@ public class DatabaseHandle {
         equipmentdata.setUploadtime(DateTime.DateNow());
         equipmentdata.setStr(str);
         equipmentdata.setData(dh.getEquipmentDataXml());
-//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"##################################");
         //3ms
         equipmentdataMapper.insertData("rdasdata"+uploadMonth,equipmentdata);
-//        System.out.println(new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:SSS").format(new Date())+"**********************************");
     }
     public void HandleEquipmentAlarmRecord(DataHandle dh, String id) {
-//bool returnValue = true;
 
         for (var item : dh.getDataCells())
         {
@@ -80,7 +77,6 @@ public class DatabaseHandle {
                     model.setDatatypeId(item.getDataTypeId());
                     model.setReason("设备上传报警信息");
                     iEquAlarmrecordService.saveOrUpdate(model);
-                    //returnValue = returnValue & service.AlarmRecord_Alarm(model);
                 }
                 else
                 {
@@ -90,7 +86,6 @@ public class DatabaseHandle {
                     model.setAlarmtime(dh.getCollectTime());
                     model.setDatatypeId(item.getDataTypeId());
                     iEquAlarmrecordService.saveOrUpdate(model);
-                    //returnValue = returnValue & service.AlarmRecord_Recovery(model);
                 }
             }
         }
@@ -150,7 +145,6 @@ public class DatabaseHandle {
             //应答
             byte[] sendD = frame.GetBuffer((byte) Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
             sendHandle.sendData(ctx, sendD, sender);
-//            System.out.println("123123123123123");
             //发送命令
             for (EquCommand item : list){
                 sendHandle.sendCommand(item, frame, ctx, sender);
@@ -160,13 +154,8 @@ public class DatabaseHandle {
         {
             byte[] sendD = frame.GetBuffer((byte)Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
             sendHandle.sendData(ctx, sendD, sender);
-//            System.out.println("123123123123123");
 
         }
-        //记录应答，临时2017-4-16
-        //DataHandle dh = new DataHandle();
-        //dh.Load(frame.Data);
-        //RecordResponse(dh.CollectTime, frame.Id, 2, (IPEndPoint)epClient, sendData.ToString());
     }
 
 //    @Async("doSomethingExecutor")
@@ -188,12 +177,6 @@ public class DatabaseHandle {
             else if (idListForTransform.contains(id))
             { sendHandle.client(id, dh); }
 
-            //判断设备数据是否超限
-            //HandleEquipmentDataError(id, dh);
-
-            //水表数据处理,2018-5-15发掘数据应答缓慢，怀疑性能不行，所以取消这部分功能
-            //if (WaterEvent != null)
-            //    WaterEvent(id, dh);
         }
 
     }
