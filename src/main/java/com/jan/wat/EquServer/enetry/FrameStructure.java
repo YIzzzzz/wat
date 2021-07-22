@@ -3,6 +3,8 @@ package com.jan.wat.EquServer.enetry;
 import com.jan.wat.EquServer.helper.Tools;
 import lombok.Data;
 
+import java.util.Arrays;
+
 @Data
 public class FrameStructure {
 
@@ -111,5 +113,18 @@ public class FrameStructure {
         buffer[14] = crc[0];
         buffer[15] = crc[1];
         return buffer;
+    }
+
+    @Override
+    public String toString() {
+        return "FrameStructure{" +
+                "systemIDCode=" + Arrays.toString(systemIDCode) +
+                ", address=" + Arrays.toString(address) +
+                ", frameType=" + frameType +
+                ", id='" + id + '\'' +
+                ", version=" + version +
+                ", data=" + Arrays.toString(data) +
+                ", crc=" + Arrays.toString(crc) +
+                '}';
     }
 }

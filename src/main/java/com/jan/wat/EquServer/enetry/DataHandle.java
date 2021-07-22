@@ -98,7 +98,7 @@ public class DataHandle {
         //数据个数不正确
         if (data.length != (9 + 9 * dataCellNum)) return false;
 
-       collectTime = DateTime.getDate(data, 0, 6);
+        collectTime = DateTime.getDate(data, 0, 6);
         status = data[6];
         equipmentTypeId = data[7];
 

@@ -30,32 +30,10 @@ public class SysOrganizeController {
         List<SysOrganize> list = iSysOrganizeService.list();
         List<CreateTree> trees = new ArrayList<>();
 
-        func("0",0,list,trees);
+        CreateTree.createTree("0",0,list,trees);
         return trees;
     }
 
-    static List<String> F = new ArrayList<>();
-    static List<List<CreateTree>> T = new ArrayList<>();
-
-    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees){
-
-        if(index == list.size())
-            return;
-        SysOrganize s = list.get(index);
-        CreateTree tree = new CreateTree(s);
-
-        if(s.getParentcode().equals(father)){
-            trees.add(tree);
-            F.add(father);
-            T.add(trees);
-            func(s.getOrganizecode(),index+1, list, tree.getChildren());
-        }else{
-            String fa = F.remove(F.size()-1);
-            List<CreateTree> tr = T.remove(T.size()-1);
-            func(fa,index,list,tr);
-        }
-        return;
-    }
 
     @ApiOperation(value = "添加组织机构信息")
     @PostMapping("/add")

@@ -14,16 +14,17 @@ import com.jan.wat.service.*;
 import io.netty.channel.ChannelHandlerContext;
 import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
 public class FunctionHandle {
 
-    public static List<String> idListForTransform = new ArrayList<>(Arrays.asList( "5169", "4960", "4962", "4963", "4965", "4966", "4967", "4968", "4970", "4976", "4977", "4978", "4982", "4986", "4987", "4990", "4991", "4992", "4994"));
     public List<EquDatatype> dataTypeList = null;
 
     @Autowired
@@ -44,95 +45,19 @@ public class FunctionHandle {
     }
 
     public void funcUploadData(FrameStructure frame, InetSocketAddress sender, InetSocketAddress recipient) {
-        EquipmentTabUpdateData(1, frame.getVersion(), frame.getData(), frame.getId(),sender,recipient);
+        DataHandle dh = new DataHandle();
+
+        if (!dh.Load(frame.getData(), dataTypeList)) return;//数据个数不正确，返回
+        ChannelHandlerContext ctx = null;
+        dbHandle.EquipmentTabUpdateData(0,1, dh, ctx, frame,sender,recipient.getPort());
     }
 
     public void funcBatteryPowerUploadData(ChannelHandlerContext ctx, FrameStructure frame, InetSocketAddress sender, InetSocketAddress recipient) {
-        if (EquipmentTabUpdateData(0,  frame.getVersion(), frame.getData(), frame.getId(),sender, recipient)) {
-            boolean flag = false;
-
-            if (sender.getPort() != GlobalParameter.udpPort_Equipment1)//2018-5-27，老设备不支持下传命令
-            {
-                //读数据库，看看是否有对该设备发送的命令
-                //判断没有发送成功的命令的条件：1 设备ID一致 2 Status<=2（没有成功） 3 ResponseTime为空（没有应答） 4 SendNum发送次数小于最大次数限制,按照SettingTime排序，也就是先发以前的命令
-                QueryWrapper<EquCommand> queryCommand = new QueryWrapper<>();
-                queryCommand.eq("Equipment_ID", frame.getId());
-                queryCommand.le("Status",2);
-                queryCommand.isNull("ResponseTime");
-                queryCommand.lt("SendNum", GlobalParameter.commandSendMaxNumLimit);
-                queryCommand.orderBy(true,false,"SettingTime");
-                List<EquCommand> list = iEquCommandService.list(queryCommand);
-
-                if (list.size() > 0) flag = true;
-
-                //应答
-                byte[] sendD = frame.GetBuffer((byte) Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
-                sendHandle.sendData(ctx, sendD, sender);
-                //发送命令
-                for (EquCommand item : list){
-                    sendHandle.sendCommand(item, frame, ctx, sender);
-                }
-            }
-            else
-            {
-                byte[] sendD = frame.GetBuffer((byte)Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
-                sendHandle.sendData(ctx, sendD, sender);
-            }
-            //记录应答，临时2017-4-16
-            //DataHandle dh = new DataHandle();
-            //dh.Load(frame.Data);
-            //RecordResponse(dh.CollectTime, frame.Id, 2, (IPEndPoint)epClient, sendData.ToString());
-        }
-    }
-
-
-    public boolean EquipmentTabUpdateData(int powerType, byte version, byte[] data, String id, InetSocketAddress sender, InetSocketAddress recipient) {
         DataHandle dh = new DataHandle();
 
-        if (!dh.Load(data, dataTypeList)) return false;//数据个数不正确，返回
-        //if (!dh.Load(data)) return false;//数据个数不正确，返回
-
-        //设备表添加数据
-        boolean returnValue = dbHandle.Equipment_Update(dh, powerType, sender, version, id,recipient.getPort());
-        if (returnValue)//更新成功再进行以下步骤，也就是数据库中有这个设备
-        {
-            //判断RDASData******数据库是否存在
-            String uploadMonth = DateTime.getMonthStr(dh.getCollectTime());
-
-            //插入历史数据
-            //if(id=="6000343" || id=="6000561")
-            //    returnValue = (returnValue & EquipmentData_Insert(dh, dh.CollectTime, id, Tools.GetBCDStr(data)));
-            //else returnValue = (returnValue & EquipmentData_Insert(dh, dh.CollectTime, id, ""));
-
-            //returnValue = (returnValue & EquipmentData_Insert(dh, dh.CollectTime, id, ""));
-            dbHandle.EquipmentData_Insert(uploadMonth, dh, dh.getCollectTime(), id, "");//20180817，不管成不成功都应答
-
-            //处理报警
-            //returnValue = (returnValue & HandleEquipmentAlarmRecord(dh, id));
-            dbHandle.HandleEquipmentAlarmRecord(dh, id);
-            if (recipient.getPort() == GlobalParameter.udpPort_Equipment2)//2018-5-27，只有这一个端口支持数据转发
-            {
-                //转给客户端
-                sendHandle.client(id, dh);
-            }
-            else if (idListForTransform.contains(id))
-            { sendHandle.client(id, dh); }
-
-            //判断设备数据是否超限
-            //HandleEquipmentDataError(id, dh);
-
-            //水表数据处理,2018-5-15发掘数据应答缓慢，怀疑性能不行，所以取消这部分功能
-            //if (WaterEvent != null)
-            //    WaterEvent(id, dh);
-        }
-        return returnValue;
+        if (!dh.Load(frame.getData(), dataTypeList)) return;//数据个数不正确，返回
+        dbHandle.EquipmentTabUpdateData(1,0, dh, ctx, frame,sender, recipient.getPort());
     }
-
-
-
-
-
-
 
     public void funcDownloadProgram(ChannelHandlerContext ctx, FrameStructure frame, InetSocketAddress sender) {
         if (frame.getData().length != 10) return;

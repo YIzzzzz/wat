@@ -2,19 +2,25 @@ package com.jan.wat.EquServer.handle;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.enetry.DataHandle;
+import com.jan.wat.EquServer.enetry.FrameStructure;
 import com.jan.wat.EquServer.enetry.ParaCell;
+import com.jan.wat.EquServer.helper.Agreement;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.mapper.EquipmentdataMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
+import io.netty.channel.ChannelHandlerContext;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
@@ -41,6 +47,9 @@ public class DatabaseHandle {
     @Autowired
     EquipmentdataMapper equipmentdataMapper;
 
+    @Autowired
+    SendHandle sendHandle;
+    public static List<String> idListForTransform = new ArrayList<>(Arrays.asList( "5169", "4960", "4962", "4963", "4965", "4966", "4967", "4968", "4970", "4976", "4977", "4978", "4982", "4986", "4987", "4990", "4991", "4992", "4994"));
 
 
     public void EquipmentData_Insert(String uploadMonth, DataHandle dh, Date collectTime, String id, String str) {
@@ -50,11 +59,10 @@ public class DatabaseHandle {
         equipmentdata.setUploadtime(DateTime.DateNow());
         equipmentdata.setStr(str);
         equipmentdata.setData(dh.getEquipmentDataXml());
+        //3ms
         equipmentdataMapper.insertData("rdasdata"+uploadMonth,equipmentdata);
-
     }
     public void HandleEquipmentAlarmRecord(DataHandle dh, String id) {
-//bool returnValue = true;
 
         for (var item : dh.getDataCells())
         {
@@ -69,7 +77,6 @@ public class DatabaseHandle {
                     model.setDatatypeId(item.getDataTypeId());
                     model.setReason("设备上传报警信息");
                     iEquAlarmrecordService.saveOrUpdate(model);
-                    //returnValue = returnValue & service.AlarmRecord_Alarm(model);
                 }
                 else
                 {
@@ -79,12 +86,22 @@ public class DatabaseHandle {
                     model.setAlarmtime(dh.getCollectTime());
                     model.setDatatypeId(item.getDataTypeId());
                     iEquAlarmrecordService.saveOrUpdate(model);
-                    //returnValue = returnValue & service.AlarmRecord_Recovery(model);
                 }
             }
         }
     }
+    public boolean EquipmentTabUpdateData(int flag, int powerType, DataHandle dh, ChannelHandlerContext ctx, FrameStructure frame, InetSocketAddress sender, int port) {
 
+        //设备表添加数据
+        boolean returnValue = Equipment_Update(dh, powerType, sender, frame.getVersion(), frame.getId(),port);
+
+        updateRealData(dh, frame.getId(), returnValue);
+        insertEquData(dh, frame.getId(), port, returnValue);
+        if(flag == 1 && returnValue){
+            findCommand(sender, ctx, frame);
+        }
+        return returnValue;
+    }
 
     public boolean Equipment_Update(DataHandle dh, int powerType, InetSocketAddress sender, byte version, String id, int serverPort) {
         boolean returnValue = true;
@@ -94,7 +111,7 @@ public class DatabaseHandle {
 
         model.setP(sender.getPort());
         model.setLastcollecttime(dh.getCollectTime());
-        model.setVersion(String.format("%02x",version));
+        model.setVersion(String.format("%02x", version));
         model.setEquipmenttypeId(dh.getEquipmentTypeId());
         model.setPowertype(powerType);//电池供电
         model.setS(dh.isIfAlarm());
@@ -102,8 +119,70 @@ public class DatabaseHandle {
         model.setLongitude((float) dh.getLongitude());
         model.setLatitude((float) dh.getLatitude());
         model.setConnectserverport(serverPort);
-        ;
-        returnValue=iEquEquipmentService.updateById(model);
+
+        returnValue = iEquEquipmentService.updateById(model);
+        return returnValue;
+    }
+
+//    @Async("doSomethingExecutor")
+    public void findCommand(InetSocketAddress sender,ChannelHandlerContext ctx, FrameStructure frame){
+        boolean flag = false;
+
+        if (sender.getPort() != GlobalParameter.udpPort_Equipment1)//2018-5-27，老设备不支持下传命令
+        {
+            //读数据库，看看是否有对该设备发送的命令
+            //判断没有发送成功的命令的条件：1 设备ID一致 2 Status<=2（没有成功） 3 ResponseTime为空（没有应答） 4 SendNum发送次数小于最大次数限制,按照SettingTime排序，也就是先发以前的命令
+            QueryWrapper<EquCommand> queryCommand = new QueryWrapper<>();
+            queryCommand.eq("Equipment_ID", frame.getId());
+            queryCommand.le("Status",2);
+            queryCommand.isNull("ResponseTime");
+            queryCommand.lt("SendNum", GlobalParameter.commandSendMaxNumLimit);
+            queryCommand.orderBy(true,false,"SettingTime");
+            List<EquCommand> list = iEquCommandService.list(queryCommand);
+
+            if (list.size() > 0) flag = true;
+
+            //应答
+            byte[] sendD = frame.GetBuffer((byte) Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
+            sendHandle.sendData(ctx, sendD, sender);
+            //发送命令
+            for (EquCommand item : list){
+                sendHandle.sendCommand(item, frame, ctx, sender);
+            }
+        }
+        else
+        {
+            byte[] sendD = frame.GetBuffer((byte)Command.BatteryPowerUploadDataResponse, Agreement.BatteryPowerResponse(flag));
+            sendHandle.sendData(ctx, sendD, sender);
+
+        }
+    }
+
+//    @Async("doSomethingExecutor")
+    public void insertEquData(DataHandle dh, String id,int port, boolean returnValue){
+
+        if (returnValue)//更新成功再进行以下步骤，也就是数据库中有这个设备
+        {
+            //判断RDASData******数据库是否存在
+            String uploadMonth = DateTime.getMonthStr(dh.getCollectTime());
+
+            EquipmentData_Insert(uploadMonth, dh, dh.getCollectTime(), id, "");//20180817，不管成不成功都应答
+            //处理报警
+            HandleEquipmentAlarmRecord(dh, id);
+            if ( port == GlobalParameter.udpPort_Equipment2)//2018-5-27，只有这一个端口支持数据转发
+            {
+                //转给客户端
+                sendHandle.client(id, dh);
+            }
+            else if (idListForTransform.contains(id))
+            { sendHandle.client(id, dh); }
+
+        }
+
+    }
+
+//    @Async("doSomethingExecutor")
+    public void updateRealData(DataHandle dh,  String id, boolean returnValue){
         if (returnValue)//更新成功，再往下进行，也即是数据库中有这个设备，才插入实时数据
         {
 
@@ -128,9 +207,9 @@ public class DatabaseHandle {
                     dataCell.setIfaccumulate(item.getIfaccumulate() == 1 ? true : false);
                     dataCell.setLastupdatetime(dh.getCollectTime());
                     listRealData.add(dataCell);
-                    //returnValue = returnValue & realDataService.InsertEquipmentRealData(dataCell);//插入实时数据
                 }
-                iEquEquipmentrealdataService.saveBatch(listRealData);
+                //5ms
+                iEquEquipmentrealdataService.updateBatchById(listRealData);
 
             }
             else
@@ -155,10 +234,11 @@ public class DatabaseHandle {
                     listRealData.add(realData);
 
                 }
-                iEquEquipmentrealdataService.saveBatch(listRealData);
+                //5ms
+                iEquEquipmentrealdataService.updateBatchById(listRealData);
             }
         }
-        return returnValue;
+
     }
 
 

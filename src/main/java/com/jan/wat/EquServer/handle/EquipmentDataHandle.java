@@ -5,11 +5,16 @@ import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.enetry.FrameStructure;
 import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.service.*;
+import io.lettuce.core.ScriptOutputType;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Component
 public class EquipmentDataHandle {
@@ -19,11 +24,13 @@ public class EquipmentDataHandle {
     @Autowired
     FunctionHandle func;
 
+
+    @Async("doSomethingExecutor")
     public void HandleData(byte[] data, int equipmentNumLimit, ChannelHandlerContext ctx, InetSocketAddress sender, InetSocketAddress recipient){
+
         FrameStructure frame = new FrameStructure();
         if (!frame.Load(data, Tools.systemIDCode))
             return;//数据长度不正确，或者系统识别码不正确，则返回
-
         //$$//数量超限，直接退出EquipmentDataHandle100行
         if(func.dataTypeList==null)
             func.init();
@@ -38,7 +45,6 @@ public class EquipmentDataHandle {
                 func.funcLogin(ctx, frame,sender,recipient);
                 break;
             case Command.BatteryPowerUploadData:
-
                 func.funcBatteryPowerUploadData(ctx, frame, sender, recipient);
                 break;
             case Command.UploadData:

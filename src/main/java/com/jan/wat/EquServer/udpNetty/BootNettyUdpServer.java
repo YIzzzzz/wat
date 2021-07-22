@@ -1,6 +1,7 @@
 package com.jan.wat.EquServer.udpNetty;
 
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -9,16 +10,17 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@Scope("")
 public class BootNettyUdpServer {
 
     @Autowired
-    BootNettyUdpSimpleChannelInboundHandler bootNettyUdpSimpleChannelInboundHandler;
+    BootNettyUdpInitializer bootNettyUdpInitializer;
 
     private EventLoopGroup eventLoopGroup;
     private Bootstrap serverBootstrap;
@@ -32,13 +34,13 @@ public class BootNettyUdpServer {
 
         eventLoopGroup = new NioEventLoopGroup();
         try {
-            //UDP方式使用Bootstrap
             serverBootstrap = new Bootstrap();
             serverBootstrap = serverBootstrap.group(eventLoopGroup);
             serverBootstrap = serverBootstrap.channel(NioDatagramChannel.class);
-            serverBootstrap = serverBootstrap.option(ChannelOption.SO_BROADCAST, true);
-            //不需要太多其他的东西，直接这样就可以用
-            serverBootstrap = serverBootstrap.handler(bootNettyUdpSimpleChannelInboundHandler);
+            serverBootstrap = serverBootstrap.option(ChannelOption.SO_RCVBUF, 1024 * 1024 * 512);
+            serverBootstrap = serverBootstrap.option(ChannelOption.SO_SNDBUF, 1024 * 1024 * 32);
+            serverBootstrap = serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+            serverBootstrap = serverBootstrap.handler(bootNettyUdpInitializer);
 
             System.out.println("netty udp start!");
 
@@ -55,8 +57,4 @@ public class BootNettyUdpServer {
             eventLoopGroup.shutdownGracefully();
         }
     }
-
-
-
-
 }

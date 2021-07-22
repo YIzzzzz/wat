@@ -19,15 +19,6 @@ import java.util.List;
 @Data
 public class CommandParameterHandle
 {
-    //private DateTime _collectTime;
-    ///// <summary>
-    /////  设备采集数据时间
-    ///// </summary>
-    //public DateTime CollectTime
-    //{
-    //    get { return _collectTime; }
-    //    set { _collectTime = value; }
-    //}
     /// <summary>
     /// 上传数据状态，为0表示主动上传，为1表示点名上传
     /// </summary>
@@ -113,22 +104,22 @@ public class CommandParameterHandle
         data[0] = 0x00;//表示点名，要求上传数据
         switch ((int)model.getCommandtype())
         {
-            case (int) Command.ReadParameter:
+            case (int) Command.ReadParameter://x91读取设备参数
                 returnValue= frame.GetBuffer((byte)Command.ReadParameter, data);
                 break;
-            case (int)Command.ReadParameterValue:
+            case (int)Command.ReadParameterValue://0x92读取参数值
                 returnValue= frame.GetBuffer((byte)Command.ReadParameterValue, data);
                 break;
-            case (int)Command.SetTimeParameter:
+            case (int)Command.SetTimeParameter://0x94校正时间
                 returnValue = GetTimeByte(frame,true, (byte)Command.SetTimeParameter);
                 break;
-            case (int)Command.SetParameterValue:
+            case (int)Command.SetParameterValue://0x93设置参数值
                 String commandStr = model.getCommand();
                 Iterator<Element> it = Tools.XML2iter(commandStr);
 
                 if(!it.hasNext())
                     return null;
-                List<Byte> list = new ArrayList<Byte>();
+                List<Byte> list = new ArrayList<>();
 
                 while(it.hasNext()){
                     Element child = it.next();
