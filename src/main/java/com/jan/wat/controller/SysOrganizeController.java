@@ -3,7 +3,6 @@ package com.jan.wat.controller;
 import com.jan.wat.pojo.CreateTree;
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.SysOrganize;
-import com.jan.wat.pojo.WatClassify;
 import com.jan.wat.service.ISysOrganizeService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,25 +28,54 @@ public class SysOrganizeController {
     public List<CreateTree>getAllEquSimpackagelist(){
         List<SysOrganize> list = iSysOrganizeService.list();
         List<CreateTree> trees = new ArrayList<>();
-
-        func("*",0,list,trees,null);
+        createTree(trees, list);
         return trees;
     }
+    public List<CreateTree> createTree(List<CreateTree> trees, List<SysOrganize> list)
+    {
+        trees.add(new CreateTree(list.get(0)));
+        func(list,trees);
+        return trees;
+    }
+//    public SysOrganize getLastNode(List<SysOrganize> list, int index)
+//    {
+//        return list.get(index-1);
+//    }
+    public void func(List<SysOrganize> list, List<CreateTree> trees){
 
-    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees, List<CreateTree> fatherTrees){
+        for (int index =1; index < list.size(); index++)
+        {
+            if(list.get(index).getParentcode().equals(list.get(index-1).getParentcode()))
+            {
+                trees.add(new CreateTree(list.get(index)));
+            }
+            else
+            {
+                for (int i = 0; i < list.size(); i++)
+                {
+                    if (list.get(index).getParentcode().equals(list.get(i).getParentcode())){
+                        break;
+                    }
+                }
+                trees.add(new CreateTree(list.get(index)));
+            }
+        }
 
-        if(index == list.size())
+        /*if(index == list.size())
             return;
-        SysOrganize s = list.get(index);
+*/
+        /*SysOrganize s = list.get(index);
         CreateTree tree = new CreateTree(s);
 
-        if(father.equals("*")  || s.getParentcode().equals(father)){
+        if(s.getParentcode().equals(father)){
             trees.add(tree);
-            func(s.getOrganizecode(),index+1, list, tree.getChildren(),trees);
+            func(s.getOrganizecode(),index+1, list, tree.getChildren());
         }else{
-            func(s.getParentcode(),index,list,fatherTrees,null);
-        }
+            func(s.getParentcode(),index, list, trees);
+        }*/
+
         return;
+
     }
 
     @ApiOperation(value = "添加组织机构信息")
