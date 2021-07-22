@@ -30,22 +30,29 @@ public class SysOrganizeController {
         List<SysOrganize> list = iSysOrganizeService.list();
         List<CreateTree> trees = new ArrayList<>();
 
-        func("*",0,list,trees,null);
+        func("0",0,list,trees);
         return trees;
     }
 
-    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees, List<CreateTree> fatherTrees){
+    static List<String> F = new ArrayList<>();
+    static List<List<CreateTree>> T = new ArrayList<>();
+
+    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees){
 
         if(index == list.size())
             return;
         SysOrganize s = list.get(index);
         CreateTree tree = new CreateTree(s);
 
-        if(father.equals("*")  || s.getParentcode().equals(father)){
+        if(s.getParentcode().equals(father)){
             trees.add(tree);
-            func(s.getOrganizecode(),index+1, list, tree.getChildren(),trees);
+            F.add(father);
+            T.add(trees);
+            func(s.getOrganizecode(),index+1, list, tree.getChildren());
         }else{
-            func(s.getParentcode(),index,list,fatherTrees,null);
+            String fa = F.remove(F.size()-1);
+            List<CreateTree> tr = T.remove(T.size()-1);
+            func(fa,index,list,tr);
         }
         return;
     }
