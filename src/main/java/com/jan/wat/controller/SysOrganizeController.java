@@ -28,13 +28,8 @@ public class SysOrganizeController {
     public List<CreateTree>getAllEquSimpackagelist(){
         List<SysOrganize> list = iSysOrganizeService.list();
         List<CreateTree> trees = new ArrayList<>();
-        createTree(trees, list);
-        return trees;
-    }
-    public List<CreateTree> createTree(List<CreateTree> trees, List<SysOrganize> list)
-    {
-        trees.add(new CreateTree(list.get(0)));
-        func(list,trees);
+
+        func("0",0,list,trees);
         return trees;
     }
 //    public SysOrganize getLastNode(List<SysOrganize> list, int index)
@@ -43,23 +38,10 @@ public class SysOrganizeController {
 //    }
     public void func(List<SysOrganize> list, List<CreateTree> trees){
 
-        for (int index =1; index < list.size(); index++)
-        {
-            if(list.get(index).getParentcode().equals(list.get(index-1).getParentcode()))
-            {
-                trees.add(new CreateTree(list.get(index)));
-            }
-            else
-            {
-                for (int i = 0; i < list.size(); i++)
-                {
-                    if (list.get(index).getParentcode().equals(list.get(i).getParentcode())){
-                        break;
-                    }
-                }
-                trees.add(new CreateTree(list.get(index)));
-            }
-        }
+    static List<String> F = new ArrayList<>();
+    static List<List<CreateTree>> T = new ArrayList<>();
+
+    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees){
 
         /*if(index == list.size())
             return;
@@ -69,11 +51,14 @@ public class SysOrganizeController {
 
         if(s.getParentcode().equals(father)){
             trees.add(tree);
+            F.add(father);
+            T.add(trees);
             func(s.getOrganizecode(),index+1, list, tree.getChildren());
         }else{
-            func(s.getParentcode(),index, list, trees);
-        }*/
-
+            String fa = F.remove(F.size()-1);
+            List<CreateTree> tr = T.remove(T.size()-1);
+            func(fa,index,list,tr);
+        }
         return;
 
     }
