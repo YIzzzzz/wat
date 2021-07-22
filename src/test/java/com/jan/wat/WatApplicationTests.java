@@ -12,6 +12,7 @@ import com.jan.wat.mapper.EquipmentdataMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
+import com.jan.wat.service.ISysOrganizeService;
 import org.apache.ibatis.annotations.Select;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @SpringBootTest
 class WatApplicationTests {
@@ -113,5 +113,36 @@ class WatApplicationTests {
         sysUser.setCreatedate(new Date());
         System.out.println(sysUser.getCreatedate());
     }
+
+    @Autowired
+    ISysOrganizeService iSysOrganizeService;
+
+    @Test
+    public void createJson(){
+        List<SysOrganize> list = iSysOrganizeService.list();
+        List<CreateTree> trees = new ArrayList<>();
+
+        func("*",0,list,trees);
+        System.out.println(trees);
+
+    }
+
+
+    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees){
+
+        if(index == list.size())
+            return;
+        SysOrganize s = list.get(index);
+        CreateTree tree = new CreateTree(s);
+
+        if(father.equals("*")  || s.getParentcode().equals(father)){
+            trees.add(tree);
+            func(s.getOrganizecode(),index+1, list, tree.getChildren());
+        }else{
+            func(s.getParentcode(),index, list, trees);
+        }
+        return;
+    }
+
 
 }

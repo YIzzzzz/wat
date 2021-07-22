@@ -5,32 +5,77 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.mapper.EquDatatypeMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
 import java.util.List;
 
+/**
+ * wsk
+ */
+@RestController
 @CrossOrigin
 @Controller
-@RequestMapping("/wat")
+@RequestMapping("/wat/caliber")
 public class WatCaliberController {
 
     @Autowired
     IWatCaliberService iWatCaliberService;
 
-    @RequestMapping("/caliber")
+    @ApiOperation(value = "查询水表口径信息")
+    @GetMapping("getall")
     @ResponseBody
-    public String getCaliber(){
-        List<WatCaliber> list = iWatCaliberService.list(null);
-        JSONObject jsonObject = new JSONObject();
+    public List<WatCaliber> getAllCaliber(){
+        return iWatCaliberService.list(null);
+    }
 
-        jsonObject.put("data",list);
-        return jsonObject.toJSONString();
+    @ApiOperation(value = "添加水表口径信息")
+    @PostMapping("/add")
+    public RespBean addWatCaliber(@RequestBody WatCaliber watCaliber){
+        if (iWatCaliberService.save(watCaliber)){
+            return RespBean.success("添加成功！");
+        }
+        return RespBean.error("添加失败！");
+    }
 
+    @ApiOperation(value = "更新水表口径信息")
+    @PutMapping("/update")
+    public RespBean updateWatCaliber(@RequestBody WatCaliber watCaliber){
+        if (iWatCaliberService.updateById(watCaliber)){
+            return RespBean.success("更新成功");
+        }
+        return RespBean.error("更新失败！");
+    }
+
+    @ApiOperation(value = "批量水表口径信息")
+    @PutMapping("updatebatch")
+    public RespBean updateBatchWatCaliber(@RequestBody List<WatCaliber> watCaliberList){
+        if(iWatCaliberService.updateBatchById(watCaliberList)){
+            return RespBean.success("更新成功");
+        }
+        return RespBean.error("更新失败");
+    }
+
+    @ApiOperation(value = "删除水表口径信息")
+    @DeleteMapping("/{id}")
+    public RespBean deleteWatCaliber(@PathVariable Integer id){
+        if (iWatCaliberService.removeById(id)){
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
+
+    @ApiOperation(value = "批量删除水表口径信息")
+    @DeleteMapping("/delete")
+    public RespBean deleteWatCaliberByIds(@RequestBody Integer[] ids){
+        if (iWatCaliberService.removeByIds(Arrays.asList(ids))){
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
     }
 
 }
