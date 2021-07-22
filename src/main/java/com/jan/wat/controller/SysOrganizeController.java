@@ -1,5 +1,6 @@
 package com.jan.wat.controller;
 
+import com.jan.wat.pojo.CreateTree;
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.SysOrganize;
 import com.jan.wat.pojo.WatClassify;
@@ -7,6 +8,8 @@ import com.jan.wat.service.ISysOrganizeService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,8 +26,28 @@ public class SysOrganizeController {
 
     @ApiOperation(value = "查询组织机构列表")
     @GetMapping("/getall")
-    public List<SysOrganize> getAllEquSimpackagelist(){
-        return iSysOrganizeService.list();
+    public List<CreateTree>getAllEquSimpackagelist(){
+        List<SysOrganize> list = iSysOrganizeService.list();
+        List<CreateTree> trees = new ArrayList<>();
+
+        func("*",0,list,trees,null);
+        return trees;
+    }
+
+    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees, List<CreateTree> fatherTrees){
+
+        if(index == list.size())
+            return;
+        SysOrganize s = list.get(index);
+        CreateTree tree = new CreateTree(s);
+
+        if(father.equals("*")  || s.getParentcode().equals(father)){
+            trees.add(tree);
+            func(s.getOrganizecode(),index+1, list, tree.getChildren(),trees);
+        }else{
+            func(s.getParentcode(),index,list,fatherTrees,null);
+        }
+        return;
     }
 
     @ApiOperation(value = "添加组织机构信息")
