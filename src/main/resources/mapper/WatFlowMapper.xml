@@ -146,4 +146,20 @@
         <result column="LastMonthAccumulate" property="lastmonthaccumulate" />
     </resultMap>
 
+
+<!--    <select id="getByCondition" resultMap="FlowInfo">-->
+<!--        select distinct A.*-->
+<!--        from flow_view as A,equ_equipmentgroup_equipment_map egm, equ_user_equipmentgroup_map uem-->
+<!--    <where>-->
+<!--        where A.Equipment_ID = egm.Equipment_ID and egm.EquipmentGroup_ID = uem.EquipmentGroup_ID-->
+<!--    <if test="">-->
+<!--        and-->
+<!--    </if>-->
+<!--    if (EquipmentGroup_ID != "") where = where+string.Format(" and A.Equipment_ID in (select Equipment_ID from equ_EquipmentGroup_Equipment_Map where EquipmentGroup_ID in (select ID from [dbo].[GetEquipmentGroupChild]('equ_EquipmentGroup','{0}')))", EquipmentGroup_ID);-->
+<!--    if (Equipment_ID != "0") where = where + " and A.Equipment_ID='" + Equipment_ID + "'";-->
+
+
+<!--    </where>-->
+<!--    </select>-->
+
 </mapper>
