@@ -1,13 +1,11 @@
 package com.jan.wat.controller;
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
 import io.swagger.annotations.ApiOperation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +19,14 @@ public class SysParameterController {
 
     @Autowired
     ISysParameterService iSysParameterService;
+
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public Page<SysParameter> getAllSysParameterPage(@PathVariable long current, @PathVariable long size)
+    {
+        Page<SysParameter> page = new Page<>(current, size);
+        return iSysParameterService.page(page);
+    }
 
     @ApiOperation(value = "查询系统参数")
     @GetMapping("getall")

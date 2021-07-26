@@ -1,10 +1,7 @@
 package com.jan.wat.controller;
 
-import com.jan.wat.pojo.RespBean;
-import com.jan.wat.pojo.SysOrganize;
-import com.jan.wat.pojo.SysRole;
-import com.jan.wat.pojo.WatClassify;
-import com.jan.wat.service.ISysOrganizeService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.pojo.*;
 import com.jan.wat.service.ISysRoleService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +18,14 @@ public class SysRoleController {
 
     @Autowired
     ISysRoleService iSysRoleService;
+
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public Page<SysRole> getAllSysRolePage(@PathVariable long current, @PathVariable long size)
+    {
+        Page<SysRole> page = new Page<>(current, size);
+        return iSysRoleService.page(page);
+    }
 
     @ApiOperation(value = "查询角色管理列表")
     @GetMapping("/getall")

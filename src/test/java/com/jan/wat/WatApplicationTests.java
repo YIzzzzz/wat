@@ -5,11 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
-import com.jan.wat.mapper.EquDatatypeMapper;
-import com.jan.wat.mapper.EquEquipmentMapper;
-import com.jan.wat.mapper.EquServerMapper;
-import com.jan.wat.mapper.EquipmentdataMapper;
+import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
+import com.jan.wat.pojo.vo.EquParaQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.ISysOrganizeService;
@@ -38,6 +36,8 @@ class WatApplicationTests {
     IEquCommandService iEquCommandService;
     @Autowired
     EquEquipmentMapper equEquipmentMapper;
+    @Autowired
+    EquParaMapper equParaMapper;
 
 //    @Test
 //    void contextLoads() {
@@ -92,7 +92,7 @@ class WatApplicationTests {
     }
 
     @Test
-    public void testequipxdment(){
+    public void testesdquipxdment(){
         List<Object> realData1 = equEquipmentMapper.getRealData();
 
         System.out.println(realData1);
@@ -105,14 +105,14 @@ class WatApplicationTests {
 //        return "2";
     }
 
-    @Test
-    public void test() throws ParseException {
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-//        System.out.println(df.parse(df.format(new Date())));// new Date()为获取当前系统时间
-        SysUser sysUser = new SysUser();
-        sysUser.setCreatedate(new Date());
-        System.out.println(sysUser.getCreatedate());
-    }
+//    @Test
+//    public void test() throws ParseException {
+////        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+////        System.out.println(df.parse(df.format(new Date())));// new Date()为获取当前系统时间
+//        SysUser sysUser = new SysUser();
+//        sysUser.setCreatedate(new Date());
+//        System.out.println(sysUser.getCreatedate());
+//    }
 
     @Autowired
     ISysOrganizeService iSysOrganizeService;
@@ -144,5 +144,15 @@ class WatApplicationTests {
         return;
     }
 
+    @Test
+    public void queryparalist(){
+
+        List<EquParaQuery> equParaQueries = equParaMapper.queryParaList();
+
+        for(EquParaQuery e:equParaQueries){
+
+            System.out.println(e);
+        }
+    }
 
 }

@@ -1,17 +1,12 @@
 package com.jan.wat.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jan.wat.mapper.EquDatatypeMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,6 +20,14 @@ import java.util.List;
 public class WatClassifyController {
     @Autowired
     IWatClassifyService iWatClassifyService;
+
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public Page<WatClassify> getAllWatClassifyPage(@PathVariable long current, @PathVariable long size)
+    {
+        Page<WatClassify> page = new Page<>(current, size);
+        return iWatClassifyService.page(page);
+    }
 
     @ApiOperation(value = "查询用水性质")
     @GetMapping("getall")

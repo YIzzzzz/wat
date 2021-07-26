@@ -1,5 +1,6 @@
 package com.jan.wat.pojo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -62,13 +63,13 @@ public class SysUser implements Serializable {
 
     @TableField("CreateDate")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createdate;
+    private LocalDateTime createdate;
 
     @TableField("UpdatePerson")
     private String updateperson;
 
     @TableField("UpdateDate")
-    private Date updatedate;
+    private LocalDateTime updatedate;
 
 
 }
