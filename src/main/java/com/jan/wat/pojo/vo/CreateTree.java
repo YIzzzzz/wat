@@ -1,8 +1,7 @@
-package com.jan.wat.pojo;
+package com.jan.wat.pojo.vo;
 
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.jan.wat.pojo.SysOrganize;
 import lombok.Data;
 
 import java.util.ArrayList;

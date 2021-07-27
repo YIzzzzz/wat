@@ -30,5 +30,11 @@ public class EquEquipmentgroup implements Serializable {
     @TableField("ParentID")
     private String parentid;
 
+    public EquEquipmentgroup(){}
 
+    public EquEquipmentgroup(EquEquipmentgroup equEquipmentgroup) {
+        id = equEquipmentgroup.getId();
+        name = equEquipmentgroup.getName();
+        parentid = equEquipmentgroup.getParentid();
+    }
 }

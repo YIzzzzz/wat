@@ -10,16 +10,15 @@ import com.jan.wat.mapper.EquEquipmentMapper;
 import com.jan.wat.mapper.EquServerMapper;
 import com.jan.wat.mapper.EquipmentdataMapper;
 import com.jan.wat.pojo.*;
+import com.jan.wat.pojo.vo.CreateTree;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.ISysOrganizeService;
-import org.apache.ibatis.annotations.Select;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @SpringBootTest
