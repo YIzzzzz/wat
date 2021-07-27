@@ -4,22 +4,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.SysOrganize;
 import com.jan.wat.pojo.SysUser;
-import com.jan.wat.pojo.WatClassify;
 import com.jan.wat.service.ISysOrganizeService;
 import com.jan.wat.service.ISysUserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.text.ParseException;
+import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
-
-import java.text.SimpleDateFormat;
-
-
-
 import java.util.List;
 
 /**
@@ -55,10 +48,8 @@ public class SysUserController {
     public RespBean addUser(@RequestBody SysUser sysUser) throws ParseException {
 
         sysUser.setPassword("123456");
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
-        sysUser.setCreatedate(df.parse(df.format(new Date())));
-        sysUser.setUpdatedate(df.parse(df.format(new Date())));
+        sysUser.setCreatedate(LocalDateTime.now());
+        sysUser.setUpdatedate(LocalDateTime.now());
         if(iSysUserService.save(sysUser)){
             return RespBean.success("添加成功");
         }

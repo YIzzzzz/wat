@@ -9,4 +9,20 @@
         <result column="Name" property="name" />
     </resultMap>
 
+    <resultMap id="EquQuery" type="com.jan.wat.pojo.vo.EquParavalueQuery">
+        <result column="para_id" property="para_id"/>
+        <result column="para_name" property="para_name"/>
+        <result column="paravalue_id" property="paravalue_id"/>
+    </resultMap>
+
+    <select id="selectByPage" resultMap="EquQuery">
+        select
+            pv.para_id as para_id,
+            pv.name as para_name,
+            pv.id as paravalue_id,
+            p.Name as name
+        from equ_paravalue pv, equ_para p
+        where pv.Para_ID = p.ID and pv.Para_ID=#{para_id}
+    </select>
+
 </mapper>

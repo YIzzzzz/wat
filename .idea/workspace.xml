@@ -85,6 +85,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-core/3.4.1/mybatis-plus-core-3.4.1.jar!/com/baomidou/mybatisplus/core/mapper/BaseMapper.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -269,7 +272,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -291,15 +294,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -314,7 +315,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="METHOD_NAME" value="queryparalist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -748,6 +749,27 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
           <line>40</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>46</line>
+          <properties class="com.jan.wat.service.impl.EquParavalueServiceImpl" method="updateByIdAndParaID" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

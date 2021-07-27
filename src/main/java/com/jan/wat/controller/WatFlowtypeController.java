@@ -1,17 +1,12 @@
 package com.jan.wat.controller;
 
-
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jan.wat.mapper.EquDatatypeMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.stereotype.Controller;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,6 +21,14 @@ public class WatFlowtypeController {
 
     @Autowired
     IWatFlowtypeService iWatFlowtypeService;
+
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public Page<WatFlowtype> getAllWatFlowtypePage(@PathVariable long current, @PathVariable long size)
+    {
+        Page<WatFlowtype> page = new Page<>(current, size);
+        return iWatFlowtypeService.page(page);
+    }
 
     @ApiOperation(value = "查询表具型号列表")
     @GetMapping("/getall")

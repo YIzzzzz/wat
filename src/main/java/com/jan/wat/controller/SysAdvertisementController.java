@@ -1,17 +1,11 @@
 package com.jan.wat.controller;
 
-
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
 import io.swagger.annotations.ApiOperation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
-import sun.java2d.pipe.AAShapePipe;
-
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +20,14 @@ public class SysAdvertisementController {
 
     @Autowired
     ISysAdvertisementService iSysAdvertisementService;
+
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public Page<SysAdvertisement> getAllSysAdvertisementPage(@PathVariable long current, @PathVariable long size)
+    {
+        Page<SysAdvertisement> page = new Page<>(current, size);
+        return iSysAdvertisementService.page(page);
+    }
 
     @ApiOperation(value = "查询广告管理")
     @GetMapping("getall")

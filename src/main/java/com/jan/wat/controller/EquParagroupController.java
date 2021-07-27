@@ -1,5 +1,6 @@
 package com.jan.wat.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.service.*;
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +23,14 @@ public class EquParagroupController {
 
     @Autowired
     IEquParagroupService iEquParagroupService;
+
+    @ApiOperation(value = "分页")
+    @GetMapping("{current}/{size}")
+    public Page<EquParagroup> getAllEquParagroupPage(@PathVariable long current, @PathVariable long size)
+    {
+        Page<EquParagroup> page = new Page<>(current, size);
+        return iEquParagroupService.page(page);
+    }
 
     @ApiOperation(value = "查询参数组管理")
     @GetMapping("getall")
