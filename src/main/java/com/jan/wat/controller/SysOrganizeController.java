@@ -2,9 +2,10 @@ package com.jan.wat.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.jan.wat.pojo.CreateTree;
+
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.SysOrganize;
+import com.jan.wat.pojo.vo.CreateTree;
 import com.jan.wat.service.ISysOrganizeService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
