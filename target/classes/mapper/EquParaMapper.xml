@@ -11,16 +11,4 @@
         <result column="ReadOnly" property="readonly" />
     </resultMap>
 
-    <select id="queryParaList" resultType="com.jan.wat.pojo.vo.EquParaQuery">
-        select
-            ep.ID as id,
-            ep.Name as name,
-            epg.Name as paraname,
-            ep.Type as type,
-            ep.ReadOnly as readonly
-        from rdas_eng.equ_para ep, rdas_eng.equ_paragroup epg
-        where ep.ParaGroup_ID = epg.ID
-        order by id;
-    </select>
-
 </mapper>

@@ -19,10 +19,10 @@ public class EquParaQuery {
     private String paraname;
 
     @ApiModelProperty(value = "参数类型")
-    private String type;
+    private Integer type;
 
     @ApiModelProperty(value = "是否只读")
-    private String readonly;
+    private boolean readonly;
 
     public Integer getId() {
         return id;
@@ -48,19 +48,21 @@ public class EquParaQuery {
         this.paraname = paraname;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public String getReadonly() {
+    public boolean isReadonly() {
         return readonly;
     }
 
-    public void setReadonly(String readonly) {
+    public void setReadonly(boolean readonly) {
         this.readonly = readonly;
     }
+
+
 }

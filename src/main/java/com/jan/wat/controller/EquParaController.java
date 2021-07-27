@@ -1,5 +1,8 @@
 package com.jan.wat.controller;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;7
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.mapper.EquParaMapper;
 import com.jan.wat.pojo.EquPara;
@@ -14,27 +17,25 @@ import java.util.List;
 /**
  * wsk
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/equ/para")
 public class EquParaController {
 
     @Autowired
     IEquParaService iEquParaService;
-    @Autowired
-    EquParaMapper equParaMapper;
 
     @ApiOperation(value = "分页")
     @GetMapping("{current}/{size}")
-    public Page<EquPara> getAllEquParaPage(@PathVariable long current, @PathVariable long size)
-    {
-        Page<EquPara> page = new Page<>(current, size);
-        return iEquParaService.page(page);
+    public IPage<EquParaQuery> getAllEquParaPage(@PathVariable long current, @PathVariable long size) {
+        Page<EquParaQuery> page = new Page<>(current, size);
+        return iEquParaService.selectByPage(page);
     }
 
     @ApiOperation(value = "查询参数管理列表")
     @GetMapping("/getall")
     public List<EquParaQuery> getAllEquParalist(){
-        return equParaMapper.queryParaList();
+        return iEquParaService.queryParaList();
     }
 
     @ApiOperation(value = "添加参数管理")
