@@ -18,6 +18,7 @@ public class EquipmentTree extends EquEquipmentgroup {
 
     private List<EquipmentTree> childern = new ArrayList<>();
 
+
     public EquipmentTree(){}
     public EquipmentTree(EquEquipmentgroup equEquipmentgroup){
         super(equEquipmentgroup);

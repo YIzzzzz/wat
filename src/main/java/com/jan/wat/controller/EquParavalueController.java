@@ -5,10 +5,7 @@ import com.jan.wat.service.IEquParaService;
 import com.jan.wat.service.IEquParavalueService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class EquParavalueController {
     @Autowired
     IEquParaService iEquParaService;
 
-    @ApiOperation(value = "获取参数树")
+    @ApiOperation(value = "获取数树")
     @GetMapping("/getTree")
     public List<ParaTree> getTree(){
         return iEquParaService.getTree();

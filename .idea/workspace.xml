@@ -6,16 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysOrganizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysOrganizeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/CreateTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/CreateTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquEquipmentgroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquEquipmentgroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParavalueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParavalueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquReadEquipmentParaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquReadEquipmentParaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentgroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentgroupMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/EquipmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/EquipmentTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquEquipmentgroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquEquipmentgroupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysOrganizeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysOrganizeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/CreateTree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/EquEquipmentgroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/EquEquipmentgroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParavalueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParavalueController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquReadEquipmentParaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquReadEquipmentParaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquEquipmentgroupMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquEquipmentgroupMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/EquipmentTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/EquipmentTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/IEquEquipmentgroupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/IEquEquipmentgroupService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.class" afterDir="false" />
     </list>
@@ -448,7 +448,7 @@
       <workItem from="1626751574958" duration="5655000" />
       <workItem from="1626940112493" duration="5210000" />
       <workItem from="1627027496006" duration="16156000" />
-      <workItem from="1627195720772" duration="14012000" />
+      <workItem from="1627195720772" duration="17666000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>

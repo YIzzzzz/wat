@@ -16,6 +16,6 @@ import java.util.List;
  */
 public interface IEquEquipmentgroupService extends IService<EquEquipmentgroup> {
 
-    public List<EquipmentTree> createTree();
+    public List<EquipmentTree> createTree(String userCode);
 
 }
