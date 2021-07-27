@@ -26,5 +26,10 @@ public class EquParagroup implements Serializable {
     @TableField("Name")
     private String name;
 
+    public EquParagroup(){}
+    public EquParagroup(EquParagroup equParagroup){
+        id = equParagroup.getId();
+        name = equParagroup.getName();
+    }
 
 }
