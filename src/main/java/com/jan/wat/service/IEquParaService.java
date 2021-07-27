@@ -6,6 +6,7 @@ import com.jan.wat.pojo.EquPara;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jan.wat.pojo.vo.EquParaQuery;
 import org.springframework.web.bind.annotation.PathVariable;
+import com.jan.wat.pojo.vo.ParaTree;
 
 import java.util.List;
 
@@ -23,4 +24,5 @@ public interface IEquParaService extends IService<EquPara> {
 
     IPage<EquParaQuery> selectByPage(Page<EquParaQuery> page);
 
+    List<ParaTree> getTree();
 }
