@@ -7,20 +7,15 @@
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/EquParaQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/EquParaQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquParaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquParaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/ISysUsermenucolumnsettingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/ISysUsermenucolumnsettingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/SysUsermenucolumnsettingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/SysUsermenucolumnsettingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EquParaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EquParaMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParaMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/EquParaQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/EquParaQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParavalueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquParavalueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParavalueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParavalueMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquParavalueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquParavalueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EquParavalueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EquParavalueMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParavalueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquParavalueController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParavalueMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParavalueMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/IEquParaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/IEquParaService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/EquParaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/EquParaServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/SysUsermenucolumnsettingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/SysUsermenucolumnsettingServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EquParaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/EquParaMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,15 +292,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -399,7 +392,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WatApplicationTests.queryparalist" />
         <item itemvalue="JUnit.WatApplicationTests.testPage" />
         <item itemvalue="JUnit.WatApplicationTests.testQuetry" />
       </list>
@@ -456,7 +448,7 @@
       <workItem from="1626940112493" duration="735000" />
       <workItem from="1627272973681" duration="944000" />
       <workItem from="1627285598904" duration="2018000" />
-      <workItem from="1627301640989" duration="7029000" />
+      <workItem from="1627301640989" duration="16189000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
@@ -756,6 +748,27 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
           <line>40</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
+          <line>46</line>
+          <properties class="com.jan.wat.service.impl.EquParavalueServiceImpl" method="updateByIdAndParaID" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
