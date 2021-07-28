@@ -24,5 +24,5 @@ public class ParaTree extends EquParagroup implements Serializable {
         super();
     }
 
-    List<EquPara> childern = new ArrayList<>();
+    List<EquPara> children = new ArrayList<>();
 }

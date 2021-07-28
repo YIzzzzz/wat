@@ -63,7 +63,7 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
 
         for(EquPara event : para){
             index = map.get(event.getParagroupId());
-            tree.get(index).getChildern().add(event);
+            tree.get(index).getChildren().add(event);
         }
 
         return tree;

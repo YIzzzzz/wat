@@ -16,7 +16,7 @@ import java.util.Map;
 @Data
 public class EquipmentTree extends EquEquipmentgroup {
 
-    private List<EquipmentTree> childern = new ArrayList<>();
+    private List<EquipmentTree> children = new ArrayList<>();
 
 
     public EquipmentTree(){}
@@ -47,7 +47,7 @@ public class EquipmentTree extends EquEquipmentgroup {
         }
         index = 0;
         for(int i : memory) {
-            bfs(i, list, tree.get(index++).getChildern());
+            bfs(i, list, tree.get(index++).getChildren());
         }
     }
 
@@ -57,7 +57,7 @@ public class EquipmentTree extends EquEquipmentgroup {
         for(int branch : map.get(current)){
             EquipmentTree equipmentTree = new EquipmentTree(list.get(branch));
             tree.add(equipmentTree);
-            bfs(branch,list,equipmentTree.getChildern());
+            bfs(branch,list,equipmentTree.getChildren());
         }
 
     }

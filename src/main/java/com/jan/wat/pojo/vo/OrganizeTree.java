@@ -28,7 +28,7 @@ public class OrganizeTree {
 
     private Date updatedate;
 
-    private List<OrganizeTree> childern = new ArrayList<>(); //child
+    private List<OrganizeTree> children = new ArrayList<>(); //child
 
     public OrganizeTree() {
 
@@ -67,7 +67,7 @@ public class OrganizeTree {
             trees.add(tree);
             fatherNodeStack.add(father);
             treesNodeStack.add(trees);
-            createTree(s.getOrganizecode(),index+1, list, tree.getChildern());
+            createTree(s.getOrganizecode(),index+1, list, tree.getChildren());
         }else{
             fatherNode = fatherNodeStack.pop();
             treesNode= treesNodeStack.pop();
@@ -97,7 +97,7 @@ public class OrganizeTree {
         }
         index = 0;
         for(int i : memory) {
-            bfs(i, list, tree.get(index++).getChildern());
+            bfs(i, list, tree.get(index++).getChildren());
         }
     }
 
@@ -108,7 +108,7 @@ public class OrganizeTree {
         for(int branch : map.get(current)){
             OrganizeTree organizeTree = new OrganizeTree(list.get(branch));
             tree.add(organizeTree);
-            bfs(branch,list,organizeTree.getChildern());
+            bfs(branch,list,organizeTree.getChildren());
         }
 
     }

@@ -135,7 +135,7 @@ class WatApplicationTests {
 
         if(father.equals("*")  || s.getParentcode().equals(father)){
             trees.add(tree);
-            func(s.getOrganizecode(),index+1, list, tree.getChildern());
+            func(s.getOrganizecode(),index+1, list, tree.getChildren());
         }else{
             func(s.getParentcode(),index, list, trees);
         }
