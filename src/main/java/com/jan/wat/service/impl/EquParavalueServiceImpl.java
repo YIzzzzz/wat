@@ -11,7 +11,6 @@ import com.jan.wat.pojo.EquParagroup;
 import com.jan.wat.pojo.EquParavalue;
 import com.jan.wat.mapper.EquParavalueMapper;
 import com.jan.wat.pojo.vo.EquParavalueQuery;
-import com.jan.wat.pojo.vo.ParaTree;
 import com.jan.wat.service.IEquParagroupService;
 import com.jan.wat.service.IEquParavalueService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
