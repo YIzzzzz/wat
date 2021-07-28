@@ -25,21 +25,21 @@ import java.util.List;
 @RequestMapping("/sys")
 public class SysController {
 
-//    @Autowired
-//    ISysUserService iSysUserService;
-//
-//    @RequestMapping("login")
-//    @ResponseBody
-//    public boolean login(@RequestBody JSONObject json){
-//        String userCode = (String) json.get("username");
-//        String password = (String) json.get("password");
-//
-//        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("userCode",userCode);
-//        queryWrapper.eq("password",password);
-//        SysUser sysUser = iSysUserService.getOne(queryWrapper);
-//        if(sysUser == null)
-//            return false;
-//        return true;
-//    }
+    @Autowired
+    ISysUserService iSysUserService;
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public boolean login(@RequestBody JSONObject json){
+        String userCode = (String) json.get("username");
+        String password = (String) json.get("password");
+
+        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("userCode",userCode);
+        queryWrapper.eq("password",password);
+        SysUser sysUser = iSysUserService.getOne(queryWrapper);
+        if(sysUser == null)
+            return false;
+        return true;
+    }
 }

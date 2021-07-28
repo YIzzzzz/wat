@@ -25,10 +25,12 @@ public class EquipmentTree extends EquEquipmentgroup {
     }
 
 
-    private static Map<Integer,List<Integer>> map = new HashMap<>();
-    private static List<Integer> memory = new ArrayList<>();
+    private static Map<Integer,List<Integer>> map;
+    private static List<Integer> memory;
 
     public static void createTree(List<EquEquipmentgroup> list, List<EquipmentTree> tree){
+        map = new HashMap<>();
+        memory = new ArrayList<>();
         for(EquEquipmentgroup event : list){
             map.put(event.getId(),new ArrayList<>());
         }
