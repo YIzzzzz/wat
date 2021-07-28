@@ -1,11 +1,8 @@
 package com.jan.wat.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-
 import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.SysOrganize;
-import com.jan.wat.pojo.vo.CreateTree;
+import com.jan.wat.pojo.vo.OrganizeTree;
 import com.jan.wat.service.ISysOrganizeService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +24,12 @@ public class SysOrganizeController {
 
     @ApiOperation(value = "查询组织机构列表")
     @GetMapping("/getall")
-    public List<CreateTree>getAllEquSimpackagelist(){
+    public List<OrganizeTree>getAllEquSimpackagelist(){
 
         List<SysOrganize> list = iSysOrganizeService.list();
-        List<CreateTree> trees = new ArrayList<>();
+        List<OrganizeTree> trees = new ArrayList<>();
 
-        CreateTree.createTree("0",0,list,trees);
+        OrganizeTree.createTree(list,trees);
         return trees;
     }
 

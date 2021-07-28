@@ -7,7 +7,7 @@ import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
-import com.jan.wat.pojo.vo.CreateTree;
+import com.jan.wat.pojo.vo.OrganizeTree;
 import com.jan.wat.pojo.vo.EquParaQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.text.ParseException;
 import java.util.*;
 
 @SpringBootTest
@@ -119,7 +118,7 @@ class WatApplicationTests {
     @Test
     public void createJson(){
         List<SysOrganize> list = iSysOrganizeService.list();
-        List<CreateTree> trees = new ArrayList<>();
+        List<OrganizeTree> trees = new ArrayList<>();
 
         func("*",0,list,trees);
         System.out.println(trees);
@@ -127,16 +126,16 @@ class WatApplicationTests {
     }
 
 
-    public void func(String father, int index, List<SysOrganize> list, List<CreateTree> trees){
+    public void func(String father, int index, List<SysOrganize> list, List<OrganizeTree> trees){
 
         if(index == list.size())
             return;
         SysOrganize s = list.get(index);
-        CreateTree tree = new CreateTree(s);
+        OrganizeTree tree = new OrganizeTree(s);
 
         if(father.equals("*")  || s.getParentcode().equals(father)){
             trees.add(tree);
-            func(s.getOrganizecode(),index+1, list, tree.getChildren());
+            func(s.getOrganizecode(),index+1, list, tree.getChildern());
         }else{
             func(s.getParentcode(),index, list, trees);
         }
