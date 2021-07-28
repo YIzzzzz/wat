@@ -286,17 +286,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WatApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
@@ -441,7 +430,7 @@
       <workItem from="1626751574958" duration="5655000" />
       <workItem from="1626940112493" duration="5210000" />
       <workItem from="1627027496006" duration="16156000" />
-      <workItem from="1627195720772" duration="17666000" />
+      <workItem from="1627195720772" duration="19817000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
@@ -760,7 +749,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
           <line>46</line>
-          <properties class="com.jan.wat.service.impl.EquParavalueServiceImpl" method="updateByIdAndParaID" />
+          <properties class="com.jan.wat.service.impl.EquParavalueServiceImpl" />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
