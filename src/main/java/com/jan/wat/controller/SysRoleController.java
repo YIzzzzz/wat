@@ -2,6 +2,7 @@ package com.jan.wat.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
+import com.jan.wat.pojo.vo.RoleTree;
 import com.jan.wat.service.ISysRoleService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,8 +79,10 @@ public class SysRoleController {
         return RespBean.error("删除失败");
     }
 
-//    @ApiOperation(value = "编辑权限")
-//    @GetMapping("edit/{rolecode}")
-
+    @ApiOperation(value = "编辑权限")
+    @GetMapping("edit/{rolecode}")
+    public List<RoleTree> selectByRolecode(String rolecode){
+        return iSysRoleService.selectByRolecode(rolecode);
+    }
 
 }

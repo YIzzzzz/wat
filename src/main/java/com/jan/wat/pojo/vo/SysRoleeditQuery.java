@@ -18,4 +18,12 @@ public class SysRoleeditQuery {
     @ApiModelProperty(value = "是否显示")
     private String chk;
 
+    public SysRoleeditQuery(){}
+    public SysRoleeditQuery(SysRoleeditQuery query){
+        menucode = query.getMenucode();
+        parentcode = query.getParentcode();
+        menuname = query.getMenuname();
+        chk = query.getChk();
+    }
+
 }
