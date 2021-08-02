@@ -77,4 +77,9 @@ public class SysRoleController {
         }
         return RespBean.error("删除失败");
     }
+
+//    @ApiOperation(value = "编辑权限")
+//    @GetMapping("edit/{rolecode}")
+
+
 }
