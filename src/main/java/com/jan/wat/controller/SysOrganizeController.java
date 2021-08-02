@@ -72,7 +72,7 @@ public class SysOrganizeController {
 
     @ApiOperation(value = "批量删除组织机构信息")
     @DeleteMapping("/delete")
-    public RespBean deleteSysOrganizeByIds(@RequestBody Integer[] ids){
+    public RespBean deleteSysOrganizeByIds(@RequestBody String[] ids){
         if (iSysOrganizeService.removeByIds(Arrays.asList(ids))){
             return RespBean.success("删除成功");
         }

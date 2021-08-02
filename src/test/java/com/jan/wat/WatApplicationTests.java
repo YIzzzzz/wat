@@ -9,6 +9,7 @@ import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.OrganizeTree;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.SysRoleeditQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.ISysOrganizeService;
@@ -36,6 +37,8 @@ class WatApplicationTests {
     EquEquipmentMapper equEquipmentMapper;
     @Autowired
     EquParaMapper equParaMapper;
+    @Autowired
+    SysRoleMapper sysRoleMapper;
 
 //    @Test
 //    void contextLoads() {
@@ -151,6 +154,15 @@ class WatApplicationTests {
 
             System.out.println(e);
         }
+    }
+
+    @Test
+    public void SysRole(){
+
+        List<SysRoleeditQuery> aSuper = sysRoleMapper.selectByRolecode("super");
+
+        System.out.println(aSuper);
+
     }
 
 }
