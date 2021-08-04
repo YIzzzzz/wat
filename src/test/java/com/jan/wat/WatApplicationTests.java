@@ -173,4 +173,9 @@ class WatApplicationTests {
         System.out.println(sigEquipmentPara);
     }
 
+    @Test
+    public void equipments(){
+        equEquipmentMapper.getEuipments("2","and egm.equipmentgroup_id = uem.equipmentgroup_id");
+    }
+
 }

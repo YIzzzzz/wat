@@ -18,4 +18,6 @@ public interface IEquEquipmentgroupService extends IService<EquEquipmentgroup> {
 
     public List<EquipmentTree> createTree(String userCode);
 
+
+    public List<Integer> getChildrenGroupId(String userCode, String euipmentGroupID);
 }

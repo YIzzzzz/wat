@@ -47,17 +47,17 @@ public class EquipmentTree extends EquEquipmentgroup {
         }
         index = 0;
         for(int i : memory) {
-            bfs(i, list, tree.get(index++).getChildren());
+            dfs(i, list, tree.get(index++).getChildren());
         }
     }
 
-    public static void bfs(int index, List<EquEquipmentgroup> list, List<EquipmentTree> tree){
+    public static void dfs(int index, List<EquEquipmentgroup> list, List<EquipmentTree> tree){
 
         int current = list.get(index).getId();
         for(int branch : map.get(current)){
             EquipmentTree equipmentTree = new EquipmentTree(list.get(branch));
             tree.add(equipmentTree);
-            bfs(branch,list,equipmentTree.getChildren());
+            dfs(branch,list,equipmentTree.getChildren());
         }
 
     }
