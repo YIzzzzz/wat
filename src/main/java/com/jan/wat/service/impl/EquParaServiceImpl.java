@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquPara;
 import com.jan.wat.mapper.EquParaMapper;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import com.jan.wat.service.IEquParaService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,9 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
 
         return tree;
     }
+
+
+
     @Autowired
     EquParaMapper mapper;
 
@@ -81,5 +85,8 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
         return mapper.selectByPage(page);
     }
 
-
+    @Override
+    public List<SigEuipementparaQuery> getSigEquipmentPara(String equipment_ID) {
+        return mapper.getSigEquipmentPara(equipment_ID);
+    }
 }

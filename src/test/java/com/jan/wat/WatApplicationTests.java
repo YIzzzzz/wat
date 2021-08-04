@@ -9,6 +9,7 @@ import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.OrganizeTree;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import com.jan.wat.pojo.vo.SysRoleeditQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
@@ -163,6 +164,13 @@ class WatApplicationTests {
 
         System.out.println(aSuper);
 
+    }
+
+
+    @Test
+    public void sigEquipment(){
+        List<SigEuipementparaQuery> sigEquipmentPara = equParaMapper.getSigEquipmentPara("0");
+        System.out.println(sigEquipmentPara);
     }
 
 }
