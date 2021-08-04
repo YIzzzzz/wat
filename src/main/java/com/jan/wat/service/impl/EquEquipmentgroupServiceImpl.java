@@ -35,4 +35,41 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
 
         return tree;
     }
+
+    public List<Integer> getChildrenGroupId(String userCode, String euipmentGroupID){
+        List<Integer> list = new ArrayList<>();
+
+        List<EquipmentTree> tree = createTree(userCode);
+
+        List<EquipmentTree> children = new ArrayList<EquipmentTree>();
+
+        find(euipmentGroupID, tree, children);
+
+        if(children == null)
+            return null;
+        addList(list, children);
+        return list;
+    }
+
+    private void find (String euipmentGroupID, List<EquipmentTree> tree,List<EquipmentTree> children){
+        if(tree == null)
+            return;
+        for(EquipmentTree e : tree){
+            if(String.valueOf(e.getId()).equals(euipmentGroupID)){
+                children = e.getChildren();
+                return;
+            }
+            find(euipmentGroupID, tree, children);
+        }
+        return;
+    }
+
+    private void addList(List<Integer> list, List<EquipmentTree> children){
+        if(children == null)
+            return;
+        for( EquipmentTree e : children){
+            list.add(e.getId());
+        }
+    }
+
 }

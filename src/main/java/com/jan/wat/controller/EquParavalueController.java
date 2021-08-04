@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWra
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.EquParavalueQuery;
+import com.jan.wat.pojo.vo.EuipmentsQuery;
 import com.jan.wat.pojo.vo.ParaTree;
+import com.jan.wat.service.IEquEquipmentService;
 import com.jan.wat.service.IEquParaService;
 import com.jan.wat.service.IEquParavalueService;
 import io.swagger.annotations.ApiOperation;
@@ -29,6 +31,9 @@ public class EquParavalueController {
 
     @Autowired
     IEquParavalueService iEquParavalueService;
+
+    @Autowired
+    IEquEquipmentService iEquEquipmentService;
 
     @ApiOperation(value = "获取参数树")
     @GetMapping("/getTree")
@@ -62,4 +67,11 @@ public class EquParavalueController {
         }
         return RespBean.error("更新失败！");
     }
+
+    @ApiOperation(value = "")
+    @GetMapping("/getequipments/{euipmentGroupID}/{equipmentId}/{userCode}")
+    public List<EuipmentsQuery> getEuipments(@PathVariable String euipmentGroupID,@PathVariable String equipmentId,@PathVariable String userCode){
+        return iEquEquipmentService.getEuipments(euipmentGroupID, equipmentId,userCode);
+    }
+
 }

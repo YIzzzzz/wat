@@ -97,18 +97,18 @@ public class OrganizeTree {
         }
         index = 0;
         for(int i : memory) {
-            bfs(i, list, tree.get(index++).getChildren());
+            dfs(i, list, tree.get(index++).getChildren());
         }
     }
 
-    public static void bfs(int index, List<SysOrganize> list, List<OrganizeTree> tree){
+    public static void dfs(int index, List<SysOrganize> list, List<OrganizeTree> tree){
 
         String current = list.get(index).getOrganizecode();
 
         for(int branch : map.get(current)){
             OrganizeTree organizeTree = new OrganizeTree(list.get(branch));
             tree.add(organizeTree);
-            bfs(branch,list,organizeTree.getChildren());
+            dfs(branch,list,organizeTree.getChildren());
         }
 
     }
