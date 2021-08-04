@@ -9,6 +9,7 @@ import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.OrganizeTree;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.ReadEquipmentparaQuery;
 import com.jan.wat.pojo.vo.SysRoleeditQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
@@ -39,6 +40,8 @@ class WatApplicationTests {
     EquParaMapper equParaMapper;
     @Autowired
     SysRoleMapper sysRoleMapper;
+    @Autowired
+    EquEquipmentparaMapper equEquipmentparaMapper;
 
 //    @Test
 //    void contextLoads() {
@@ -163,6 +166,19 @@ class WatApplicationTests {
 
         System.out.println(aSuper);
 
+    }
+
+    @Test
+    public void readequipmentpara(){
+//        List<ReadEquipmentparaQuery> aSuper = equEquipmentparaMapper.readEquipmentpara("huluadmin");
+//        System.out.println(aSuper);
+
+//        int index =0;
+//        for(ReadEquipmentparaQuery e : aSuper){
+//            System.out.println(e);
+//            index ++;
+//            if(index > 8) break;
+//        }
     }
 
 }

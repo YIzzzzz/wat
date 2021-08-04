@@ -25,4 +25,6 @@ public class EquReadEquipmentParaController {
     public List<EquipmentTree> getTree(@PathVariable String userCode){
         return iEquEquipmentgroupService.createTree(userCode);
     }
+
+
 }
