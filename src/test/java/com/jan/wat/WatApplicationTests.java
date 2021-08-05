@@ -198,4 +198,16 @@ class WatApplicationTests {
             if(index > 5) break;
         }
     }
+    @Test
+    public void para(){
+        List<MulEquipparaQuery> mulEquipmentPara = equParaMapper.getMulEquipmentPara(",(SeLeCT para_ID FROM equ_equipmentpara a) t0 inner join (SeLeCT para_ID FROM equ_equipmentpara a) t1 on t0.para_ID=t1.para_ID ");
+        System.out.println(mulEquipmentPara);
+    }
+
+    @Test
+    public void para1(){
+        List<LimitQuery> limit = equParaMapper.getLimit(10, "(1,2)");
+        System.out.println(limit);
+    }
+
 }

@@ -1,7 +1,9 @@
 package com.jan.wat.controller;
 
 import com.jan.wat.mapper.EquParaMapper;
+import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
+import com.jan.wat.service.IEquParaService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +22,20 @@ import java.util.List;
 public class EquSigEquipmentParaController {
 
     @Autowired
-    EquParaMapper equParaMapper;
+    IEquParaService iEquParaService;
 
     @ApiOperation(value = "获取单设备参数")
     @GetMapping("{equipment_ID}")
     public List<SigEuipementparaQuery> getSigEquipmentPara(@PathVariable String equipment_ID){
-        return equParaMapper.getSigEquipmentPara(equipment_ID);
+        return iEquParaService.getSigEquipmentPara(equipment_ID);
+    }
+
+    @ApiOperation(value = "发送命令")
+    @PostMapping("/sendCommand/{userCode}/{queries}")
+    public RespBean sendCommand(@PathVariable String userCode, @PathVariable List<SigEuipementparaQuery> queries){
+        if(iEquParaService.sendCommand(queries,userCode))
+            return RespBean.success("success!");
+        return RespBean.error("error!");
     }
 
 }
