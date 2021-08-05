@@ -1,6 +1,8 @@
 package com.jan.wat.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -32,7 +34,7 @@ public class EquCommand implements Serializable {
     private Integer commandtype;
 
     @TableField("SettingTime")
-    private Date settingtime;
+    private LocalDateTime settingtime;
 
     @TableField("Command")
     private String command;

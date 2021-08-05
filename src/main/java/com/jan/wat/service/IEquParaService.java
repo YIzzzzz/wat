@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquPara;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.MulEquipparaQuery;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
-import org.springframework.web.bind.annotation.PathVariable;
 import com.jan.wat.pojo.vo.ParaTree;
 
 import java.util.List;
@@ -28,5 +28,10 @@ public interface IEquParaService extends IService<EquPara> {
     List<ParaTree> getTree();
 
     List<SigEuipementparaQuery> getSigEquipmentPara(String equipment_ID);
+
+    boolean sendCommand(List<SigEuipementparaQuery> queries, String userCode);
+
+    List<MulEquipparaQuery> getMulEquipmentPara(List<String> equipmentIds);
+
 
 }

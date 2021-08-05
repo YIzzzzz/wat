@@ -7,10 +7,7 @@ import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
-import com.jan.wat.pojo.vo.OrganizeTree;
-import com.jan.wat.pojo.vo.EquParaQuery;
-import com.jan.wat.pojo.vo.SigEuipementparaQuery;
-import com.jan.wat.pojo.vo.SysRoleeditQuery;
+import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.ISysOrganizeService;
@@ -176,6 +173,18 @@ class WatApplicationTests {
     @Test
     public void equipments(){
         equEquipmentMapper.getEuipments("2","and egm.equipmentgroup_id = uem.equipmentgroup_id");
+    }
+
+    @Test
+    public void para(){
+        List<MulEquipparaQuery> mulEquipmentPara = equParaMapper.getMulEquipmentPara(",(SeLeCT para_ID FROM equ_equipmentpara a) t0 inner join (SeLeCT para_ID FROM equ_equipmentpara a) t1 on t0.para_ID=t1.para_ID ");
+        System.out.println(mulEquipmentPara);
+    }
+
+    @Test
+    public void para1(){
+        List<LimitQuery> limit = equParaMapper.getLimit(10, "(1,2)");
+        System.out.println(limit);
     }
 
 }

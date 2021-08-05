@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquPara;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.LimitQuery;
+import com.jan.wat.pojo.vo.MulEquipparaQuery;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -52,5 +54,16 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "from equ_equipmentpara as a,equ_para b\n" +
             "where a.para_ID=b.ID and a.equipment_ID=#{equipment_ID}")
     List<SigEuipementparaQuery> getSigEquipmentPara(String equipment_ID);
+
+    @Select("select distinct p.ID as para_ID,p.Type as pType,p.Name as para_Name,'' as UpLimit,'' as DownLimit\n" +
+            "from equ_para p ${from}\n" +
+            "where t0.para_ID=p.ID and p.ReadOnly=0")
+    List<MulEquipparaQuery> getMulEquipmentPara(String from);
+
+
+    @Select("select min(UpLimit) as upLimit,max(DownLimit) as downLimit\n" +
+            "from equ_equipmentpara a\n" +
+            "where a.Para_ID = ${paraId} and a.Equipment_ID in ${ids}")
+    List<LimitQuery> getLimit(int paraId, String ids);
 
 }
