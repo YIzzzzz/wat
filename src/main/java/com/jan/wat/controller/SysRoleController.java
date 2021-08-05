@@ -3,6 +3,7 @@ package com.jan.wat.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.RoleTree;
@@ -12,6 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,6 +48,7 @@ public class SysRoleController {
     @ApiOperation(value = "添加角色管理信息")
     @PostMapping("/add")
     public RespBean addSysRole(@RequestBody SysRole sysRole){
+        sysRole.setCreatedate(LocalDateTime.now());
         if (iSysRoleService.save(sysRole)){
             return RespBean.success("添加成功！");
         }
@@ -55,15 +58,23 @@ public class SysRoleController {
     @ApiOperation(value = "更新角色管理信息")
     @PutMapping("/update")
     @ResponseBody
-    public void updateSysRole(@RequestBody JSONObject json){
-        String oldCode = (String)json.get("oldCode");
-        System.out.println("----------------------------------------------------------");
-        System.out.println(oldCode);
-
-//        if (iSysRoleService.updateById(sysRole)){
-//            return RespBean.success("更新成功");
+    public RespBean updateSysRole(@RequestBody JSONObject json){
+//        if(iSysRoleService.updateById(sysRole)){
+//            return RespBean.success("修改成功");
 //        }
-//        return RespBean.error("更新失败！");
+//        return RespBean.error("修改失败");
+        String oldcode = (String)json.get("oldCode");
+        String rolename = (String)json.get("rolename");
+        String rolecode = (String)json.get("rolecode");
+        String updateperson = (String)json.get("updateperson");
+        LocalDateTime updatedate = LocalDateTime.now();
+        String roleseq = (String)json.get("roleseq");
+        String description = (String)json.get("description");
+        if(iSysRoleService.updateRole(oldcode, rolecode, roleseq, rolename, description, updateperson, updatedate)){
+            return RespBean.success("更新成功");
+        }
+        return  RespBean.error("更新失败");
+
     }
 
     @ApiOperation(value = "批量更新角色管理信息")

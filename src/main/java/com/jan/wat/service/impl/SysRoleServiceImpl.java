@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,4 +35,11 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         RoleTree.createTree(list, tree);
         return tree;
     }
+
+    @Override
+    public boolean updateRole(String oldcode, String rolecode, String roleseq, String rolename, String description, String updateperson, LocalDateTime updatedate) {
+        return sysRoleMapper.updateRole(oldcode, rolecode, roleseq, rolename, description, updateperson, updatedate);
+    }
+
+
 }

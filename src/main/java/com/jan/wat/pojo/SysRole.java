@@ -1,11 +1,13 @@
 package com.jan.wat.pojo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -37,13 +39,16 @@ public class SysRole implements Serializable {
     private String createperson;
 
     @TableField("CreateDate")
-    private Date createdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createdate;
+
 
     @TableField("UpdatePerson")
     private String updateperson;
 
     @TableField("UpdateDate")
-    private Date updatedate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updatedate;
 
 
 }

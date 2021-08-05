@@ -33,21 +33,24 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
 
         if(!euipmentGroupID.equals("")){
             List<Integer> childrenGroupId = iEquEquipmentgroupService.getChildrenGroupId(userCode, euipmentGroupID);
-            if(childrenGroupId!=null){
+            if(childrenGroupId.size()>0){
                 where.append(" and A.ID in (");
+                int count = 0;
+                int length = childrenGroupId.size();
                 for(Integer i : childrenGroupId){
-                    where.append(" ");
                     where.append(i);
+                    count++;
+                    if(count == length)
+                        continue;
+                    where.append(",");
                 }
-                where.append(" )");
+                where.append(")");
             }
         }
-        if(!equipmentId.equals("0")){
-            where.append(String.format("and A.ID=%s",equipmentId));
+        if(!equipmentId.equals("0") || !equipmentId.equals("")){
+            where.append(String.format(" and A.ID=%s",equipmentId));
         }
 
-        equEquipmentMapper.getEuipments(userCode, where.toString());
-
-        return null;
+        return equEquipmentMapper.getEuipments(userCode, where.toString());
     }
 }

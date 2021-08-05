@@ -35,36 +35,37 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
 
         return tree;
     }
+    private List<EquipmentTree> children = new ArrayList<EquipmentTree>();
 
     public List<Integer> getChildrenGroupId(String userCode, String euipmentGroupID){
+        children = new ArrayList<EquipmentTree>();
         List<Integer> list = new ArrayList<>();
 
         List<EquipmentTree> tree = createTree(userCode);
 
-        List<EquipmentTree> children = new ArrayList<EquipmentTree>();
 
-        find(euipmentGroupID, tree, children);
+        find(euipmentGroupID, tree);
 
         if(children == null)
             return null;
-        addList(list, children);
+        addList(list);
         return list;
     }
 
-    private void find (String euipmentGroupID, List<EquipmentTree> tree,List<EquipmentTree> children){
+    private void find (String euipmentGroupID, List<EquipmentTree> tree){
         if(tree == null)
             return;
         for(EquipmentTree e : tree){
-            if(String.valueOf(e.getId()).equals(euipmentGroupID)){
+            if(euipmentGroupID.equals(String.valueOf(e.getId()))){
                 children = e.getChildren();
                 return;
             }
-            find(euipmentGroupID, tree, children);
+            find(euipmentGroupID, e.getChildren());
         }
         return;
     }
 
-    private void addList(List<Integer> list, List<EquipmentTree> children){
+    private void addList(List<Integer> list){
         if(children == null)
             return;
         for( EquipmentTree e : children){

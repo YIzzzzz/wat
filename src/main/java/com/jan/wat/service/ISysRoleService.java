@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.jan.wat.pojo.vo.RoleTree;
 import com.jan.wat.pojo.vo.SysRoleeditQuery;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -19,4 +20,5 @@ public interface ISysRoleService extends IService<SysRole> {
 
     List<RoleTree> selectByRolecode(String rolecode);
 
+    public boolean updateRole(String oldcode, String rolecode, String roleseq, String rolename, String description,  String updateperson, LocalDateTime updatedate);
 }

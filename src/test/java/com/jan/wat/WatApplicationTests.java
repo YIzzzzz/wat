@@ -7,11 +7,7 @@ import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
-import com.jan.wat.pojo.vo.OrganizeTree;
-import com.jan.wat.pojo.vo.EquParaQuery;
-import com.jan.wat.pojo.vo.SigEuipementparaQuery;
-import com.jan.wat.pojo.vo.ReadEquipmentparaQuery;
-import com.jan.wat.pojo.vo.SysRoleeditQuery;
+import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.IEquCommandService;
 import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.ISysOrganizeService;
@@ -19,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @SpringBootTest
@@ -43,6 +40,9 @@ class WatApplicationTests {
     SysRoleMapper sysRoleMapper;
     @Autowired
     EquEquipmentparaMapper equEquipmentparaMapper;
+
+    @Autowired
+    EquCommandMapper equCommandMapper;
 
 //    @Test
 //    void contextLoads() {
@@ -163,9 +163,15 @@ class WatApplicationTests {
     @Test
     public void SysRole(){
 
-        List<SysRoleeditQuery> aSuper = sysRoleMapper.selectByRolecode("super");
+        LocalDateTime time = LocalDateTime.now();
+        boolean b = sysRoleMapper.updateRole("003", "004", "123", "46","546","64",time);
+        if(b){
+            System.out.println("-------------------------------------------");
+        }else{
+            System.out.println("************************************************");
+        }
 
-        System.out.println(aSuper);
+//        System.out.println(aSuper);
 
     }
 
@@ -177,19 +183,19 @@ class WatApplicationTests {
     }
 
     @Test
-    public void equipments(){
-        equEquipmentMapper.getEuipments("2","and egm.equipmentgroup_id = uem.equipmentgroup_id");
-    @Test
-    public void readequipmentpara(){
-//        List<ReadEquipmentparaQuery> aSuper = equEquipmentparaMapper.readEquipmentpara("huluadmin");
-//        System.out.println(aSuper);
-
-//        int index =0;
-//        for(ReadEquipmentparaQuery e : aSuper){
-//            System.out.println(e);
-//            index ++;
-//            if(index > 8) break;
-//        }
+    public void equipments() {
+        equEquipmentMapper.getEuipments("2", "and egm.equipmentgroup_id = uem.equipmentgroup_id");
     }
 
+    @Test
+    public void testUncheckcommand(){
+        List<EquUncheckcommandQuery> huluadmin = equCommandMapper.getEquUncheckcommand("huluadmin");
+
+        int index =0;
+        for(EquUncheckcommandQuery e : huluadmin){
+            System.out.println(e);
+            index ++;
+            if(index > 5) break;
+        }
+    }
 }
