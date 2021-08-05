@@ -211,10 +211,10 @@ class WatApplicationTests {
     }
 
     @Test
-    public void para1(){
+    public void para1() {
         List<LimitQuery> limit = equParaMapper.getLimit(10, "(1,2)");
         System.out.println(limit);
-
+    }
     @Test
     public void testUncheckcommand(){
         List<EquUncheckcommandQuery> huluadmin = equCommandMapper.getEquUncheckcommand("huluadmin");
@@ -223,7 +223,7 @@ class WatApplicationTests {
         for(EquUncheckcommandQuery e : huluadmin){
             System.out.println(e);
             index ++;
-            if(index > 5) break;
+            if(index > 20) break;
         }
     }
 }

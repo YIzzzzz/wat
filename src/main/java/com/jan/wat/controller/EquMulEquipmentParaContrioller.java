@@ -24,8 +24,9 @@ public class EquMulEquipmentParaContrioller {
     IEquParaService iEquParaService;
 
     @ApiOperation(value = "获取多设备参数")
-    @GetMapping("{equipment_ID}")
+    @PostMapping("/getSigEquipmentPara/{equipment_IDs}")
     public List<MulEquipparaQuery> getSigEquipmentPara(@PathVariable String equipment_IDs){
+        System.out.println(equipment_IDs);
         List<String> equipment_ID = Arrays.asList(equipment_IDs.split(","));
         return iEquParaService.getMulEquipmentPara(equipment_ID);
     }

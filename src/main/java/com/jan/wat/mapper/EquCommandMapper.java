@@ -3,9 +3,12 @@ package com.jan.wat.mapper;
 import com.jan.wat.pojo.EquCommand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jan.wat.pojo.vo.EquUncheckcommandQuery;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -25,8 +28,23 @@ public interface EquCommandMapper extends BaseMapper<EquCommand> {
             "        from equ_command as c,equ_equipment e,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
             "        where c.equipment_id=e.id and checktime is null and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = c.equipment_id" +
             "<if test='equipmentgroup_id != \"0\"'>" +
-            "" +
+            "</if>" +
             "</script>")
+    @Results(id="getEquUncheckcommand", value={
+            @Result(column="equipment_name", property="equipment_name"),
+            @Result(column="des", property="des"),
+            @Result(column="equipment_id", property="equipment_id"),
+            @Result(column="id", property="id"),
+            @Result(column="commandtype", property="commandtype"),
+            @Result(column="sendnum", property="sendnum"),
+            @Result(column="responsemessage", property="responsemessage"),
+            @Result(column="settingtime", property="settingtime"),
+            @Result(column="sendtime", property="sendtime"),
+            @Result(column="responsetime", property="responsetime"),
+            @Result(column="status", property="status"),
+            @Result(column="username", property="username")
+
+    })
     public List<EquUncheckcommandQuery> getEquUncheckcommand(String usercode);
 
 }

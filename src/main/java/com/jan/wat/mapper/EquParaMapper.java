@@ -9,6 +9,8 @@ import com.jan.wat.pojo.vo.LimitQuery;
 import com.jan.wat.pojo.vo.MulEquipparaQuery;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import org.springframework.stereotype.Repository;
@@ -58,6 +60,13 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
     @Select("select distinct p.ID as para_ID,p.Type as pType,p.Name as para_Name,'' as UpLimit,'' as DownLimit\n" +
             "from equ_para p ${from}\n" +
             "where t0.para_ID=p.ID and p.ReadOnly=0")
+    @Results(id="MulEquipmentParaMap", value={
+            @Result(column="para_ID", property="para_ID"),
+            @Result(column="pType", property="pType"),
+            @Result(column="para_Name", property="para_Name"),
+            @Result(column="UpLimit", property="UpLimit"),
+            @Result(column="DownLimit", property="DownLimit")
+    })
     List<MulEquipparaQuery> getMulEquipmentPara(String from);
 
 

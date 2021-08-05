@@ -129,7 +129,7 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
             if(i==0){
                 from.append(String.format(" ,(select para_ID FROM equ_equipmentpara a where a.Equipment_ID = \'%s\') t0 ",id));
             }else{
-                from.append(String.format(" inner join (SeLeCT para_ID FROM equ_equipmentpara a where a.Equipment_ID = \'%s\') t%i on t0.para_ID=t%i.para_ID ",id,i,i));
+                from.append(String.format(" inner join (SeLeCT para_ID FROM equ_equipmentpara a where a.Equipment_ID = \'%s\') t%d on t0.para_ID=t%d.para_ID ",id,i,i));
             }
             i++;
             ids.append(id);
@@ -138,7 +138,7 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
         }
         ids.append(")");
         List<MulEquipparaQuery> mulEquipmentPara = mapper.getMulEquipmentPara(from.toString());
-
+        System.out.println(mulEquipmentPara);
         for(MulEquipparaQuery item : mulEquipmentPara){
             int paraId = item.getPara_ID();
             if(item.getPType() == 1){
