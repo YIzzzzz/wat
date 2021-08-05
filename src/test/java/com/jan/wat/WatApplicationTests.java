@@ -178,10 +178,11 @@ class WatApplicationTests {
     }
 
     @Test
-    public void equipments(){
-        equEquipmentMapper.getEuipments("2","and egm.equipmentgroup_id = uem.equipmentgroup_id");
-    @Test
-    public void readequipmentpara(){
+    public void equipments() {
+        equEquipmentMapper.getEuipments("2", "and egm.equipmentgroup_id = uem.equipmentgroup_id");
+    }
+//    @Test
+//    public void readequipmentpara(){
 //        List<ReadEquipmentparaQuery> aSuper = equEquipmentparaMapper.readEquipmentpara("huluadmin");
 //        System.out.println(aSuper);
 
@@ -191,7 +192,7 @@ class WatApplicationTests {
 //            index ++;
 //            if(index > 8) break;
 //        }
-    }
+//    }
 
     @Test
     public void para(){
