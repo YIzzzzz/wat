@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @SpringBootTest
@@ -44,6 +45,9 @@ class WatApplicationTests {
     SysRoleMapper sysRoleMapper;
     @Autowired
     EquEquipmentparaMapper equEquipmentparaMapper;
+
+    @Autowired
+    EquCommandMapper equCommandMapper;
 
 //    @Test
 //    void contextLoads() {
@@ -164,9 +168,15 @@ class WatApplicationTests {
     @Test
     public void SysRole(){
 
-        List<SysRoleeditQuery> aSuper = sysRoleMapper.selectByRolecode("super");
+        LocalDateTime time = LocalDateTime.now();
+        boolean b = sysRoleMapper.updateRole("003", "004", "123", "46","546","64",time);
+        if(b){
+            System.out.println("-------------------------------------------");
+        }else{
+            System.out.println("************************************************");
+        }
 
-        System.out.println(aSuper);
+//        System.out.println(aSuper);
 
     }
 
@@ -204,6 +214,16 @@ class WatApplicationTests {
     public void para1(){
         List<LimitQuery> limit = equParaMapper.getLimit(10, "(1,2)");
         System.out.println(limit);
-    }
 
+    @Test
+    public void testUncheckcommand(){
+        List<EquUncheckcommandQuery> huluadmin = equCommandMapper.getEquUncheckcommand("huluadmin");
+
+        int index =0;
+        for(EquUncheckcommandQuery e : huluadmin){
+            System.out.println(e);
+            index ++;
+            if(index > 5) break;
+        }
+    }
 }
