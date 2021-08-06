@@ -20,10 +20,17 @@ public class EquReadEquipmentParaController {
     @Autowired
     IEquEquipmentgroupService iEquEquipmentgroupService;
 
+
     @ApiOperation(value = "获取设备树")
     @GetMapping("/getTree/{userCode}")
     public List<EquipmentTree> getTree(@PathVariable String userCode){
         return iEquEquipmentgroupService.createTree(userCode);
+    }
+
+    @ApiOperation(value="")
+    @GetMapping("/getEquipment/{userCode}/{equipemtnGroupId}")
+    public List<String> getEquipment(@PathVariable String userCode, @PathVariable String equipemtnGroupId){
+        return iEquEquipmentgroupService.getChildrenId(userCode,equipemtnGroupId);
     }
 
 
