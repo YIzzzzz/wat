@@ -1,8 +1,11 @@
 package com.jan.wat.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jan.wat.pojo.EquEquipmentgroup;
 import com.jan.wat.mapper.EquEquipmentgroupMapper;
+import com.jan.wat.pojo.EquEquipmentgroupEquipmentMap;
 import com.jan.wat.pojo.vo.EquipmentTree;
+import com.jan.wat.service.IEquEquipmentgroupEquipmentMapService;
 import com.jan.wat.service.IEquEquipmentgroupService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,9 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
     @Autowired
     EquEquipmentgroupMapper equEquipmentgroupMapper;
 
+    @Autowired
+    IEquEquipmentgroupEquipmentMapService iEquEquipmentgroupEquipmentMapService;
+
     @Override
     public List<EquipmentTree> createTree(String userCode) {
 
@@ -36,6 +42,22 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
         return tree;
     }
     private List<EquipmentTree> children = new ArrayList<EquipmentTree>();
+
+    public List<String> getChildrenId(String userCode, String euipmentGroupID){
+        List<Integer> childrenGroupIds = getChildrenGroupId(userCode, euipmentGroupID);
+        List<String> childrenIds =  new ArrayList<>();
+
+        for(int i : childrenGroupIds){
+            LambdaQueryWrapper<EquEquipmentgroupEquipmentMap> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(EquEquipmentgroupEquipmentMap::getEquipmentgroupId,i);
+            List<EquEquipmentgroupEquipmentMap> list = iEquEquipmentgroupEquipmentMapService.list(wrapper);
+            for(EquEquipmentgroupEquipmentMap query : list){
+                childrenIds.add(query.getEquipmentId());
+            }
+        }
+
+        return childrenIds;
+    }
 
     public List<Integer> getChildrenGroupId(String userCode, String euipmentGroupID){
         children = new ArrayList<EquipmentTree>();

@@ -217,7 +217,7 @@ class WatApplicationTests {
     }
     @Test
     public void testUncheckcommand(){
-        List<EquUncheckcommandQuery> huluadmin = equCommandMapper.getEquUncheckcommand("huluadmin");
+        List<EquUncheckcommandQuery> huluadmin = equCommandMapper.getEquUncheckcommand("huluadmin","1","0","3");
 
         int index =0;
         for(EquUncheckcommandQuery e : huluadmin){

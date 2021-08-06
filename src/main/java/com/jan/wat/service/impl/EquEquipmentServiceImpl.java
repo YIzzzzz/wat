@@ -32,12 +32,12 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         StringBuilder where = new StringBuilder("");
 
         if(!euipmentGroupID.equals("")){
-            List<Integer> childrenGroupId = iEquEquipmentgroupService.getChildrenGroupId(userCode, euipmentGroupID);
+            List<String> childrenGroupId = iEquEquipmentgroupService.getChildrenId(userCode, euipmentGroupID);
             if(childrenGroupId.size()>0){
                 where.append(" and A.ID in (");
                 int count = 0;
                 int length = childrenGroupId.size();
-                for(Integer i : childrenGroupId){
+                for(String i : childrenGroupId){
                     where.append(i);
                     count++;
                     if(count == length)
@@ -47,7 +47,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
                 where.append(")");
             }
         }
-        if(!equipmentId.equals("0") || !equipmentId.equals("")){
+        if(!equipmentId.equals("0") && !equipmentId.equals("")){
             where.append(String.format(" and A.ID=%s",equipmentId));
         }
 
