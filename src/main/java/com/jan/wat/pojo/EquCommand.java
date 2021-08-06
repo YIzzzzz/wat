@@ -46,19 +46,19 @@ public class EquCommand implements Serializable {
     private Integer status;
 
     @TableField("SendTime")
-    private Date sendtime;
+    private LocalDateTime sendtime;
 
     @TableField("SendNum")
     private Integer sendnum;
 
     @TableField("ResponseTime")
-    private Date responsetime;
+    private LocalDateTime responsetime;
 
     @TableField("ResponseMessage")
     private String responsemessage;
 
     @TableField("CheckTime")
-    private Date checktime;
+    private LocalDateTime checktime;
 
     @TableField("CheckUserCode")
     private String checkusercode;
