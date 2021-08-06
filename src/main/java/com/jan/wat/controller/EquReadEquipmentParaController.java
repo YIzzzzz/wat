@@ -27,7 +27,7 @@ public class EquReadEquipmentParaController {
         return iEquEquipmentgroupService.createTree(userCode);
     }
 
-    @ApiOperation(value="")
+    @ApiOperation(value="获取设备列表")
     @GetMapping("/getEquipment/{userCode}/{equipemtnGroupId}")
     public List<String> getEquipment(@PathVariable String userCode, @PathVariable String equipemtnGroupId){
         return iEquEquipmentgroupService.getChildrenId(userCode,equipemtnGroupId);

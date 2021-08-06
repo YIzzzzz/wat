@@ -23,7 +23,7 @@ public class EquHistoryCommandController {
     @Autowired
     IEquCommandService iEquCommandService;
 
-    @ApiOperation(value = "")
+    @ApiOperation(value = "获取历史命令")
     @GetMapping("/{usercode}/{equipmentGroupId}/{equipmentId}/{commandtype}/{startTime}/{endTime}")
     public List<HistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime){
         return iEquCommandService.getHistoryCommand(usercode,equipmentGroupId,equipmentId,commandtype,startTime,endTime);
