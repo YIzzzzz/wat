@@ -12,12 +12,12 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/equ/uncheckcommand")
-public class EquUncheckcommand {
+public class EquUncheckcommandController {
     @Autowired
     IEquCommandService iEquCommandService;
 
-    @ApiOperation(value = "")
-    @GetMapping("/getequipments/{euipmentGroupID}/{equipmentId}/{userCode}")
+    @ApiOperation(value = "查询命令确认")
+    @GetMapping("/{euipmentGroupID}/{equipmentId}/{userCode}")
     public List<EquUncheckcommandQuery> getEuipments(@PathVariable String euipmentGroupID, @PathVariable String equipmentId, @PathVariable String userCode){
         return iEquCommandService.getEquUncheckcommand(userCode, equipmentId,euipmentGroupID);
     }
