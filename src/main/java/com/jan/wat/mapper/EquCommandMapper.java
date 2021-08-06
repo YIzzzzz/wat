@@ -27,7 +27,11 @@ public interface EquCommandMapper extends BaseMapper<EquCommand> {
             "               (case c.status when 1 then '等待发送' when 2 then '发送后未应答' when 3 then '发送达最大次数' when 4 then '成功' when 5 then '应答提示失败' else '其他未定义失败' end) as status,(select username from sys_user u where c.usercode=u.usercode) as username\n" +
             "        from equ_command as c,equ_equipment e,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
             "        where c.equipment_id=e.id and checktime is null and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = c.equipment_id" +
-            "<if test='equipmentgroup_id != \"0\"'>" +
+            "<if test='equipmentgroupId != \"0\"'>" +
+            "and egm.Equipment_ID=c.Equipment_ID and uem.EquipmentGroup_ID=egm.EquipmentGroup_ID and uem.EquipmentGroup_ID in (${set})" +
+            "</if>" +
+            "<if test='equipmentId != \"0\"'>" +
+            "and c.Equipment_ID=#{equipmentId}" +
             "</if>" +
             "</script>")
     @Results(id="getEquUncheckcommand", value={
@@ -45,6 +49,6 @@ public interface EquCommandMapper extends BaseMapper<EquCommand> {
             @Result(column="username", property="username")
 
     })
-    public List<EquUncheckcommandQuery> getEquUncheckcommand(String usercode);
+    public List<EquUncheckcommandQuery> getEquUncheckcommand(String usercode,String set,String equipmentId,String equipmentgroupId);
 
 }
