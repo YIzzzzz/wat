@@ -2,6 +2,7 @@ package com.jan.wat.service.impl;
 
 import com.jan.wat.pojo.EquCommand;
 import com.jan.wat.mapper.EquCommandMapper;
+import com.jan.wat.pojo.vo.EquFailurecommandQuery;
 import com.jan.wat.pojo.vo.EquUncheckcommandQuery;
 import com.jan.wat.pojo.vo.HistoryCommandQuery;
 import com.jan.wat.service.IEquCommandService;
@@ -30,19 +31,22 @@ public class EquCommandServiceImpl extends ServiceImpl<EquCommandMapper, EquComm
 
     @Override
     public List<EquUncheckcommandQuery> getEquUncheckcommand(String usercode, String equipmentId, String equipmentgroupId) {
-        List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentgroupId);
         StringBuilder set = new StringBuilder();
-        int count = 0;
-        for(int i : childrengroupId){
-            count++;
-            set.append(String.valueOf(i));
-            if(count != childrengroupId.size())
-                set.append(",");
+        if(equipmentgroupId != "0"){
+            List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentgroupId);
+            int count = 0;
+            for(int i : childrengroupId){
+                count++;
+                set.append(String.valueOf(i));
+                if(count != childrengroupId.size())
+                    set.append(",");
+            }
         }
 
         return equCommandMapper.getEquUncheckcommand(usercode,set.toString(),equipmentId,equipmentgroupId);
     }
 
+    
     @Override
     public List<HistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime) {
         StringBuilder where = new StringBuilder();
@@ -71,4 +75,23 @@ public class EquCommandServiceImpl extends ServiceImpl<EquCommandMapper, EquComm
         }
         return equCommandMapper.getHistoryCommand(usercode, where.toString());
     }
+
+    @Override
+    public List<EquFailurecommandQuery> getEquFailurecommand(String usercode, String equipmentId, String equipmentgroupId) {
+        //config!!!!
+        int sendnummaxlimit = 3;
+        StringBuilder set = new StringBuilder();
+        if(equipmentgroupId != "0"){
+            List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentgroupId);
+            int count = 0;
+            for(int i : childrengroupId){
+                count++;
+                set.append(String.valueOf(i));
+                if(count != childrengroupId.size())
+                    set.append(",");
+            }
+        }
+        return equCommandMapper.getEquFailurecommand(usercode, sendnummaxlimit ,set.toString(),equipmentId,equipmentgroupId);
+
+
 }

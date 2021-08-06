@@ -230,4 +230,16 @@ class WatApplicationTests {
     public void getHistoryCommand(){
         System.out.println(equCommandMapper.getHistoryCommand("huluadmin",""));
     }
+    @Test
+    public void testFaiurecommand(){
+
+        List<EquFailurecommandQuery> huluadmin = equCommandMapper.getEquFailurecommand("huluadmin", 3,"","0","0");
+
+        int index =0;
+        for(EquFailurecommandQuery e : huluadmin){
+            System.out.println(e);
+            index ++;
+            if(index > 20) break;
+        }
+    }
 }
