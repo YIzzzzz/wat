@@ -3,6 +3,7 @@ package com.jan.wat.mapper;
 import com.jan.wat.pojo.EquCommand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jan.wat.pojo.vo.EquUncheckcommandQuery;
+import com.jan.wat.pojo.vo.HistoryCommandQuery;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -28,7 +29,7 @@ public interface EquCommandMapper extends BaseMapper<EquCommand> {
             "        from equ_command as c,equ_equipment e,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
             "        where c.equipment_id=e.id and checktime is null and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = c.equipment_id" +
             "<if test='equipmentgroupId != \"0\"'>" +
-            "and egm.Equipment_ID=c.Equipment_ID and uem.EquipmentGroup_ID=egm.EquipmentGroup_ID and uem.EquipmentGroup_ID in (${set})" +
+            "and egm.Equipment_ID=c.Equipment_ID and uem.EquipmentGroup_ID=egm.EquipmentGroup_ID and uem.EquipmentGroup_ID in (${set}) and uem.UserCode=#{usercode}" +
             "</if>" +
             "<if test='equipmentId != \"0\"'>" +
             "and c.Equipment_ID=#{equipmentId}" +
@@ -51,4 +52,28 @@ public interface EquCommandMapper extends BaseMapper<EquCommand> {
     })
     public List<EquUncheckcommandQuery> getEquUncheckcommand(String usercode,String set,String equipmentId,String equipmentgroupId);
 
+    @Select("select e.Name as equipmentName,c.Des as des ,c.checkDes as checkDes,c.equipment_ID as equipmentId,c.ID as id,c.commandType as commandType ,c.SendNum as sendNum,c.Responsemessage as responsemessage,cONVeRT(c.SettingTime,Datetime) as settingTime,cONVeRT(c.SendTime,Datetime) as sendTime,cONVeRT(c.ResponseTime,Datetime) as responseTime,cONVeRT(c.checkTime,Datetime) as checkTime\n" +
+            ",(case c.Status when 1 then '等待发送' when 2 then '发送后未应答' when 3 then '发送达最大次数' when 4 then '成功' when 5 then '应答提示失败' else '其他未定义失败' end) as s,(select userName from sys_user u where c.usercode=u.usercode) as username,(select userName from sys_user u where u.usercode=c.checkusercode) as checkuserName\n" +
+            "from equ_command as c,equ_equipment e,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
+            "where c.equipment_Id=e.ID and uem.usercode = #{userCode} and uem.equipmentgroup_ID = egm.equipmentgroup_ID and egm.equipment_ID = c.equipment_ID \n" +
+            "${where}")
+    @Results(id="getHistoryCommand", value={
+            @Result(column="equipmentName", property="equipmentName"),
+            @Result(column="des", property="des"),
+            @Result(column="checkdes", property="checkdes"),
+            @Result(column="equipmentId", property="equipmentId"),
+            @Result(column="id", property="id"),
+            @Result(column="commandtype", property="commandtype"),
+            @Result(column="sendnum", property="sendnum"),
+            @Result(column="responsemessage", property="responsemessage"),
+            @Result(column="settingtime", property="settingtime"),
+            @Result(column="sendtime", property="sendtime"),
+            @Result(column="responsetime", property="responsetime"),
+            @Result(column="s", property="s"),
+            @Result(column="checktime", property="checktime"),
+            @Result(column="checkuserName", property="checkuserName"),
+            @Result(column="username", property="username")
+
+    })
+    public List<HistoryCommandQuery> getHistoryCommand(String userCode, String where);
 }

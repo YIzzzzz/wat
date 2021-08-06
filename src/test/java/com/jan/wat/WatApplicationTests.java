@@ -226,4 +226,8 @@ class WatApplicationTests {
             if(index > 20) break;
         }
     }
+    @Test
+    public void getHistoryCommand(){
+        System.out.println(equCommandMapper.getHistoryCommand("huluadmin",""));
+    }
 }

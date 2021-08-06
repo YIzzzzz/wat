@@ -3,6 +3,7 @@ package com.jan.wat.service.impl;
 import com.jan.wat.pojo.EquCommand;
 import com.jan.wat.mapper.EquCommandMapper;
 import com.jan.wat.pojo.vo.EquUncheckcommandQuery;
+import com.jan.wat.pojo.vo.HistoryCommandQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jan.wat.service.IEquEquipmentgroupService;
@@ -40,5 +41,34 @@ public class EquCommandServiceImpl extends ServiceImpl<EquCommandMapper, EquComm
         }
 
         return equCommandMapper.getEquUncheckcommand(usercode,set.toString(),equipmentId,equipmentgroupId);
+    }
+
+    @Override
+    public List<HistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime) {
+        StringBuilder where = new StringBuilder();
+
+        if(!equipmentGroupId.equals("0") && equipmentId.equals("0")){
+            List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentGroupId);
+            StringBuilder set = new StringBuilder();
+            int count = 0;
+            for(int i : childrengroupId){
+                count++;
+                set.append(String.valueOf(i));
+                if(count != childrengroupId.size())
+                    set.append(",");
+            }
+            where.append(String.format(" and egm.Equipment_ID=c.Equipment_ID and uem.EquipmentGroup_ID=egm.EquipmentGroup_ID and uem.UserCode='%s' and uem.EquipmentGroup_ID in (%s)",usercode,set.toString()));
+        }
+
+        if(!equipmentId.equals("0"))
+            where.append(String.format(" and c.Equipment_ID='%s'",equipmentId));
+
+        if(commandtype.equals("0"))
+            where.append(String.format(" and c.CommandType={%s}",commandtype));
+
+        if(!startTime.equals("") && !endTime.equals("")){
+            where.append(String.format(" and (c.SettingTime between '%s' and '%s') ",startTime,endTime));
+        }
+        return equCommandMapper.getHistoryCommand(usercode, where.toString());
     }
 }

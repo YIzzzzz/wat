@@ -14,7 +14,7 @@ import java.util.Date;
  * @description
  */
 @Data
-public class HistoryCommadnQuery {
+public class HistoryCommandQuery {
     private String equipmentName;
     private String des;
     private String checkdes;
