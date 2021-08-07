@@ -1,6 +1,6 @@
 package com.jan.wat.controller;
 
-import com.jan.wat.pojo.vo.HistoryCommandQuery;
+import com.jan.wat.pojo.vo.FailureAndHistoryCommandQuery;
 import com.jan.wat.service.IEquCommandService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class EquHistoryCommandController {
 
     @ApiOperation(value = "获取历史命令")
     @GetMapping("/{usercode}/{equipmentGroupId}/{equipmentId}/{commandtype}/{startTime}/{endTime}")
-    public List<HistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime){
+    public List<FailureAndHistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime){
         return iEquCommandService.getHistoryCommand(usercode,equipmentGroupId,equipmentId,commandtype,startTime,endTime);
     }
 

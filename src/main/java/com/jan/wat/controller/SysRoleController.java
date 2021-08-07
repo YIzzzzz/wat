@@ -1,14 +1,19 @@
 package com.jan.wat.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
+import com.jan.wat.pojo.vo.RoleQuery;
 import com.jan.wat.pojo.vo.RoleTree;
 import com.jan.wat.service.ISysRoleService;
 import com.jan.wat.service.ISysRolemenumapService;
+import com.jan.wat.service.ISysUserService;
+import com.jan.wat.service.ISysUserrolemapService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 /**
  * wsk
@@ -30,6 +36,12 @@ public class SysRoleController {
 
     @Autowired
     ISysRolemenumapService iSysRolemenumapService;
+
+    @Autowired
+    ISysUserrolemapService iSysUserrolemapService;
+
+
+
 
     @ApiOperation(value = "分页")
     @GetMapping("{current}/{size}")
@@ -136,5 +148,47 @@ public class SysRoleController {
         }
         return RespBean.success("success");
     }
+
+    @ApiOperation(value = "getRoleUser")
+    @GetMapping("/getRoleUser/{role}")
+    public RoleQuery getRoleUser(@PathVariable String role){
+
+        return iSysUserrolemapService.getRoleUserhelp(role);
+    }
+
+    @ApiOperation(value = "deleteRoleUser")
+    @DeleteMapping("/deleteRoleUser")
+    @ResponseBody
+    public RespBean deleteRoleUser(@RequestBody JSONObject json){
+        String role = json.getString("role");
+        String usercodes = json.getString("usercodes");
+        String[] split = usercodes.substring(1, usercodes.length() - 1).split(", ");
+
+
+
+        for(String str : split){
+            LambdaQueryWrapper<SysUserrolemap> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(SysUserrolemap::getRolecode,role);
+            wrapper.eq(SysUserrolemap::getUsercode,str);
+            if(!iSysUserrolemapService.remove(wrapper))
+                return RespBean.error("error!");
+        }
+
+
+        return RespBean.success("sucess");
+    }
+
+    @ApiOperation(value = "添加修改角色")
+    @PutMapping("/editrole")
+    @ResponseBody
+    public RespBean addSysRole(@RequestBody JSONObject json){
+        String usercode = (String) json.get("usercode");
+        String rolecode = (String) json.get("rolecode");
+        if (iSysUserrolemapService.updateRolecode(usercode, rolecode)){
+            return RespBean.success("添加成功！");
+        }
+        return RespBean.error("添加失败！");
+    }
+
 
 }

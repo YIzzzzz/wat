@@ -2,6 +2,10 @@ package com.jan.wat.service;
 
 import com.jan.wat.pojo.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jan.wat.pojo.vo.RoleUserItem;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISysUserService extends IService<SysUser> {
 
+    List<RoleUserItem> getRoleUserItem();
 }

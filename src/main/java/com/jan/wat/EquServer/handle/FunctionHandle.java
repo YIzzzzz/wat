@@ -309,6 +309,7 @@ public class FunctionHandle {
                 updateCommand.gt("SendTime",DateTime.DateNow(System.currentTimeMillis()-86400));
                 iEquCommandService.update(null,updateCommand);
             }
+            System.out.println(frame);
             byte[] data = new byte[1];
             data[0] = 0x01;//应答，表示成功
             sendHandle.sendData(ctx, frame.GetBuffer((byte)Command.ReadParameter, data),sender);
