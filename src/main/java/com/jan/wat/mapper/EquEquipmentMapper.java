@@ -36,7 +36,7 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
             "(case when exists(select Id from equ_alarmrecord ar where ar.equipment_Id=e.Id and ar.alarmType=1 and ar.recovery='false') then 'true' else 'false' end) as equipmentalarm\n" +
             ",(case when exists(select Id from equ_alarmrecord ar where ar.equipment_Id=e.Id and ar.alarmType=2 and ar.recovery='false') then 'true' else 'false' end) as outLinealarm\n" +
             "from equ_equipment e,equ_equipmentgroup_equipment_map as gem,equ_user_equipmentgroup_map uem\n" +
-            "where gem.equipment_Id=e.Id and uem.equipmentgroup_Id=gem.equipmentgroup_Id")
-    IPage<RealDataQuery> getRealDataQuery(Page<EquParaQuery> page);
+            "where gem.equipment_Id=e.Id and uem.equipmentgroup_Id=gem.equipmentgroup_Id and uem.UserCode = #{usercode} ${where}")
+    IPage<RealDataQuery> getRealDataQuery(Page<RealDataQuery> page, String usercode, String where);
 
 }
