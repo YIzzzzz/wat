@@ -350,7 +350,7 @@ public class DatabaseHandle {
         equEquipment.setPowertype(Tools.byte2int(data[1]));
         equEquipment.setConnectserverport(recipient.getPort());
 
-        iEquEquipmentService.save(equEquipment);
+        iEquEquipmentService.saveOrUpdate(equEquipment);
 
     }
 

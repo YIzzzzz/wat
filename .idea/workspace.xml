@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*" />
+    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DatabaseHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DatabaseHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/handle/DatabaseHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/handle/DatabaseHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParaMapper.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -694,51 +700,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
           <line>53</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -771,6 +732,51 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java</url>
           <line>156</line>
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/EquipmentDataHandle.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParavalueServiceImpl.java</url>
