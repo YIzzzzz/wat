@@ -1,4 +1,4 @@
-package com.jan.wat.EquServer.handle;
+package com.jan.wat.EquServer.enetry;
 
 
 import com.jan.wat.EquServer.config.Command;

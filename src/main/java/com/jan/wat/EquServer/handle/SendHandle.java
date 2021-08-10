@@ -2,6 +2,7 @@ package com.jan.wat.EquServer.handle;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.jan.wat.EquServer.config.GlobalParameter;
+import com.jan.wat.EquServer.enetry.CommandParameterHandle;
 import com.jan.wat.EquServer.enetry.DataCell;
 import com.jan.wat.EquServer.enetry.DataHandle;
 import com.jan.wat.EquServer.enetry.FrameStructure;
