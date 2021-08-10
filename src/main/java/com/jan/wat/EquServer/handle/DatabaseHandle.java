@@ -284,6 +284,7 @@ public class DatabaseHandle {
         for (ParaCell item : cph.getParaCells())
         {
             EquEquipmentpara equEquipmentpara = new EquEquipmentpara();
+            System.out.println(item);
             switch (item.getType())
             {
                 case 1://置数型
