@@ -20,9 +20,9 @@ public class EquRealdataController {
     IEquEquipmentService iEquEquipmentService;
 
     @ApiOperation(value = "getRealDataQuery")
-    @GetMapping("/getRealDataQuery")
+    @GetMapping("{current}/{size}/{equipmentGroupId}/{equipmentId}/{usercode}")
     @ResponseBody
-    public String getRealDataQuery(@RequestBody long current,@RequestBody long size,@RequestBody String equipmentGroupId,@RequestBody String equipmentId,@RequestBody String usercode) {
+    public String getRealDataQuery(@PathVariable long current,@PathVariable long size,@PathVariable String equipmentGroupId,@PathVariable String equipmentId,@PathVariable String usercode) {
         return iEquEquipmentService.getRealDataQuery( current,  size, equipmentGroupId,  equipmentId,  usercode);
     }
 
