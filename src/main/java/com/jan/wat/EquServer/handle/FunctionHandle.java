@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.config.GlobalParameter;
+import com.jan.wat.EquServer.enetry.CommandParameterHandle;
 import com.jan.wat.EquServer.enetry.DataHandle;
 import com.jan.wat.EquServer.enetry.FrameStructure;
-import com.jan.wat.EquServer.helper.Agreement;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.pojo.*;
@@ -14,12 +14,10 @@ import com.jan.wat.service.*;
 import io.netty.channel.ChannelHandlerContext;
 import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.net.InetSocketAddress;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
@@ -268,7 +266,6 @@ public class FunctionHandle {
     public void funcUploadParameterValue(ChannelHandlerContext ctx, FrameStructure frame, InetSocketAddress sender) {
         CommandParameterHandle cph = new CommandParameterHandle();
         if (!cph.Load(frame.getData(), 2)) return;//数据个数不正确，返回
-
         if (dbHandle.UpdateEquipmentParaValue(cph, frame.getId()))
         {
             if (cph.getStatus() == 0x00)//表示点名上传数据，需要更新命令表
@@ -278,7 +275,7 @@ public class FunctionHandle {
                 updateCommand.set("ResponseTime",DateTime.DateNow());
                 updateCommand.eq("Equipment_ID", frame.getId());
                 updateCommand.eq("CommandType", (int)(Command.ReadParameterValue));
-                updateCommand.le("Status",2);
+                updateCommand.lt("Status",2);
                 updateCommand.isNull("ResponseTime");
                 updateCommand.gt("SendTime",DateTime.DateNow(System.currentTimeMillis()-86400));
                 iEquCommandService.update(null,updateCommand);

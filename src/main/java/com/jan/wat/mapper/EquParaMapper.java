@@ -15,6 +15,7 @@ import org.apache.ibatis.annotations.Select;
 
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -55,6 +56,19 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "(case when b.Type=2 then a.paravalue else NuLL end) as paravalue_ID,a.equipment_ID,a.para_ID,CONveRT(a.uploadTime,DATeTIMe) as uploadTime,a.upLimit,a.DownLimit,b.Type,b.Name as para_Name,b.ReadOnly\n" +
             "from equ_equipmentpara as a,equ_para b\n" +
             "where a.para_ID=b.ID and a.equipment_ID=#{equipment_ID}")
+    @Results(id = "getSigEquipmentPara",value = {
+            @Result(column = "unit_Name",property = "unit_Name"),
+            @Result(column = "paravalue",property = "paravalue"),
+            @Result(column = "equipment_ID",property = "equipment_ID"),
+            @Result(column = "para_ID",property = "para_ID"),
+            @Result(column = "uploadTime",property = "uploadTime"),
+            @Result(column = "upLimit",property = "upLimit"),
+            @Result(column = "DownLimit",property = "DownLimit"),
+            @Result(column = "Type",property = "Type"),
+            @Result(column = "para_Name",property = "para_Name"),
+            @Result(column = "ReadOnly",property = "ReadOnly")
+    })
+
     List<SigEuipementparaQuery> getSigEquipmentPara(String equipment_ID);
 
     @Select("select distinct p.ID as para_ID,p.Type as pType,p.Name as para_Name,'' as UpLimit,'' as DownLimit\n" +

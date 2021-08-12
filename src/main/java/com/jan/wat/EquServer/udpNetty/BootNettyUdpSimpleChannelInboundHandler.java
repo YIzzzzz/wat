@@ -1,6 +1,7 @@
 package com.jan.wat.EquServer.udpNetty;
 
 import com.jan.wat.EquServer.handle.EquipmentDataHandle;
+import com.jan.wat.EquServer.helper.Encoding;
 import com.jan.wat.mapper.EquEquipmentMapper;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
@@ -41,6 +42,7 @@ public class BootNettyUdpSimpleChannelInboundHandler extends SimpleChannelInboun
 //            System.out.println(strdata);
             byte[] data = new byte[strdata.writerIndex()-strdata.readerIndex()];
             strdata.readBytes(data);
+            System.out.println(Encoding.printHexString(data));
             equipmentDataHandle.HandleData(data,0,ctx,msg.sender(),msg.recipient());
 
 

@@ -1,9 +1,11 @@
 package com.jan.wat.EquServer.handle;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.config.GlobalParameter;
+import com.jan.wat.EquServer.enetry.CommandParameterHandle;
 import com.jan.wat.EquServer.enetry.DataHandle;
 import com.jan.wat.EquServer.enetry.FrameStructure;
 import com.jan.wat.EquServer.enetry.ParaCell;
@@ -16,11 +18,9 @@ import com.jan.wat.service.*;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
@@ -132,12 +132,12 @@ public class DatabaseHandle {
         {
             //读数据库，看看是否有对该设备发送的命令
             //判断没有发送成功的命令的条件：1 设备ID一致 2 Status<=2（没有成功） 3 ResponseTime为空（没有应答） 4 SendNum发送次数小于最大次数限制,按照SettingTime排序，也就是先发以前的命令
-            QueryWrapper<EquCommand> queryCommand = new QueryWrapper<>();
-            queryCommand.eq("Equipment_ID", frame.getId());
-            queryCommand.le("Status",2);
-            queryCommand.isNull("ResponseTime");
-            queryCommand.lt("SendNum", GlobalParameter.commandSendMaxNumLimit);
-            queryCommand.orderBy(true,false,"SettingTime");
+            LambdaQueryWrapper<EquCommand> queryCommand = new LambdaQueryWrapper<>();
+            queryCommand.eq(EquCommand::getEquipmentId, frame.getId());
+            queryCommand.lt(EquCommand::getStatus,2);
+            queryCommand.isNull(EquCommand::getResponsetime);
+            queryCommand.le(EquCommand::getSendnum, GlobalParameter.commandSendMaxNumLimit);
+            queryCommand.orderBy(true,false,EquCommand::getSettingtime);
             List<EquCommand> list = iEquCommandService.list(queryCommand);
 
             if (list.size() > 0) flag = true;
@@ -285,6 +285,7 @@ public class DatabaseHandle {
         for (ParaCell item : cph.getParaCells())
         {
             EquEquipmentpara equEquipmentpara = new EquEquipmentpara();
+            System.out.println(item);
             switch (item.getType())
             {
                 case 1://置数型
@@ -350,7 +351,7 @@ public class DatabaseHandle {
         equEquipment.setPowertype(Tools.byte2int(data[1]));
         equEquipment.setConnectserverport(recipient.getPort());
 
-        iEquEquipmentService.save(equEquipment);
+        iEquEquipmentService.saveOrUpdate(equEquipment);
 
     }
 
