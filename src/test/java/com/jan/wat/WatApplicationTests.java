@@ -15,8 +15,6 @@ import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.OrganizeTree;
 import com.jan.wat.pojo.vo.EquParaQuery;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
-import com.jan.wat.pojo.vo.ReadEquipmentparaQuery;
-import com.jan.wat.pojo.vo.SysRoleeditQuery;
 import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.*;
 import org.junit.jupiter.api.Test;
@@ -47,8 +45,12 @@ class WatApplicationTests {
     @Autowired
     SysRoleMapper sysRoleMapper;
     @Autowired
+    SysUserMapper sysUserMapper;
+    @Autowired
     EquEquipmentparaMapper equEquipmentparaMapper;
 
+    @Autowired
+    EquAlarmrecordMapper equAlarmrecordMapper;
     @Autowired
     EquCommandMapper equCommandMapper;
 
@@ -299,13 +301,39 @@ class WatApplicationTests {
     @Test
     public void testFaiurecommand(){
 
-        List<EquFailurecommandQuery> huluadmin = equCommandMapper.getEquFailurecommand("huluadmin", 3,"","0","0");
+        List<FailureAndHistoryCommandQuery> huluadmin = equCommandMapper.getEquFailurecommand("huluadmin", 3,"","0","0");
 
         int index =0;
-        for(EquFailurecommandQuery e : huluadmin){
+        for(FailureAndHistoryCommandQuery e : huluadmin){
             System.out.println(e);
             index ++;
             if(index > 20) break;
         }
     }
+
+    @Test
+    public void testgetuserbyorganizecode(){
+        List<SysRegisterQuerry> getuserbyorganizecode = sysUserMapper.getuserbyorganizecode("0105");
+        for(SysRegisterQuerry e: getuserbyorganizecode){
+            System.out.println(e);
+        }
+    }
+    @Autowired
+    IEquAlarmrecordService iEquAlarmrecordService;
+    @Test
+    public void getEquUnrecoveryalarm(){
+        List<EquAlarmQuery> huluadmin = iEquAlarmrecordService.getEquUnrecoveryalarm("huluadmin", "0", "0");
+        for(EquAlarmQuery e:huluadmin){
+            System.out.println(e);
+        }
+    }
+
+    @Test
+    public void getEquYesterdayalarm(){
+        List<EquAlarmQuery> huluadmin = equAlarmrecordMapper.getEquYesterdayalarm("huluadmin", "", "", "");
+        for(EquAlarmQuery e: huluadmin){
+            System.out.println(e);
+        }
+    }
+
 }

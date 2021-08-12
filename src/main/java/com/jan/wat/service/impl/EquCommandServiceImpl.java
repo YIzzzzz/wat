@@ -2,9 +2,8 @@ package com.jan.wat.service.impl;
 
 import com.jan.wat.pojo.EquCommand;
 import com.jan.wat.mapper.EquCommandMapper;
-import com.jan.wat.pojo.vo.EquFailurecommandQuery;
 import com.jan.wat.pojo.vo.EquUncheckcommandQuery;
-import com.jan.wat.pojo.vo.HistoryCommandQuery;
+import com.jan.wat.pojo.vo.FailureAndHistoryCommandQuery;
 import com.jan.wat.service.IEquCommandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jan.wat.service.IEquEquipmentgroupService;
@@ -48,7 +47,7 @@ public class EquCommandServiceImpl extends ServiceImpl<EquCommandMapper, EquComm
 
     
     @Override
-    public List<HistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime) {
+    public List<FailureAndHistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime) {
         StringBuilder where = new StringBuilder();
 
         if(!equipmentGroupId.equals("0") && equipmentId.equals("0")){
@@ -77,21 +76,21 @@ public class EquCommandServiceImpl extends ServiceImpl<EquCommandMapper, EquComm
     }
 
     @Override
-    public List<EquFailurecommandQuery> getEquFailurecommand(String usercode, String equipmentId, String equipmentgroupId) {
+    public List<FailureAndHistoryCommandQuery> getEquFailurecommand(String usercode, String equipmentId, String equipmentgroupId) {
         //config!!!!
         int sendnummaxlimit = 3;
         StringBuilder set = new StringBuilder();
-        if(equipmentgroupId != "0"){
-            List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentgroupId);
+        if (equipmentgroupId != "0") {
+            List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode, equipmentgroupId);
             int count = 0;
-            for(int i : childrengroupId){
+            for (int i : childrengroupId) {
                 count++;
                 set.append(String.valueOf(i));
-                if(count != childrengroupId.size())
+                if (count != childrengroupId.size())
                     set.append(",");
             }
         }
-        return equCommandMapper.getEquFailurecommand(usercode, sendnummaxlimit ,set.toString(),equipmentId,equipmentgroupId);
+        return equCommandMapper.getEquFailurecommand(usercode, sendnummaxlimit, set.toString(), equipmentId, equipmentgroupId);
 
-
+    }
 }

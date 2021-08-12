@@ -30,6 +30,7 @@ public class EquipmentDataHandle {
     public void HandleData(byte[] data, int equipmentNumLimit, ChannelHandlerContext ctx, InetSocketAddress sender, InetSocketAddress recipient){
 
         FrameStructure frame = new FrameStructure();
+        System.out.println(frame);
         if (!frame.Load(data, Tools.systemIDCode))
             return;//数据长度不正确，或者系统识别码不正确，则返回
         //$$//数量超限，直接退出EquipmentDataHandle100行

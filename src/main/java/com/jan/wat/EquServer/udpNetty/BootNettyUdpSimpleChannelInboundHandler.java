@@ -45,7 +45,6 @@ public class BootNettyUdpSimpleChannelInboundHandler extends SimpleChannelInboun
             System.out.println(Encoding.printHexString(data));
             equipmentDataHandle.HandleData(data,0,ctx,msg.sender(),msg.recipient());
 
-
             //收到udp消息后，可通过此方式原路返回的方式返回消息，例如返回时间戳
 //            ctx.writeAndFlush(new DatagramPacket(Unpooled.copiedBuffer("53 59 4C0000000000", CharsetUtil.UTF_8), msg.sender()));
 //            ctx.writeAndFlush(new DatagramPacket(Unpooled.copiedBuffer(System.currentTimeMillis()/1000+"", CharsetUtil.UTF_8), msg.sender()));

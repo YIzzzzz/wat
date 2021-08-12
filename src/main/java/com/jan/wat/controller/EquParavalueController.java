@@ -67,11 +67,4 @@ public class EquParavalueController {
         }
         return RespBean.error("更新失败！");
     }
-
-    @ApiOperation(value = "查询参数值管理")
-    @GetMapping("/getequipments/{euipmentGroupID}/{equipmentId}/{userCode}")
-    public List<EuipmentsQuery> getEuipments(@PathVariable String euipmentGroupID,@PathVariable String equipmentId,@PathVariable String userCode){
-        return iEquEquipmentService.getEuipments(euipmentGroupID, equipmentId,userCode);
-    }
-
 }
