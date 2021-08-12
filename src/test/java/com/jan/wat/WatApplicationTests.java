@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.mapper.*;
@@ -279,6 +281,18 @@ class WatApplicationTests {
             array.add(json);
         }
         System.out.println(array.toString());
+    }
+
+    @Test
+    public void udpTest(){
+        LambdaQueryWrapper<EquCommand> queryCommand = new LambdaQueryWrapper<>();
+        queryCommand.eq(EquCommand::getEquipmentId, "13389");
+        queryCommand.lt(EquCommand::getStatus,2);
+        queryCommand.isNull(EquCommand::getResponsetime);
+        queryCommand.le(EquCommand::getSendnum, GlobalParameter.commandSendMaxNumLimit);
+        queryCommand.orderBy(true,false,EquCommand::getSettingtime);
+        List<EquCommand> list = iEquCommandService.list(queryCommand);
+
     }
 
 }

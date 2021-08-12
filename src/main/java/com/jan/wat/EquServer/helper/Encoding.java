@@ -25,4 +25,15 @@ public class Encoding {
         }
         return res;
     }
+    public static String printHexString(byte data) {
+        String res = "";
+
+        String hex = Integer.toHexString(data & 0xFF);
+        if (hex.length() == 1) {
+            hex = '0' + hex;
+        }
+        res += hex+" ";
+
+        return res;
+    }
 }

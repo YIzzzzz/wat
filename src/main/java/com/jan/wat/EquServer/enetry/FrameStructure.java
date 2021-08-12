@@ -25,8 +25,8 @@ public class FrameStructure {
         //    return false;
 
         //判断数据长度是否正确
-        int high = buffer[4];
-        int low = buffer[5];
+        int high = buffer[4] & 0xFF;
+        int low = buffer[5] & 0xFF;
         int length = high * 256 + low;
         if (length != buffer.length)
             return false;

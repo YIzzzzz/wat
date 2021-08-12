@@ -3,6 +3,7 @@ package com.jan.wat.EquServer.handle;
 
 import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.enetry.FrameStructure;
+import com.jan.wat.EquServer.helper.Encoding;
 import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.service.*;
 import io.lettuce.core.ScriptOutputType;
@@ -34,6 +35,8 @@ public class EquipmentDataHandle {
         //$$//数量超限，直接退出EquipmentDataHandle100行
         if(func.dataTypeList==null)
             func.init();
+        System.out.println("getFrameType: "+ Encoding.printHexString(frame.getFrameType()));
+        System.out.println("EQUID: "+frame.getId());
 
         switch(frame.getFrameType()){
             case Command.TimeSynchronization:

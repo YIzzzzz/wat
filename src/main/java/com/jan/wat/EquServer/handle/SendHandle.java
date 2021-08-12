@@ -1,5 +1,6 @@
 package com.jan.wat.EquServer.handle;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.enetry.CommandParameterHandle;
@@ -7,6 +8,7 @@ import com.jan.wat.EquServer.enetry.DataCell;
 import com.jan.wat.EquServer.enetry.DataHandle;
 import com.jan.wat.EquServer.enetry.FrameStructure;
 import com.jan.wat.EquServer.helper.DateTime;
+import com.jan.wat.EquServer.helper.Encoding;
 import com.jan.wat.EquServer.udpNetty.BootNettyUdpClient;
 import com.jan.wat.mapper.EquServerMapper;
 import com.jan.wat.pojo.EquCommand;
@@ -70,7 +72,7 @@ public class SendHandle {
         //构成要发送的数据
         CommandParameterHandle cph = new CommandParameterHandle();
         byte[] data = cph.GetCommandData(model, frame);
-
+        System.out.println("data: "+ Encoding.printHexString(data));
         if (data != null)
         {
             sendData(ctx, data, sender);
@@ -80,11 +82,11 @@ public class SendHandle {
             int status = 2;
             if(num>= GlobalParameter.commandSendMaxNumLimit)
                 status = 3;
-            UpdateWrapper<EquCommand> updateCommand = new UpdateWrapper<>();
-            updateCommand.set("SendTime", DateTime.DateNow());
-            updateCommand.set("SendNum", num);
-            updateCommand.set("Status",2);
-            updateCommand.eq("ID",model.getId());
+            LambdaUpdateWrapper<EquCommand> updateCommand = new LambdaUpdateWrapper<>();
+            updateCommand.set(EquCommand::getSendtime, DateTime.DateNow());
+            updateCommand.set(EquCommand::getSendnum, num);
+            updateCommand.set(EquCommand::getStatus,2);
+            updateCommand.eq(EquCommand::getId,model.getId());
             iEquCommandService.saveOrUpdate(null,updateCommand);
         }
     }

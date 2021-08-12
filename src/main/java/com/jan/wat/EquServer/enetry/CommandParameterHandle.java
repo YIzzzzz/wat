@@ -12,7 +12,9 @@ import com.jan.wat.pojo.EquCommand;
 import lombok.Data;
 import org.dom4j.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -97,23 +99,24 @@ public class CommandParameterHandle
     }
 
     public byte[] GetCommandData(EquCommand model, FrameStructure frame) {
-
+        System.out.println(model);
         byte[] returnValue = null;
 
         byte[] data = new byte[1];
         data[0] = 0x00;//表示点名，要求上传数据
+
         switch ((int)model.getCommandtype())
         {
-            case (int) Command.ReadParameter://x91读取设备参数
+            case (int) (Command.ReadParameter & 0xFF)://0x91读取设备参数
                 returnValue= frame.GetBuffer((byte)Command.ReadParameter, data);
                 break;
-            case (int)Command.ReadParameterValue://0x92读取参数值
+            case (int)(Command.ReadParameterValue& 0xFF)://0x92读取参数值
                 returnValue= frame.GetBuffer((byte)Command.ReadParameterValue, data);
                 break;
-            case (int)Command.SetTimeParameter://0x94校正时间
+            case (int)(Command.SetTimeParameter& 0xFF)://0x94校正时间
                 returnValue = GetTimeByte(frame,true, (byte)Command.SetTimeParameter);
                 break;
-            case (int)Command.SetParameterValue://0x93设置参数值
+            case (int)(Command.SetParameterValue& 0xFF)://0x93设置参数值
                 String commandStr = model.getCommand();
                 Iterator<Element> it = Tools.XML2iter(commandStr);
 
@@ -131,16 +134,18 @@ public class CommandParameterHandle
                         case 1:
                             //先转double目的是把1.00这种情况改为1
                             double value = Double.parseDouble(v);
-                            String[] flag = String.valueOf(Math.abs(value)).split(".");
+
+                            String[] flag = String.valueOf(Math.abs(value)).split("\\.");
 
                             //去除小数点
-                            String str = "";
-                            for (String s : flag)
-                                str += s;
-
+                            StringBuilder str = new StringBuilder();
+                            for (String s : flag) {
+                                str.append(s);
+                            }
                             //转16进制
-                            str = String.format("%08x",Long.parseLong(str));//左边补0，确保8位 Convert.ToString(str);//十进制转16进制
-                            list.addAll(Tools.strToToHexByte(str));
+                            String strTmp = String.format("%08x",Long.parseLong(str.toString()));//左边补0，确保8位 Convert.ToString(str);//十进制转16进制
+                            System.out.println(strTmp);
+                            list.addAll(Tools.strToToHexByte(strTmp));
 
                             byte format = 0x00;
                             if (value > 0)
@@ -198,12 +203,16 @@ public class CommandParameterHandle
                             list.add(format);
                             break;
                         case 2:
-                            list.add(Byte.parseByte(v));
+                            for(byte b : v.getBytes(StandardCharsets.UTF_8)){
+                                list.add(b);
+                            }
                             break;
                         case 3:
-                            List<Byte> ar = Encoding.GetBytes(v);
-                            list.add((byte)(ar.size()));
-                            list.addAll(ar);
+                            byte[] ar = v.getBytes(StandardCharsets.UTF_8);
+                            list.add((byte)(ar.length));
+                            for(byte b : ar){
+                                list.add(b);
+                            }
                             break;
                         default:
                             break;
@@ -212,12 +221,13 @@ public class CommandParameterHandle
                 }
 
                 byte[] arr = new byte[list.size()];
+                System.out.println("list"+list);
                 for (int k = 0; k < list.size(); k++)
                     arr[k] = list.get(k);
                 returnValue= frame.GetBuffer((byte)Command.SetParameterValue, arr);
                 break;
 
-            case (int)Command.UpdateProgram://更新程序
+            case (int)(Command.UpdateProgram& 0xFF)://更新程序
                 String program = model.getCommand();
                 String commandStr1 = model.getCommand();
 
