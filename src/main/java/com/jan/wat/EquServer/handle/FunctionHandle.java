@@ -265,7 +265,7 @@ public class FunctionHandle {
 
     public void funcUploadParameterValue(ChannelHandlerContext ctx, FrameStructure frame, InetSocketAddress sender) {
         CommandParameterHandle cph = new CommandParameterHandle();
-        if (!cph.Load(frame.getData(), 2)) return;//数据个数不正确，返回
+        if (!cph.load(frame.getData(), 2)) return;//数据个数不正确，返回
         if (dbHandle.UpdateEquipmentParaValue(cph, frame.getId()))
         {
             if (cph.getStatus() == 0x00)//表示点名上传数据，需要更新命令表
@@ -291,7 +291,7 @@ public class FunctionHandle {
 
         CommandParameterHandle cph = new CommandParameterHandle();
 
-        if (!cph.Load(frame.getData(),1)) return;//数据个数不正确，返回
+        if (!cph.load(frame.getData(),1)) return;//数据个数不正确，返回
 
         if (dbHandle.UpdateEquipmentPara(cph,frame.getId()))
         {
