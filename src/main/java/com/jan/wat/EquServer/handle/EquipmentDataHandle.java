@@ -40,39 +40,39 @@ public class EquipmentDataHandle {
         System.out.println("EQUID: "+frame.getId());
 
         switch(frame.getFrameType()){
-            case Command.TimeSynchronization:
+            case Command.TimeSynchronization://0x15
                 //用于同步（com.SendData）
                 func.funcTimeSynchronization(ctx, frame, sender);
                 break;
-            case Command.Login:
+            case Command.Login://0x0F
                 //设备注册信息，向equ_Equipment表中插入数据
                 func.funcLogin(ctx, frame,sender,recipient);
                 break;
-            case Command.BatteryPowerUploadData:
+            case Command.BatteryPowerUploadData://0x01
                 func.funcBatteryPowerUploadData(ctx, frame, sender, recipient);
                 break;
-            case Command.UploadData:
+            case Command.UploadData://0x02
                 func.funcUploadData(frame,sender,recipient);
                 break;
-            case Command.KeepAlive:
+            case Command.KeepAlive://0x08
                 func.funcKeepAlive(ctx, frame, sender);
                 break;
-            case Command.UpdateParameter:
+            case Command.UpdateParameter://0x11
                 func.funcUploadParameter(ctx,frame,sender);
                 break;
-            case Command.UpdateParameterValue:
+            case Command.UpdateParameterValue://0x12
                 func.funcUploadParameterValue(ctx, frame, sender);
                 break;
-            case Command.SetParameterValueResponse:
+            case Command.SetParameterValueResponse://0x13
                 func.funcSetParameterValueResponse(frame);
                 break;
-            case Command.SetTimeParameterResponse:
+            case Command.SetTimeParameterResponse://0x14
                 func.funcSetTimeParameterResponse(frame);
                 break;
-            case Command.UpdateProgramResponse:
+            case Command.UpdateProgramResponse://0x0C
                 func.funcUpdateProgramResponse(frame);
                 break;
-            case Command.DownloadProgram:
+            case Command.DownloadProgram://0x0D
                 func.funcDownloadProgram( ctx,frame,sender);
                 break;
             //case (byte)Command.UploadParameterValue:
