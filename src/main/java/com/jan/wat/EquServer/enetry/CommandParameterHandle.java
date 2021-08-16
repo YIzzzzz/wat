@@ -150,10 +150,7 @@ public class CommandParameterHandle
                             }
                             //转16进制
                             String strTmp = String.format("%08x",Long.parseLong(str.toString()));//左边补0，确保8位 Convert.ToString(str);//十进制转16进制
-                            System.out.println(strTmp);
-                            for(byte b : Tools.strToToHexByte(strTmp)){
-                                System.out.println(b);
-                            }
+
                             list.addAll(Tools.strToToHexByte(strTmp));
 
                             byte format = 0x00;
