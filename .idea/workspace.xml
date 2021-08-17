@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/CommandParameterHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/CommandParameterHandle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -458,7 +457,7 @@
       <workItem from="1628474348307" duration="34567000" />
       <workItem from="1628836128656" duration="2617000" />
       <workItem from="1628855010677" duration="3020000" />
-      <workItem from="1629091051404" duration="4236000" />
+      <workItem from="1629091051404" duration="6185000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
