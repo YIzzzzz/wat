@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUsermenumap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/sys_usermenumap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/sys_usermenumap.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/SysUsermenumapMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/SysUsermenumap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/ISysUsermenumapService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/SysUsermenumapServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +288,7 @@
       <recent name="com.jan.wat" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WatApplicationTests.sys_usermenumapTest">
+  <component name="RunManager" selected="Application.CodeGenerator">
     <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.CodeGenerator" />
       <module name="wat" />
@@ -382,8 +386,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WatApplicationTests.sys_usermenumapTest" />
         <item itemvalue="Application.CodeGenerator" />
+        <item itemvalue="JUnit.WatApplicationTests.sys_usermenumapTest" />
         <item itemvalue="JUnit.WatApplicationTests.getEquYesterdayalarm" />
         <item itemvalue="JUnit.WatApplicationTests.getEquUnrecoveryalarm" />
         <item itemvalue="JUnit.WatApplicationTests.testgetuserbyorganizecode" />
