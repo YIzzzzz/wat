@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUserrolemap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUserrolemap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/sys_usermenumap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/sys_usermenumap.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -457,7 +456,7 @@
       <workItem from="1628836128656" duration="2617000" />
       <workItem from="1628855010677" duration="3020000" />
       <workItem from="1629091051404" duration="7995000" />
-      <workItem from="1629269590790" duration="2218000" />
+      <workItem from="1629269590790" duration="2772000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
