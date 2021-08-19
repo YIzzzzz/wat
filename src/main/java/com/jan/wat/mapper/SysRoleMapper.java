@@ -41,4 +41,11 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
 
     @Select("select roleseq from sys_role r, sys_userrolemap urm where urm.usercode = #{usercode} and r.rolecode = urm.rolecode")
     public String getroleseqbyusercode(String usercode);
+
+    @Select("select m.menucode, m.parentcode, m.menuname,\n" +
+            " '1' as chk\n" +
+            "from sys_menu m, sys_usermenumap b\n" +
+            "where m.isenable = 1 and b.menucode = m.menucode and b.usercode = #{usercode}")
+    List<SysRoleeditQuery> selectByUsercode(String usercode);
+
 }

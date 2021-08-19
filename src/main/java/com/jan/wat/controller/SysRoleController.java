@@ -193,10 +193,8 @@ public class SysRoleController {
     @ApiOperation(value = "获取用户菜单")
     @GetMapping("/getUsermenu/{usercode}")
     @ResponseBody
-    public List<SysUsermenumap> getUsermenu(@PathVariable String usercode){
-        LambdaQueryWrapper<SysUsermenumap> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(SysUsermenumap::getUsercode,usercode);
-        return iSysUsermenumapService.list(wrapper);
+    public List<RoleTree> getUsermenu(@PathVariable String usercode){
+        return iSysRoleService.selectByUsercode(usercode);
     }
 
     @ApiOperation(value = "添加用户菜单")

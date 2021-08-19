@@ -26,4 +26,5 @@ public interface ISysRoleService extends IService<SysRole> {
 
     public String getroleseqbyusercode(String usercode);
 
+    public List<RoleTree> selectByUsercode(String usercode);
 }

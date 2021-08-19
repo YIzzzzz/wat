@@ -37,6 +37,15 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     }
 
     @Override
+    public List<RoleTree> selectByUsercode(String usercode) {
+        List<SysRoleeditQuery> list = sysRoleMapper.selectByUsercode(usercode);
+
+        List<RoleTree> tree = new ArrayList<>();
+        RoleTree.createTree(list, tree);
+        return tree;
+    }
+
+    @Override
     public List<SysRole> getallrole() {
         return sysRoleMapper.getallrole();
     }
