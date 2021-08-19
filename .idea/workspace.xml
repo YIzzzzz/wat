@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*" />
+    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/SysRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/SysRoleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/SysUsermenumapMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/SysUsermenumapMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/SysUsermenumapServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/SysUsermenumapServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -280,7 +289,7 @@
       <recent name="com.jan.wat" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WatApplicationTests.sys_usermenumapTest">
+  <component name="RunManager" selected="Spring Boot.WatApplication">
     <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.CodeGenerator" />
       <module name="wat" />
@@ -337,22 +346,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.sys_usermenumapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jan.wat.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jan.wat" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="sys_usermenumapTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WatApplicationTests.getruleseqbyusercode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
@@ -364,6 +357,22 @@
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
       <option name="METHOD_NAME" value="getruleseqbyusercode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplicationTests.sys_usermenumapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="sys_usermenumapTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -382,7 +391,6 @@
         <item itemvalue="Application.CodeGenerator" />
         <item itemvalue="JUnit.WatApplicationTests.getEquYesterdayalarm" />
         <item itemvalue="JUnit.WatApplicationTests.getEquUnrecoveryalarm" />
-        <item itemvalue="JUnit.WatApplicationTests.testgetuserbyorganizecode" />
       </list>
     </recent_temporary>
   </component>

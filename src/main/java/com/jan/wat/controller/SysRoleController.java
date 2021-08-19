@@ -9,10 +9,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.RoleQuery;
 import com.jan.wat.pojo.vo.RoleTree;
-import com.jan.wat.service.ISysRoleService;
-import com.jan.wat.service.ISysRolemenumapService;
-import com.jan.wat.service.ISysUserService;
-import com.jan.wat.service.ISysUserrolemapService;
+import com.jan.wat.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -190,5 +187,28 @@ public class SysRoleController {
         return RespBean.error("添加失败！");
     }
 
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+
+    @ApiOperation(value = "获取用户菜单")
+    @GetMapping("/getUsermenu/{usercode}")
+    @ResponseBody
+    public List<SysUsermenumap> getUsermenu(@PathVariable String usercode){
+        LambdaQueryWrapper<SysUsermenumap> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(SysUsermenumap::getUsercode,usercode);
+        return iSysUsermenumapService.list(wrapper);
+    }
+
+    @ApiOperation(value = "添加用户菜单")
+    @PutMapping("/putUsermenu/{usercode}/{menucode}")
+    @ResponseBody
+    public RespBean getUsermenu(@PathVariable String usercode,@PathVariable String menucode){
+        SysUsermenumap map = new SysUsermenumap();
+        map.setMenucode(menucode);
+        map.setUsercode(usercode);
+        if(iSysUsermenumapService.save(map))
+            return RespBean.success("succeed");
+        return RespBean.error("error");
+    }
 
 }
