@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/sys_usermenumap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/sys_usermenumap.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/SysUsermenumap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +27,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -281,7 +284,20 @@
       <recent name="com.jan.wat" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WatApplication">
+  <component name="RunManager" selected="JUnit.WatApplicationTests.sys_usermenumapTest">
+    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.CodeGenerator" />
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -325,7 +341,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.getHistoryCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.sys_usermenumapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -335,23 +351,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getHistoryCommand" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WatApplicationTests.testFaiurecommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jan.wat.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jan.wat" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="testFaiurecommand" />
+      <option name="METHOD_NAME" value="sys_usermenumapTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -382,11 +382,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WatApplicationTests.sys_usermenumapTest" />
+        <item itemvalue="Application.CodeGenerator" />
         <item itemvalue="JUnit.WatApplicationTests.getEquYesterdayalarm" />
         <item itemvalue="JUnit.WatApplicationTests.getEquUnrecoveryalarm" />
         <item itemvalue="JUnit.WatApplicationTests.testgetuserbyorganizecode" />
-        <item itemvalue="JUnit.WatApplicationTests.testFaiurecommand" />
-        <item itemvalue="JUnit.WatApplicationTests.getHistoryCommand" />
       </list>
     </recent_temporary>
   </component>

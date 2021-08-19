@@ -336,4 +336,15 @@ class WatApplicationTests {
         }
     }
 
+
+
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+
+    @Test
+    public void sys_usermenumapTest(){
+        iSysUsermenumapService.list();
+    }
+
+
 }
