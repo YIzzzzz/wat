@@ -35,4 +35,10 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
     @Update("UPDATE sys_role SET RoleCode = #{rolecode}, RoleSeq = #{roleseq}, RoleName = #{rolename}, Description = #{description}, UpdatePerson = #{updateperson}, UpdateDate = #{updatedate} " +
             "WHERE (`RoleCode` = #{oldcode})")
     public boolean updateRole(String oldcode, String rolecode, String roleseq, String rolename, String description,  String updateperson, LocalDateTime updatedate);
+
+    @Select("select * from sys_role order by roleseq asc")
+    public List<SysRole> getallrole();
+
+    @Select("select roleseq from sys_role r, sys_userrolemap urm where urm.usercode = #{usercode} and r.rolecode = urm.rolecode")
+    public String getroleseqbyusercode(String usercode);
 }

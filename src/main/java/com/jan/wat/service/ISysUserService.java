@@ -18,7 +18,9 @@ import java.util.List;
  */
 public interface ISysUserService extends IService<SysUser> {
 
-    List<RoleUserItem> getRoleUserItem();
+    public List<RoleUserItem> getRoleUserItem();
 
-    List<SysRegisterQuerry> getuserbyorganizecode(String organizecode);
+    public List<SysRegisterQuerry> getuserbyorganizecode(String organizecode, String roleseq);
+
+    public List<SysRegisterQuerry> getalluser(String roleseq);
 }

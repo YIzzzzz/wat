@@ -19,4 +19,6 @@ public interface ISysUserrolemapService extends IService<SysUserrolemap> {
     public RoleQuery getRoleUserhelp(String usercode);
 
     public boolean updateRolecode(String usercode, String rolecode);
+
+    public String getroleseqbyusercode(String usercode);
 }

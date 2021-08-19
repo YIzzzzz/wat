@@ -37,8 +37,18 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     }
 
     @Override
+    public List<SysRole> getallrole() {
+        return sysRoleMapper.getallrole();
+    }
+
+    @Override
     public boolean updateRole(String oldcode, String rolecode, String roleseq, String rolename, String description, String updateperson, LocalDateTime updatedate) {
         return sysRoleMapper.updateRole(oldcode, rolecode, roleseq, rolename, description, updateperson, updatedate);
+    }
+
+    @Override
+    public String getroleseqbyusercode(String usercode) {
+        return sysRoleMapper.getroleseqbyusercode(usercode);
     }
 
 

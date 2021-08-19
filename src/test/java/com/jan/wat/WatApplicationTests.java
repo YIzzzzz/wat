@@ -22,6 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @SpringBootTest
@@ -311,13 +313,13 @@ class WatApplicationTests {
         }
     }
 
-    @Test
-    public void testgetuserbyorganizecode(){
-        List<SysRegisterQuerry> getuserbyorganizecode = sysUserMapper.getuserbyorganizecode("0105");
-        for(SysRegisterQuerry e: getuserbyorganizecode){
-            System.out.println(e);
-        }
-    }
+//    @Test
+//    public void testgetuserbyorganizecode(){
+//        List<SysRegisterQuerry> getuserbyorganizecode = sysUserMapper.getuserbyorganizecode("0105");
+//        for(SysRegisterQuerry e: getuserbyorganizecode){
+//            System.out.println(e);
+//        }
+//    }
     @Autowired
     IEquAlarmrecordService iEquAlarmrecordService;
     @Test
@@ -330,10 +332,30 @@ class WatApplicationTests {
 
     @Test
     public void getEquYesterdayalarm(){
-        List<EquAlarmQuery> huluadmin = equAlarmrecordMapper.getEquYesterdayalarm("huluadmin", "", "", "");
-        for(EquAlarmQuery e: huluadmin){
-            System.out.println(e);
-        }
+        iEquAlarmrecordService.getEquYesterdayalarm("huluadmin","0","0");
+    }
+
+    @Autowired
+    SysUserorganizemapMapper sysUserorganizemapMapper;
+    @Test
+    public void getOrangizecodebyusercode(){
+        String thy = sysUserorganizemapMapper.getOrganizecodebyusercode("thy");
+        System.out.println("-------------------" + thy);
+    }
+
+    @Autowired
+    SysUserrolemapMapper sysUserrolemapMapper;
+    @Test
+    public void getruleseqbyusercode(){
+        String thy = sysUserrolemapMapper.getroleseqbyusercode("thy");
+        System.out.println(thy);
+
+    }
+
+    @Test
+    public void getroleseqbyusercode(){
+        String thy = sysRoleMapper.getroleseqbyusercode("thy");
+        System.out.println(thy);
     }
 
 }

@@ -63,9 +63,15 @@ public interface EquAlarmrecordMapper extends BaseMapper<EquAlarmrecord> {
     @Select("<script>" +
             "select a.equipment_name as equipment_name,a.equipment_id as equipment_id,a.alarmrecord_id as alarmrecord_id,a.datatype_id as datatype_id,convert(a.alarmtime,datetime) as alarmtime,a.alarmtype as alarmtype,convert(a.confirmtime,datetime) as confirmtime,a.usercode as usercode,a.recovery as recovery,convert(a.recoverytime,datetime) as recoverytime,a.reason as reason,a.des as des,a.model as model,a.setupperson as setupperson,a.manager as manager,a.telephone as telephone,convert(a.setuptime,datetime) as setuptime,a.setupaddress as setupaddress,a.equipmenttype_name as equipmenttype_name,a.powertype as powertype,a.username as username,a.datatype_name as datatype_name,a.manufacturer_name as manufacturer_name\n" +
             "from equ_alarmrecord_view as a,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
-            "where (a.alarmtime between '2021-02-01 00:00:00' and '2021-02-01 23:59:59') and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id;" +
+            "where (a.alarmtime between #{start} and #{end} and uem.usercode = #{usercode}) and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id" +
+            "<if test='equipmentgroup_id != \"0\"'>" +
+            "and egm.equipment_id=a.equipment_id and uem.equipmentgroup_id=egm.equipmentgroup_id and uem.equipmentgroup_id in (${set}) and uem.usercode=#{usercode}" +
+            "</if>" +
+            "<if test='equipment_id != \"0\"'>" +
+            "and a.equipment_id=#{huluadmin}" +
+            "</if>" +
             "</script>")
     @ResultMap(value="getCommand")
-    public List<EquAlarmQuery> getEquYesterdayalarm(String usercode, String set, String equipment_id, String equipmentgroup_id);
+    public List<EquAlarmQuery> getEquYesterdayalarm(String usercode,String start,String end, String set, String equipment_id, String equipmentgroup_id);
 
 }

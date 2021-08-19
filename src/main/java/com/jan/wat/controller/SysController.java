@@ -6,17 +6,15 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.mapper.EquDatatypeMapper;
 import com.jan.wat.mapper.EquEquipmentMapper;
+import com.jan.wat.mapper.SysUserorganizemapMapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.scheduled.ApplicationContextUtil;
 import com.jan.wat.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -28,18 +26,34 @@ public class SysController {
     @Autowired
     ISysUserService iSysUserService;
 
-    @RequestMapping("/login")
+    @Autowired
+    ISysUserrolemapService iSysUserrolemapService;
+
+    @Autowired
+    ISysUserorganizemapService iSysUserorganizemapService;
+
+    @PostMapping("/login")
     @ResponseBody
-    public boolean login(@RequestBody JSONObject json){
-        String userCode = (String) json.get("username");
+    public String login(@RequestBody JSONObject json){
+        String usercode = (String) json.get("usercode");
         String password = (String) json.get("password");
 
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("userCode",userCode);
+        queryWrapper.eq("userCode",usercode);
         queryWrapper.eq("password",password);
         SysUser sysUser = iSysUserService.getOne(queryWrapper);
-        if(sysUser == null)
-            return false;
-        return true;
+        JSONObject jsonObject = new JSONObject();
+        if(sysUser == null){
+            jsonObject.put("ifloginsuccess",false);
+        }else{
+            String username = sysUser.getUsername();
+            jsonObject.put("ifloginsuccess",true);
+            String organizecodebyusercode = iSysUserorganizemapService.getOrganizecodebyusercode(usercode);
+            jsonObject.put("organizecode",organizecodebyusercode);
+            String roleseq = iSysUserrolemapService.getroleseqbyusercode(usercode);
+            jsonObject.put("roleseq", roleseq);
+            jsonObject.put("username", username);
+        }
+        return jsonObject.toJSONString();
     }
 }

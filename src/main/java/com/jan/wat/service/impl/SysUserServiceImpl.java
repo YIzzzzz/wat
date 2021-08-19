@@ -31,7 +31,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     }
 
     @Override
-    public List<SysRegisterQuerry> getuserbyorganizecode(String organizecode) {
-        return sysUserMapper.getuserbyorganizecode(organizecode);
+    public List<SysRegisterQuerry> getuserbyorganizecode(String organizecode, String roleseq) {
+        return sysUserMapper.getuserbyorganizecode(organizecode, roleseq);
+    }
+
+    @Override
+    public List<SysRegisterQuerry> getalluser(String roleseq) {
+        return sysUserMapper.getalluser(roleseq);
     }
 }

@@ -54,7 +54,7 @@ public class SysRoleController {
     @ApiOperation(value = "查询角色管理列表")
     @GetMapping("/getall")
     public List<SysRole> getAllSysRole(){
-        return iSysRoleService.list();
+        return iSysRoleService.getallrole();
     }
 
     @ApiOperation(value = "添加角色管理信息")

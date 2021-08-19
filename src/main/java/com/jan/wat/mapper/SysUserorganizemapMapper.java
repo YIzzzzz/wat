@@ -2,6 +2,7 @@ package com.jan.wat.mapper;
 
 import com.jan.wat.pojo.SysUserorganizemap;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,5 +15,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SysUserorganizemapMapper extends BaseMapper<SysUserorganizemap> {
+
+    @Select("SELECT organizecode FROM sys_userorganizemap where usercode = #{usercode}")
+    public String getOrganizecodebyusercode(String usercode);
 
 }
