@@ -31,7 +31,6 @@ public class Tools {
 
         for (int i = 0; i < hexString.length() / 2; i++) {
             long dec_num = Long.parseLong(hexString.substring(i * 2, i * 2+2), 16);
-            dec_num = dec_num - 128;
             list.add(Byte.parseByte(String.valueOf(dec_num)));
         }
         return list;

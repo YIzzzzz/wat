@@ -41,7 +41,9 @@ public class DateTime {
 
 
     public static void Now(){
-//        initNow();
+        //initNow();
+        calendar = null;
+        calendar=Calendar.getInstance();
         yearInt = calendar.get(Calendar.YEAR);
         String year2 = (String)String.valueOf(yearInt).subSequence(2,4);
         year = (byte) Byte.parseByte(year2);
@@ -97,6 +99,8 @@ public class DateTime {
 
     public static String getMonthNow(){
 //        initNow();
+        calendar = null;
+        calendar=Calendar.getInstance();
         return String.valueOf(calendar.get(Calendar.MONTH)+1);
 
     }

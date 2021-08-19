@@ -358,4 +358,15 @@ class WatApplicationTests {
         System.out.println(thy);
     }
 
+
+
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+
+    @Test
+    public void sys_usermenumapTest(){
+        iSysUsermenumapService.list();
+    }
+
+
 }

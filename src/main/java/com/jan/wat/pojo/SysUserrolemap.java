@@ -30,5 +30,4 @@ public class SysUserrolemap implements Serializable {
     @TableField("RoleCode")
     private String rolecode;
 
-
 }

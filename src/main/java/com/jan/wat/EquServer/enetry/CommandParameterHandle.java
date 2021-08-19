@@ -63,13 +63,14 @@ public class CommandParameterHandle
         data[3] = (byte)DateTime.getHour();
         data[4] = (byte)DateTime.getMinute();
         data[5] = (byte)DateTime.getSecond();
+
         if(response)
             data[6] = 0x00;//表示需要应答
         else data[6] = 0x01;//表示不需要应答
         return frame.GetBuffer(frameType, data);
     }
 
-    public boolean Load(byte[] data, int paraOrValue) {
+    public boolean load(byte[] data, int paraOrValue) {
         status = data[0];
         equipmentTypeId = data[1];
         paraCellNum = data[2];
@@ -123,12 +124,16 @@ public class CommandParameterHandle
                 if(!it.hasNext())
                     return null;
                 List<Byte> list = new ArrayList<>();
-
+                int number = 0;
                 while(it.hasNext()){
+                    number++;
                     Element child = it.next();
                     int t = Integer.parseInt(child.element("T").getTextTrim());
+                    int i = Integer.parseInt(child.element("I").getTextTrim());
+
+                    list.add((byte) i);
+                    list.add((byte) t);
                     String v = child.element("V").getTextTrim();
-                    String i = child.element("I").getTextTrim();
 
                     switch(t){
                         case 1:
@@ -136,21 +141,22 @@ public class CommandParameterHandle
                             double value = Double.parseDouble(v);
 
                             String[] flag = String.valueOf(Math.abs(value)).split("\\.");
-
                             //去除小数点
                             StringBuilder str = new StringBuilder();
                             for (String s : flag) {
+                                if(Integer.parseInt(s) == 0)
+                                    continue;
                                 str.append(s);
                             }
                             //转16进制
                             String strTmp = String.format("%08x",Long.parseLong(str.toString()));//左边补0，确保8位 Convert.ToString(str);//十进制转16进制
-                            System.out.println(strTmp);
+
                             list.addAll(Tools.strToToHexByte(strTmp));
 
                             byte format = 0x00;
                             if (value > 0)
                             {
-                                if (flag.length == 1)
+                                if (Integer.parseInt(flag[1]) == 0)
                                 {
                                     format = (byte) DataFormat.DivideOne;
                                 }
@@ -176,7 +182,7 @@ public class CommandParameterHandle
                             }
                             else
                             {
-                                if (flag.length == 1)
+                                if (Integer.parseInt(flag[1]) == 0)
                                 {
                                     format = (byte)DataFormat.DivideNegativeOne;
                                 }
@@ -220,10 +226,11 @@ public class CommandParameterHandle
 
                 }
 
-                byte[] arr = new byte[list.size()];
+                byte[] arr = new byte[list.size()+1];
+                arr[0] = (byte)number;
                 System.out.println("list"+list);
-                for (int k = 0; k < list.size(); k++)
-                    arr[k] = list.get(k);
+                for (int k = 1; k <= list.size(); k++)
+                    arr[k] = list.get(k-1);
                 returnValue= frame.GetBuffer((byte)Command.SetParameterValue, arr);
                 break;
 
