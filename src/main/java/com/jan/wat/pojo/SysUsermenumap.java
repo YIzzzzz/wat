@@ -24,9 +24,6 @@ public class SysUsermenumap implements Serializable {
     @TableId(value = "ID", type = IdType.AUTO)
     private Integer id;
 
-    @TableField("RoleCode")
-    private String rolecode;
-
     @TableField("MenuCode")
     private String menucode;
 
