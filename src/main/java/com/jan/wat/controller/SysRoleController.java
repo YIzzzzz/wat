@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.RoleQuery;
@@ -123,7 +125,6 @@ public class SysRoleController {
     @PostMapping(value="/adddelapi", produces = "application/json;charset=UTF-8")
     public RespBean addAndDelApi(@RequestBody JSONObject json){
 
-        System.out.println(json);
         String role = (String) json.get("role");
         List<String> add = (List<String>) json.get("add");
         List<String> delete = (List<String>) json.get("delete");
@@ -204,9 +205,37 @@ public class SysRoleController {
         SysUsermenumap map = new SysUsermenumap();
         map.setMenucode(menucode);
         map.setUsercode(usercode);
+        map.setStatus(1);
         if(iSysUsermenumapService.save(map))
             return RespBean.success("succeed");
         return RespBean.error("error");
+    }
+
+    @ApiOperation(value = "user添加删除接口")
+    @PostMapping(value="/userAddAndDelApi", produces = "application/json;charset=UTF-8")
+    public RespBean userAddAndDelApi(@RequestBody JSONObject json){
+
+        String usercode = (String) json.get("usercode");
+        List<String> add = (List<String>) json.get("add");
+        List<String> delete = (List<String>) json.get("delete");
+        System.out.println(add);
+        System.out.println(delete);
+        for (String str : add){
+            LambdaUpdateWrapper<SysUsermenumap> wrapper = new LambdaUpdateWrapper<>();
+            wrapper.eq(SysUsermenumap::getUsercode,usercode);
+            wrapper.eq(SysUsermenumap::getMenucode,str);
+            wrapper.set(SysUsermenumap::getStatus,1);
+            iSysUsermenumapService.update(wrapper);
+        }
+
+        for (String str : delete){
+            LambdaUpdateWrapper<SysUsermenumap> wrapper = new LambdaUpdateWrapper<>();
+            wrapper.eq(SysUsermenumap::getUsercode,usercode);
+            wrapper.eq(SysUsermenumap::getMenucode,str);
+            wrapper.set(SysUsermenumap::getStatus,0);
+            iSysUsermenumapService.update(wrapper);
+        }
+        return RespBean.success("success");
     }
 
 }

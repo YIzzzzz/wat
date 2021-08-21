@@ -1,6 +1,7 @@
 package com.jan.wat.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.SysRegisterQuerry;
 import com.jan.wat.service.*;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,6 +39,12 @@ public class SysUserController {
     @Autowired
     ISysOrganizeService iSysOrganizeService;
 
+    @Autowired
+    ISysRolemenumapService iSysRolemenumapService;
+
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+
     @ApiOperation(value = "用户管理")
     @GetMapping("getall/{usercode}")
     @ResponseBody
@@ -61,7 +69,19 @@ public class SysUserController {
         sysUser.setPassword("123456");
         sysUser.setCreatedate(LocalDateTime.now());
         sysUser.setUpdatedate(LocalDateTime.now());
-        if(iSysUserService.save(sysUser)){
+        LambdaQueryWrapper<SysRolemenumap> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(SysRolemenumap::getRolecode,rolecode);
+        List<SysRolemenumap> sysRolemenumaps= iSysRolemenumapService.list(wrapper);
+        List<SysUsermenumap> sysUsermenumaps = new ArrayList<>();
+        for(SysRolemenumap sysRolemenumap : sysRolemenumaps){
+            SysUsermenumap sysUsermenumap = new SysUsermenumap();
+            sysUsermenumap.setUsercode(sysUser.getUsercode());
+            sysUsermenumap.setMenucode(sysRolemenumap.getMenucode());
+            sysUsermenumap.setStatus(1);
+            sysUsermenumaps.add(sysUsermenumap);
+        }
+
+        if(iSysUserService.save(sysUser) && iSysUsermenumapService.saveBatch(sysUsermenumaps)){
             SysUserorganizemap sysUserorganizemap = new SysUserorganizemap();
             sysUserorganizemap.setUsercode(sysUser.getUsercode());
             sysUserorganizemap.setOrganizecode(organizecode);
@@ -70,6 +90,7 @@ public class SysUserController {
             sysUserrolemap.setUsercode(sysUser.getUsercode());
             sysUserrolemap.setRolecode(rolecode);
             if(iSysUserorganizemapService.save(sysUserorganizemap) && iSysUserrolemapService.saveOrUpdate(sysUserrolemap)){
+
                 return RespBean.success("添加成功");
             }else{
                 return RespBean.error("添加失败");

@@ -365,10 +365,12 @@ class WatApplicationTests {
 
     @Test
     public void sys_usermenumapTest(){
-        LambdaQueryWrapper<SysUsermenumap> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(SysUsermenumap::getUsercode,"admin");
-        iSysUsermenumapService.list(wrapper);
+        iSysUsermenumapService.list();
     }
 
+    @Test
+    public void random(){
+
+    }
 
 }
