@@ -17,4 +17,13 @@ import java.util.List;
 public interface IWatFlowService extends IService<WatFlow> {
 
 //    List<FlowViewQuery> getAllFlowtypeList(String equipmentGroupId, String equipmentId);
+
+//    public List<FlowViewQuery> getAllFlow();
+
+
+
+    public List<FlowViewQuery> getAllFlow(String usercode,String equipment_id,String equipmentgroup_id);
+
+    public List<Integer> getAlarmtypeid(String equipment_id);
+
 }

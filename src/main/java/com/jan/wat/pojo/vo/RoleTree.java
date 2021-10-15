@@ -5,10 +5,7 @@ import com.jan.wat.pojo.SysOrganize;
 import com.jan.wat.pojo.SysRole;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @hor:ZXJ
@@ -33,7 +30,7 @@ public class RoleTree extends SysRoleeditQuery{
         memory = new ArrayList<>();
 
         for(SysRoleeditQuery event : list){
-            map.put(event.getMenucode(),new ArrayList<>());
+            map.put(event.getIndex(),new ArrayList<>());
         }
         int index = 0;
         for(SysRoleeditQuery event : list){
@@ -42,6 +39,7 @@ public class RoleTree extends SysRoleeditQuery{
                 tree.add(new RoleTree(event));
                 continue;
             }
+
             map.get(event.getParentcode()).add(index++);
         }
         index = 0;
@@ -50,15 +48,23 @@ public class RoleTree extends SysRoleeditQuery{
         }
     }
 
+
     public static void dfs(int index, List<SysRoleeditQuery> list, List<RoleTree> tree){
 
-        String current = list.get(index).getMenucode();
+        String current = list.get(index).getIndex();
 
         for(int branch : map.get(current)){
             RoleTree roleTree = new RoleTree(list.get(branch));
             tree.add(roleTree);
             dfs(branch,list,roleTree.getChildren());
         }
+    }
+
+    public static void changeState(List<RoleTree> tree, Set<String> set){
+
+    }
+
+    public static void dfs(){
 
     }
 

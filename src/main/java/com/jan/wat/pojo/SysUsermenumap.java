@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author January
- * @since 2021-08-19
+ * @since 2021-08-20
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -30,5 +30,7 @@ public class SysUsermenumap implements Serializable {
     @TableField("UserCode")
     private String usercode;
 
+    @TableField("S")
+    private Integer status;
 
 }

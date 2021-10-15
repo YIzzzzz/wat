@@ -5,7 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jan.wat.pojo.SysUsermenumap">
         <id column="ID" property="id" />
-        <result column="RoleCode" property="rolecode" />
+        <result column="S" property="status" />
         <result column="MenuCode" property="menucode" />
         <result column="UserCode" property="usercode" />
     </resultMap>

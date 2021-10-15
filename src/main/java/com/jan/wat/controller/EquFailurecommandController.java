@@ -22,4 +22,6 @@ public class EquFailurecommandController {
         return iEquCommandService.getEquFailurecommand(userCode, equipmentId, euipmentGroupID);
     }
 
+
+
 }

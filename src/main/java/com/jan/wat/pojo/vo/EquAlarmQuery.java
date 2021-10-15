@@ -8,6 +8,11 @@ import java.time.LocalDateTime;
 @Data
 public class EquAlarmQuery {
 
+
+    @ApiModelProperty(value = "主键id")
+    private Integer id;
+    @ApiModelProperty(value = "确认")
+    private boolean isconfirm;
     @ApiModelProperty(value = "设备编码")
     private String equipment_id;
     @ApiModelProperty(value = "设备名称")
@@ -30,15 +35,17 @@ public class EquAlarmQuery {
     private String reason;
     @ApiModelProperty(value = "数据类型")
     private String datatype_name;
-
-    private String recovery;
-    private String recoverytime;
+    @ApiModelProperty(value = "是否恢复")
+    private boolean recovery;
+    @ApiModelProperty(value = "恢复时间")
+    private LocalDateTime recoverytime;
     @ApiModelProperty(value = "型号")
     private String model;
     @ApiModelProperty(value = "安装人")
     private String setupperson;
     @ApiModelProperty(value = "安装时间")
     private LocalDateTime setuptime;
+    @ApiModelProperty(value = "确认人")
     private String username;
     @ApiModelProperty(value = "安装地址")
     private String setupaddress;
@@ -48,7 +55,9 @@ public class EquAlarmQuery {
     private Integer datatype_id;
 
     private Integer alarmrecord_id;
+    @ApiModelProperty(value = "确认描述")
     private String des;
+    @ApiModelProperty(value = "负责人")
     private String manager;
 
 }

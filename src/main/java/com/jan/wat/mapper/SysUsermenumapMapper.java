@@ -10,8 +10,9 @@ import org.springframework.stereotype.Repository;
  * </p>
  *
  * @author January
- * @since 2021-08-19
+ * @since 2021-08-20
  */
+
 @Repository
 public interface SysUsermenumapMapper extends BaseMapper<SysUsermenumap> {
 

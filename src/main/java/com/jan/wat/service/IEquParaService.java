@@ -23,6 +23,8 @@ public interface IEquParaService extends IService<EquPara> {
 
     List<EquParaQuery> queryParaList();
 
+    List<EquParaQuery> querybyparagroupid(int id);
+
     IPage<EquParaQuery> selectByPage(Page<EquParaQuery> page);
 
     List<ParaTree> getTree();

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author January
- * @since 2021-08-19
+ * @since 2021-08-20
  */
 public interface ISysUsermenumapService extends IService<SysUsermenumap> {
 

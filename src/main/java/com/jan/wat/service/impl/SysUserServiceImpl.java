@@ -39,4 +39,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public List<SysRegisterQuerry> getalluser(String roleseq) {
         return sysUserMapper.getalluser(roleseq);
     }
+
+    @Override
+    public boolean updatepassword(String usercode, String password) {
+        return sysUserMapper.updatepassword(usercode, password);
+    }
 }

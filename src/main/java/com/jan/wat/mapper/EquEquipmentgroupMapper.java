@@ -24,4 +24,8 @@ public interface EquEquipmentgroupMapper extends BaseMapper<EquEquipmentgroup> {
             "        where A.ID = B.EquipmentGroup_ID\n" +
             "        and UserCode = #{userCode}")
     public List<EquEquipmentgroup> getListByUser(String userCode);
+
+
+    @Select("select max(id) from equ_equipmentgroup")
+    public Integer getMaxId();
 }

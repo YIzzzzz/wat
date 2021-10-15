@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -42,6 +44,21 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
         List<RoleTree> tree = new ArrayList<>();
         RoleTree.createTree(list, tree);
+
+        return tree;
+    }
+
+    @Override
+    public List<RoleTree> selectByUsercodeDouble(String usercodeOld, String usercodeNew){
+        List<SysRoleeditQuery> listOld = sysRoleMapper.selectByUsercode(usercodeOld);
+        List<SysRoleeditQuery> listNew = sysRoleMapper.selectByUsercode(usercodeNew);
+        Set<String> menus = new HashSet<>();
+        for(SysRoleeditQuery query : listNew){
+            menus.add(query.getIndex());
+        }
+        List<RoleTree> tree = new ArrayList<>();
+        RoleTree.createTree(listOld, tree);
+
         return tree;
     }
 

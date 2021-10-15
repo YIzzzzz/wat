@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author January
- * @since 2021-08-19
+ * @since 2021-08-20
  */
 @Service("SysUsermenumapServiceImpl")
 public class SysUsermenumapServiceImpl extends ServiceImpl<SysUsermenumapMapper, SysUsermenumap> implements ISysUsermenumapService {
