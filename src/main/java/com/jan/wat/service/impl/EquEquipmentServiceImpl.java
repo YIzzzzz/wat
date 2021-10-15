@@ -9,6 +9,7 @@ import com.jan.wat.pojo.EquEquipment;
 import com.jan.wat.mapper.EquEquipmentMapper;
 import com.jan.wat.pojo.EquEquipmentrealdata;
 import com.jan.wat.pojo.vo.EquParaQuery;
+import com.jan.wat.pojo.vo.EquipmentQuery;
 import com.jan.wat.pojo.vo.EuipmentsQuery;
 import com.jan.wat.pojo.vo.RealDataQuery;
 import com.jan.wat.service.IEquEquipmentService;
@@ -18,6 +19,7 @@ import com.jan.wat.service.IEquEquipmentrealdataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,9 +44,10 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     @Override
     public List<EuipmentsQuery> getEuipments(String euipmentGroupID, String equipmentId, String userCode) {
         StringBuilder where = new StringBuilder("");
-
+        System.out.println("=============="+euipmentGroupID);
         if(!euipmentGroupID.equals("")){
             List<String> childrenGroupId = iEquEquipmentgroupService.getChildrenId(userCode, euipmentGroupID);
+            System.out.println(childrenGroupId);
             if(childrenGroupId.size()>0){
                 where.append(" and A.ID in (");
                 int count = 0;
@@ -57,6 +60,8 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
                     where.append(",");
                 }
                 where.append(")");
+            }else{
+                return new ArrayList<EuipmentsQuery>();
             }
         }
         if(!equipmentId.equals("0") && !equipmentId.equals("")){
@@ -106,6 +111,37 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             array.add(json);
         }
         return array.toString();
+    }
+
+    @Override
+    public List<EquEquipment> getEquEquipment(String usercode, String equipment_id, String equipmentgroup_id) {
+        StringBuilder set = new StringBuilder();
+        set.append(equipmentgroup_id);
+        if(equipmentgroup_id != "0"){
+            List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentgroup_id);
+            for(int i : childrengroupId){
+
+                set.append(",");
+                set.append(String.valueOf(i));
+
+            }
+        }
+        return equEquipmentMapper.getEquEquipment(usercode,set.toString(),equipment_id,equipmentgroup_id);
+    }
+
+    @Override
+    public List<EquipmentQuery> getEquipmentbyequipmentgroupid(Integer equipmentgroup_id) {
+        return equEquipmentMapper.getEquipmentbyequipmentgroupid(equipmentgroup_id);
+    }
+
+    @Override
+    public List<String> getEquipmentid() {
+        return equEquipmentMapper.getEquipmentid();
+    }
+
+    @Override
+    public List<EquEquipment> getEquEquipmentByUsercode(String usercode) {
+        return equEquipmentMapper.getEquEquipmentByUsercode(usercode);
     }
 
 }

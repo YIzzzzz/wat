@@ -1,5 +1,6 @@
 package com.jan.wat.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
@@ -75,6 +76,11 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
     }
 
     @Override
+    public List<EquParaQuery> querybyparagroupid(int id) {
+        return mapper.querybyparagroupid(id);
+    }
+
+    @Override
     public IPage<EquParaQuery> selectByPage(Page<EquParaQuery> page) {
         return mapper.selectByPage(page);
     }
@@ -85,11 +91,18 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
     }
 
     @Override
-    public boolean sendCommand(List<SigEuipementparaQuery> queries, String userCode) {
+    public boolean sendCommand(List<SigEuipementparaQuery> data, String userCode) {
         boolean bool = false;
         StringBuilder command = new StringBuilder("<D>");
         StringBuilder describe = new StringBuilder();
+        List<SigEuipementparaQuery> queries = new ArrayList<SigEuipementparaQuery>();
         String equipmentId;
+
+        for(Object o :data){
+            JSONObject json = (JSONObject) JSONObject.toJSON(o);
+            SigEuipementparaQuery sigEuipementparaQuery = json.toJavaObject(SigEuipementparaQuery.class);
+            queries.add(sigEuipementparaQuery);
+        }
         equipmentId = queries.get(0).getEquipment_ID();
 
         for(SigEuipementparaQuery query : queries){

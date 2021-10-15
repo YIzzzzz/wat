@@ -18,12 +18,20 @@ public class SysRoleeditQuery {
     @ApiModelProperty(value = "是否显示")
     private String chk;
 
+    @ApiModelProperty(value = "图标")
+    private String iconclass;
+
+    @ApiModelProperty(value = "路径")
+    private String url;
+
     public SysRoleeditQuery(){}
     public SysRoleeditQuery(SysRoleeditQuery query){
         index = query.getIndex();
         parentcode = query.getParentcode();
         title = query.getTitle();
         chk = query.getChk();
+        iconclass = query.getIconclass();
+        url = query.getUrl();
     }
 
 }

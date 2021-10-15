@@ -1,13 +1,11 @@
 package com.jan.wat.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jan.wat.pojo.vo.FailureAndHistoryCommandQuery;
 import com.jan.wat.service.IEquCommandService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +22,29 @@ public class EquHistoryCommandController {
     IEquCommandService iEquCommandService;
 
     @ApiOperation(value = "获取历史命令")
-    @GetMapping("/{usercode}/{equipmentGroupId}/{equipmentId}/{commandtype}/{startTime}/{endTime}")
-    public List<FailureAndHistoryCommandQuery> getHistoryCommand(String usercode, String equipmentGroupId, String equipmentId, String commandtype, String startTime, String endTime){
+    @PutMapping("/get")
+    public List<FailureAndHistoryCommandQuery> getHistoryCommand(@RequestBody JSONObject json){
+
+        String usercode = (String) json.get("usercode");
+
+        //有就传设备组id，没有就传0
+        String equipmentGroupId = (String) json.get("equipmentgroup_id");
+
+        //有就传设备id，没有就传0
+        String equipmentId = (String) json.get("equipment_id");
+
+        //全部传0,更新程序传140，读取参数传145，读取参数值传146，设置参数值传147，矫正时间传148
+        Integer commandtype = (Integer) json.get("commandtype");
+
+        //有就传，没有就传""(空字符串)
+        String startTime = (String) json.get("starttime");
+
+        //有就传，没有就传""(空字符串)
+        String endTime = (String) json.get("endtime");
+
         return iEquCommandService.getHistoryCommand(usercode,equipmentGroupId,equipmentId,commandtype,startTime,endTime);
     }
+
+
 
 }

@@ -1,5 +1,6 @@
 package com.jan.wat.controller;
 
+import com.jan.wat.pojo.EquEquipmentgroup;
 import com.jan.wat.pojo.vo.EquipmentTree;
 import com.jan.wat.pojo.vo.EuipmentsQuery;
 import com.jan.wat.service.IEquEquipmentService;
@@ -10,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,11 +28,23 @@ public class EquReadEquipmentParaController {
     @Autowired
     IEquEquipmentService iEquEquipmentService;
 
+    @ApiOperation(value = "获取全部设备树")
+    @GetMapping("/getTree")
+    public List<EquipmentTree> getAllTree(){
+
+        List<EquEquipmentgroup> list = iEquEquipmentgroupService.list();
+        List<EquipmentTree> tree = new ArrayList<>();
+        EquipmentTree.createTree(list,tree);
+        return tree;
+    }
+
     @ApiOperation(value = "获取设备树")
     @GetMapping("/getTree/{userCode}")
     public List<EquipmentTree> getTree(@PathVariable String userCode){
         return iEquEquipmentgroupService.createTree(userCode);
     }
+
+
 
     @ApiOperation(value="获取设备列表")
     @GetMapping("/getEquipmentList/{userCode}/{equipemtnGroupId}")
@@ -45,6 +59,4 @@ public class EquReadEquipmentParaController {
     public List<EuipmentsQuery> getEuipments(@PathVariable String euipmentGroupID, @PathVariable String equipmentId, @PathVariable String userCode){
         return iEquEquipmentService.getEuipments(euipmentGroupID, equipmentId,userCode);
     }
-
-
 }

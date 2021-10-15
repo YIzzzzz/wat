@@ -342,7 +342,8 @@ public class DatabaseHandle {
         EquEquipment equEquipment = new EquEquipment();
         equEquipment.setId(id);
         equEquipment.setAddress(address);
-        equEquipment.setN(id);
+        equEquipment.setAname(id);
+//        equEquipment.setN(id);
         equEquipment.setIpaddress(sender.getAddress().toString().substring(1));
         equEquipment.setP(sender.getPort());
         equEquipment.setLastcollecttime(DateTime.DateNow());

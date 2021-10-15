@@ -1,6 +1,7 @@
 package com.jan.wat.controller;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -36,6 +37,13 @@ public class EquParaController {
     @GetMapping("/getall")
     public List<EquParaQuery> getAllEquParalist(){
         return iEquParaService.queryParaList();
+    }
+
+    @ApiOperation(value = "查询参数管理列表by参数组id")
+    @GetMapping("/getbyparagroupid/{id}")
+    public List<EquParaQuery> getbyparagroupid(@PathVariable int id){
+        return iEquParaService.querybyparagroupid(id);
+
     }
 
     @ApiOperation(value = "添加参数管理")

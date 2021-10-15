@@ -15,6 +15,9 @@ public class EquParaQuery {
     @ApiModelProperty(value = "参数名称")
     private String name;
 
+    @ApiModelProperty(value = "参数组id")
+    private Integer paragroup_id;
+
     @ApiModelProperty(value = "参数组名称")
     private String paraname;
 

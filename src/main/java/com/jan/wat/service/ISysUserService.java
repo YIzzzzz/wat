@@ -23,4 +23,6 @@ public interface ISysUserService extends IService<SysUser> {
     public List<SysRegisterQuerry> getuserbyorganizecode(String organizecode, String roleseq);
 
     public List<SysRegisterQuerry> getalluser(String roleseq);
+
+    public boolean updatepassword(String usercode, String password);
 }

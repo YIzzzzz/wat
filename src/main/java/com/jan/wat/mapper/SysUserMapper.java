@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jan.wat.pojo.vo.RoleUserItem;
 import com.jan.wat.pojo.vo.SysRegisterQuerry;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -36,8 +37,12 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
             "where u.usercode = urm.usercode and urm.rolecode = r.rolecode  and roleseq >= #{roleseq} order by u.usercode desc")
     public List<SysRegisterQuerry> getalluser(String roleseq);
 
-    @Select("select u.usercode, u.username as username, u.description as description, u.isenable as isenable, u.logincount as logincount, u.lastlogindate as lastlogindate, u.createperson as createperson, u.createdate as createdate, u.updateperson as updateperson, u.updatedate as updatedate, r.rolecode as rolecode, r.rolename as rolename, r.roleseq as roleseq from sys_user u, sys_userrolemap urm, sys_role r, sys_userorganizemap uom\n" +
+    @Select("select u.usercode, u.username as username, u.description as description, u.isenable as isenable, u.logincount as logincount, u.lastlogindate as lastlogindate, u.createperson as createperson, u.createdate as createdate, u.updateperson as updateperson, u.updatedate as updatedate, r.rolecode as rolecode, r.rolename as rolename, r.roleseq as roleseq " +
+            "from sys_user u, sys_userrolemap urm, sys_role r, sys_userorganizemap uom\n" +
             "where u.usercode = uom.usercode and uom.organizecode = #{organizecode} and u.usercode = urm.usercode and urm.rolecode = r.rolecode  and r.roleseq >= #{roleseq}")
     public List<SysRegisterQuerry> getuserbyorganizecode(String organizecode, String roleseq);
+
+    @Update("update sys_user set password = #{password} where usercode = #{usercode}")
+    public boolean updatepassword(String usercode, String password);
 
 }

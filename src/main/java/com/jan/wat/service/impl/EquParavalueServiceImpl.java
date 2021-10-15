@@ -37,9 +37,14 @@ public class EquParavalueServiceImpl extends ServiceImpl<EquParavalueMapper, Equ
     @Autowired
     EquParavalueMapper equParavalueMapper;
 
+//    @Override
+//    public IPage<EquParavalueQuery> selectByPage(Integer para_id) {
+//        return equParavalueMapper.selectByPage(para_id);
+//    }
+
     @Override
-    public IPage<EquParavalueQuery> selectByPage(Page<EquParavalueQuery> page, Integer para_id) {
-        return equParavalueMapper.selectByPage(page,  para_id);
+    public List<EquParavalueQuery> selectByPage(Integer para_id) {
+        return equParavalueMapper.selectByPage(para_id);
     }
 
     @Override

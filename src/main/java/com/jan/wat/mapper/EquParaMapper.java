@@ -33,13 +33,25 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
     @Select("        select\n" +
             "            ep.ID as id,\n" +
             "            ep.Name as name,\n" +
+            "            ep.ParaGroup_ID as paragroup_id,\n" +
             "            epg.Name as paraname,\n" +
             "            ep.Type as type,\n" +
             "            ep.ReadOnly as readonly\n" +
-            "        from rdas_eng.equ_para ep, rdas_eng.equ_paragroup epg\n" +
+            "        from equ_para ep, equ_paragroup epg\n" +
             "        where ep.ParaGroup_ID = epg.ID\n" +
             "        order by id")
+    @Results(id = "Para",value = {
+            @Result(column = "paragroup_id",property = "paragroup_id")
+    })
     List<EquParaQuery> queryParaList();
+
+    @Select("select   ep.ID as id, ep.Name as name, ep.ParaGroup_ID as paragroup_id, epg.Name as paraname, ep.Type as type, ep.ReadOnly as readonly \n" +
+            "from equ_para ep, equ_paragroup epg  \n" +
+            "where ep.ParaGroup_ID = #{id} and ep.ParaGroup_ID = epg.ID order by id")
+    @Results(id = "Para1",value = {
+            @Result(column = "paragroup_id",property = "paragroup_id")
+    })
+    List<EquParaQuery> querybyparagroupid(int id);
 
     @Select("        select\n" +
             "            ep.ID as id,\n" +
@@ -47,7 +59,7 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "            epg.Name as paraname,\n" +
             "            ep.Type as type,\n" +
             "            ep.ReadOnly as readonly\n" +
-            "        from rdas_eng.equ_para ep, rdas_eng.equ_paragroup epg\n" +
+            "        from equ_para ep, equ_paragroup epg\n" +
             "        where ep.ParaGroup_ID = epg.ID\n" +
             "        order by id")
     IPage<EquParaQuery> selectByPage(Page<EquParaQuery> page);
@@ -68,7 +80,6 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             @Result(column = "para_Name",property = "para_Name"),
             @Result(column = "ReadOnly",property = "ReadOnly")
     })
-
     List<SigEuipementparaQuery> getSigEquipmentPara(String equipment_ID);
 
     @Select("select distinct p.ID as para_ID,p.Type as pType,p.Name as para_Name,'' as UpLimit,'' as DownLimit\n" +

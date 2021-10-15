@@ -19,7 +19,8 @@ import java.util.List;
  */
 public interface IEquParavalueService extends IService<EquParavalue> {
 
-    IPage<EquParavalueQuery> selectByPage(Page<EquParavalueQuery> page, Integer para_id);
+
+    public List<EquParavalueQuery> selectByPage(Integer para_id);
 
     public boolean updateByIdAndParaID(EquParavalue equParavalue);
 

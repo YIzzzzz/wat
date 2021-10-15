@@ -1,5 +1,7 @@
 package com.jan.wat.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -43,11 +45,11 @@ public class EquParavalueController {
 
     @ApiOperation(value = "查询参数值管理")
     @GetMapping("getall/{para_id}")
-    public IPage<EquParavalueQuery> getAllEquServer(@PathVariable Integer para_id){
+    public List<EquParavalueQuery> getAllEquServer(@PathVariable Integer para_id){
 
         Page<EquParavalueQuery> page = new Page<>(1, 30);
 
-        return iEquParavalueService.selectByPage(page, para_id);
+        return iEquParavalueService.selectByPage(para_id);
     }
 
     @ApiOperation(value = "添加参数值管理信息")
@@ -62,9 +64,40 @@ public class EquParavalueController {
     @ApiOperation(value = "更新参数值管理信息")
     @PutMapping("/update")
     public RespBean updateEquParavalue(@RequestBody EquParavalue equParavalue){
-        if (iEquParavalueService.updateByIdAndParaID(equParavalue)){
+        LambdaUpdateWrapper<EquParavalue> wrapper = new LambdaUpdateWrapper<>();
+        wrapper.eq(EquParavalue::getParaId,equParavalue.getParaId());
+        wrapper.eq(EquParavalue::getId,equParavalue.getId());
+        wrapper.set(EquParavalue::getName,equParavalue.getName());
+        if (iEquParavalueService.update(wrapper)){
             return RespBean.success("更新成功");
         }
         return RespBean.error("更新失败！");
+    }
+
+    @ApiOperation(value = "删除参数值管理信息")
+    @DeleteMapping("/delete")
+    public RespBean deleteEquParavalue(@RequestBody EquParavalue equParavalue){
+        LambdaQueryWrapper<EquParavalue> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(EquParavalue::getParaId,equParavalue.getParaId());
+        wrapper.eq(EquParavalue::getId,equParavalue.getId());
+        if(iEquParavalueService.remove(wrapper)){
+            return RespBean.success("更新成功");
+        }
+        return RespBean.error("更新失败！");
+    }
+
+
+    @ApiOperation(value = "批量删除参数值管理信息")
+    @DeleteMapping("/delete/{para_id}")
+    public RespBean deleteEquParavalueByIds(@RequestBody Integer[] ids, @PathVariable Integer para_id){
+        for(Integer id : ids){
+            LambdaQueryWrapper<EquParavalue> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(EquParavalue::getParaId,para_id);
+            wrapper.eq(EquParavalue::getId,id);
+            if(!iEquParavalueService.remove(wrapper)){
+                return RespBean.error("更新失败！");
+            }
+        }
+        return RespBean.success("更新成功");
     }
 }
