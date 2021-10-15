@@ -18,10 +18,13 @@ import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.*;
 import org.junit.jupiter.api.Test;
+import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @SpringBootTest
@@ -311,13 +314,13 @@ class WatApplicationTests {
         }
     }
 
-    @Test
-    public void testgetuserbyorganizecode(){
-        List<SysRegisterQuerry> getuserbyorganizecode = sysUserMapper.getuserbyorganizecode("0105");
-        for(SysRegisterQuerry e: getuserbyorganizecode){
-            System.out.println(e);
-        }
-    }
+//    @Test
+//    public void testgetuserbyorganizecode(){
+//        List<SysRegisterQuerry> getuserbyorganizecode = sysUserMapper.getuserbyorganizecode("0105");
+//        for(SysRegisterQuerry e: getuserbyorganizecode){
+//            System.out.println(e);
+//        }
+//    }
     @Autowired
     IEquAlarmrecordService iEquAlarmrecordService;
     @Test
@@ -330,10 +333,108 @@ class WatApplicationTests {
 
     @Test
     public void getEquYesterdayalarm(){
-        List<EquAlarmQuery> huluadmin = equAlarmrecordMapper.getEquYesterdayalarm("huluadmin", "", "", "");
-        for(EquAlarmQuery e: huluadmin){
-            System.out.println(e);
-        }
+        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
     }
 
+    @Test
+    public void getEquYesterdayrecoveryalarm(){
+        iEquAlarmrecordService.getEquYesterdayrecoveryalarm("shbf","0","0");
+//        equAlarmrecordMapper.getEquYesterdayrecoveryalarm("shbf","2018-02-01 00:00:00","2021-02-01 23:59:59");
+//        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
+    }
+
+    @Test
+    public void getEquYesterdayconfirmalarm(){
+        iEquAlarmrecordService.getEquYesterdayconfirmalarm("shbf","8817","0");
+//        equAlarmrecordMapper.getEquYesterdayconfirmalarm("shbf","2018-02-01 00:00:00","2021-02-01 23:59:59");
+//        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
+    }
+
+    @Test
+    public void getEquUnconfirmalarm(){
+        iEquAlarmrecordService.getEquUnconfirmalarm("shbf","0","0");
+//        equAlarmrecordMapper.getEquUnconfirmalarm("shbf");
+//        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
+    }
+
+    @Test
+    public void getEquhistoryalarm(){
+//        iEquAlarmrecordService.getEquhistoryalarm("thy","0","0","0","1","2018-07-02 10:40:27","2018-07-06 10:40:27");
+//        equAlarmrecordMapper.getEquhistoryalarm("thy");
+//        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
+    }
+
+    @Autowired
+    SysUserorganizemapMapper sysUserorganizemapMapper;
+    @Test
+    public void getOrangizecodebyusercode(){
+        String thy = sysUserorganizemapMapper.getOrganizecodebyusercode("thy");
+        System.out.println("-------------------" + thy);
+    }
+
+    @Autowired
+    SysUserrolemapMapper sysUserrolemapMapper;
+    @Test
+    public void getruleseqbyusercode(){
+        String thy = sysUserrolemapMapper.getroleseqbyusercode("thy");
+        System.out.println(thy);
+
+    }
+
+    @Test
+    public void getroleseqbyusercode(){
+        String thy = sysRoleMapper.getroleseqbyusercode("thy");
+        System.out.println(thy);
+    }
+
+
+
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+
+    @Test
+    public void sys_usermenumapTest(){
+        iSysUsermenumapService.list();
+    }
+
+    @Test
+    public void updatepassword(){
+
+        List<EquParaQuery> querybyparagroupid = equParaMapper.querybyparagroupid(1);
+        System.out.println(querybyparagroupid);
+
+    }
+
+    @Autowired
+    IEquServerEquipmentMapService iEquServerEquipmentMapService;
+    @Test
+    public void getMaxId(){
+
+      // equCommandMapper.getHistoryupdateprogramrecord("thy","","1");
+    }
+
+
+    @Autowired
+    WatFlowMapper watFlowMapper;
+
+    @Autowired
+    IWatFlowService iWatFlowService;
+
+    @Autowired
+    IEquEquipmentService iEquEquipmentService;
+
+    @Autowired
+    IWatAlarmrecordService iWatAlarmrecordService;
+
+    @Autowired
+    ISysRoleService iSysRoleService;
+
+
+    @Test
+    public void getAllFlow(){
+
+//        iEquCommandService.getHistoryupdateprogramrecord("thy","0","0","0","0","0","0");
+
+//        iEquAlarmrecordService.getEquhistoryalarm("thy","0","0","2","","");
+    }
 }

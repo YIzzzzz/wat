@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -37,8 +39,42 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     }
 
     @Override
+    public List<RoleTree> selectByUsercode(String usercode) {
+        List<SysRoleeditQuery> list = sysRoleMapper.selectByUsercode(usercode);
+
+        List<RoleTree> tree = new ArrayList<>();
+        RoleTree.createTree(list, tree);
+
+        return tree;
+    }
+
+    @Override
+    public List<RoleTree> selectByUsercodeDouble(String usercodeOld, String usercodeNew){
+        List<SysRoleeditQuery> listOld = sysRoleMapper.selectByUsercode(usercodeOld);
+        List<SysRoleeditQuery> listNew = sysRoleMapper.selectByUsercode(usercodeNew);
+        Set<String> menus = new HashSet<>();
+        for(SysRoleeditQuery query : listNew){
+            menus.add(query.getIndex());
+        }
+        List<RoleTree> tree = new ArrayList<>();
+        RoleTree.createTree(listOld, tree);
+
+        return tree;
+    }
+
+    @Override
+    public List<SysRole> getallrole() {
+        return sysRoleMapper.getallrole();
+    }
+
+    @Override
     public boolean updateRole(String oldcode, String rolecode, String roleseq, String rolename, String description, String updateperson, LocalDateTime updatedate) {
         return sysRoleMapper.updateRole(oldcode, rolecode, roleseq, rolename, description, updateperson, updatedate);
+    }
+
+    @Override
+    public String getroleseqbyusercode(String usercode) {
+        return sysRoleMapper.getroleseqbyusercode(usercode);
     }
 
 

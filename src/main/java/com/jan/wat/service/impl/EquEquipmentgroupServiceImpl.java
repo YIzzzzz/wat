@@ -70,8 +70,13 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
 
         if(children == null)
             return null;
-        addList(list);
+        addList(list, children);
         return list;
+    }
+
+    @Override
+    public Integer getMaxId() {
+        return equEquipmentgroupMapper.getMaxId();
     }
 
     private void find (String euipmentGroupID, List<EquipmentTree> tree){
@@ -82,16 +87,18 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
                 children = e.getChildren();
                 return;
             }
-            find(euipmentGroupID, e.getChildren());
         }
         return;
     }
 
-    private void addList(List<Integer> list){
-        if(children == null)
+
+
+    private void addList(List<Integer> list, List<EquipmentTree> tree){
+        if(tree == null)
             return;
-        for( EquipmentTree e : children){
+        for( EquipmentTree e : tree){
             list.add(e.getId());
+            addList(list, e.getChildren());
         }
     }
 

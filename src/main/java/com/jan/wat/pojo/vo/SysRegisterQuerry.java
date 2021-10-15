@@ -25,4 +25,25 @@ public class SysRegisterQuerry {
 
     @ApiModelProperty(value = "最后登录时间")
     private LocalDateTime lastlogindate;
+
+    @ApiModelProperty(value = "创建人")
+    private String createperson;
+
+    @ApiModelProperty(value = "创建时间")
+    private LocalDateTime createdate;
+
+    @ApiModelProperty(value = "最后更新人")
+    private String updateperson;
+
+    @ApiModelProperty(value = "最后更新时间")
+    private LocalDateTime updatedate;
+
+    @ApiModelProperty(value = "角色编码")
+    private String rolecode;
+
+    @ApiModelProperty(value = "角色名称")
+    private String rolename;
+
+    @ApiModelProperty(value = "排序")
+    private String roleseq;
 }

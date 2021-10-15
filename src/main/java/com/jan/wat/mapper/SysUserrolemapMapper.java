@@ -25,4 +25,7 @@ public interface SysUserrolemapMapper extends BaseMapper<SysUserrolemap> {
 
     @Update("UPDATE sys_userrolemap SET rolecode = #{rolecode} WHERE usercode=#{usercode};")
     public boolean updateRolecode(String usercode, String rolecode);
+
+    @Select("select r.roleseq as roleseq from sys_role r, sys_userrolemap urm where urm.usercode = #{usercode} and r.rolecode  = urm.rolecode;")
+    public String getroleseqbyusercode(String usercode);
 }

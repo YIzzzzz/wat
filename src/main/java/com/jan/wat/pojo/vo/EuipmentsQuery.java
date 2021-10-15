@@ -11,6 +11,6 @@ import lombok.Data;
 public class EuipmentsQuery {
     private String id;
     private String aName;
-    private Integer equipmentType_id;
+    private String equipmenttypename;
     private Integer powerType;
 }

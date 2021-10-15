@@ -20,5 +20,13 @@ public interface ISysRoleService extends IService<SysRole> {
 
     List<RoleTree> selectByRolecode(String rolecode);
 
+    public List<SysRole> getallrole();
+
     public boolean updateRole(String oldcode, String rolecode, String roleseq, String rolename, String description,  String updateperson, LocalDateTime updatedate);
+
+    public String getroleseqbyusercode(String usercode);
+
+    public List<RoleTree> selectByUsercode(String usercode);
+
+    public List<RoleTree> selectByUsercodeDouble(String usercodeold, String usercodenew);
 }

@@ -41,4 +41,9 @@ public class SysUserrolemapServiceImpl extends ServiceImpl<SysUserrolemapMapper,
     public boolean updateRolecode(String usercode, String rolecode) {
         return sysUserrolemapMapper.updateRolecode(usercode, rolecode);
     }
+
+    @Override
+    public String getroleseqbyusercode(String usercode) {
+        return sysUserrolemapMapper.getroleseqbyusercode(usercode);
+    }
 }

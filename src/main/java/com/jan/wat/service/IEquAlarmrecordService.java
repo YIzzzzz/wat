@@ -18,5 +18,16 @@ public interface IEquAlarmrecordService extends IService<EquAlarmrecord> {
 
     public List<EquAlarmQuery> getEquUnrecoveryalarm(String usercode, String equipment_id, String equipmentgroup_id);
 
+    public List<EquAlarmQuery> getEquYesterdayalarm(String usercode, String equipment_id, String equipmentgroup_id);
+
+    public List<EquAlarmQuery> getEquYesterdayrecoveryalarm(String usercode, String equipment_id, String equipmentgroup_id);
+
+    public List<EquAlarmQuery> getEquYesterdayconfirmalarm(String usercode, String equipment_id, String equipmentgroup_id);
+
+    public List<EquAlarmQuery> getEquUnconfirmalarm(String usercode, String equipment_id, String equipmentgroup_id);
+
+    public List<EquAlarmQuery> getEquhistoryalarm(String usercode, String equipment_id, String equipmentgroup_id, String alarmtype, String start, String end);
+
+
 
 }

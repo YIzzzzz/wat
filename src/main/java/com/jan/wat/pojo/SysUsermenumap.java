@@ -1,32 +1,36 @@
 package com.jan.wat.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * @hor:ZXJ
- * @time:2021/8/19下午1:55
- * @description
+ * <p>
+ * 
+ * </p>
+ *
+ * @author January
+ * @since 2021-08-20
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysUsermenumap {
+public class SysUsermenumap implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "ID", type = IdType.AUTO)
     private Integer id;
 
-    @TableField("RoleCode")
-    private String rolecode;
-
     @TableField("MenuCode")
     private String menucode;
 
-    @TableId("UserCode")
+    @TableField("UserCode")
     private String usercode;
+
+    @TableField("S")
+    private Integer status;
 
 }

@@ -34,6 +34,7 @@ public interface EquAlarmrecordMapper extends BaseMapper<EquAlarmrecord> {
             "</if>" +
             "</script>")
     @Results(id="getCommand", value={
+            @Result(column="isconfirm", property="isconfirm"),
             @Result(column="equipment_name", property="equipment_name"),
             @Result(column="equipment_id", property="equipment_id"),
             @Result(column="alarmrecord_id", property="alarmrecord_id"),
@@ -63,9 +64,80 @@ public interface EquAlarmrecordMapper extends BaseMapper<EquAlarmrecord> {
     @Select("<script>" +
             "select a.equipment_name as equipment_name,a.equipment_id as equipment_id,a.alarmrecord_id as alarmrecord_id,a.datatype_id as datatype_id,convert(a.alarmtime,datetime) as alarmtime,a.alarmtype as alarmtype,convert(a.confirmtime,datetime) as confirmtime,a.usercode as usercode,a.recovery as recovery,convert(a.recoverytime,datetime) as recoverytime,a.reason as reason,a.des as des,a.model as model,a.setupperson as setupperson,a.manager as manager,a.telephone as telephone,convert(a.setuptime,datetime) as setuptime,a.setupaddress as setupaddress,a.equipmenttype_name as equipmenttype_name,a.powertype as powertype,a.username as username,a.datatype_name as datatype_name,a.manufacturer_name as manufacturer_name\n" +
             "from equ_alarmrecord_view as a,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
-            "where (a.alarmtime between '2021-02-01 00:00:00' and '2021-02-01 23:59:59') and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id;" +
+            "where (a.alarmtime between #{start} and #{end}) and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id" +
+            "<if test='equipmentgroup_id != \"0\"'>" +
+            "and egm.equipment_id=a.equipment_id and uem.equipmentgroup_id=egm.equipmentgroup_id and uem.equipmentgroup_id in (${set}) and uem.usercode=#{usercode}" +
+            "</if>" +
+            "<if test='equipment_id != \"0\"'>" +
+            "and a.equipment_id=#{equipment_id}" +
+            "</if>" +
             "</script>")
     @ResultMap(value="getCommand")
-    public List<EquAlarmQuery> getEquYesterdayalarm(String usercode, String set, String equipment_id, String equipmentgroup_id);
+    public List<EquAlarmQuery> getEquYesterdayalarm(String usercode,String start,String end, String set, String equipment_id, String equipmentgroup_id);
 
+
+    @Select("<script>" +
+            "select a.equipment_name as equipment_name,a.equipment_id as equipment_id,a.alarmrecord_id as alarmrecord_id,a.datatype_id as datatype_id,convert(a.alarmtime, datetime) as alarmtime,a.alarmtype as alarmtype,convert(a.confirmtime, datetime) as confirmtime,a.usercode as usercode,a.recovery as recovery,convert(a.recoverytime, datetime) as recoverytime,a.reason as reason,a.des as des,a.model as model,a.setupperson as setupperson,a.manager as manager,a.telephone as telephone,convert(a.setuptime, datetime) as setuptime,a.setupaddress as setupaddress,a.equipmenttype_name as equipmenttype_name,a.powertype as powertype,a.username as username,a.datatype_name as datatype_name,a.manufacturer_name as manufacturer_name\n" +
+            "from equ_alarmrecord_view as a,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
+            "where (a.recoverytime between #{start} and #{end}) and a.recovery='true' and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id" +
+            "<if test='equipmentgroup_id != \"0\"'>" +
+            "and egm.equipment_id=a.equipment_id and uem.equipmentgroup_id=egm.equipmentgroup_id and uem.equipmentgroup_id in (${set}) and uem.usercode=#{usercode}" +
+            "</if>" +
+            "<if test='equipment_id != \"0\"'>" +
+            "and a.equipment_id=#{equipment_id}" +
+            "</if>" +
+            "</script>")
+    @ResultMap(value="getCommand")
+    public List<EquAlarmQuery> getEquYesterdayrecoveryalarm(String usercode, String start, String end, String set, String equipment_id, String equipmentgroup_id);
+
+
+    @Select("<script>" +
+            "select a.equipment_name as equipment_name,a.equipment_id as equipment_id,a.alarmrecord_id as alarmrecord_id,a.datatype_id as datatype_id,convert(a.alarmtime, datetime) as alarmtime,a.alarmtype as alarmtype,convert(a.confirmtime, datetime) as confirmtime,a.usercode as usercode,a.recovery as recovery,convert(a.recoverytime, datetime) as recoverytime,a.reason as reason,a.des as des,a.model as model,a.setupperson as setupperson,a.manager as manager,a.telephone as telephone,convert(a.setuptime, datetime) as setuptime,a.setupaddress as setupaddress,a.equipmenttype_name as equipmenttype_name,a.powertype as powertype,a.username as username,a.datatype_name as datatype_name,a.manufacturer_name as manufacturer_name\n" +
+            "from equ_alarmrecord_view as a,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
+            "where (a.confirmtime between #{start} and #{end}) and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id " +
+            "<if test='equipmentgroup_id != \"0\"'>" +
+            "and egm.equipment_id=a.equipment_id and uem.equipmentgroup_id=egm.equipmentgroup_id and uem.equipmentgroup_id in (${set}) and uem.usercode=#{usercode}" +
+            "</if>" +
+            "<if test='equipment_id != \"0\"'>" +
+            "and a.equipment_id=#{equipment_id}" +
+            "</if>" +
+            "</script>")
+    @ResultMap(value="getCommand")
+    public List<EquAlarmQuery> getEquYesterdayconfirmalarm(String usercode, String start, String end, String set, String equipment_id, String equipmentgroup_id);
+
+
+    @Select("<script>" +
+            "select distinct 'false' as isconfirm,a.id as id,a.equipment_name as equipment_name,a.equipment_id as equipment_id,a.alarmrecord_id as alarmrecord_id,a.datatype_id as datatype_id,convert(a.alarmtime, datetime) as alarmtime,a.alarmtype as alarmtype,convert(a.confirmtime, datetime) as confirmtime,a.usercode as usercode,a.recovery as recovery,convert(a.recoverytime, datetime) as recoverytime,a.reason as reason,a.des as des,a.model as model,a.setupperson as setupperson,a.manager as manager,a.telephone as telephone,convert(a.setuptime, datetime) as setuptime,a.setupaddress as setupaddress,a.equipmenttype_name as equipmenttype_name,a.powertype as powertype,a.username as username,a.datatype_name as datatype_name,a.manufacturer_name as manufacturer_name\n" +
+            "from equ_alarmrecord_view as a,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
+            "where a.confirmtime is null and uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id" +
+            "<if test='equipmentgroup_id != \"0\"'>" +
+            "and egm.equipment_id=a.equipment_id and uem.equipmentgroup_id=egm.equipmentgroup_id and uem.equipmentgroup_id in (${set}) and uem.usercode=#{usercode}" +
+            "</if>" +
+            "<if test='equipment_id != \"0\"'>" +
+            "and a.equipment_id=#{equipment_id}" +
+            "</if>" +
+            "</script>")
+    @ResultMap(value="getCommand")
+    public List<EquAlarmQuery> getEquUnconfirmalarm(String usercode,String set, String equipment_id, String equipmentgroup_id);
+
+
+    @Select("<script>" +
+            "select a.equipment_name as equipment_name,a.equipment_id as equipment_id,a.alarmrecord_id as alarmrecord_id,a.datatype_id as datatype_id,convert(a.alarmtime, datetime) as alarmtime,a.alarmtype as alarmtype,convert(a.confirmtime,datetime) as confirmtime,a.usercode as usercode,a.recovery as recovery,convert(a.recoverytime,datetime) as recoverytime,a.reason as reason,a.des as des,a.model as model,a.setupperson as setupperson,a.manager as manager,a.telephone as telephone,convert(a.setuptime,datetime) as setuptime,a.setupaddress as setupaddress,a.equipmenttype_name as equipmenttype_name,a.powertype as powertype,a.username as username,a.datatype_name as datatype_name,a.manufacturer_name as manufacturer_name\n" +
+            "from equ_alarmrecord_view as a,equ_user_equipmentgroup_map uem,equ_equipmentgroup_equipment_map as egm\n" +
+            "where uem.usercode = #{usercode} and uem.equipmentgroup_id = egm.equipmentgroup_id and egm.equipment_id = a.equipment_id" +
+            "<if test='equipmentgroup_id != \"0\" and equipment_id==\"0\"'>" +
+            "and egm.equipment_id=a.equipment_id and uem.equipmentgroup_id=egm.equipmentgroup_id and uem.equipmentgroup_id in (${set}) and uem.usercode=#{usercode}" +
+            "</if>" +
+            "<if test='equipment_id != \"0\"'>" +
+            "and a.equipment_id=#{equipment_id}" +
+            "</if>" +
+            "<if test='alarmtype != \"0\"'>" +
+            "and a.alarmtype = #{alarmtype}" +
+            "</if>" +
+            "<if test='start != \"\" and end != \"\"'>" +
+            "and (a.alarmtime between #{start} and #{end})" +
+            "</if>" +
+            "</script>")
+    @ResultMap(value="getCommand")
+    public List<EquAlarmQuery> getEquhistoryalarm(String usercode, String set, String equipment_id, String equipmentgroup_id, String alarmtype, String start, String end);
 }

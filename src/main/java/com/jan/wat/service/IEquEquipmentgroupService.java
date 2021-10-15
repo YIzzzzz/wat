@@ -20,4 +20,7 @@ public interface IEquEquipmentgroupService extends IService<EquEquipmentgroup> {
 
     public List<String> getChildrenId(String userCode, String euipmentGroupID);
     public List<Integer> getChildrenGroupId(String userCode, String euipmentGroupID);
+
+    public Integer getMaxId();
+
 }
