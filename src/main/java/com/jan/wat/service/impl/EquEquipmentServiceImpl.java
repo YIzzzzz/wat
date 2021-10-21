@@ -90,7 +90,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         }
 
         if(!equipmentId.equals("0"))
-            where.append(String.format(" and e.ID = 5s",equipmentId));
+            where.append(String.format(" and e.ID = %s",equipmentId));
 
         IPage<RealDataQuery> realDataQuery = equEquipmentMapper.getRealDataQuery(page,usercode,where.toString());
         JSONArray array = new JSONArray();
