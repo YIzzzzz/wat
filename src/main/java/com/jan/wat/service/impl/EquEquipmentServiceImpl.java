@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.pojo.EquDatatype;
 import com.jan.wat.pojo.EquEquipment;
 import com.jan.wat.mapper.EquEquipmentMapper;
 import com.jan.wat.pojo.EquEquipmentrealdata;
@@ -12,6 +13,7 @@ import com.jan.wat.pojo.vo.EquParaQuery;
 import com.jan.wat.pojo.vo.EquipmentQuery;
 import com.jan.wat.pojo.vo.EuipmentsQuery;
 import com.jan.wat.pojo.vo.RealDataQuery;
+import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.IEquEquipmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jan.wat.service.IEquEquipmentgroupService;
@@ -19,8 +21,7 @@ import com.jan.wat.service.IEquEquipmentrealdataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * <p>
@@ -38,6 +39,9 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
 
     @Autowired
     IEquEquipmentrealdataService iEquEquipmentrealdataService;
+
+    @Autowired
+    IEquDatatypeService iEquDatatypeService;
 
     @Autowired
     IEquEquipmentgroupService iEquEquipmentgroupService;
@@ -92,6 +96,13 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         if(!equipmentId.equals("0"))
             where.append(String.format(" and e.ID = %s",equipmentId));
 
+        List<EquDatatype> datatypes = iEquDatatypeService.list();
+        Map<Integer, EquDatatype> hashTable = new HashMap<Integer, EquDatatype>();
+        for(EquDatatype item : datatypes){
+            hashTable.put(item.getId(), item);
+        }
+        Set<Integer> hash = new HashSet<Integer>();
+
         IPage<RealDataQuery> realDataQuery = equEquipmentMapper.getRealDataQuery(page,usercode,where.toString());
         JSONArray array = new JSONArray();
         for(RealDataQuery realData : realDataQuery.getRecords()){
@@ -106,11 +117,32 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             wrapper.eq(EquEquipmentrealdata::getEquipmentId,realData.getId());
             List<EquEquipmentrealdata> list = iEquEquipmentrealdataService.list(wrapper);
             for(EquEquipmentrealdata equEquipmentrealdata : list){
-                json.put(String.format("VT%s",equEquipmentrealdata.getDatatypeId().toString()),equEquipmentrealdata.getValue());
+                if(!hash.contains(equEquipmentrealdata.getDatatypeId()))
+                    hash.add(equEquipmentrealdata.getDatatypeId());
+                json.put(String.format("%s",equEquipmentrealdata.getDatatypeId().toString()),equEquipmentrealdata.getValue());
             }
             array.add(json);
         }
-        return array.toString();
+        JSONArray head = new JSONArray();
+        Iterator<Integer> iterator = hash.iterator();
+
+        while(iterator.hasNext()){
+            JSONObject json = new JSONObject();
+            int i = iterator.next();
+            if(i == 0)
+                continue;
+            EquDatatype item =  hashTable.get(i);
+            json.put("label",item.getId().toString());
+            json.put("key",item.getName());
+            head.add(json);
+        }
+        JSONObject body = new JSONObject();
+
+        body.put("tableInfo", head);
+        body.put("list", array);
+
+
+        return body.toString();
     }
 
     @Override
