@@ -366,6 +366,7 @@ class WatApplicationTests {
 
     @Autowired
     SysUserorganizemapMapper sysUserorganizemapMapper;
+    ISysUsermenumapService iSysUsermenumapService;
     @Test
     public void getOrangizecodebyusercode(){
         String thy = sysUserorganizemapMapper.getOrganizecodebyusercode("thy");
@@ -390,7 +391,6 @@ class WatApplicationTests {
 
 
     @Autowired
-    ISysUsermenumapService iSysUsermenumapService;
 
     @Test
     public void sys_usermenumapTest(){
@@ -437,4 +437,12 @@ class WatApplicationTests {
 
 //        iEquAlarmrecordService.getEquhistoryalarm("thy","0","0","2","","");
     }
+
+    @Test
+    public void testGetRealDataQuery(){
+
+        iEquEquipmentService.getRealDataQuery(1,30, "0","0","thy");
+
+    }
+
 }
