@@ -76,8 +76,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     }
 
     @Override
-    public String getRealDataQuery(long current, long size,String equipmentGroupId, String equipmentId, String usercode) {
-        Page<RealDataQuery> page = new Page<>(current, size);
+    public String getRealDataQuery(String equipmentGroupId, String equipmentId, String usercode) {
         StringBuilder where = new StringBuilder();
 
         if(!equipmentGroupId.equals("0")){
@@ -90,11 +89,11 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
                 if(count != childrengroupId.size())
                     set.append(",");
             }
-            where.append(String.format(" uem.EquipmentGroup_ID in (%s)",set.toString()));
+            where.append(String.format(" and uem.EquipmentGroup_ID in (%s)",set.toString()));
         }
 
         if(!equipmentId.equals("0"))
-            where.append(String.format(" and e.ID = 5s",equipmentId));
+            where.append(String.format(" and e.ID = %s",equipmentId));
 
         List<EquDatatype> datatypes = iEquDatatypeService.list();
         Map<Integer, EquDatatype> hashTable = new HashMap<Integer, EquDatatype>();
@@ -103,9 +102,9 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         }
         Set<Integer> hash = new HashSet<Integer>();
 
-        IPage<RealDataQuery> realDataQuery = equEquipmentMapper.getRealDataQuery(page,usercode,where.toString());
+        List<RealDataQuery> realDataQuery = equEquipmentMapper.getRealDataQuery(usercode,where.toString());
         JSONArray array = new JSONArray();
-        for(RealDataQuery realData : realDataQuery.getRecords()){
+        for(RealDataQuery realData : realDataQuery){
             JSONObject json = new JSONObject();
             json.put("equipmentalarm",realData.getEquipmentalarm());
             json.put("id",realData.getId());
@@ -132,8 +131,8 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             if(i == 0)
                 continue;
             EquDatatype item =  hashTable.get(i);
-            json.put("label",item.getId().toString());
-            json.put("key",item.getName());
+            json.put("label",item.getName());
+            json.put("key",item.getId().toString());
             head.add(json);
         }
         JSONObject body = new JSONObject();

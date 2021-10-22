@@ -65,7 +65,6 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
 
         List<EquipmentTree> tree = createTree(userCode);
 
-
         find(euipmentGroupID, tree);
 
         if(children == null)
