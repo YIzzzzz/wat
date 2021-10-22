@@ -249,7 +249,6 @@ class WatApplicationTests {
         String equipmentGroupId = "0";
         String usercode = "huluadmin";
         String equipmentId = "0";
-        Page<RealDataQuery> page = new Page<>(1, 5);
         StringBuilder where = new StringBuilder();
 
         if(!equipmentGroupId.equals("0")){
@@ -268,9 +267,9 @@ class WatApplicationTests {
         if(!equipmentId.equals("0"))
             where.append(String.format(" and e.ID = 5s",equipmentId));
 
-        IPage<RealDataQuery> realDataQuery = equEquipmentMapper.getRealDataQuery(page,usercode,where.toString());
+        List<RealDataQuery> realDataQuery = equEquipmentMapper.getRealDataQuery(usercode,where.toString());
         JSONArray array = new JSONArray();
-        for(RealDataQuery realData : realDataQuery.getRecords()){
+        for(RealDataQuery realData : realDataQuery){
             JSONObject json = new JSONObject();
             json.put("equipmentalarm",realData.getEquipmentalarm());
             json.put("id",realData.getId());
@@ -441,7 +440,7 @@ class WatApplicationTests {
     @Test
     public void testGetRealDataQuery(){
 
-        iEquEquipmentService.getRealDataQuery(1,30, "0","0","thy");
+        iEquEquipmentService.getRealDataQuery( "0","0","thy");
 
     }
 

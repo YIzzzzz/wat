@@ -23,7 +23,7 @@ import java.util.List;
 public interface IEquEquipmentService extends IService<EquEquipment> {
     public List<EuipmentsQuery> getEuipments(String euipmentGroupID, String equipmentId, String userCode);
 
-    String getRealDataQuery(long current, long size,String equipmentGroupId, String equipmentId, String usercode);
+    public String getRealDataQuery(String equipmentGroupId, String equipmentId, String usercode);
 
     public List<EquEquipment> getEquEquipment(String usercode,String equipment_id,String equipmentgroup_id);
 
