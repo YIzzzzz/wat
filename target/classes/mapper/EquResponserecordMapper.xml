@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.EquResponserecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.EquResponserecord">
+        <id column="CollectTime" property="collecttime" />
+        <result column="Equipment_ID" property="equipmentId" />
+        <result column="ResponseTime" property="responsetime" />
+        <result column="ResponesType" property="responestype" />
+        <result column="IPAddress" property="ipaddress" />
+        <result column="Port" property="port" />
+        <result column="sendData" property="senddata" />
+    </resultMap>
+
+</mapper>

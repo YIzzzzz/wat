@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.WatFlowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.WatFlow">
+        <id column="Equipment_ID" property="equipmentId" />
+        <result column="Caliber_ID" property="caliberId" />
+        <result column="Classify_ID" property="classifyId" />
+        <result column="Model" property="model" />
+        <result column="ClientName" property="clientname" />
+        <result column="BookNo" property="bookno" />
+        <result column="Price" property="price" />
+        <result column="Areas" property="areas" />
+        <result column="Persons" property="persons" />
+        <result column="Category" property="category" />
+        <result column="Status" property="status" />
+        <result column="PositiveTotalAccumulate" property="positivetotalaccumulate" />
+        <result column="NegativeTotalAccumulate" property="negativetotalaccumulate" />
+        <result column="TotalAccumulate" property="totalaccumulate" />
+        <result column="FlowType_ID" property="flowtypeId" />
+        <result column="StoreMode" property="storemode" />
+        <result column="SiteNo" property="siteno" />
+        <result column="Des" property="des" />
+        <result column="AvgHourAccumulateT0" property="avghouraccumulatet0" />
+        <result column="AvgHourAccumulateT1" property="avghouraccumulatet1" />
+        <result column="AvgHourAccumulateT2" property="avghouraccumulatet2" />
+        <result column="AvgHourAccumulateT3" property="avghouraccumulatet3" />
+        <result column="AvgHourAccumulateT4" property="avghouraccumulatet4" />
+        <result column="AvgHourAccumulateT5" property="avghouraccumulatet5" />
+        <result column="AvgHourAccumulateT6" property="avghouraccumulatet6" />
+        <result column="AvgHourAccumulateT7" property="avghouraccumulatet7" />
+        <result column="AvgHourAccumulateT8" property="avghouraccumulatet8" />
+        <result column="AvgHourAccumulateT9" property="avghouraccumulatet9" />
+        <result column="AvgHourAccumulateT10" property="avghouraccumulatet10" />
+        <result column="AvgHourAccumulateT11" property="avghouraccumulatet11" />
+        <result column="AvgHourAccumulateT12" property="avghouraccumulatet12" />
+        <result column="AvgHourAccumulateT13" property="avghouraccumulatet13" />
+        <result column="AvgHourAccumulateT14" property="avghouraccumulatet14" />
+        <result column="AvgHourAccumulateT15" property="avghouraccumulatet15" />
+        <result column="AvgHourAccumulateT16" property="avghouraccumulatet16" />
+        <result column="AvgHourAccumulateT17" property="avghouraccumulatet17" />
+        <result column="AvgHourAccumulateT18" property="avghouraccumulatet18" />
+        <result column="AvgHourAccumulateT19" property="avghouraccumulatet19" />
+        <result column="AvgHourAccumulateT20" property="avghouraccumulatet20" />
+        <result column="AvgHourAccumulateT21" property="avghouraccumulatet21" />
+        <result column="AvgHourAccumulateT22" property="avghouraccumulatet22" />
+        <result column="AvgHourAccumulateT23" property="avghouraccumulatet23" />
+        <result column="AvgHourNumT0" property="avghournumt0" />
+        <result column="AvgHourNumT1" property="avghournumt1" />
+        <result column="AvgHourNumT2" property="avghournumt2" />
+        <result column="AvgHourNumT3" property="avghournumt3" />
+        <result column="AvgHourNumT4" property="avghournumt4" />
+        <result column="AvgHourNumT5" property="avghournumt5" />
+        <result column="AvgHourNumT6" property="avghournumt6" />
+        <result column="AvgHourNumT7" property="avghournumt7" />
+        <result column="AvgHourNumT8" property="avghournumt8" />
+        <result column="AvgHourNumT9" property="avghournumt9" />
+        <result column="AvgHourNumT10" property="avghournumt10" />
+        <result column="AvgHourNumT11" property="avghournumt11" />
+        <result column="AvgHourNumT12" property="avghournumt12" />
+        <result column="AvgHourNumT13" property="avghournumt13" />
+        <result column="AvgHourNumT14" property="avghournumt14" />
+        <result column="AvgHourNumT15" property="avghournumt15" />
+        <result column="AvgHourNumT16" property="avghournumt16" />
+        <result column="AvgHourNumT17" property="avghournumt17" />
+        <result column="AvgHourNumT18" property="avghournumt18" />
+        <result column="AvgHourNumT19" property="avghournumt19" />
+        <result column="AvgHourNumT20" property="avghournumt20" />
+        <result column="AvgHourNumT21" property="avghournumt21" />
+        <result column="AvgHourNumT22" property="avghournumt22" />
+        <result column="AvgHourNumT23" property="avghournumt23" />
+        <result column="AvgDayAccumulateT1" property="avgdayaccumulatet1" />
+        <result column="AvgDayAccumulateT2" property="avgdayaccumulatet2" />
+        <result column="AvgDayAccumulateT3" property="avgdayaccumulatet3" />
+        <result column="AvgDayAccumulateT4" property="avgdayaccumulatet4" />
+        <result column="AvgDayAccumulateT5" property="avgdayaccumulatet5" />
+        <result column="AvgDayAccumulateT6" property="avgdayaccumulatet6" />
+        <result column="AvgDayAccumulateT7" property="avgdayaccumulatet7" />
+        <result column="AvgDayAccumulateT8" property="avgdayaccumulatet8" />
+        <result column="AvgDayAccumulateT9" property="avgdayaccumulatet9" />
+        <result column="AvgDayAccumulateT10" property="avgdayaccumulatet10" />
+        <result column="AvgDayAccumulateT11" property="avgdayaccumulatet11" />
+        <result column="AvgDayAccumulateT12" property="avgdayaccumulatet12" />
+        <result column="AvgDayAccumulateT13" property="avgdayaccumulatet13" />
+        <result column="AvgDayAccumulateT14" property="avgdayaccumulatet14" />
+        <result column="AvgDayAccumulateT15" property="avgdayaccumulatet15" />
+        <result column="AvgDayAccumulateT16" property="avgdayaccumulatet16" />
+        <result column="AvgDayAccumulateT17" property="avgdayaccumulatet17" />
+        <result column="AvgDayAccumulateT18" property="avgdayaccumulatet18" />
+        <result column="AvgDayAccumulateT19" property="avgdayaccumulatet19" />
+        <result column="AvgDayAccumulateT20" property="avgdayaccumulatet20" />
+        <result column="AvgDayAccumulateT21" property="avgdayaccumulatet21" />
+        <result column="AvgDayAccumulateT22" property="avgdayaccumulatet22" />
+        <result column="AvgDayAccumulateT23" property="avgdayaccumulatet23" />
+        <result column="AvgDayAccumulateT24" property="avgdayaccumulatet24" />
+        <result column="AvgDayAccumulateT25" property="avgdayaccumulatet25" />
+        <result column="AvgDayAccumulateT26" property="avgdayaccumulatet26" />
+        <result column="AvgDayAccumulateT27" property="avgdayaccumulatet27" />
+        <result column="AvgDayAccumulateT28" property="avgdayaccumulatet28" />
+        <result column="AvgDayAccumulateT29" property="avgdayaccumulatet29" />
+        <result column="AvgDayAccumulateT30" property="avgdayaccumulatet30" />
+        <result column="AvgDayAccumulateT31" property="avgdayaccumulatet31" />
+        <result column="AvgDayNumT1" property="avgdaynumt1" />
+        <result column="AvgDayNumT2" property="avgdaynumt2" />
+        <result column="AvgDayNumT3" property="avgdaynumt3" />
+        <result column="AvgDayNumT4" property="avgdaynumt4" />
+        <result column="AvgDayNumT5" property="avgdaynumt5" />
+        <result column="AvgDayNumT6" property="avgdaynumt6" />
+        <result column="AvgDayNumT7" property="avgdaynumt7" />
+        <result column="AvgDayNumT8" property="avgdaynumt8" />
+        <result column="AvgDayNumT9" property="avgdaynumt9" />
+        <result column="AvgDayNumT10" property="avgdaynumt10" />
+        <result column="AvgDayNumT11" property="avgdaynumt11" />
+        <result column="AvgDayNumT12" property="avgdaynumt12" />
+        <result column="AvgDayNumT13" property="avgdaynumt13" />
+        <result column="AvgDayNumT14" property="avgdaynumt14" />
+        <result column="AvgDayNumT15" property="avgdaynumt15" />
+        <result column="AvgDayNumT16" property="avgdaynumt16" />
+        <result column="AvgDayNumT17" property="avgdaynumt17" />
+        <result column="AvgDayNumT18" property="avgdaynumt18" />
+        <result column="AvgDayNumT19" property="avgdaynumt19" />
+        <result column="AvgDayNumT20" property="avgdaynumt20" />
+        <result column="AvgDayNumT21" property="avgdaynumt21" />
+        <result column="AvgDayNumT22" property="avgdaynumt22" />
+        <result column="AvgDayNumT23" property="avgdaynumt23" />
+        <result column="AvgDayNumT24" property="avgdaynumt24" />
+        <result column="AvgDayNumT25" property="avgdaynumt25" />
+        <result column="AvgDayNumT26" property="avgdaynumt26" />
+        <result column="AvgDayNumT27" property="avgdaynumt27" />
+        <result column="AvgDayNumT28" property="avgdaynumt28" />
+        <result column="AvgDayNumT29" property="avgdaynumt29" />
+        <result column="AvgDayNumT30" property="avgdaynumt30" />
+        <result column="AvgDayNumT31" property="avgdaynumt31" />
+        <result column="Enable" property="enable" />
+        <result column="LastTime" property="lasttime" />
+        <result column="LastPositiveTotalAccumulate" property="lastpositivetotalaccumulate" />
+        <result column="LastNegativeTotalAccumulate" property="lastnegativetotalaccumulate" />
+        <result column="LastHourTime" property="lasthourtime" />
+        <result column="LastHourAccumulate" property="lasthouraccumulate" />
+        <result column="LastDayTime" property="lastdaytime" />
+        <result column="LastDayAccumulate" property="lastdayaccumulate" />
+        <result column="LastWeekTime" property="lastweektime" />
+        <result column="LastWeekAccumulate" property="lastweekaccumulate" />
+        <result column="LastMonthTime" property="lastmonthtime" />
+        <result column="LastMonthAccumulate" property="lastmonthaccumulate" />
+    </resultMap>
+
+
+<!--    <select id="getByCondition" resultMap="FlowInfo">-->
+<!--        select distinct A.*-->
+<!--        from flow_view as A,equ_equipmentgroup_equipment_map egm, equ_user_equipmentgroup_map uem-->
+<!--    <where>-->
+<!--        where A.Equipment_ID = egm.Equipment_ID and egm.EquipmentGroup_ID = uem.EquipmentGroup_ID-->
+<!--    <if test="">-->
+<!--        and-->
+<!--    </if>-->
+<!--    if (EquipmentGroup_ID != "") where = where+string.Format(" and A.Equipment_ID in (select Equipment_ID from equ_EquipmentGroup_Equipment_Map where EquipmentGroup_ID in (select ID from [dbo].[GetEquipmentGroupChild]('equ_EquipmentGroup','{0}')))", EquipmentGroup_ID);-->
+<!--    if (Equipment_ID != "0") where = where + " and A.Equipment_ID='" + Equipment_ID + "'";-->
+
+
+<!--    </where>-->
+<!--    </select>-->
+
+</mapper>

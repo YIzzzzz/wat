@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.SysAdvertisementMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.SysAdvertisement">
+        <id column="ID" property="id" />
+        <result column="Title" property="title" />
+        <result column="Message" property="message" />
+        <result column="Visible" property="visible" />
+        <result column="CreatePerson" property="createperson" />
+        <result column="CreateDate" property="createdate" />
+        <result column="UpdatePerson" property="updateperson" />
+        <result column="UpdateDate" property="updatedate" />
+    </resultMap>
+
+</mapper>

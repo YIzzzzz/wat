@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jan.wat.mapper.WatMonthaccumulateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jan.wat.pojo.WatMonthaccumulate">
+        <id column="MonthTime" property="monthtime" />
+        <result column="Equipment_ID" property="equipmentId" />
+        <result column="StartTime" property="starttime" />
+        <result column="EndTime" property="endtime" />
+        <result column="LastAccumulate" property="lastaccumulate" />
+        <result column="Accumulate" property="accumulate" />
+        <result column="LastMonthSameDateAccumulate" property="lastmonthsamedateaccumulate" />
+        <result column="LastYearAccumulate" property="lastyearaccumulate" />
+        <result column="AvgFlow" property="avgflow" />
+        <result column="LastMonthAvgFlow" property="lastmonthavgflow" />
+        <result column="DayMaxAccumulate" property="daymaxaccumulate" />
+        <result column="DayMaxTime" property="daymaxtime" />
+        <result column="DayMinAccumulate" property="dayminaccumulate" />
+        <result column="DayMinTime" property="daymintime" />
+    </resultMap>
+
+</mapper>

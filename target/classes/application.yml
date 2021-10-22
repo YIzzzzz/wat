@@ -1,0 +1,52 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    connect-timeout: 5000
+    password:
+  thymeleaf:
+    #变比缓存
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rdas?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+#    hikari:
+#      ## 空闲连接存活最大时间，默认600000（10分钟）
+#      idle-timeout: 100000
+#      maximum-pool-size: 2000
+#      connection-timeout: 10000
+#      max-lifetime: 100000
+#      minimum-idle: 5
+#      auto-commit: true
+
+    hikari :
+      #连接池名字
+      pool-name: DataHikariCP
+      #最小空闲连接出
+      minimum-idle: 5
+      #空闲连接存活最大时间，默认60000（18分钟）
+      idle-timeout: 180000
+      maximum-pool-size: 100
+      auto-commit: true
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  type-aliases-package: com.seckill.seckill
+
+
+
+server:
+  port: 8080
+
+
+
+
