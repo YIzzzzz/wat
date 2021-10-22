@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.pojo.EquDatatype;
 import com.jan.wat.pojo.EquEquipment;
 import com.jan.wat.mapper.EquEquipmentMapper;
@@ -83,13 +84,14 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             List<Integer> childrengroupId = iEquEquipmentgroupService.getChildrenGroupId(usercode,equipmentGroupId);
             StringBuilder set = new StringBuilder();
             int count = 0;
+            set.append(equipmentGroupId);
             for(int i : childrengroupId){
                 count++;
                 set.append(String.valueOf(i));
                 if(count != childrengroupId.size())
                     set.append(",");
             }
-            where.append(String.format(" and uem.EquipmentGroup_ID in (%s)",set.toString()));
+            where.append(String.format("and uem.EquipmentGroup_ID in (%s)",set.toString()));
         }
 
         if(!equipmentId.equals("0"))
@@ -108,7 +110,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             JSONObject json = new JSONObject();
             json.put("equipmentalarm",realData.getEquipmentalarm());
             json.put("id",realData.getId());
-            json.put("lastcollecttime",realData.getLastcollecttime());
+            json.put("lastcollecttime", DateTime.format(realData.getLastcollecttime()));
             json.put("n",realData.getN());
             json.put("outLinealarm",realData.getOutLinealarm());
             LambdaQueryWrapper<EquEquipmentrealdata> wrapper = new LambdaQueryWrapper<>();

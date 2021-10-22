@@ -56,7 +56,37 @@ class WatApplicationTests {
     EquAlarmrecordMapper equAlarmrecordMapper;
     @Autowired
     EquCommandMapper equCommandMapper;
+    @Autowired
+    ISysOrganizeService iSysOrganizeService;
+    @Autowired
+    IEquEquipmentrealdataService iEquEquipmentrealdataService;
+    @Autowired
+    IEquEquipmentgroupService iEquEquipmentgroupService;
+    @Autowired
+    IEquAlarmrecordService iEquAlarmrecordService;
+    @Autowired
+    SysUserorganizemapMapper sysUserorganizemapMapper;
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+    @Autowired
+    SysUserrolemapMapper sysUserrolemapMapper;
+    @Autowired
+    WatFlowMapper watFlowMapper;
 
+    @Autowired
+    IWatFlowService iWatFlowService;
+
+    @Autowired
+    IEquEquipmentService iEquEquipmentService;
+
+    @Autowired
+    IWatAlarmrecordService iWatAlarmrecordService;
+
+    @Autowired
+    ISysRoleService iSysRoleService;
+
+    @Autowired
+    IEquServerEquipmentMapService iEquServerEquipmentMapService;
 //    @Test
 //    void contextLoads() {
 //    }
@@ -132,8 +162,6 @@ class WatApplicationTests {
 //        System.out.println(sysUser.getCreatedate());
 //    }
 
-    @Autowired
-    ISysOrganizeService iSysOrganizeService;
 
     @Test
     public void createJson(){
@@ -240,10 +268,7 @@ class WatApplicationTests {
     }
 
 
-    @Autowired
-    IEquEquipmentrealdataService iEquEquipmentrealdataService;
-    @Autowired
-    IEquEquipmentgroupService iEquEquipmentgroupService;
+
     @Test
     public void getRealData(){
         String equipmentGroupId = "0";
@@ -320,8 +345,7 @@ class WatApplicationTests {
 //            System.out.println(e);
 //        }
 //    }
-    @Autowired
-    IEquAlarmrecordService iEquAlarmrecordService;
+
     @Test
     public void getEquUnrecoveryalarm(){
         List<EquAlarmQuery> huluadmin = iEquAlarmrecordService.getEquUnrecoveryalarm("huluadmin", "0", "0");
@@ -363,17 +387,14 @@ class WatApplicationTests {
 //        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
     }
 
-    @Autowired
-    SysUserorganizemapMapper sysUserorganizemapMapper;
-    ISysUsermenumapService iSysUsermenumapService;
+
     @Test
     public void getOrangizecodebyusercode(){
         String thy = sysUserorganizemapMapper.getOrganizecodebyusercode("thy");
         System.out.println("-------------------" + thy);
     }
 
-    @Autowired
-    SysUserrolemapMapper sysUserrolemapMapper;
+
     @Test
     public void getruleseqbyusercode(){
         String thy = sysUserrolemapMapper.getroleseqbyusercode("thy");
@@ -386,10 +407,6 @@ class WatApplicationTests {
         String thy = sysRoleMapper.getroleseqbyusercode("thy");
         System.out.println(thy);
     }
-
-
-
-    @Autowired
 
     @Test
     public void sys_usermenumapTest(){
@@ -404,8 +421,6 @@ class WatApplicationTests {
 
     }
 
-    @Autowired
-    IEquServerEquipmentMapService iEquServerEquipmentMapService;
     @Test
     public void getMaxId(){
 
@@ -413,20 +428,6 @@ class WatApplicationTests {
     }
 
 
-    @Autowired
-    WatFlowMapper watFlowMapper;
-
-    @Autowired
-    IWatFlowService iWatFlowService;
-
-    @Autowired
-    IEquEquipmentService iEquEquipmentService;
-
-    @Autowired
-    IWatAlarmrecordService iWatAlarmrecordService;
-
-    @Autowired
-    ISysRoleService iSysRoleService;
 
 
     @Test
@@ -440,8 +441,10 @@ class WatApplicationTests {
     @Test
     public void testGetRealDataQuery(){
 
-        iEquEquipmentService.getRealDataQuery( "0","0","thy");
-
+        System.out.println(iEquEquipmentService.getRealDataQuery( "3","0","thy"));
+//        System.out.println(iEquEquipmentgroupService.getChildrenGroupId("thy","3"));
     }
+
+
 
 }

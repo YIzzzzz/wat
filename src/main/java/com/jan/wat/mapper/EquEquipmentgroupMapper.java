@@ -22,7 +22,7 @@ public interface EquEquipmentgroupMapper extends BaseMapper<EquEquipmentgroup> {
     @Select("     select A.*\n" +
             "        from equ_user_equipmentgroup_map B, equ_equipmentgroup A\n" +
             "        where A.ID = B.EquipmentGroup_ID\n" +
-            "        and UserCode = #{userCode}")
+            "        and B.UserCode = #{userCode}")
     public List<EquEquipmentgroup> getListByUser(String userCode);
 
 

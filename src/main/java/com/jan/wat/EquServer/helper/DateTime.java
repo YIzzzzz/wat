@@ -120,4 +120,10 @@ public class DateTime {
         }
         return null;
     }
+
+    public static String format(Date date){
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return f.format(date);
+    }
+
 }
