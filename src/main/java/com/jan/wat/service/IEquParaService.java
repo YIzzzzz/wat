@@ -1,5 +1,6 @@
 package com.jan.wat.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquPara;
@@ -35,5 +36,5 @@ public interface IEquParaService extends IService<EquPara> {
 
     List<MulEquipparaQuery> getMulEquipmentPara(List<String> equipmentIds);
 
-
+    public Boolean addReadParaCommand(JSONObject json);
 }

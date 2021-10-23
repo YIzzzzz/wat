@@ -2,6 +2,7 @@ package com.jan.wat.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.pojo.EquCommand;
 import com.jan.wat.pojo.EquPara;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jan.wat.pojo.vo.EquParaQuery;
@@ -100,4 +101,6 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "where a.Para_ID = ${paraId} and a.Equipment_ID in ${ids}")
     List<LimitQuery> getLimit(int paraId, String ids);
 
+    @Select("select * from equ_command where Equipment_ID = #{id} and CommandType = 145 and UserCode = #{usercode};\n")
+    public List<EquCommand> addReadParaCommand(String id, String usercode);
 }

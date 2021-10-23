@@ -1,8 +1,11 @@
 package com.jan.wat.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.pojo.*;
 import com.jan.wat.mapper.EquParaMapper;
 import com.jan.wat.pojo.vo.*;
@@ -13,14 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
+
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jan.wat.pojo.EquPara;
 import com.jan.wat.service.IEquParagroupService;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <p>
@@ -163,5 +163,27 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
             }
         }
        return mulEquipmentPara;
+    }
+
+    @Override
+    public Boolean addReadParaCommand(JSONObject json) {
+
+        String usercode = (String) json.get("usercode");
+        JSONArray array = JSONArray.parseArray(JSON.toJSONString(json.get("ids")));
+        Iterator<Object> it = array.iterator();
+        while(it.hasNext()){
+            JSONObject jsonObject = (JSONObject) it.next();
+            List<EquCommand> lists = mapper.addReadParaCommand((String) jsonObject.get("id"), usercode);
+            if(lists.size() < 1){
+                EquCommand equCommand = new EquCommand();
+                equCommand.setEquipmentId((String) jsonObject.get("id"));
+                equCommand.setCommandtype(145);
+                equCommand.setSettingtime(LocalDateTime.now());
+                equCommand.setUsercode(usercode);
+                if(!iEquCommandService.save(equCommand))
+                    return false;
+            }
+        }
+        return true;
     }
 }

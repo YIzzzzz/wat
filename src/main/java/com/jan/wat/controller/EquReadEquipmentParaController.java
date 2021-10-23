@@ -1,6 +1,8 @@
 package com.jan.wat.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jan.wat.pojo.EquEquipmentgroup;
+import com.jan.wat.pojo.RespBean;
 import com.jan.wat.pojo.vo.EquipmentTree;
 import com.jan.wat.pojo.vo.EuipmentsQuery;
 import com.jan.wat.service.IEquEquipmentService;
@@ -27,6 +29,8 @@ public class EquReadEquipmentParaController {
     IEquEquipmentgroupService iEquEquipmentgroupService;
     @Autowired
     IEquEquipmentService iEquEquipmentService;
+    @Autowired
+    IEquParaService iEquParaService;
 
     @ApiOperation(value = "获取全部设备树")
     @GetMapping("/getTree")
@@ -59,4 +63,16 @@ public class EquReadEquipmentParaController {
     public List<EuipmentsQuery> getEuipments(@PathVariable String euipmentGroupID, @PathVariable String equipmentId, @PathVariable String userCode){
         return iEquEquipmentService.getEuipments(euipmentGroupID, equipmentId,userCode);
     }
+
+    @ApiOperation(value = "读参数值")
+    @PostMapping("")
+    @ResponseBody
+    public RespBean addReadParaCommand(@RequestBody JSONObject json){
+
+        if (iEquParaService.addReadParaCommand(json)){
+            return RespBean.success("更新成功！");
+        }
+        return RespBean.error("更新失败！");
+    }
+
 }
