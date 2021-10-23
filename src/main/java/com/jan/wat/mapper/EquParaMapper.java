@@ -101,6 +101,6 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "where a.Para_ID = ${paraId} and a.Equipment_ID in ${ids}")
     List<LimitQuery> getLimit(int paraId, String ids);
 
-    @Select("select * from equ_command where Equipment_ID = #{id} and CommandType = 145 and UserCode = #{usercode};\n")
-    public List<EquCommand> addReadParaCommand(String id, String usercode);
+    @Select("select * from equ_command where Equipment_ID = #{id} and CommandType = #{para} and UserCode = #{usercode};\n")
+    public List<EquCommand> selectParaCommand(String id, String usercode, Integer para);
 }

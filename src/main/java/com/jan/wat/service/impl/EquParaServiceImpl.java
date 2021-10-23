@@ -166,18 +166,19 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
     }
 
     @Override
-    public Boolean addReadParaCommand(JSONObject json) {
-
+    public Boolean addParaCommands(JSONObject json) {
         String usercode = (String) json.get("usercode");
+        int command_type = Integer.parseInt((String)json.get("command"));
+        //145 146 148
         JSONArray array = JSONArray.parseArray(JSON.toJSONString(json.get("ids")));
         Iterator<Object> it = array.iterator();
         while(it.hasNext()){
             JSONObject jsonObject = (JSONObject) it.next();
-            List<EquCommand> lists = mapper.addReadParaCommand((String) jsonObject.get("id"), usercode);
+            List<EquCommand> lists = mapper.selectParaCommand((String) jsonObject.get("id"), usercode, command_type);
             if(lists.size() < 1){
                 EquCommand equCommand = new EquCommand();
                 equCommand.setEquipmentId((String) jsonObject.get("id"));
-                equCommand.setCommandtype(145);
+                equCommand.setCommandtype(command_type);
                 equCommand.setSettingtime(LocalDateTime.now());
                 equCommand.setUsercode(usercode);
                 if(!iEquCommandService.save(equCommand))

@@ -64,15 +64,17 @@ public class EquReadEquipmentParaController {
         return iEquEquipmentService.getEuipments(euipmentGroupID, equipmentId,userCode);
     }
 
-    @ApiOperation(value = "读参数值")
-    @PostMapping("")
+    @ApiOperation(value = "添加参数")
+    @PostMapping("/addParaCommands")
     @ResponseBody
-    public RespBean addReadParaCommand(@RequestBody JSONObject json){
+    public RespBean addParaCommands(@RequestBody JSONObject json){
 
-        if (iEquParaService.addReadParaCommand(json)){
+        if (iEquParaService.addParaCommands(json)){
             return RespBean.success("更新成功！");
         }
         return RespBean.error("更新失败！");
     }
+
+
 
 }

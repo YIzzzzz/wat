@@ -36,5 +36,5 @@ public interface IEquParaService extends IService<EquPara> {
 
     List<MulEquipparaQuery> getMulEquipmentPara(List<String> equipmentIds);
 
-    public Boolean addReadParaCommand(JSONObject json);
+    public Boolean addParaCommands(JSONObject json);
 }
