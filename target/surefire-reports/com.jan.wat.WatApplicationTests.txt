@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.jan.wat.WatApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 32, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 12.764 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
+Tests run: 32, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.41 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
 testGetServerList  Time elapsed: 0.001 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 

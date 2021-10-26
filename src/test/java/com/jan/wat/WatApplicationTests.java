@@ -219,7 +219,7 @@ class WatApplicationTests {
 
     @Test
     public void sigEquipment(){
-        List<SigEuipementparaQuery> sigEquipmentPara = equParaMapper.getSigEquipmentPara("0");
+        List<SigEuipementparaQuery> sigEquipmentPara = equParaMapper.getSigEquipmentPara("10200");
         System.out.println(sigEquipmentPara);
     }
 

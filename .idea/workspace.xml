@@ -6,10 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquReadEquipmentParaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquReadEquipmentParaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquMulEquipmentParaContrioller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquMulEquipmentParaContrioller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquParaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquParaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquParaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/MulEquipparaQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/MulEquipparaQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/SigEuipementparaQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/vo/SigEuipementparaQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquParaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquMulEquipmentParaContrioller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquMulEquipmentParaContrioller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquParaMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/MulEquipparaQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/MulEquipparaQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/SigEuipementparaQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/pojo/vo/SigEuipementparaQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.WatApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.WatApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.controller.SysUserControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.controller.SysUserControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.jan.wat.WatApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.jan.wat.WatApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.jan.wat.controller.SysUserControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.jan.wat.controller.SysUserControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/wat-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/wat-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/wat-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/wat-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,15 +297,29 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatApplicationTests.equipments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="equipments" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -314,7 +340,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.getEquEquipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.para" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -324,13 +350,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getEquEquipment" />
+      <option name="METHOD_NAME" value="para" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.getEquhistoryalarm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.sigEquipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -340,23 +366,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getEquhistoryalarm" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WatApplicationTests.getMaxId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jan.wat.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jan.wat" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getMaxId" />
+      <option name="METHOD_NAME" value="sigEquipment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -387,11 +397,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WatApplicationTests.sigEquipment" />
+        <item itemvalue="JUnit.WatApplicationTests.equipments" />
+        <item itemvalue="JUnit.WatApplicationTests.para" />
         <item itemvalue="JUnit.WatApplicationTests.testGetRealDataQuery" />
         <item itemvalue="JUnit.WatApplicationTests.getAllFlow" />
-        <item itemvalue="JUnit.WatApplicationTests.getMaxId" />
-        <item itemvalue="JUnit.WatApplicationTests.getEquEquipment" />
-        <item itemvalue="JUnit.WatApplicationTests.getEquhistoryalarm" />
       </list>
     </recent_temporary>
   </component>
@@ -482,7 +492,9 @@
       <workItem from="1634904696630" duration="1285000" />
       <workItem from="1634906417798" duration="715000" />
       <workItem from="1634908101429" duration="2855000" />
-      <workItem from="1634974051234" duration="4203000" />
+      <workItem from="1634974051234" duration="7491000" />
+      <workItem from="1634987254618" duration="619000" />
+      <workItem from="1635135527666" duration="12948000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>

@@ -14,4 +14,5 @@ public class MulEquipparaQuery {
     private String para_Name;
     private Double UpLimit;
     private Double DownLimit;
+    private String ChangeValue;
 }
