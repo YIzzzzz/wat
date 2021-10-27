@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
+    <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="HistoryDataForOneEquipmentController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquEquipmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquipmentdataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/mapper/EquipmentdataMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquDatatypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquDatatypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquEquipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/IEquEquipmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquDatatypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquDatatypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/pojo/EquEquipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/enetry/CommandParameterHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/enetry/CommandParameterHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/enetry/DataCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/enetry/DataCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquMulEquipmentParaContrioller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/controller/EquMulEquipmentParaContrioller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquipmentdataMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/mapper/EquipmentdataMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jan/wat/WatApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/EquEquipmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/service/impl/EquEquipmentServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -493,7 +484,7 @@
       <workItem from="1634974051234" duration="7491000" />
       <workItem from="1634987254618" duration="619000" />
       <workItem from="1635135527666" duration="15674000" />
-      <workItem from="1635316771583" duration="13369000" />
+      <workItem from="1635316771583" duration="14317000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
@@ -621,7 +612,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635322550003</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="HistoryDataForOneEquipmentController">
+      <created>1635333879629</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1635333879629</updated>
+    </task>
+    <task id="LOCAL-00020" summary="HistoryDataForOneEquipmentController">
+      <created>1635333888631</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1635333888631</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -769,7 +774,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="增加日志显示底层sql语句功能" />
     <MESSAGE value="*" />
-    <option name="LAST_COMMIT_MESSAGE" value="*" />
+    <MESSAGE value="HistoryDataForOneEquipmentController" />
+    <option name="LAST_COMMIT_MESSAGE" value="HistoryDataForOneEquipmentController" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">

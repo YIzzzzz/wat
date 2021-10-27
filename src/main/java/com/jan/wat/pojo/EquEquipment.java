@@ -103,9 +103,9 @@ public class EquEquipment implements Serializable {
     private Integer connectserverport;
 
 
-    private String manufacturername;
+//    private String manufacturername;
 
-    private String equipmenttypename;
+//    private String equipmenttypename;
 //    private String equipmentType_id;
 
 

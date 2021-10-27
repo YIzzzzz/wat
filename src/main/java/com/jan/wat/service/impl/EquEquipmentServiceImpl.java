@@ -53,10 +53,14 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
 
     @Autowired
     EquipmentdataMapper equipmentdataMapper;
+
+    @Autowired
+    IEquEquipmentService iEquEquipmentService;
+
     @Override
     public List<EuipmentsQuery> getEuipments(String euipmentGroupID, String equipmentId, String userCode) {
         StringBuilder where = new StringBuilder("");
-        System.out.println("=============="+euipmentGroupID);
+//        System.out.println("=============="+euipmentGroupID);
         if(!euipmentGroupID.equals("")){
             List<String> childrenGroupId = iEquEquipmentgroupService.getChildrenId(userCode, euipmentGroupID);
             System.out.println(childrenGroupId);
@@ -248,7 +252,10 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             head.add(tmp);
         }
         object.put("head",head);
-
+        LambdaQueryWrapper<EquEquipment> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(EquEquipment::getId, id);
+        List<EquEquipment> list = iEquEquipmentService.list(queryWrapper);
+        object.put("name",list.get(0).getAname());
         return object.toJSONString();
     }
     @Override
