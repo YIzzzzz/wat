@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="*">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquMulEquipmentParaContrioller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/controller/EquMulEquipmentParaContrioller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/CommandParameterHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/CommandParameterHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/DataCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/enetry/DataCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DatabaseHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DatabaseHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jan/wat/WatApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/handle/DatabaseHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/handle/DatabaseHandle.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +286,20 @@
       <recent name="com.jan.wat" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WatApplication">
+  <component name="RunManager" selected="JUnit.WatApplicationTests.test_XML">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WatApplicationTests.equipments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
@@ -293,22 +311,6 @@
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
       <option name="METHOD_NAME" value="equipments" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WatApplicationTests.getAllFlow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jan.wat.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jan.wat" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getAllFlow" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -362,6 +364,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WatApplicationTests.test_XML" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jan.wat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jan.wat" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="test_XML" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="wat" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jan.wat.WatApplication" />
@@ -371,11 +389,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WatApplicationTests.test_XML" />
         <item itemvalue="JUnit.WatApplicationTests.sigEquipment" />
         <item itemvalue="JUnit.WatApplicationTests.equipments" />
         <item itemvalue="JUnit.WatApplicationTests.para" />
         <item itemvalue="JUnit.WatApplicationTests.testGetRealDataQuery" />
-        <item itemvalue="JUnit.WatApplicationTests.getAllFlow" />
       </list>
     </recent_temporary>
   </component>
@@ -469,6 +487,7 @@
       <workItem from="1634974051234" duration="7491000" />
       <workItem from="1634987254618" duration="619000" />
       <workItem from="1635135527666" duration="15674000" />
+      <workItem from="1635316771583" duration="5758000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
@@ -582,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635233952146</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="*">
+      <created>1635316840860</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1635316840860</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">

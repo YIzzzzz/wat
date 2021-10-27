@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
+import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.OrganizeTree;
@@ -17,6 +18,9 @@ import com.jan.wat.pojo.vo.EquParaQuery;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.*;
+import org.dom4j.Attribute;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -445,6 +449,16 @@ class WatApplicationTests {
 //        System.out.println(iEquEquipmentgroupService.getChildrenGroupId("thy","3"));
     }
 
-
+    @Test
+    public void test_XML(){
+        String xml = "<D><V i=\"0\">-0.787</V><V i=\"1\">-0.626</V><V i=\"2\">2.78</V><V i=\"3\">3.0</V><V i=\"4\">9019740.1</V><V i=\"5\">9000957.3</V><V i=\"218\">18782.8</V><V i=\"14\">0.0</V><V i=\"219\">0.0</V><V i=\"10\">0.0</V><V i=\"12\">0.0</V><V i=\"13\">0.0</V><V i=\"220\">0.0</V><V i=\"11\">0.0</V><V i=\"36\">0.0</V><V i=\"34\">2485.0</V><V i=\"20\">0.0</V><V i=\"21\">1.0</V><V i=\"22\">0.0</V><V i=\"23\">0.0</V><V i=\"43\">0.0</V><V i=\"224\">0.0</V><V i=\"213\">0.0</V><V i=\"17\">100.0</V><V i=\"228\">0.0</V><V i=\"225\">0.0</V><V i=\"18\">100.0</V><V i=\"227\">0.0</V><V i=\"19\">24.0</V></D>";
+        System.out.println(xml);
+        Iterator<Element> iter = Tools.XML2iter(xml);
+        while(iter.hasNext()){
+            Element element= iter.next();
+            List<Attribute> attributes = element.attributes();
+            System.out.println(attributes.get(0).getValue()+" "+element.getStringValue());
+        }
+    }
 
 }

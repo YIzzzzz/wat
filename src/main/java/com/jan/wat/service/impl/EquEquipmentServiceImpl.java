@@ -6,19 +6,19 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.EquServer.helper.DateTime;
+import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.pojo.EquDatatype;
 import com.jan.wat.pojo.EquEquipment;
 import com.jan.wat.mapper.EquEquipmentMapper;
 import com.jan.wat.pojo.EquEquipmentrealdata;
-import com.jan.wat.pojo.vo.EquParaQuery;
-import com.jan.wat.pojo.vo.EquipmentQuery;
-import com.jan.wat.pojo.vo.EuipmentsQuery;
-import com.jan.wat.pojo.vo.RealDataQuery;
+import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.IEquDatatypeService;
 import com.jan.wat.service.IEquEquipmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jan.wat.service.IEquEquipmentgroupService;
 import com.jan.wat.service.IEquEquipmentrealdataService;
+import org.dom4j.Attribute;
+import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -175,6 +175,19 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     @Override
     public List<EquEquipment> getEquEquipmentByUsercode(String usercode) {
         return equEquipmentMapper.getEquEquipmentByUsercode(usercode);
+    }
+    public List<RealValue> encodeXML(String xml){
+//        String xml = "<D><V i=\"0\">-0.787</V><V i=\"1\">-0.626</V><V i=\"2\">2.78</V><V i=\"3\">3.0</V><V i=\"4\">9019740.1</V><V i=\"5\">9000957.3</V><V i=\"218\">18782.8</V><V i=\"14\">0.0</V><V i=\"219\">0.0</V><V i=\"10\">0.0</V><V i=\"12\">0.0</V><V i=\"13\">0.0</V><V i=\"220\">0.0</V><V i=\"11\">0.0</V><V i=\"36\">0.0</V><V i=\"34\">2485.0</V><V i=\"20\">0.0</V><V i=\"21\">1.0</V><V i=\"22\">0.0</V><V i=\"23\">0.0</V><V i=\"43\">0.0</V><V i=\"224\">0.0</V><V i=\"213\">0.0</V><V i=\"17\">100.0</V><V i=\"228\">0.0</V><V i=\"225\">0.0</V><V i=\"18\">100.0</V><V i=\"227\">0.0</V><V i=\"19\">24.0</V></D>";
+        Iterator<Element> iter = Tools.XML2iter(xml);
+        List<RealValue> list = new ArrayList<>();
+        while(iter.hasNext()){
+            Element element= iter.next();
+            List<Attribute> attributes = element.attributes();
+            RealValue realValue = new RealValue();
+            realValue.setKey(Integer.parseInt(attributes.get(0).getValue()));
+            realValue.setValue(Double.parseDouble(element.getStringValue()));
+        }
+        return list;
     }
 
 }

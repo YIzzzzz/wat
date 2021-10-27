@@ -57,10 +57,10 @@ public class DataCell implements Comparable<DataCell> {
         if (data.length != 9)
             return;
 
-        dataTypeId = data[0];
+        dataTypeId = data[0] & 0xff;
         value = DataFormatHelper.Format(Tools.SixteenToTen_ReturnLong(Tools.ByteSubstring(data, 1, 4)), data[6]);
-        unitId = data[5];
-        position = data[7];
+        unitId = data[5] & 0xff;
+        position = data[7] & 0xff;
         ifRecord = Tools.GetBit(data[8], 0);
         ifCurve = Tools.GetBit(data[8], 1);
         ifAlarm = Tools.GetBit(data[8], 2);

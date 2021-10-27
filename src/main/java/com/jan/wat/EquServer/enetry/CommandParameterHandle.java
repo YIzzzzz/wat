@@ -72,8 +72,8 @@ public class CommandParameterHandle
 
     public boolean load(byte[] data, int paraOrValue) {
         status = data[0];
-        equipmentTypeId = data[1];
-        paraCellNum = data[2];
+        equipmentTypeId = data[1] & 0xff;
+        paraCellNum = data[2] & 0xff;
         //_collectTime = Tools.GetDateTime(Tools.GetDate(Tools.ByteSubstring(data, 0, 6)));
         paraCells = new ParaCell[paraCellNum];
         int index = 3;
