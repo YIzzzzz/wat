@@ -1,5 +1,6 @@
 package com.jan.wat.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jan.wat.pojo.RespBean;
@@ -71,7 +72,7 @@ public class EquMulEquipmentParaContrioller {
     public RespBean send(@RequestBody JSONObject json){
 
         String usercode = (String) json.get("usercode");
-        String data =  (String) json.get("data");
+        String data = JSON.toJSONString(json.get("data"));
 //        String equIds = (String) json.get("ids");
         JSONArray jsonArray = JSONArray.parseArray(data);
         ArrayList<MulEquipparaQuery> queries = (ArrayList<MulEquipparaQuery>) jsonArray.toJavaList(MulEquipparaQuery.class);
@@ -88,9 +89,7 @@ public class EquMulEquipmentParaContrioller {
             if(iEquParaService.sendCommand(sigEuipementparaQueries, usercode))
                 return RespBean.success("success!");
         }
-
         return RespBean.error("error!");
-
     }
 
 }
