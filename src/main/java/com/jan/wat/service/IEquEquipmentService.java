@@ -1,15 +1,14 @@
 package com.jan.wat.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquEquipment;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jan.wat.pojo.vo.EquParaQuery;
-import com.jan.wat.pojo.vo.EquipmentQuery;
-import com.jan.wat.pojo.vo.EuipmentsQuery;
-import com.jan.wat.pojo.vo.RealDataQuery;
+import com.jan.wat.pojo.vo.*;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -33,6 +32,9 @@ public interface IEquEquipmentService extends IService<EquEquipment> {
 
     public List<EquEquipment> getEquEquipmentByUsercode(String usercode);
 
+    public List<RealValue> encodeXML(String xml);
 
+    public String getValue(String usercode, String id, String startTime, String endTime);
 
+    public List<String> getMonths(String time1, String time2);
 }

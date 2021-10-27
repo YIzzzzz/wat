@@ -90,4 +90,5 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
     })
     public List<EquEquipment> getEquEquipmentByUsercode(String usercode);
 
+
 }

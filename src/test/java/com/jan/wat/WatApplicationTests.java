@@ -26,6 +26,8 @@ import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -448,6 +450,37 @@ class WatApplicationTests {
         System.out.println(iEquEquipmentService.getRealDataQuery( "3","0","thy"));
 //        System.out.println(iEquEquipmentgroupService.getChildrenGroupId("thy","3"));
     }
+    @Test
+    public void getMonthBetween1(){
+        System.out.println(iEquEquipmentService.getMonths("2010-01-01 10:10:10.313","2030-01-01 10:10:10.313"));
+    }
+
+    @Test
+    public void getMonthBetween(){
+        String startDate = "201002";
+        String endDate = "202010";
+        ArrayList<String> result = new ArrayList<String>();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");//格式化为年月
+
+            Calendar min = Calendar.getInstance();
+            Calendar max = Calendar.getInstance();
+            min.setTime(sdf.parse(startDate));
+            min.set(min.get(Calendar.YEAR), min.get(Calendar.MONTH), 1);
+
+            max.setTime(sdf.parse(endDate));
+            max.set(max.get(Calendar.YEAR), max.get(Calendar.MONTH), 2);
+
+            Calendar curr = min;
+            while (curr.before(max)) {
+                result.add("rdasdata"+sdf.format(curr.getTime()));
+                curr.add(Calendar.MONTH, 1);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(result);
+    }
 
     @Test
     public void test_XML(){
@@ -459,6 +492,15 @@ class WatApplicationTests {
             List<Attribute> attributes = element.attributes();
             System.out.println(attributes.get(0).getValue()+" "+element.getStringValue());
         }
+    }
+    @Test
+    public void isExits(){
+        System.out.println(equipmentdataMapper.isExit("rdasdata202105"));
+    }
+
+    @Test
+    public void testGetData(){
+        System.out.println(equipmentdataMapper.getData("rdasdata202106","2010-01-01 10:10:10.313","2030-01-01 10:10:10.313","77777777"));
     }
 
 }
