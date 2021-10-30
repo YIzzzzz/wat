@@ -1,5 +1,6 @@
 package com.jan.wat.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -192,6 +193,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     @Override
     public List<RealValue> encodeXML(String xml){
 //        String xml = "<D><V i=\"0\">-0.787</V><V i=\"1\">-0.626</V><V i=\"2\">2.78</V><V i=\"3\">3.0</V><V i=\"4\">9019740.1</V><V i=\"5\">9000957.3</V><V i=\"218\">18782.8</V><V i=\"14\">0.0</V><V i=\"219\">0.0</V><V i=\"10\">0.0</V><V i=\"12\">0.0</V><V i=\"13\">0.0</V><V i=\"220\">0.0</V><V i=\"11\">0.0</V><V i=\"36\">0.0</V><V i=\"34\">2485.0</V><V i=\"20\">0.0</V><V i=\"21\">1.0</V><V i=\"22\">0.0</V><V i=\"23\">0.0</V><V i=\"43\">0.0</V><V i=\"224\">0.0</V><V i=\"213\">0.0</V><V i=\"17\">100.0</V><V i=\"228\">0.0</V><V i=\"225\">0.0</V><V i=\"18\">100.0</V><V i=\"227\">0.0</V><V i=\"19\">24.0</V></D>";
+        System.out.println(xml);
         Iterator<Element> iter = Tools.XML2iter(xml);
         List<RealValue> list = new ArrayList<>();
         while(iter.hasNext()){
@@ -217,8 +219,12 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             List<Equipmentdata> data = equipmentdataMapper.getData(database, startTime, endTime, id);
             all.addAll(data);
         }
+        LambdaQueryWrapper<EquEquipment> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(EquEquipment::getId, id);
+        List<EquEquipment> list = iEquEquipmentService.list(queryWrapper);
+
         if(all.isEmpty())
-            return "";
+            return "[]";
         Set<Integer> set = new TreeSet<>();
         JSONObject object = new JSONObject();
         JSONArray array = new JSONArray();
@@ -232,6 +238,8 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             JSONObject tmp = new JSONObject();
             tmp.put("Collecttime",DateTime.format(item.getCollecttime()));
             tmp.put("Uploadtime",DateTime.format(item.getUploadtime()));
+            tmp.put("name",list.get(0).getAname());
+            tmp.put("id",id);
             for(RealValue value : realValues){
                 if(!set.contains(value.getKey()))
                     set.add(value.getKey());
@@ -252,16 +260,15 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             head.add(tmp);
         }
         object.put("head",head);
-        LambdaQueryWrapper<EquEquipment> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(EquEquipment::getId, id);
-        List<EquEquipment> list = iEquEquipmentService.list(queryWrapper);
-        object.put("name",list.get(0).getAname());
+
+
         return object.toJSONString();
     }
     @Override
     public List<String> getMonths(String time1, String time2){
-        String startDate = time1.substring(0,4)+time1.substring(4,6);
-        String endDate = time2.substring(0,4)+time2.substring(4,6);
+        String startDate = time1.substring(0,4)+time1.substring(5,7);
+        String endDate = time2.substring(0,4)+time2.substring(5,7);
+//        System.out.println(startDate+"=============="+endDate);
         ArrayList<String> result = new ArrayList<String>();
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");//格式化为年月
@@ -283,6 +290,13 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public List<MapQuery> getJW(String usercode) {
+
+
+        return equEquipmentMapper.getMaps(usercode);
     }
 
 

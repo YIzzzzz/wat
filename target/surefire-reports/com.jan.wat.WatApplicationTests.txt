@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.jan.wat.WatApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 32, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.41 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
+Tests run: 39, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.474 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
 testGetServerList  Time elapsed: 0.001 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 
@@ -12,7 +12,7 @@ org.springframework.jdbc.BadSqlGrammarException:
 ### SQL: select A.ID,A.Name,A.IPAddress,A.Port,A.Des from equ_Server A, equ_Server_Equipment_Map B where B.Server_ID = A.ID and B.Equipment_ID = ?
 ### Cause: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
 ; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
-	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:108)
+	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:114)
 Caused by: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
-	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:108)
+	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:114)
 

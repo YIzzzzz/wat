@@ -22,8 +22,12 @@ public interface IEquEquipmentgroupService extends IService<EquEquipmentgroup> {
     public List<EquipmentTree> createTree(String userCode);
 
     public List<String> getChildrenId(String userCode, String euipmentGroupID);
+
     public List<Integer> getChildrenGroupId(String userCode, String euipmentGroupID);
 
+    public String getGroupIdSet(String userCode, String euipmentGroupID);
+
     public Integer getMaxId();
+
 
 }

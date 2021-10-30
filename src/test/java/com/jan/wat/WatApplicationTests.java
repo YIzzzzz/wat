@@ -502,5 +502,9 @@ class WatApplicationTests {
     public void testGetData(){
         System.out.println(equipmentdataMapper.getData("rdasdata202106","2010-01-01 10:10:10.313","2030-01-01 10:10:10.313","77777777"));
     }
+    @Test
+    public void testGetMaps(){
+        System.out.println(equEquipmentMapper.getMaps("thy"));
+    }
 
 }

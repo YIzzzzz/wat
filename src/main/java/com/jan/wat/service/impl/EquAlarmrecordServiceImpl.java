@@ -1,5 +1,7 @@
 package com.jan.wat.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.jan.wat.pojo.EquAlarmrecord;
 import com.jan.wat.mapper.EquAlarmrecordMapper;
 import com.jan.wat.pojo.vo.EquAlarmQuery;
@@ -144,5 +146,37 @@ public class EquAlarmrecordServiceImpl extends ServiceImpl<EquAlarmrecordMapper,
             }
         }
         return equAlarmrecordMapper.getEquhistoryalarm(usercode, set.toString(),equipment_id,equipmentgroup_id,alarmtype,start,end);
+    }
+
+    @Override
+    public String statisticsAlarm(String usercode, List<String> groupId, List<String> groupName,String startTime, String endTime) {
+        JSONArray array = new JSONArray();
+        Integer[] types = new Integer[3];
+        types[0] = 1;
+        types[1] = 2;
+        types[2] = 3;
+        for(int i = 0; i < groupId.size(); ++i){
+            JSONObject tmp = new JSONObject();
+            String set = iEquEquipmentgroupService.getGroupIdSet(usercode, groupId.get(i));
+            int total = 0;
+            tmp.put("name", groupName.get(i));
+            for(int j = 0; j < 3; ++j){
+                int unRecovery = equAlarmrecordMapper.getUnRecovery(usercode, startTime, endTime, set, types[j]);
+                int recovery = equAlarmrecordMapper.getRecovery(usercode, startTime, endTime, set, types[j]);
+                int confirm = equAlarmrecordMapper.getConfirm(usercode, startTime, endTime, set, types[j]);
+
+                total += unRecovery;
+                total += recovery;
+                total += confirm;
+
+                tmp.put(String.format("unRecovery%d",types[j]),unRecovery);
+                tmp.put(String.format("recovery%d",types[j]),recovery);
+                tmp.put(String.format("confirm%d",types[j]),confirm);
+            }
+            tmp.put("total", total);
+            array.add(tmp);
+        }
+
+        return array.toJSONString();
     }
 }

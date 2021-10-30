@@ -191,10 +191,12 @@ com/jan/wat/service/IWatAlarmtypeService.class
 com/jan/wat/pojo/EquServerEquipmentMap.class
 com/jan/wat/EquServer/handle/EquipmentDataHandle.class
 com/jan/wat/controller/EquUnitController.class
+com/jan/wat/controller/EquHistoryDataForOneEquipmentController.class
 com/jan/wat/service/impl/EquEquipmenttypeServiceImpl.class
 com/jan/wat/service/impl/SysSystemalarmServiceImpl.class
 com/jan/wat/service/impl/EquSimappServiceImpl.class
 com/jan/wat/controller/EquServerequipmentsController.class
+com/jan/wat/pojo/vo/MapQuery.class
 com/jan/wat/controller/EquParaController.class
 com/jan/wat/service/IEquEquipmentparasettingrecordService.class
 com/jan/wat/mapper/EquSimappMapper.class
@@ -265,6 +267,7 @@ com/jan/wat/service/impl/EquBatteryServiceImpl.class
 com/jan/wat/service/IEquParagroupService.class
 com/jan/wat/service/ISysOrganizeService.class
 com/jan/wat/service/IEquEquipmentgroupEquipmentMapService.class
+com/jan/wat/controller/EquMapController.class
 com/jan/wat/controller/EquController.class
 com/jan/wat/mapper/EquEquipmenttypeMapper.class
 com/jan/wat/EquServer/enetry/DataHandle.class
@@ -328,6 +331,7 @@ com/jan/wat/service/ISysUsermenucolumnsettingService.class
 com/jan/wat/pojo/WatAlarmrecord.class
 com/jan/wat/service/impl/WatWeekaccumulateServiceImpl.class
 com/jan/wat/mapper/EquAlarmrecordMapper.class
+com/jan/wat/pojo/vo/RealValue.class
 com/jan/wat/controller/EquParagroupController.class
 com/jan/wat/controller/EquUpdateequipmentprogramController.class
 com/jan/wat/service/impl/SysUsermenumapServiceImpl.class

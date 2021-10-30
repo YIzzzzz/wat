@@ -75,6 +75,18 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
     }
 
     @Override
+    public String getGroupIdSet(String userCode, String euipmentGroupID) {
+
+        List<Integer> childrenGroupId = getChildrenGroupId(userCode, euipmentGroupID);
+        StringBuilder str = new StringBuilder();
+        str.append(euipmentGroupID);
+        for(int i = 0; i < childrenGroupId.size(); ++i){
+            str.append(" , "+childrenGroupId.get(i));
+        }
+        return str.toString();
+    }
+
+    @Override
     public Integer getMaxId() {
         return equEquipmentgroupMapper.getMaxId();
     }

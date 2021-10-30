@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @CrossOrigin
 @RestController
 @RequestMapping("/equ/historydataforoneequipmentcontroller")
-public class HistoryDataForOneEquipmentController {
+public class EquHistoryDataForOneEquipmentController {
 
     @Autowired
     IEquEquipmentService iEquEquipmentService;

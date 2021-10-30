@@ -25,6 +25,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysParameter.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysLogService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquParaController.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquMapController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/IEquEquipmenttypeService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquMulEquipmentParaContrioller.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/OrganizeTree.java
@@ -32,6 +33,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/SysAppapiServiceImpl.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/EqusimQuery.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysOrganizerolemap.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquHistoryDataForOneEquipmentController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/EquParaQuery.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/SysUsermenumapController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysUserService.java
@@ -83,6 +85,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquYesterdayconfirmalarmController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/ParaTree.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/EquResponserecordMapper.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/RealValue.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/WatYesterdayrecoveryalarmController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysAppapiService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysUserAppapiMap.java
@@ -129,6 +132,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/EquEquipmentrealdataMapper.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysAdvertisementService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/Equipmentdayaccumulatedata.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/MapQuery.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/EquParagroupMapper.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/WatHouraccumulate.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/EquipmentdayaccumulatedataMapper.java
