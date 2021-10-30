@@ -1,8 +1,10 @@
 package com.jan.wat.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jan.wat.pojo.EquDatatype;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,4 +17,6 @@ import java.util.Map;
  */
 public interface IEquDatatypeService extends IService<EquDatatype> {
     public Map<Integer, String> getMap();
+    public List<EquDatatype> getEquDataType(String id);
+    public JSONObject getRealCurve(String usercode, String equipment_id, String datatype_id, String startTime, String endTime);
 }

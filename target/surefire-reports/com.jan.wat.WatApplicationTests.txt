@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.jan.wat.WatApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 39, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.474 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
-testGetServerList  Time elapsed: 0.001 s  <<< ERROR!
+Tests run: 39, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.54 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
+testGetServerList  Time elapsed: 0.002 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist

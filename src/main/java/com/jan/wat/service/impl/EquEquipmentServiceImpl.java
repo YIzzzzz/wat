@@ -223,11 +223,12 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         queryWrapper.eq(EquEquipment::getId, id);
         List<EquEquipment> list = iEquEquipmentService.list(queryWrapper);
 
-        if(all.isEmpty())
-            return "[]";
+
         Set<Integer> set = new TreeSet<>();
         JSONObject object = new JSONObject();
         JSONArray array = new JSONArray();
+        if(all.isEmpty())
+            return object.toJSONString();
         for(Equipmentdata item : all){
             String xml = item.getData();
 //            System.out.println(xml);
@@ -264,6 +265,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
 
         return object.toJSONString();
     }
+
     @Override
     public List<String> getMonths(String time1, String time2){
         String startDate = time1.substring(0,4)+time1.substring(5,7);

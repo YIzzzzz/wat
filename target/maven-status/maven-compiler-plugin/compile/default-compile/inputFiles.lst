@@ -49,6 +49,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/SysParameterMapper.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/EquHistoryUpdateProgramRecord.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquCurveController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/WatApplication.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/SysPermissionServiceImpl.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/EquResponserecord.java
@@ -218,6 +219,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquStatisticsalarmController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/WatHouraccumulateServiceImpl.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquStatisticsAlarmController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/EquServer/enetry/DataHandle.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysUser.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/SysAdvertisementController.java
@@ -269,6 +271,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysOrganizeService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysOrganizerolemapService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/IEquEquipmentparavaluerangeService.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquMulCurveController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysMenu.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/EquEquipmenttype.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/EquEquipmentparaServiceImpl.java

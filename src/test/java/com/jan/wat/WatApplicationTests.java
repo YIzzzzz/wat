@@ -506,5 +506,9 @@ class WatApplicationTests {
     public void testGetMaps(){
         System.out.println(equEquipmentMapper.getMaps("thy"));
     }
+    @Test
+    public void getEquDataType(){
+        System.out.println(equDatatypeMapper.getEquDataType("4000010"));
+    }
 
 }
