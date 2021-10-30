@@ -159,6 +159,29 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     }
 
     @Override
+    public String getEquipmentValue(String usercode, String equipmentId) {
+        StringBuilder where = new StringBuilder();
+        where.append(String.format(" and e.ID = %s",equipmentId));
+        List<EquDatatype> datatypes = iEquDatatypeService.list();
+        Map<Integer, EquDatatype> hashTable = new HashMap<Integer, EquDatatype>();
+        for(EquDatatype item : datatypes){
+            hashTable.put(item.getId(), item);
+        }
+        JSONObject object = new JSONObject();
+        LambdaQueryWrapper<EquEquipmentrealdata> wrapper = new LambdaQueryWrapper<>();
+        wrapper.orderByAsc(EquEquipmentrealdata::getPosition);
+        wrapper.eq(EquEquipmentrealdata::getEquipmentId, equipmentId);
+        List<EquEquipmentrealdata> list = iEquEquipmentrealdataService.list(wrapper);
+        for(EquEquipmentrealdata equEquipmentrealdata : list){
+            if(equEquipmentrealdata.getDatatypeId() == 0)
+                continue;
+            String name = hashTable.get(equEquipmentrealdata.getDatatypeId()).getName();
+            object.put(name, equEquipmentrealdata.getValue());
+        }
+        return object.toJSONString();
+    }
+
+    @Override
     public List<EquEquipment> getEquEquipment(String usercode, String equipment_id, String equipmentgroup_id) {
         StringBuilder set = new StringBuilder();
         set.append(equipmentgroup_id);
@@ -296,8 +319,6 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
 
     @Override
     public List<MapQuery> getJW(String usercode) {
-
-
         return equEquipmentMapper.getMaps(usercode);
     }
 

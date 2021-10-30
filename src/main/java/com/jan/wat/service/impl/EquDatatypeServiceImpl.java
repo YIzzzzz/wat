@@ -15,10 +15,7 @@ import com.jan.wat.service.IEquEquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -90,6 +87,18 @@ public class EquDatatypeServiceImpl extends ServiceImpl<EquDatatypeMapper, EquDa
         object.put("x", t);
         object.put("y", v);
         return object;
+    }
+
+    @Override
+    public List<EquDatatype> getMulDataType(List<String> list) {
+        Set<EquDatatype> s = new TreeSet<>();
+        StringBuilder where = new StringBuilder();
+        where.append(list.get(0));
+        for(int i = 1; i < list.size(); ++i){
+            where.append(" , ");
+            where.append(list.get(i));
+        }
+        return equDatatypeMapper.getMulDataType(where.toString());
     }
 
 }

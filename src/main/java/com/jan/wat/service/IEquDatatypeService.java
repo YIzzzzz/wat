@@ -19,4 +19,5 @@ public interface IEquDatatypeService extends IService<EquDatatype> {
     public Map<Integer, String> getMap();
     public List<EquDatatype> getEquDataType(String id);
     public JSONObject getRealCurve(String usercode, String equipment_id, String datatype_id, String startTime, String endTime);
+    public List<EquDatatype> getMulDataType(List<String> list);
 }

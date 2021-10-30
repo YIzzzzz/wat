@@ -21,11 +21,18 @@ public class EquMapController {
     @Autowired
     IEquEquipmentService iEquEquipmentService;
 
-    @ApiOperation(value = "getRealDataQuery")
+    @ApiOperation(value = "getJW")
     @GetMapping("/getJW/{usercode}")
     @ResponseBody
-    public List<MapQuery> getRealDataQuery(@PathVariable String usercode) {
+    public List<MapQuery> getJW(@PathVariable String usercode) {
         return iEquEquipmentService.getJW(usercode);
+    }
+
+    @ApiOperation(value = "getValue")
+    @GetMapping("/getValue/{usercode}/{id}")
+    @ResponseBody
+    public String getEquipmentValue(@PathVariable String usercode, @PathVariable String id) {
+        return iEquEquipmentService.getEquipmentValue(usercode, id);
     }
 
 }

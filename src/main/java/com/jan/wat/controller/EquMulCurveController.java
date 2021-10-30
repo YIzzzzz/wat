@@ -1,6 +1,8 @@
 package com.jan.wat.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.jan.wat.pojo.EquDatatype;
 import com.jan.wat.service.IEquDatatypeService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,14 @@ public class EquMulCurveController {
 
     @Autowired
     IEquDatatypeService iEquDatatypeService;
+
+    @ApiOperation(value = "getRealDataQuery")
+    @PostMapping("/getRealDataQuery")
+    @ResponseBody
+    public List<EquDatatype> getRealDataQuery(@RequestBody List<String> list) {
+
+        return iEquDatatypeService.getMulDataType(list);
+    }
 
     /**
      * @return: java.lang.String

@@ -22,4 +22,10 @@ public interface EquDatatypeMapper extends BaseMapper<EquDatatype> {
             "where erd.datatype_Id=dt.Id and erd.IfCurve=true and erd.Ifrecord=true and erd.equipment_Id = #{id}\n" +
             "order by erd.Position;")
     public List<EquDatatype> getEquDataType(String id);
+
+    @Select("select dt.*\n" +
+            "from equ_equipmentrealdata as erd,equ_datatype dt\n" +
+            "where erd.datatype_Id=dt.Id and erd.IfCurve=true and erd.Ifrecord=true and erd.equipment_Id in (${ids})\n" +
+            "order by erd.Position")
+    public List<EquDatatype> getMulDataType(String ids);
 }
