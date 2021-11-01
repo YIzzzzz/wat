@@ -2,6 +2,7 @@ package com.jan.wat.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.pojo.EquCommand;
 import com.jan.wat.pojo.EquPara;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jan.wat.pojo.vo.EquParaQuery;
@@ -64,13 +65,17 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "        order by id")
     IPage<EquParaQuery> selectByPage(Page<EquParaQuery> page);
 
-    @Select("select (select Name from equ_unit u where u.ID=a.unit_ID) as unit_Name,(case when b.Type=2 then (select Name from equ_paravalue pv where pv.ID=a.paravalue and pv.para_ID=a.para_ID) else a.paravalue end) as paravalue,\n" +
-            "(case when b.Type=2 then a.paravalue else NuLL end) as paravalue_ID,a.equipment_ID,a.para_ID,CONveRT(a.uploadTime,DATeTIMe) as uploadTime,a.upLimit,a.DownLimit,b.Type,b.Name as para_Name,b.ReadOnly\n" +
+    @Select("select (select Name from equ_unit u where u.ID=a.unit_ID) as unit_Name," +
+"(case when b.Type=2 then (select Name from equ_paravalue pv where pv.ID=a.paravalue and pv.para_ID=a.para_ID) else a.paravalue end) as paravalue,\n" +
+            "(case when b.Type=2 then a.paravalue else NuLL end) as paravalue_ID," +
+            "a.equipment_ID as equipment_ID,a.para_ID as para_ID,CONveRT(a.uploadTime,DATeTIMe) as uploadTime," +
+            "a.upLimit,a.DownLimit,b.Type as Type,b.Name as para_Name,b.ReadOnly as ReadOnly\n" +
             "from equ_equipmentpara as a,equ_para b\n" +
             "where a.para_ID=b.ID and a.equipment_ID=#{equipment_ID}")
     @Results(id = "getSigEquipmentPara",value = {
             @Result(column = "unit_Name",property = "unit_Name"),
             @Result(column = "paravalue",property = "paravalue"),
+            @Result(column = "paravalue_ID",property = "paravalue_ID"),
             @Result(column = "equipment_ID",property = "equipment_ID"),
             @Result(column = "para_ID",property = "para_ID"),
             @Result(column = "uploadTime",property = "uploadTime"),
@@ -100,4 +105,6 @@ public interface EquParaMapper extends BaseMapper<EquPara> {
             "where a.Para_ID = ${paraId} and a.Equipment_ID in ${ids}")
     List<LimitQuery> getLimit(int paraId, String ids);
 
+    @Select("select * from equ_command where Equipment_ID = #{id} and CommandType = #{para} and UserCode = #{usercode};\n")
+    public List<EquCommand> selectParaCommand(String id, String usercode, Integer para);
 }

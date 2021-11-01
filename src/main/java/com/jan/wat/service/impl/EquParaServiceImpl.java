@@ -1,8 +1,11 @@
 package com.jan.wat.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jan.wat.EquServer.helper.DateTime;
 import com.jan.wat.pojo.*;
 import com.jan.wat.mapper.EquParaMapper;
 import com.jan.wat.pojo.vo.*;
@@ -13,14 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
+
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jan.wat.pojo.EquPara;
 import com.jan.wat.service.IEquParagroupService;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <p>
@@ -151,7 +151,7 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
         }
         ids.append(")");
         List<MulEquipparaQuery> mulEquipmentPara = mapper.getMulEquipmentPara(from.toString());
-        System.out.println(mulEquipmentPara);
+//        System.out.println(mulEquipmentPara);
         for(MulEquipparaQuery item : mulEquipmentPara){
             int paraId = item.getPara_ID();
             if(item.getPType() == 1){
@@ -160,8 +160,34 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
                     item.setUpLimit(limit.get(0).getUpLimit());
                     item.setDownLimit(limit.get(0).getDownLimit());
                 }
+            }else{
+                item.setUpLimit(null);
+                item.setDownLimit(null);
             }
         }
        return mulEquipmentPara;
+    }
+
+    @Override
+    public Boolean addParaCommands(JSONObject json) {
+        String usercode = (String) json.get("usercode");
+        int command_type = Integer.parseInt((String)json.get("command"));
+        //145 146 148
+        JSONArray array = JSONArray.parseArray(JSON.toJSONString(json.get("ids")));
+        Iterator<Object> it = array.iterator();
+        while(it.hasNext()){
+            JSONObject jsonObject = (JSONObject) it.next();
+            List<EquCommand> lists = mapper.selectParaCommand((String) jsonObject.get("id"), usercode, command_type);
+            if(lists.size() < 1){
+                EquCommand equCommand = new EquCommand();
+                equCommand.setEquipmentId((String) jsonObject.get("id"));
+                equCommand.setCommandtype(command_type);
+                equCommand.setSettingtime(LocalDateTime.now());
+                equCommand.setUsercode(usercode);
+                if(!iEquCommandService.save(equCommand))
+                    return false;
+            }
+        }
+        return true;
     }
 }

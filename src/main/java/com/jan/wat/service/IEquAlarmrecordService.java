@@ -28,6 +28,6 @@ public interface IEquAlarmrecordService extends IService<EquAlarmrecord> {
 
     public List<EquAlarmQuery> getEquhistoryalarm(String usercode, String equipment_id, String equipmentgroup_id, String alarmtype, String start, String end);
 
-
+    public String statisticsAlarm(String usercode, List<String> groupId, List<String> groupName, String startTime, String endTime);
 
 }

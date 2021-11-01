@@ -144,6 +144,7 @@ com/jan/wat/controller/EquManufacturerController.class
 com/jan/wat/service/ISysRolemenumapService.class
 com/jan/wat/pojo/SysSystemalarm.class
 com/jan/wat/EquServer/enetry/ParaCell.class
+com/jan/wat/controller/EquCurveController.class
 com/jan/wat/pojo/EquUserEquipmentgroupMap.class
 com/jan/wat/mapper/SysAdvertisementMapper.class
 com/jan/wat/service/impl/EquResponserecordServiceImpl.class
@@ -191,11 +192,14 @@ com/jan/wat/service/IWatAlarmtypeService.class
 com/jan/wat/pojo/EquServerEquipmentMap.class
 com/jan/wat/EquServer/handle/EquipmentDataHandle.class
 com/jan/wat/controller/EquUnitController.class
+com/jan/wat/controller/EquHistoryDataForOneEquipmentController.class
 com/jan/wat/service/impl/EquEquipmenttypeServiceImpl.class
 com/jan/wat/service/impl/SysSystemalarmServiceImpl.class
 com/jan/wat/service/impl/EquSimappServiceImpl.class
 com/jan/wat/controller/EquServerequipmentsController.class
+com/jan/wat/pojo/vo/MapQuery.class
 com/jan/wat/controller/EquParaController.class
+com/jan/wat/controller/EquStatisticsAlarmController.class
 com/jan/wat/service/IEquEquipmentparasettingrecordService.class
 com/jan/wat/mapper/EquSimappMapper.class
 com/jan/wat/pojo/EquEquipmentgroup.class
@@ -265,6 +269,7 @@ com/jan/wat/service/impl/EquBatteryServiceImpl.class
 com/jan/wat/service/IEquParagroupService.class
 com/jan/wat/service/ISysOrganizeService.class
 com/jan/wat/service/IEquEquipmentgroupEquipmentMapService.class
+com/jan/wat/controller/EquMapController.class
 com/jan/wat/controller/EquController.class
 com/jan/wat/mapper/EquEquipmenttypeMapper.class
 com/jan/wat/EquServer/enetry/DataHandle.class
@@ -328,6 +333,7 @@ com/jan/wat/service/ISysUsermenucolumnsettingService.class
 com/jan/wat/pojo/WatAlarmrecord.class
 com/jan/wat/service/impl/WatWeekaccumulateServiceImpl.class
 com/jan/wat/mapper/EquAlarmrecordMapper.class
+com/jan/wat/pojo/vo/RealValue.class
 com/jan/wat/controller/EquParagroupController.class
 com/jan/wat/controller/EquUpdateequipmentprogramController.class
 com/jan/wat/service/impl/SysUsermenumapServiceImpl.class
@@ -356,6 +362,7 @@ com/jan/wat/controller/SysUserController.class
 com/jan/wat/service/impl/EquEquipmentServiceImpl.class
 com/jan/wat/mapper/EquDatatypeMapper.class
 com/jan/wat/mapper/WatAlarmparaMapper.class
+com/jan/wat/controller/EquMulCurveController.class
 com/jan/wat/pojo/vo/RealDataQuery.class
 com/jan/wat/controller/WatUnrecoveryalarmController.class
 com/jan/wat/service/impl/WatAlarmrecordServiceImpl.class

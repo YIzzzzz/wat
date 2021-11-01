@@ -140,4 +140,26 @@ public interface EquAlarmrecordMapper extends BaseMapper<EquAlarmrecord> {
             "</script>")
     @ResultMap(value="getCommand")
     public List<EquAlarmQuery> getEquhistoryalarm(String usercode, String set, String equipment_id, String equipmentgroup_id, String alarmtype, String start, String end);
+
+    @Select("SeLeCT count(alarmType)\n" +
+            "FrOm equ_alarmrecord a,equ_equipmentgroup_equipment_map egm,equ_user_equipmentgroup_map uem\n" +
+            "where uem.equipmentgroup_ID in (${set}) and uem.userCode=#{usercode}\n" +
+            "and uem.equipmentgroup_ID=egm.equipmentgroup_ID and egm.equipment_ID=a.equipment_ID and a.alarmTime between #{startTime} and #{endTime} \n" +
+            "and alarmType = #{type} and recovery = false")
+    public Integer getUnRecovery(String usercode, String startTime, String endTime, String set, Integer type);
+
+    @Select("SeLeCT count(alarmType)\n" +
+            "FrOm equ_alarmrecord a,equ_equipmentgroup_equipment_map egm,equ_user_equipmentgroup_map uem\n" +
+            "where uem.equipmentgroup_ID in (${set}) and uem.userCode=#{usercode}\n" +
+            "and uem.equipmentgroup_ID=egm.equipmentgroup_ID and egm.equipment_ID=a.equipment_ID and a.alarmTime between #{startTime} and #{endTime} \n" +
+            "and alarmType = #{type} and recovery = true")
+    public Integer getRecovery(String usercode, String startTime, String endTime, String set, Integer type);
+
+    @Select("SeLeCT count(alarmType)\n" +
+            "FrOm equ_alarmrecord a,equ_equipmentgroup_equipment_map egm,equ_user_equipmentgroup_map uem\n" +
+            "where uem.equipmentgroup_ID in (${set}) and uem.userCode=#{usercode}\n" +
+            "and uem.equipmentgroup_ID=egm.equipmentgroup_ID and egm.equipment_ID=a.equipment_ID and a.alarmTime between #{startTime} and #{endTime} \n" +
+            "and alarmType = #{type} and confirmtime is not null")
+    public Integer getConfirm(String usercode, String startTime, String endTime, String set, Integer type);
+
 }

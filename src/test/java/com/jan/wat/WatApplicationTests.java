@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.EquServer.config.Command;
 import com.jan.wat.EquServer.config.GlobalParameter;
 import com.jan.wat.EquServer.helper.DateTime;
+import com.jan.wat.EquServer.helper.Tools;
 import com.jan.wat.mapper.*;
 import com.jan.wat.pojo.*;
 import com.jan.wat.pojo.vo.OrganizeTree;
@@ -17,11 +18,16 @@ import com.jan.wat.pojo.vo.EquParaQuery;
 import com.jan.wat.pojo.vo.SigEuipementparaQuery;
 import com.jan.wat.pojo.vo.*;
 import com.jan.wat.service.*;
+import org.dom4j.Attribute;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -56,7 +62,37 @@ class WatApplicationTests {
     EquAlarmrecordMapper equAlarmrecordMapper;
     @Autowired
     EquCommandMapper equCommandMapper;
+    @Autowired
+    ISysOrganizeService iSysOrganizeService;
+    @Autowired
+    IEquEquipmentrealdataService iEquEquipmentrealdataService;
+    @Autowired
+    IEquEquipmentgroupService iEquEquipmentgroupService;
+    @Autowired
+    IEquAlarmrecordService iEquAlarmrecordService;
+    @Autowired
+    SysUserorganizemapMapper sysUserorganizemapMapper;
+    @Autowired
+    ISysUsermenumapService iSysUsermenumapService;
+    @Autowired
+    SysUserrolemapMapper sysUserrolemapMapper;
+    @Autowired
+    WatFlowMapper watFlowMapper;
 
+    @Autowired
+    IWatFlowService iWatFlowService;
+
+    @Autowired
+    IEquEquipmentService iEquEquipmentService;
+
+    @Autowired
+    IWatAlarmrecordService iWatAlarmrecordService;
+
+    @Autowired
+    ISysRoleService iSysRoleService;
+
+    @Autowired
+    IEquServerEquipmentMapService iEquServerEquipmentMapService;
 //    @Test
 //    void contextLoads() {
 //    }
@@ -132,8 +168,6 @@ class WatApplicationTests {
 //        System.out.println(sysUser.getCreatedate());
 //    }
 
-    @Autowired
-    ISysOrganizeService iSysOrganizeService;
 
     @Test
     public void createJson(){
@@ -191,7 +225,7 @@ class WatApplicationTests {
 
     @Test
     public void sigEquipment(){
-        List<SigEuipementparaQuery> sigEquipmentPara = equParaMapper.getSigEquipmentPara("0");
+        List<SigEuipementparaQuery> sigEquipmentPara = equParaMapper.getSigEquipmentPara("10200");
         System.out.println(sigEquipmentPara);
     }
 
@@ -240,10 +274,7 @@ class WatApplicationTests {
     }
 
 
-    @Autowired
-    IEquEquipmentrealdataService iEquEquipmentrealdataService;
-    @Autowired
-    IEquEquipmentgroupService iEquEquipmentgroupService;
+
     @Test
     public void getRealData(){
         String equipmentGroupId = "0";
@@ -320,8 +351,7 @@ class WatApplicationTests {
 //            System.out.println(e);
 //        }
 //    }
-    @Autowired
-    IEquAlarmrecordService iEquAlarmrecordService;
+
     @Test
     public void getEquUnrecoveryalarm(){
         List<EquAlarmQuery> huluadmin = iEquAlarmrecordService.getEquUnrecoveryalarm("huluadmin", "0", "0");
@@ -363,17 +393,14 @@ class WatApplicationTests {
 //        iEquAlarmrecordService.getEquYesterdayalarm("shbf","0","0");
     }
 
-    @Autowired
-    SysUserorganizemapMapper sysUserorganizemapMapper;
-    ISysUsermenumapService iSysUsermenumapService;
+
     @Test
     public void getOrangizecodebyusercode(){
         String thy = sysUserorganizemapMapper.getOrganizecodebyusercode("thy");
         System.out.println("-------------------" + thy);
     }
 
-    @Autowired
-    SysUserrolemapMapper sysUserrolemapMapper;
+
     @Test
     public void getruleseqbyusercode(){
         String thy = sysUserrolemapMapper.getroleseqbyusercode("thy");
@@ -386,10 +413,6 @@ class WatApplicationTests {
         String thy = sysRoleMapper.getroleseqbyusercode("thy");
         System.out.println(thy);
     }
-
-
-
-    @Autowired
 
     @Test
     public void sys_usermenumapTest(){
@@ -404,8 +427,6 @@ class WatApplicationTests {
 
     }
 
-    @Autowired
-    IEquServerEquipmentMapService iEquServerEquipmentMapService;
     @Test
     public void getMaxId(){
 
@@ -413,20 +434,6 @@ class WatApplicationTests {
     }
 
 
-    @Autowired
-    WatFlowMapper watFlowMapper;
-
-    @Autowired
-    IWatFlowService iWatFlowService;
-
-    @Autowired
-    IEquEquipmentService iEquEquipmentService;
-
-    @Autowired
-    IWatAlarmrecordService iWatAlarmrecordService;
-
-    @Autowired
-    ISysRoleService iSysRoleService;
 
 
     @Test
@@ -440,8 +447,68 @@ class WatApplicationTests {
     @Test
     public void testGetRealDataQuery(){
 
-        iEquEquipmentService.getRealDataQuery( "0","0","thy");
+        System.out.println(iEquEquipmentService.getRealDataQuery( "3","0","thy"));
+//        System.out.println(iEquEquipmentgroupService.getChildrenGroupId("thy","3"));
+    }
+    @Test
+    public void getMonthBetween1(){
+        System.out.println(iEquEquipmentService.getMonths("2010-01-01 10:10:10.313","2030-01-01 10:10:10.313"));
+    }
 
+    @Test
+    public void getMonthBetween(){
+        String startDate = "201002";
+        String endDate = "202010";
+        ArrayList<String> result = new ArrayList<String>();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");//格式化为年月
+
+            Calendar min = Calendar.getInstance();
+            Calendar max = Calendar.getInstance();
+            min.setTime(sdf.parse(startDate));
+            min.set(min.get(Calendar.YEAR), min.get(Calendar.MONTH), 1);
+
+            max.setTime(sdf.parse(endDate));
+            max.set(max.get(Calendar.YEAR), max.get(Calendar.MONTH), 2);
+
+            Calendar curr = min;
+            while (curr.before(max)) {
+                result.add("rdasdata"+sdf.format(curr.getTime()));
+                curr.add(Calendar.MONTH, 1);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(result);
+    }
+
+    @Test
+    public void test_XML(){
+        String xml = "<D><V i=\"0\">-0.787</V><V i=\"1\">-0.626</V><V i=\"2\">2.78</V><V i=\"3\">3.0</V><V i=\"4\">9019740.1</V><V i=\"5\">9000957.3</V><V i=\"218\">18782.8</V><V i=\"14\">0.0</V><V i=\"219\">0.0</V><V i=\"10\">0.0</V><V i=\"12\">0.0</V><V i=\"13\">0.0</V><V i=\"220\">0.0</V><V i=\"11\">0.0</V><V i=\"36\">0.0</V><V i=\"34\">2485.0</V><V i=\"20\">0.0</V><V i=\"21\">1.0</V><V i=\"22\">0.0</V><V i=\"23\">0.0</V><V i=\"43\">0.0</V><V i=\"224\">0.0</V><V i=\"213\">0.0</V><V i=\"17\">100.0</V><V i=\"228\">0.0</V><V i=\"225\">0.0</V><V i=\"18\">100.0</V><V i=\"227\">0.0</V><V i=\"19\">24.0</V></D>";
+        System.out.println(xml);
+        Iterator<Element> iter = Tools.XML2iter(xml);
+        while(iter.hasNext()){
+            Element element= iter.next();
+            List<Attribute> attributes = element.attributes();
+            System.out.println(attributes.get(0).getValue()+" "+element.getStringValue());
+        }
+    }
+    @Test
+    public void isExits(){
+        System.out.println(equipmentdataMapper.isExit("rdasdata202105"));
+    }
+
+    @Test
+    public void testGetData(){
+        System.out.println(equipmentdataMapper.getData("rdasdata202106","2010-01-01 10:10:10.313","2030-01-01 10:10:10.313","77777777"));
+    }
+    @Test
+    public void testGetMaps(){
+        System.out.println(equEquipmentMapper.getMaps("thy"));
+    }
+    @Test
+    public void getEquDataType(){
+        System.out.println(equDatatypeMapper.getEquDataType("4000010"));
     }
 
 }

@@ -4,10 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.EquEquipment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.jan.wat.pojo.vo.EquParaQuery;
-import com.jan.wat.pojo.vo.EquipmentQuery;
-import com.jan.wat.pojo.vo.EuipmentsQuery;
-import com.jan.wat.pojo.vo.RealDataQuery;
+import com.jan.wat.pojo.vo.*;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -89,5 +86,19 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
             @Result(column="status", property="s")
     })
     public List<EquEquipment> getEquEquipmentByUsercode(String usercode);
+
+    @Select("<script>" +
+            "select distinct a.ID, a.Longitude, a.Latitude, a.Status, a.Name\n" +
+            "from equ_equipment a,equ_equipmentgroup_equipment_map as gem,equ_user_equipmentgroup_map uem \n" +
+            "where gem.equipment_id=a.id and uem.equipmentgroup_id=gem.equipmentgroup_id and uem.usercode=#{usercode} and Longitude is not null;" +
+            "</script>")
+    @Results(id="getMaps", value={
+            @Result(column="ID", property="id"),
+            @Result(column="Name", property="name"),
+            @Result(column="Longitude", property="longitude"),
+            @Result(column="Latitude", property="latitude"),
+            @Result(column="Status", property="s")
+    })
+    public List<MapQuery> getMaps(String usercode);
 
 }

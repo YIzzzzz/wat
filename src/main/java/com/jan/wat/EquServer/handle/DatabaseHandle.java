@@ -285,7 +285,7 @@ public class DatabaseHandle {
         for (ParaCell item : cph.getParaCells())
         {
             EquEquipmentpara equEquipmentpara = new EquEquipmentpara();
-            System.out.println(item);
+//            System.out.println(item);
             switch (item.getType())
             {
                 case 1://置数型
@@ -319,6 +319,7 @@ public class DatabaseHandle {
                     equEquipmentpara.setParaId(item.getParaId());
                     equEquipmentpara.setParavalue(item.getValue());
                     equEquipmentpara.setUploadtime(DateTime.DateNow());
+//                    System.out.println("===="+equEquipmentpara);
                     returnValue = iEquEquipmentparaService.save(equEquipmentpara);
                     //如果是CCID_SIM参数，就更新equ_SIM表
                     if (String.valueOf(item.getParaId()).trim().equals("15"))

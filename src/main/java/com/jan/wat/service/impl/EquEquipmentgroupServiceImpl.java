@@ -1,5 +1,6 @@
 package com.jan.wat.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jan.wat.pojo.EquEquipmentgroup;
 import com.jan.wat.mapper.EquEquipmentgroupMapper;
@@ -71,6 +72,18 @@ public class EquEquipmentgroupServiceImpl extends ServiceImpl<EquEquipmentgroupM
             return null;
         addList(list, children);
         return list;
+    }
+
+    @Override
+    public String getGroupIdSet(String userCode, String euipmentGroupID) {
+
+        List<Integer> childrenGroupId = getChildrenGroupId(userCode, euipmentGroupID);
+        StringBuilder str = new StringBuilder();
+        str.append(euipmentGroupID);
+        for(int i = 0; i < childrenGroupId.size(); ++i){
+            str.append(" , "+childrenGroupId.get(i));
+        }
+        return str.toString();
     }
 
     @Override
