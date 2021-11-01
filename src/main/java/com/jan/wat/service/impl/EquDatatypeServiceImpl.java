@@ -63,8 +63,12 @@ public class EquDatatypeServiceImpl extends ServiceImpl<EquDatatypeMapper, EquDa
             List<Equipmentdata> data = equipmentdataMapper.getData(database, startTime, endTime, equipment_id);
             all.addAll(data);
         }
-        if(all.isEmpty())
+        if(all.isEmpty()) {
+            JSONArray tmp = new JSONArray();
+            object.put("x", tmp);
+            object.put("y", tmp);
             return object;
+        }
         List<String> time = new ArrayList<>();
         List<String> value = new ArrayList<>();
         for(Equipmentdata item : all){
