@@ -443,7 +443,9 @@ class WatApplicationTests {
 
 //        iEquAlarmrecordService.getEquhistoryalarm("thy","0","0","2","","");
     }
-
+//
+//    @Autowired
+//    IEquEquipmentService iEquEquipmentService;
     @Test
     public void testGetRealDataQuery(){
 

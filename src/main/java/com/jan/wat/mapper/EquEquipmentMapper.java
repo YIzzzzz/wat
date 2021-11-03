@@ -46,7 +46,7 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
     List<RealDataQuery> getRealDataQuery(String usercode, String where);
 
     @Select("<script>" +
-            "select distinct a.*, em.name as manufacturername, et.name as equipmenttypename\n" +
+            "select distinct a.*, em.name as manufacturername, et.name as equipmenttypename,(case when (select equipment_id from wat_flow b where b.equipment_id = a.id) is null then 'false' else 'true' end) as checked\n" +
             "from equ_equipment a,equ_equipmentgroup_equipment_map as gem,equ_user_equipmentgroup_map uem,equ_manufacturer em,equ_equipmenttype et\n" +
             "where gem.equipment_id=a.id and uem.equipmentgroup_id=gem.equipmentgroup_id and uem.usercode=#{usercode} and a.manufacturer_id = em.id and a.equipmenttype_id = et.id" +
             "<if test='equipmentgroup_id != \"0\"'>" +
@@ -60,6 +60,7 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
     @Results(id="getCommand", value={
             @Result(column="name", property="aname"),
             @Result(column="port", property="p"),
+            @Result(column="checked", property="checked"),
             @Result(column="status", property="s")
     })
     public List<EquEquipment> getEquEquipment(String usercode,String set,String equipment_id,String equipmentgroup_id);

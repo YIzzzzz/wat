@@ -45,6 +45,25 @@ public class EquEquipmentController {
         return iEquEquipmentService.getEquEquipment(usercode, equipment_id, equipmentgroup_id);
     }
 
+    @ApiOperation(value = "设置经纬度")
+    @PostMapping("/setjingweidu")
+    @ResponseBody
+    public RespBean setjingweidu(@RequestBody JSONObject json){
+
+
+        String equipment_id = (String) json.get("equipment_id");
+        double longitude = (double) json.get("longitude");
+        double latitude = (double) json.get("latitude");
+        LambdaUpdateWrapper<EquEquipment> wrapper = new LambdaUpdateWrapper<>();
+        wrapper.eq(EquEquipment::getId,equipment_id);
+        wrapper.set(EquEquipment::getLatitude, latitude);
+        wrapper.set(EquEquipment::getLongitude, longitude);
+        if (iEquEquipmentService.update(wrapper)){
+            return RespBean.success("设置成功！");
+        }
+        return RespBean.error("设置失败！");
+    }
+
     @ApiOperation(value = "更新设备管理信息")
     @PutMapping("/update")
     public RespBean updateEquEquipment(@RequestBody JSONObject json){
