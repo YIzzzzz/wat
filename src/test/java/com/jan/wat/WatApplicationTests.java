@@ -437,11 +437,19 @@ class WatApplicationTests {
 
 //        iEquAlarmrecordService.getEquhistoryalarm("thy","0","0","2","","");
     }
-
+//
+//    @Autowired
+//    IEquEquipmentService iEquEquipmentService;
     @Test
     public void testGetRealDataQuery(){
 
-        iEquEquipmentService.getRealDataQuery(1,30, "0","0","thy");
+        String usercode = "thy";
+        String equipment_id = "";
+        String equipmentgroup_id = "6";
+
+        iEquEquipmentService.getEquEquipment(usercode, equipment_id, equipmentgroup_id);
+
+//        iEquEquipmentService.getRealDataQuery(1,30, "0","0","thy");
 
     }
 
