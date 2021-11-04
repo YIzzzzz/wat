@@ -108,6 +108,9 @@ public class EquEquipment implements Serializable {
 //    private String equipmenttypename;
 //    private String equipmentType_id;
 
+    @TableField("checked")
+    private boolean checked;
+
 
 
 

@@ -138,6 +138,8 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="localRepository" value="$MAVEN_REPOSITORY$" />
+        <option name="userSettingsFile" value="$USER_HOME$/.m2/settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -281,7 +283,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WatApplication">
-    <configuration name="WatApplicationTests.getEquDataType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.getAllFlow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -291,13 +293,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getEquDataType" />
+      <option name="METHOD_NAME" value="getAllFlow" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.getUnRecovery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.getEquEquipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -307,13 +309,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="getUnRecovery" />
+      <option name="METHOD_NAME" value="getEquEquipment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplicationTests.testGetMaps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.getMaxId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -323,13 +325,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
       <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
-      <option name="METHOD_NAME" value="testGetMaps" />
+      <option name="METHOD_NAME" value="getMaxId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplication.testGetMaps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.testGetRealDataQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -338,14 +340,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplication" />
-      <option name="METHOD_NAME" value="testGetMaps" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="testGetRealDataQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WatApplication.testgetMaps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WatApplicationTests.updatepassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wat" />
       <extension name="coverage">
         <pattern>
@@ -354,8 +356,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.jan.wat" />
-      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplication" />
-      <option name="METHOD_NAME" value="testgetMaps" />
+      <option name="MAIN_CLASS_NAME" value="com.jan.wat.WatApplicationTests" />
+      <option name="METHOD_NAME" value="updatepassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -370,11 +372,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WatApplicationTests.getEquDataType" />
-        <item itemvalue="JUnit.WatApplicationTests.getUnRecovery" />
-        <item itemvalue="JUnit.WatApplicationTests.testGetMaps" />
-        <item itemvalue="JUnit.WatApplication.testGetMaps" />
-        <item itemvalue="JUnit.WatApplication.testgetMaps" />
+        <item itemvalue="JUnit.WatApplicationTests.testGetRealDataQuery" />
+        <item itemvalue="JUnit.WatApplicationTests.updatepassword" />
+        <item itemvalue="JUnit.WatApplicationTests.getAllFlow" />
+        <item itemvalue="JUnit.WatApplicationTests.getMaxId" />
+        <item itemvalue="JUnit.WatApplicationTests.getEquEquipment" />
       </list>
     </recent_temporary>
   </component>
@@ -581,98 +583,7 @@
       <option name="project" value="LOCAL" />
       <updated>1628328954169</updated>
     </task>
-    <task id="LOCAL-00016" summary="*">
-      <created>1635233952146</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1635233952146</updated>
-    </task>
-    <task id="LOCAL-00017" summary="*">
-      <created>1635316840860</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1635316840860</updated>
-    </task>
-    <task id="LOCAL-00018" summary="*">
-      <created>1635322550003</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1635322550003</updated>
-    </task>
-    <task id="LOCAL-00019" summary="HistoryDataForOneEquipmentController">
-      <created>1635333879629</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1635333879629</updated>
-    </task>
-    <task id="LOCAL-00020" summary="HistoryDataForOneEquipmentController">
-      <created>1635333888631</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1635333888631</updated>
-    </task>
-    <task id="LOCAL-00021" summary="HistoryDataForOneEquipmentController">
-      <created>1635334603956</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1635334603956</updated>
-    </task>
-    <task id="LOCAL-00022" summary="HistoryDataForOneEquipmentController">
-      <created>1635334608528</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1635334608528</updated>
-    </task>
-    <task id="LOCAL-00023" summary="EquStatisticsAlarmController">
-      <created>1635586154503</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1635586154503</updated>
-    </task>
-    <task id="LOCAL-00024" summary="EquStatisticsAlarmController">
-      <created>1635586162878</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1635586162878</updated>
-    </task>
-    <task id="LOCAL-00025" summary="EquStatisticsAlarmController">
-      <created>1635586167825</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1635586167825</updated>
-    </task>
-    <task id="LOCAL-00026" summary="EquMulCurveController">
-      <created>1635597832721</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1635597832721</updated>
-    </task>
-    <task id="LOCAL-00027" summary="EquMulCurveController">
-      <created>1635597838923</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1635597838923</updated>
-    </task>
-    <task id="LOCAL-00028" summary="EquMulCurveController">
-      <created>1635602916727</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1635602916727</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -820,20 +731,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="增加日志显示底层sql语句功能" />
     <MESSAGE value="*" />
-    <MESSAGE value="HistoryDataForOneEquipmentController" />
-    <MESSAGE value="EquStatisticsAlarmController" />
-    <MESSAGE value="EquMulCurveController" />
-    <option name="LAST_COMMIT_MESSAGE" value="EquMulCurveController" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="*" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
