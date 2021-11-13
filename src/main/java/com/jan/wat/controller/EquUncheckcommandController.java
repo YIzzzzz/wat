@@ -30,7 +30,8 @@ public class EquUncheckcommandController {
     }
 
     @ApiOperation(value = "确认描述")
-    @GetMapping("/checkdes")
+    @PostMapping("/checkdes")
+    @ResponseBody
     public RespBean checkDes(@RequestBody JSONObject json){
 
         String equipment_id = (String) json.get("equipment_id");
@@ -47,7 +48,8 @@ public class EquUncheckcommandController {
     }
 
     @ApiOperation(value = "确认报警")
-    @GetMapping("/checkcommand")
+    @PostMapping("/checkcommand")
+    @ResponseBody
     public RespBean checkcommand(@RequestBody JSONObject json){
 
         String equipment_id = (String) json.get("equipment_id");
@@ -62,7 +64,8 @@ public class EquUncheckcommandController {
     }
 
     @ApiOperation(value = "确认全部报警")
-    @GetMapping("/checkallcommand")
+    @PostMapping("/checkallcommand")
+    @ResponseBody
     public RespBean checkallcommand(@RequestBody JSONObject json){
 
 

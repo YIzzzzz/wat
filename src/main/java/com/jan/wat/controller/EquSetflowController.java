@@ -63,7 +63,8 @@ public class EquSetflowController {
 
 
     @ApiOperation(value = "删除和确认")
-    @GetMapping("/addanddelete")
+    @PostMapping("/addanddelete")
+    @ResponseBody
     public RespBean addanddelete(@RequestBody JSONObject json){
 
 
