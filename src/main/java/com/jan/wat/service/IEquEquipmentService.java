@@ -42,5 +42,7 @@ public interface IEquEquipmentService extends IService<EquEquipment> {
     public List<MapQuery> getJW(String usercode);
     public String getAccumulateData(String equipmentId, String startTime, String endTime, int interval);
     public String getAccumulateDataMonth(List<String> equipmentIds, String startTime, String endTime);
-    public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries);
+    public String getAccumulateDataYear(List<String> equipmentIds, String startTime, String endTime);
+
+    public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries, int l);
 }

@@ -404,7 +404,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         index.add(lists.size());
         json.put("data",data);
         json.put("index",index);
-        json.put("Acc", getFooter_HistoryAccumulate(lists));
+        json.put("Acc", getFooter_HistoryAccumulate(lists, lists.size()));
         return json.toString();
     }
 
@@ -421,6 +421,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         int diffMonths = (year2 - year1)*12 + month2 -month1;
         List<AccumulateDataQuery> lists = new ArrayList<>();
         List<Integer> index = new ArrayList<>();
+        int count = 0;
         for(int m = 0; m < equipmentIds.size(); ++m){
             String equipment_id = equipmentIds.get(m);
             AccumulateDataQuery tmpValue = new AccumulateDataQuery();
@@ -448,8 +449,8 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
                 }else{
                     endValue = accumulateData.get(0);
                     JSONObject object = new JSONObject();
-                    object.put("equipment_ID",tmpValue.getEquipment_ID());
-                    object.put("equipment_Name",tmpValue.getEquipment_ID());
+                    object.put("equipment_ID",endValue.getEquipment_ID());
+                    object.put("equipment_Name",endValue.getEquipment_ID());
                     object.put("collectTime",readTime.plusMonths(-1-monthStep).toString().substring(0,7));
                     object.put("cold",endValue.getCold()-tmpValue.getCold());
                     object.put("diff",endValue.getDiff()-tmpValue.getDiff());
@@ -486,15 +487,21 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
                 }
             }
             index.add(index_item);
+            count += index_item;
         }
         json.put("data",data);
         json.put("index",index);
-        json.put("Acc", getFooter_HistoryAccumulate(lists));
+        json.put("Acc", getFooter_HistoryAccumulate(lists,count));
         return json.toJSONString();
     }
 
     @Override
-    public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries){
+    public String getAccumulateDataYear(List<String> equipmentIds, String startTime, String endTime) {
+        return null;
+    }
+
+    @Override
+    public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries, int l){
         JSONArray array = new JSONArray();
         int len = dataQueries.size();
         if(len == 0)
@@ -579,11 +586,11 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         array.add(object);
         object = new JSONObject();
         object.put("collectTime","平均值");
-        object.put("positive",mean[0]/len);
-        object.put("negative",mean[1]/len);
-        object.put("heat",mean[2]/len);
-        object.put("diff",mean[3]/len);
-        object.put("cold",mean[4]/len);
+        object.put("positive",mean[0]/l);
+        object.put("negative",mean[1]/l);
+        object.put("heat",mean[2]/l);
+        object.put("diff",mean[3]/l);
+        object.put("cold",mean[4]/l);
         array.add(object);
         object = new JSONObject();
         object.put("collectTime","合计");
