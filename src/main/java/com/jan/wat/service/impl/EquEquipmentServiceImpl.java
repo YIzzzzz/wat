@@ -497,7 +497,114 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
 
     @Override
     public String getAccumulateDataYear(List<String> equipmentIds, String startTime, String endTime) {
-        return null;
+        JSONObject json = new JSONObject();
+        JSONArray data = new JSONArray();
+        LocalDateTime start = DateTime.getTime(startTime);
+        LocalDateTime end = DateTime.getTime(endTime);
+
+        int year1 = start.getYear();
+        int year2 = end.getYear();
+        int diffYears = year2 - year1;
+        List<AccumulateDataQuery> lists = new ArrayList<>();
+        List<Integer> index = new ArrayList<>();
+        int count = 0;
+        for(int m = 0; m < equipmentIds.size(); ++m){
+            String equipment_id = equipmentIds.get(m);
+            String equipment_name = new String();
+            AccumulateDataQuery tmpValue = new AccumulateDataQuery();
+            AccumulateDataQuery endValue = new AccumulateDataQuery();
+            int yearStep = 0;
+            int index_item = 0;
+            TreeMap<String, AccumulateDataQuery> hash = new TreeMap<>();
+            for(int h = 0; h < (diffYears + 2); h++){
+                for(int a = 1; a < 13; a++) {
+                    LocalDateTime readTime = start.plusYears(h).plusMonths(a);
+                    String databaseName = getMonth(readTime
+                            .format(DateTime.getPattern()));
+                    if(equipmentdataMapper.isExit(databaseName) == 0)
+                        continue;
+                    List<AccumulateDataQuery> accumulateData = equEquipmentMapper.getAccumulateData(databaseName
+                            , readTime.format(DateTime.getPattern())
+                            , end.plusYears(diffYears+5).format(DateTime.getPattern()), equipment_id);
+
+                    if(accumulateData.size() < 1){
+                        if(a == 12 && h > 0) yearStep++;
+                        continue;
+                    }else {
+                        if (h == 0) {
+                            tmpValue = accumulateData.get(0);
+                        } else {
+                            endValue = accumulateData.get(0);
+                            if(endValue.getEquipment_Name() != null)
+                                equipment_name = endValue.getEquipment_Name();
+                            String yearString = readTime.plusYears(-1 - yearStep).toString().substring(0, 4);
+                            if(hash.containsKey(yearString)){
+                                AccumulateDataQuery accumulateDataQuery = hash.get(yearString);
+                                hash.get(yearString).setCold(accumulateDataQuery.getCold() + endValue.getCold() - tmpValue.getCold());
+                                hash.get(yearString).setDiff(accumulateDataQuery.getDiff() + endValue.getDiff() - tmpValue.getDiff());
+                                hash.get(yearString).setHeat(accumulateDataQuery.getHeat() + endValue.getHeat() - tmpValue.getHeat());
+                                hash.get(yearString).setNegative(accumulateDataQuery.getNegative() + endValue.getNegative() - tmpValue.getNegative());
+                                hash.get(yearString).setPositive(accumulateDataQuery.getPositive() + endValue.getPositive() - tmpValue.getPositive());
+                            }else{
+                                AccumulateDataQuery obj = new AccumulateDataQuery();
+                                obj.setEquipment_ID(tmpValue.getEquipment_ID());
+                                obj.setEquipment_Name(yearString);
+                                obj.setCollectTime(readTime);
+                                obj.setCold(endValue.getCold() - tmpValue.getCold());
+                                obj.setDiff(endValue.getDiff() - tmpValue.getDiff());
+                                obj.setHeat(endValue.getHeat() - tmpValue.getHeat());
+                                obj.setNegative(endValue.getNegative() - tmpValue.getNegative());
+                                obj.setPositive(endValue.getPositive() - tmpValue.getPositive());
+                                hash.put(yearString, obj);
+                            }
+
+                            tmpValue = endValue;
+                            while (yearStep != 0) {
+                                yearStep--;
+                                String yearString1 = readTime.plusYears(-1 - yearStep).toString().substring(0, 4);
+                                if(!hash.containsKey(yearString1)){
+                                    AccumulateDataQuery obj = new AccumulateDataQuery();
+                                    obj.setEquipment_ID(tmpValue.getEquipment_ID());
+                                    obj.setEquipment_Name(yearString1);
+                                    obj.setCollectTime(readTime);
+                                    obj.setCold(0.0f);
+                                    obj.setDiff(0.0f);
+                                    obj.setHeat(0.0f);
+                                    obj.setNegative(0.0f);
+                                    obj.setPositive(0.0f);
+                                    hash.put(yearString1, obj);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            Iterator iter = hash.entrySet().iterator();
+            while(iter.hasNext()){
+                Map.Entry entry = (Map.Entry)iter.next();
+                String str = (String) entry.getKey();
+                AccumulateDataQuery accumulateDataQuery = (AccumulateDataQuery) entry.getValue();
+                JSONObject object = new JSONObject();
+                object.put("equipment_ID", equipment_id);
+                object.put("equipment_Name", equipment_name);
+                object.put("collectTime", str);
+                object.put("cold", accumulateDataQuery.getCold());
+                object.put("diff", accumulateDataQuery.getDiff());
+                object.put("heat", accumulateDataQuery.getHeat());
+                object.put("negative", accumulateDataQuery.getNegative());
+                object.put("positive", accumulateDataQuery.getPositive());
+                lists.add(accumulateDataQuery);
+                data.add(object);
+                index_item++;
+            }
+            index.add(index_item);
+            count += index_item;
+        }
+        json.put("data",data);
+        json.put("index",index);
+        json.put("Acc", getFooter_HistoryAccumulate(lists,count));
+        return json.toJSONString();
     }
 
     @Override
@@ -514,7 +621,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             mn[i] = 0;
             mean[i]= 0.0F;
         }
-        for(int i = 1; i < len; ++i){
+        for(int i = 0; i < len; ++i){
             if(dataQueries.get(i).getPositive() > dataQueries.get(mx[0]).getPositive()){
                 mx[0] = i;
             }

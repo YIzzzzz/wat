@@ -355,6 +355,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysParameterService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquParavalueController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/RespBean.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquHistoryAccumulateYearReportController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/EquServerMapper.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysAdvertisement.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/EquEquipmentgroupEquipmentMapServiceImpl.java

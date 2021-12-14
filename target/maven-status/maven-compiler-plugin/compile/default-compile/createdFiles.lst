@@ -186,6 +186,7 @@ com/jan/wat/controller/EquUnconfirmalarmController.class
 com/jan/wat/pojo/SysCodetype.class
 com/jan/wat/service/impl/EquDatatypeServiceImpl.class
 com/jan/wat/pojo/EquResponserecord.class
+com/jan/wat/controller/EquHistoryAccumulateYearReportController.class
 com/jan/wat/pojo/vo/RoleUserItem.class
 com/jan/wat/service/impl/EquUserEquipmentgroupMapServiceImpl.class
 com/jan/wat/mapper/EquCommandMapper.class
