@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -102,4 +103,26 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
     })
     public List<MapQuery> getMaps(String usercode);
 
+
+    @Select("select collectTime,equipment_ID,name as equipment_Name\n" +
+            ", ifnull(nullif(extractvalue(Data, '/D/V[@i=\"4\"]'),\"\"),0) as positive\n" +
+            ", ifnull(nullif(extractvalue(Data, '/D/V[@i=\"5\"]'),\"\"),0) as negative\n" +
+            ", ifnull(nullif(extractvalue(Data, '/D/V[@i=\"218\"]'),\"\"),0) as diff\n" +
+            ", ifnull(nullif(extractvalue(Data, '/D/V[@i=\"11\"]'),\"\"),0)as heat\n" +
+            ", ifnull(nullif(extractvalue(Data, '/D/V[@i=\"36\"]'),\"\"),0) as cold\n" +
+            "from equ_equipment e, ${databaseName}.equipmentdata a\n" +
+            "where CollectTime between #{startTime} and #{endTime} and e.ID=a.Equipment_ID and a.Equipment_ID = #{equipmentId}\n" +
+            "order by CollectTime\n" +
+            "LIMIT 1;")
+    @Results(id="getAccumulateData", value={
+            @Result(column="collectTime", property="collectTime"),
+            @Result(column="equipment_ID", property="equipment_ID"),
+            @Result(column="equipment_Name", property="equipment_Name"),
+            @Result(column="positive", property="positive"),
+            @Result(column="negative", property="negative"),
+            @Result(column="diff", property="diff"),
+            @Result(column="heat", property="heat"),
+            @Result(column="cold", property="cold")
+    })
+    public List<AccumulateDataQuery> getAccumulateData(String databaseName, String startTime, String endTime, String equipmentId);
 }

@@ -513,4 +513,8 @@ class WatApplicationTests {
         System.out.println(equDatatypeMapper.getEquDataType("4000010"));
     }
 
+    @Test
+    public void getAccumulateData(){
+        System.out.println(equEquipmentMapper.getAccumulateData("rdasdata202111","2021-01-05","2022-01-05","8944"));
+    }
 }

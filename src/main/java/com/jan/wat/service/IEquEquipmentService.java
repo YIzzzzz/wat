@@ -37,7 +37,8 @@ public interface IEquEquipmentService extends IService<EquEquipment> {
     public String getValue(String usercode, String id, String startTime, String endTime);
 
     public List<String> getMonths(String time1, String time2);
-
+    public String getMonth(String time);
     public List<MapQuery> getJW(String usercode);
 
+    String getAccumulateData(String equipmentId, String startTime, String endTime, int interval);
 }

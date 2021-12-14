@@ -2,6 +2,8 @@ package com.jan.wat.EquServer.helper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -124,6 +126,15 @@ public class DateTime {
     public static String format(Date date){
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return f.format(date);
+    }
+
+    public static LocalDateTime getTime(String time){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.parse(time, formatter);
+    }
+
+    public static DateTimeFormatter getPattern(){
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     }
 
 }

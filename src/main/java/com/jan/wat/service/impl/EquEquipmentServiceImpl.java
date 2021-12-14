@@ -23,8 +23,10 @@ import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -318,9 +320,180 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     }
 
     @Override
+    public String getMonth(String time){
+        String timeDate = time.substring(0,4)+time.substring(5,7);
+        return "rdasdata" + timeDate;
+    }
+
+    @Override
     public List<MapQuery> getJW(String usercode) {
         return equEquipmentMapper.getMaps(usercode);
     }
 
+    @Override
+    public String getAccumulateData(String equipmentId, String startTime, String endTime, int interval) {
+        JSONObject json = new JSONObject();
+        JSONArray data = new JSONArray();
+        LocalDateTime start = DateTime.getTime(startTime);
+        LocalDateTime end = DateTime.getTime(endTime);
 
+        int diffDays = (int) Duration.between(start, end).toDays();
+
+        AccumulateDataQuery tmpValue = new AccumulateDataQuery();
+        AccumulateDataQuery endValue = new AccumulateDataQuery();
+        List<AccumulateDataQuery> lists = new ArrayList<>();
+        int h_add = interval;
+        for(int h = 0; h < diffDays; h = h + h_add){
+            if((h + interval) >= diffDays){
+                h_add = diffDays- h;
+                if(h_add == 0) break;
+            }
+            else h_add = interval;
+            LocalDateTime rangeStartTime = start.plusDays(h);
+            LocalDateTime rangeEndTime = rangeStartTime.plusDays(h_add-1);
+            String databaseName = getMonth(rangeStartTime
+            .format(DateTime.getPattern()));
+            if(equipmentdataMapper.isExit(databaseName) == 0)
+                continue;
+
+            List<AccumulateDataQuery> accumulateData = equEquipmentMapper.getAccumulateData(databaseName
+                    , rangeStartTime.format(DateTime.getPattern())
+                    , endTime, equipmentId);
+            if(accumulateData.size() < 1)
+                    continue;
+            tmpValue = accumulateData.get(0);
+            if(Duration.between(rangeStartTime.plusDays(h_add),LocalDateTime.now()).toDays() < 0)break;
+
+            databaseName = getMonth(rangeStartTime.plusDays(h_add)
+                    .format(DateTime.getPattern()));
+            if(equipmentdataMapper.isExit(databaseName) == 0)
+                continue;
+            accumulateData = equEquipmentMapper.getAccumulateData(databaseName
+                    , rangeStartTime.plusDays(h_add).format(DateTime.getPattern())
+                    , endTime, equipmentId);
+            if(accumulateData.size() < 1)
+                continue;
+            endValue = accumulateData.get(0);
+            AccumulateDataQuery obj = new AccumulateDataQuery();
+            JSONObject object = new JSONObject();
+            object.put("equipment_ID",tmpValue.getEquipment_ID());
+            object.put("equipment_Name",tmpValue.getEquipment_ID());
+            object.put("collectTime",rangeStartTime.toString().substring(0,10) +
+                    "--" + rangeEndTime.toString().substring(0,10));
+            object.put("cold",endValue.getCold()-tmpValue.getCold());
+            object.put("diff",endValue.getDiff()-tmpValue.getDiff());
+            object.put("heat",endValue.getHeat()-tmpValue.getHeat());
+            object.put("negative",endValue.getNegative()-tmpValue.getNegative());
+            object.put("positive",endValue.getPositive()-tmpValue.getPositive());
+
+            obj.setEquipment_ID(tmpValue.getEquipment_ID());
+            obj.setEquipment_Name(rangeStartTime.toString().substring(0,10) +
+                    "--" + rangeEndTime.toString().substring(0,10));
+            obj.setCollectTime(rangeStartTime);
+            obj.setCold(endValue.getCold()-tmpValue.getCold());
+            obj.setDiff(endValue.getDiff()-tmpValue.getDiff());
+            obj.setHeat(endValue.getHeat()-tmpValue.getHeat());
+            obj.setNegative(endValue.getNegative()-tmpValue.getNegative());
+            obj.setPositive(endValue.getPositive()-tmpValue.getPositive());
+            data.add(object);
+            lists.add(obj);
+        }
+        List<Integer> index = new ArrayList<>();
+        index.add(lists.size());
+        json.put("data",data);
+        json.put("index",index);
+        json.put("Acc", getFooter_HistoryAccumulate(lists));
+        return json.toString();
+    }
+    public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries){
+        JSONArray array = new JSONArray();
+        int len = dataQueries.size();
+        int[] mx = new int[5];
+        int[] mn = new int[5];
+        float[] mean=new float[5];
+        for(int i = 0; i < 5; ++i){
+            mx[i] = 0;
+            mn[i] = 0;
+            mean[i]= 0.0F;
+        }
+        for(int i = 1; i < len; ++i){
+            if(dataQueries.get(i).getPositive() > dataQueries.get(mx[0]).getPositive()){
+                mx[0] = i;
+            }
+            if(dataQueries.get(i).getNegative() > dataQueries.get(mx[1]).getNegative()){
+                mx[1] = i;
+            }
+            if(dataQueries.get(i).getHeat() > dataQueries.get(mx[2]).getHeat()){
+                mx[2] = i;
+            }
+            if(dataQueries.get(i).getDiff() > dataQueries.get(mx[3]).getDiff()){
+                mx[3] = i;
+            }
+            if(dataQueries.get(i).getCold() > dataQueries.get(mx[4]).getCold()){
+                mx[4] = i;
+            }
+            if(dataQueries.get(i).getPositive() < dataQueries.get(mn[0]).getPositive()){
+                mn[0] = i;
+            }
+            if(dataQueries.get(i).getNegative() < dataQueries.get(mn[1]).getNegative()){
+                mn[1] = i;
+            }
+            if(dataQueries.get(i).getHeat() < dataQueries.get(mn[2]).getHeat()){
+                mn[2] = i;
+            }
+            if(dataQueries.get(i).getDiff() < dataQueries.get(mn[3]).getDiff()){
+                mn[3] = i;
+            }
+            if(dataQueries.get(i).getCold() < dataQueries.get(mn[4]).getCold()){
+                mn[4] = i;
+            }
+            mean[0] += dataQueries.get(i).getPositive();
+            mean[1] += dataQueries.get(i).getNegative();
+            mean[2] += dataQueries.get(i).getHeat();
+            mean[3] += dataQueries.get(i).getDiff();
+            mean[4] += dataQueries.get(i).getCold();
+        }
+
+        JSONObject object = new JSONObject();
+        object.put("collectTime","最大值");
+        object.put("positive",dataQueries.get(mx[0]).getPositive());
+        object.put("negative",dataQueries.get(mx[1]).getNegative());
+        object.put("heat",dataQueries.get(mx[2]).getHeat());
+        object.put("diff",dataQueries.get(mx[3]).getDiff());
+        object.put("cold",dataQueries.get(mx[4]).getCold());
+        array.add(object);
+        object = new JSONObject();
+        object.put("collectTime","最大值时间");
+        object.put("positive",dataQueries.get(mx[0]).getEquipment_Name());
+        object.put("negative",dataQueries.get(mx[1]).getEquipment_Name());
+        object.put("heat",dataQueries.get(mx[2]).getEquipment_Name());
+        object.put("diff",dataQueries.get(mx[3]).getEquipment_Name());
+        object.put("cold",dataQueries.get(mx[4]).getEquipment_Name());
+        array.add(object);
+        object = new JSONObject();
+        object.put("collectTime","最小值");
+        object.put("positive",dataQueries.get(mn[0]).getPositive());
+        object.put("negative",dataQueries.get(mn[1]).getNegative());
+        object.put("heat",dataQueries.get(mn[2]).getHeat());
+        object.put("diff",dataQueries.get(mn[3]).getDiff());
+        object.put("cold",dataQueries.get(mn[4]).getCold());
+        array.add(object);
+        object = new JSONObject();
+        object.put("collectTime","最小值时间");
+        object.put("positive",dataQueries.get(mn[0]).getEquipment_Name());
+        object.put("negative",dataQueries.get(mn[1]).getEquipment_Name());
+        object.put("heat",dataQueries.get(mn[2]).getEquipment_Name());
+        object.put("diff",dataQueries.get(mn[3]).getEquipment_Name());
+        object.put("cold",dataQueries.get(mn[4]).getEquipment_Name());
+        array.add(object);
+        object = new JSONObject();
+        object.put("collectTime","平均值");
+        object.put("positive",mean[0]/len);
+        object.put("negative",mean[1]/len);
+        object.put("heat",mean[2]/len);
+        object.put("diff",mean[3]/len);
+        object.put("cold",mean[4]/len);
+        array.add(object);
+        return array;
+    }
 }
