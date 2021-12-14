@@ -172,6 +172,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/SysMenuServiceImpl.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/EquResponserecordServiceImpl.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/WatCaliberController.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/vo/AccumulateDataQuery.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/IEquipmentdayaccumulatedataService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/SysLogMapper.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquEquipmentController.java
@@ -233,6 +234,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/EquSimbalancehistoryrecord.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpSimpleChannelInboundHandler.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/EquCommandMapper.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquHistoryAccumulateMonthReportController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/EquEquipmentrealdata.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/ISysCodetypeService.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/WatUnrecoveryalarmController.java
@@ -274,6 +276,7 @@
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquMulCurveController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/SysMenu.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/pojo/EquEquipmenttype.java
+/home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/controller/EquHistoryAccumulateDayReportController.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/EquEquipmentparaServiceImpl.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/mapper/SysRolemenucolumnmapMapper.java
 /home/zxj/project/IdeaProjects/wat/src/main/java/com/jan/wat/service/impl/EquEquipmentgroupServiceImpl.java

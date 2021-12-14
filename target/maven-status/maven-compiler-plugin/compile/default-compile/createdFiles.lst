@@ -177,6 +177,7 @@ com/jan/wat/pojo/vo/EquParaQuery.class
 com/jan/wat/pojo/EquAlarmrecord.class
 com/jan/wat/service/ISysAppapiService.class
 com/jan/wat/pojo/vo/RoleTree.class
+com/jan/wat/pojo/vo/AccumulateDataQuery.class
 com/jan/wat/mapper/WatHouraccumulateMapper.class
 com/jan/wat/CodeGenerator.class
 com/jan/wat/service/impl/WatClassifyServiceImpl.class
@@ -211,6 +212,7 @@ com/jan/wat/service/ISysRolepermissionmapService.class
 com/jan/wat/service/impl/SysRolemenucolumnmapServiceImpl.class
 com/jan/wat/pojo/EquManufacturer.class
 com/jan/wat/pojo/EquParagroup.class
+com/jan/wat/controller/EquHistoryAccumulateDayReportController.class
 com/jan/wat/service/IWatCaliberService.class
 com/jan/wat/service/impl/EquServerServiceImpl.class
 com/jan/wat/mapper/SysUserrolemapMapper.class
@@ -262,6 +264,7 @@ com/jan/wat/service/IEquSimpackageService.class
 com/jan/wat/pojo/vo/ParaTree.class
 com/jan/wat/mapper/SysLogMapper.class
 com/jan/wat/pojo/EquSimpackage.class
+com/jan/wat/controller/EquHistoryAccumulateMonthReportController.class
 com/jan/wat/controller/WatCaliberController.class
 com/jan/wat/service/impl/SysCodeServiceImpl.class
 com/jan/wat/mapper/EquManufacturerMapper.class

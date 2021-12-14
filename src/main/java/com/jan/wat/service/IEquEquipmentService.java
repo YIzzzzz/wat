@@ -1,5 +1,6 @@
 package com.jan.wat.service;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -39,6 +40,7 @@ public interface IEquEquipmentService extends IService<EquEquipment> {
     public List<String> getMonths(String time1, String time2);
     public String getMonth(String time);
     public List<MapQuery> getJW(String usercode);
-
-    String getAccumulateData(String equipmentId, String startTime, String endTime, int interval);
+    public String getAccumulateData(String equipmentId, String startTime, String endTime, int interval);
+    public String getAccumulateDataMonth(List<String> equipmentIds, String startTime, String endTime);
+    public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries);
 }

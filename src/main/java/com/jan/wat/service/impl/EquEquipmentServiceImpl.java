@@ -355,26 +355,27 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             .format(DateTime.getPattern()));
             if(equipmentdataMapper.isExit(databaseName) == 0)
                 continue;
-
-            List<AccumulateDataQuery> accumulateData = equEquipmentMapper.getAccumulateData(databaseName
-                    , rangeStartTime.format(DateTime.getPattern())
-                    , endTime, equipmentId);
-            if(accumulateData.size() < 1)
-                    continue;
-            tmpValue = accumulateData.get(0);
+            if(h == 0){
+                List<AccumulateDataQuery> accumulateData = equEquipmentMapper.getAccumulateData(databaseName
+                        , rangeStartTime.format(DateTime.getPattern())
+                        , endTime, equipmentId);
+                if(accumulateData.size() < 1)
+                        continue;
+                tmpValue = accumulateData.get(0);
+            }
             if(Duration.between(rangeStartTime.plusDays(h_add),LocalDateTime.now()).toDays() < 0)break;
 
             databaseName = getMonth(rangeStartTime.plusDays(h_add)
                     .format(DateTime.getPattern()));
             if(equipmentdataMapper.isExit(databaseName) == 0)
                 continue;
-            accumulateData = equEquipmentMapper.getAccumulateData(databaseName
+            List<AccumulateDataQuery> accumulateData = equEquipmentMapper.getAccumulateData(databaseName
                     , rangeStartTime.plusDays(h_add).format(DateTime.getPattern())
                     , endTime, equipmentId);
             if(accumulateData.size() < 1)
                 continue;
             endValue = accumulateData.get(0);
-            AccumulateDataQuery obj = new AccumulateDataQuery();
+
             JSONObject object = new JSONObject();
             object.put("equipment_ID",tmpValue.getEquipment_ID());
             object.put("equipment_Name",tmpValue.getEquipment_ID());
@@ -385,7 +386,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             object.put("heat",endValue.getHeat()-tmpValue.getHeat());
             object.put("negative",endValue.getNegative()-tmpValue.getNegative());
             object.put("positive",endValue.getPositive()-tmpValue.getPositive());
-
+            AccumulateDataQuery obj = new AccumulateDataQuery();
             obj.setEquipment_ID(tmpValue.getEquipment_ID());
             obj.setEquipment_Name(rangeStartTime.toString().substring(0,10) +
                     "--" + rangeEndTime.toString().substring(0,10));
@@ -397,6 +398,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             obj.setPositive(endValue.getPositive()-tmpValue.getPositive());
             data.add(object);
             lists.add(obj);
+            tmpValue = endValue;
         }
         List<Integer> index = new ArrayList<>();
         index.add(lists.size());
@@ -405,9 +407,98 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         json.put("Acc", getFooter_HistoryAccumulate(lists));
         return json.toString();
     }
+
+    @Override
+    public String getAccumulateDataMonth(List<String> equipmentIds, String startTime, String endTime) {
+        JSONObject json = new JSONObject();
+        JSONArray data = new JSONArray();
+        LocalDateTime start = DateTime.getTime(startTime);
+        LocalDateTime end = DateTime.getTime(endTime);
+        int month1 = start.getMonthValue();
+        int month2 = end.getMonthValue();
+        int year1 = start.getYear();
+        int year2 = end.getYear();
+        int diffMonths = (year2 - year1)*12 + month2 -month1;
+        List<AccumulateDataQuery> lists = new ArrayList<>();
+        List<Integer> index = new ArrayList<>();
+        for(int m = 0; m < equipmentIds.size(); ++m){
+            String equipment_id = equipmentIds.get(m);
+            AccumulateDataQuery tmpValue = new AccumulateDataQuery();
+            AccumulateDataQuery endValue = new AccumulateDataQuery();
+            int monthStep = 0;
+            int index_item = 0;
+            for(int h = 0; h < (diffMonths + 2); h++){
+
+                LocalDateTime readTime = start.plusMonths(h);
+                String databaseName = getMonth(readTime
+                        .format(DateTime.getPattern()));
+                if(equipmentdataMapper.isExit(databaseName) == 0)
+                    continue;
+                List<AccumulateDataQuery> accumulateData = equEquipmentMapper.getAccumulateData(databaseName
+                        , readTime.format(DateTime.getPattern())
+                        , end.plusMonths(diffMonths+5).format(DateTime.getPattern()), equipment_id);
+
+                if(accumulateData.size() < 1){
+                    if(h > 0) monthStep++;
+                    continue;
+                }
+
+                if(h == 0){
+                    tmpValue = accumulateData.get(0);
+                }else{
+                    endValue = accumulateData.get(0);
+                    JSONObject object = new JSONObject();
+                    object.put("equipment_ID",tmpValue.getEquipment_ID());
+                    object.put("equipment_Name",tmpValue.getEquipment_ID());
+                    object.put("collectTime",readTime.plusMonths(-1-monthStep).toString().substring(0,7));
+                    object.put("cold",endValue.getCold()-tmpValue.getCold());
+                    object.put("diff",endValue.getDiff()-tmpValue.getDiff());
+                    object.put("heat",endValue.getHeat()-tmpValue.getHeat());
+                    object.put("negative",endValue.getNegative()-tmpValue.getNegative());
+                    object.put("positive",endValue.getPositive()-tmpValue.getPositive());
+                    AccumulateDataQuery obj = new AccumulateDataQuery();
+                    obj.setEquipment_ID(tmpValue.getEquipment_ID());
+                    obj.setEquipment_Name(readTime.plusMonths(-1-monthStep).toString().substring(0,7));
+                    obj.setCollectTime(readTime);
+                    obj.setCold(endValue.getCold()-tmpValue.getCold());
+                    obj.setDiff(endValue.getDiff()-tmpValue.getDiff());
+                    obj.setHeat(endValue.getHeat()-tmpValue.getHeat());
+                    obj.setNegative(endValue.getNegative()-tmpValue.getNegative());
+                    obj.setPositive(endValue.getPositive()-tmpValue.getPositive());
+                    data.add(object);
+                    lists.add(obj);
+                    index_item++;
+                    tmpValue = endValue;
+                    while (monthStep != 0){
+                        monthStep--;
+                        JSONObject o = new JSONObject();
+                        o.put("equipment_ID",tmpValue.getEquipment_ID());
+                        o.put("equipment_Name",tmpValue.getEquipment_ID());
+                        o.put("collectTime",readTime.plusMonths(-1-monthStep).toString().substring(0,7));
+                        o.put("cold",0);
+                        o.put("diff",0);
+                        o.put("heat",0);
+                        o.put("negative",0);
+                        o.put("positive",0);
+                        data.add(o);
+                        index_item++;
+                    }
+                }
+            }
+            index.add(index_item);
+        }
+        json.put("data",data);
+        json.put("index",index);
+        json.put("Acc", getFooter_HistoryAccumulate(lists));
+        return json.toJSONString();
+    }
+
+    @Override
     public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries){
         JSONArray array = new JSONArray();
         int len = dataQueries.size();
+        if(len == 0)
+            return array;
         int[] mx = new int[5];
         int[] mn = new int[5];
         float[] mean=new float[5];
@@ -493,6 +584,14 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
         object.put("heat",mean[2]/len);
         object.put("diff",mean[3]/len);
         object.put("cold",mean[4]/len);
+        array.add(object);
+        object = new JSONObject();
+        object.put("collectTime","合计");
+        object.put("positive",mean[0]);
+        object.put("negative",mean[1]);
+        object.put("heat",mean[2]);
+        object.put("diff",mean[3]);
+        object.put("cold",mean[4]);
         array.add(object);
         return array;
     }
