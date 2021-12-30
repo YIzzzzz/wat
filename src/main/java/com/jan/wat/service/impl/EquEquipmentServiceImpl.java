@@ -124,7 +124,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             JSONObject json = new JSONObject();
             json.put("equipmentalarm",realData.getEquipmentalarm());
             json.put("id",realData.getId());
-            json.put("lastcollecttime", DateTime.format(realData.getLastcollecttime()));
+            json.put("lastcollecttime", realData.getLastcollecttime() == null ? null:DateTime.format(realData.getLastcollecttime()));
             json.put("n",realData.getN());
             json.put("outLinealarm",realData.getOutLinealarm());
             LambdaQueryWrapper<EquEquipmentrealdata> wrapper = new LambdaQueryWrapper<>();
