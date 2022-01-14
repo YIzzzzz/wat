@@ -184,7 +184,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     }
 
     @Override
-    public List<EquEquipment> getEquEquipment(String usercode, String equipment_id, String equipmentgroup_id) {
+    public List<EquEquipmentQuery> getEquEquipment(String usercode, String equipment_id, String equipmentgroup_id) {
         StringBuilder set = new StringBuilder();
         set.append(equipmentgroup_id);
         if(equipmentgroup_id != "0"){

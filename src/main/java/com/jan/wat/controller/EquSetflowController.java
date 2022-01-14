@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.jan.wat.pojo.*;
+import com.jan.wat.pojo.vo.EquEquipmentQuery;
 import com.jan.wat.service.IEquEquipmentService;
 import com.jan.wat.service.IWatFlowService;
 import io.swagger.annotations.ApiOperation;
@@ -31,28 +32,26 @@ public class EquSetflowController {
     @ApiOperation(value = "查询设置水表列表")
     @PostMapping("/getall")
     @ResponseBody
-    public List<EquEquipment> getallEquipment(@RequestBody JSONObject json){
+    public List<EquEquipmentQuery> getallEquipment(@RequestBody JSONObject json){
 
         System.out.println(json.toJSONString());
         String usercode = (String) json.get("usercode");
         String equipment_id = (String) json.get("equipment_id");
         String equipmentgroup_id = (String) json.get("equipmentgroup_id");
 
-        List<EquEquipment> check = iEquEquipmentService.getEquEquipment(usercode, equipment_id, equipmentgroup_id);
-        List<EquEquipment> ans = new ArrayList<>();
+        List<EquEquipmentQuery> check = iEquEquipmentService.getEquEquipment(usercode, equipment_id, equipmentgroup_id);
+        List<EquEquipmentQuery> ans = new ArrayList<>();
 
+        for(EquEquipmentQuery checkTrue : check){
 
-
-        for(EquEquipment checkTrue : check){
-
-            System.out.println(checkTrue.isChecked());
+//            System.out.println(checkTrue.isChecked());
 
             if(checkTrue.isChecked()){
                 ans.add(checkTrue);
             }
         }
 
-        for(EquEquipment checkFalse : check){
+        for(EquEquipmentQuery checkFalse : check){
             if(!checkFalse.isChecked()){
                 ans.add(checkFalse);
             }

@@ -1,25 +1,13 @@
-package com.jan.wat.pojo;
+package com.jan.wat.pojo.vo;
+
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 
 import java.util.Date;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author January
- * @since 2021-06-25
- */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class EquEquipment implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class EquEquipmentQuery {
 
     @TableId("ID")
     private String id;
@@ -101,7 +89,7 @@ public class EquEquipment implements Serializable {
 
     @TableField("ConnectServerPort")
     private Integer connectserverport;
-//    private String manufacturername;
-//    private String equipmenttypename;
-//    private String equipmentType_id;
+
+    @TableField("checked")
+    private boolean checked;
 }

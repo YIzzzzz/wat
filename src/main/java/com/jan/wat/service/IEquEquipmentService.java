@@ -25,7 +25,7 @@ public interface IEquEquipmentService extends IService<EquEquipment> {
 
     public String getRealDataQuery(String equipmentGroupId, String equipmentId, String usercode);
     public String getEquipmentValue(String usercode, String id);
-    public List<EquEquipment> getEquEquipment(String usercode,String equipment_id,String equipmentgroup_id);
+    public List<EquEquipmentQuery> getEquEquipment(String usercode,String equipment_id,String equipmentgroup_id);
 
     public List<EquipmentQuery> getEquipmentbyequipmentgroupid(Integer equipmentgroup_id);
 
@@ -45,4 +45,5 @@ public interface IEquEquipmentService extends IService<EquEquipment> {
     public String getAccumulateDataYear(List<String> equipmentIds, String startTime, String endTime);
 
     public JSONArray getFooter_HistoryAccumulate(List<AccumulateDataQuery> dataQueries, int l);
+
 }
