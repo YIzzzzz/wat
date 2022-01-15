@@ -101,17 +101,7 @@ public class EquEquipment implements Serializable {
 
     @TableField("ConnectServerPort")
     private Integer connectserverport;
-
-
 //    private String manufacturername;
-
 //    private String equipmenttypename;
 //    private String equipmentType_id;
-
-    @TableField("checked")
-    private boolean checked;
-
-
-
-
 }

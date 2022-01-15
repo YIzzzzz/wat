@@ -73,7 +73,7 @@ public class EquCommandServiceImpl extends ServiceImpl<EquCommandMapper, EquComm
         if(!startTime.equals("") && !endTime.equals("")){
             where.append(String.format(" and (c.SettingTime between '%s' and '%s') ",startTime,endTime));
         }
-        System.out.println("where = " + where);
+//        ("where = " + where);
         return equCommandMapper.getHistoryCommand(usercode, where.toString());
     }
 

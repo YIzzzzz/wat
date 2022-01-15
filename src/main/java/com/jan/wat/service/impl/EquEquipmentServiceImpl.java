@@ -63,10 +63,10 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     @Override
     public List<EuipmentsQuery> getEuipments(String euipmentGroupID, String equipmentId, String userCode) {
         StringBuilder where = new StringBuilder("");
-//        System.out.println("=============="+euipmentGroupID);
+//        ("=============="+euipmentGroupID);
         if(!euipmentGroupID.equals("")){
             List<String> childrenGroupId = iEquEquipmentgroupService.getChildrenId(userCode, euipmentGroupID);
-            System.out.println(childrenGroupId);
+//            (childrenGroupId);
             if(childrenGroupId.size()>0){
                 where.append(" and A.ID in (");
                 int count = 0;
@@ -184,7 +184,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     }
 
     @Override
-    public List<EquEquipment> getEquEquipment(String usercode, String equipment_id, String equipmentgroup_id) {
+    public List<EquEquipmentQuery> getEquEquipment(String usercode, String equipment_id, String equipmentgroup_id) {
         StringBuilder set = new StringBuilder();
         set.append(equipmentgroup_id);
         if(equipmentgroup_id != "0"){
@@ -218,7 +218,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     @Override
     public List<RealValue> encodeXML(String xml){
 //        String xml = "<D><V i=\"0\">-0.787</V><V i=\"1\">-0.626</V><V i=\"2\">2.78</V><V i=\"3\">3.0</V><V i=\"4\">9019740.1</V><V i=\"5\">9000957.3</V><V i=\"218\">18782.8</V><V i=\"14\">0.0</V><V i=\"219\">0.0</V><V i=\"10\">0.0</V><V i=\"12\">0.0</V><V i=\"13\">0.0</V><V i=\"220\">0.0</V><V i=\"11\">0.0</V><V i=\"36\">0.0</V><V i=\"34\">2485.0</V><V i=\"20\">0.0</V><V i=\"21\">1.0</V><V i=\"22\">0.0</V><V i=\"23\">0.0</V><V i=\"43\">0.0</V><V i=\"224\">0.0</V><V i=\"213\">0.0</V><V i=\"17\">100.0</V><V i=\"228\">0.0</V><V i=\"225\">0.0</V><V i=\"18\">100.0</V><V i=\"227\">0.0</V><V i=\"19\">24.0</V></D>";
-        System.out.println(xml);
+//        (xml);
         Iterator<Element> iter = Tools.XML2iter(xml);
         List<RealValue> list = new ArrayList<>();
         while(iter.hasNext()){
@@ -256,10 +256,10 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             return object.toJSONString();
         for(Equipmentdata item : all){
             String xml = item.getData();
-//            System.out.println(xml);
+//            (xml);
 
             List<RealValue> realValues = encodeXML(xml);
-//            System.out.println(realValues);
+//            (realValues);
 
             JSONObject tmp = new JSONObject();
             tmp.put("Collecttime",DateTime.format(item.getCollecttime()));
@@ -282,7 +282,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
             Integer next = iterator.next();
             tmp.put("key",next);
             tmp.put("value", map.get(next) == null ? "" : map.get(next));
-//            System.out.println(next+" "+map.get(next));
+//            (next+" "+map.get(next));
             head.add(tmp);
         }
         object.put("head",head);
@@ -295,7 +295,7 @@ public class EquEquipmentServiceImpl extends ServiceImpl<EquEquipmentMapper, Equ
     public List<String> getMonths(String time1, String time2){
         String startDate = time1.substring(0,4)+time1.substring(5,7);
         String endDate = time2.substring(0,4)+time2.substring(5,7);
-//        System.out.println(startDate+"=============="+endDate);
+//        (startDate+"=============="+endDate);
         ArrayList<String> result = new ArrayList<String>();
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");//格式化为年月

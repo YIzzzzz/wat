@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jan.wat.pojo.*;
+import com.jan.wat.pojo.vo.EquEquipmentQuery;
 import com.jan.wat.pojo.vo.EquParavalueQuery;
 import com.jan.wat.service.IEquEquipmentService;
 import com.jan.wat.service.IEquEquipmentgroupEquipmentMapService;
@@ -34,9 +35,9 @@ public class EquEquipmentController {
     @ApiOperation(value = "查询设备管理列表")
     @PostMapping("/getall")
     @ResponseBody
-    public List<EquEquipment> getallEquipment(@RequestBody JSONObject json){
+    public List<EquEquipmentQuery> getallEquipment(@RequestBody JSONObject json){
 
-        System.out.println(json.toJSONString());
+//        System.out.println(json.toJSONString());
         String usercode = (String) json.get("usercode");
         String equipment_id = (String) json.get("equipment_id");
         String equipmentgroup_id = (String) json.get("equipmentgroup_id");

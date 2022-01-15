@@ -64,7 +64,7 @@ public interface EquEquipmentMapper extends BaseMapper<EquEquipment> {
             @Result(column="checked", property="checked"),
             @Result(column="status", property="s")
     })
-    public List<EquEquipment> getEquEquipment(String usercode,String set,String equipment_id,String equipmentgroup_id);
+    public List<EquEquipmentQuery> getEquEquipment(String usercode,String set,String equipment_id,String equipmentgroup_id);
 
 
     @Select("select eq.id as id, eq.name as name \n" +

@@ -73,10 +73,10 @@ public class EquDatatypeServiceImpl extends ServiceImpl<EquDatatypeMapper, EquDa
         List<String> value = new ArrayList<>();
         for(Equipmentdata item : all){
             String xml = item.getData();
-//            System.out.println(xml);
+//            (xml);
 
             List<RealValue> realValues = iEquEquipmentService.encodeXML(xml);
-//            System.out.println(realValues);
+//            (realValues);
             time.add(DateTime.format(item.getCollecttime()));
             for(RealValue r : realValues){
                 if (r.getKey() == Integer.parseInt(datatype_id)) {

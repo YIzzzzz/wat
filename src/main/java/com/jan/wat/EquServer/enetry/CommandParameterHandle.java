@@ -100,7 +100,7 @@ public class CommandParameterHandle
     }
 
     public byte[] GetCommandData(EquCommand model, FrameStructure frame) {
-        System.out.println(model);
+//        System.out.println(model);
         byte[] returnValue = null;
 
         byte[] data = new byte[1];
@@ -228,7 +228,7 @@ public class CommandParameterHandle
 
                 byte[] arr = new byte[list.size()+1];
                 arr[0] = (byte)number;
-                System.out.println("list"+list);
+//                System.out.println("list"+list);
                 for (int k = 1; k <= list.size(); k++)
                     arr[k] = list.get(k-1);
                 returnValue= frame.GetBuffer((byte)Command.SetParameterValue, arr);
