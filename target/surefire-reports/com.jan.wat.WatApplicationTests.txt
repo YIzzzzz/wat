@@ -1,22 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.jan.wat.WatApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 40, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.529 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
-testGetData  Time elapsed: 0.001 s  <<< ERROR!
-org.springframework.jdbc.BadSqlGrammarException: 
-
-### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-### The error may exist in com/jan/wat/mapper/EquipmentdataMapper.java (best guess)
-### The error may involve com.jan.wat.mapper.EquipmentdataMapper.getData-Inline
-### The error occurred while setting parameters
-### SQL: select * from rdasdata202106.equipmentdata a where CollectTime between ? and ? and a.Equipment_ID = ?
-### Cause: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-	at com.jan.wat.WatApplicationTests.testGetData(WatApplicationTests.java:505)
-Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-	at com.jan.wat.WatApplicationTests.testGetData(WatApplicationTests.java:505)
-
-testGetServerList  Time elapsed: 0 s  <<< ERROR!
+Tests run: 40, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.72 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
+testGetServerList  Time elapsed: 0.054 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
@@ -29,18 +15,4 @@ org.springframework.jdbc.BadSqlGrammarException:
 	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:114)
 Caused by: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
 	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:114)
-
-insertTest  Time elapsed: 0.005 s  <<< ERROR!
-org.springframework.jdbc.BadSqlGrammarException: 
-
-### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-### The error may exist in com/jan/wat/mapper/EquipmentdataMapper.java (best guess)
-### The error may involve com.jan.wat.mapper.EquipmentdataMapper.insertData-Inline
-### The error occurred while setting parameters
-### SQL: insert into rdasdata202106.equipmentdata values(?,?,?,?,?)
-### Cause: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-	at com.jan.wat.WatApplicationTests.insertTest(WatApplicationTests.java:109)
-Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
-	at com.jan.wat.WatApplicationTests.insertTest(WatApplicationTests.java:109)
 
