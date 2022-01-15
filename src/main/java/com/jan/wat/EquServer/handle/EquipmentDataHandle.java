@@ -33,11 +33,11 @@ public class EquipmentDataHandle {
         if (!frame.Load(data, Tools.systemIDCode))
             return;//数据长度不正确，或者系统识别码不正确，则返回
         //$$//数量超限，直接退出EquipmentDataHandle100行
-        System.out.println(frame);
+//        System.out.println(frame);
         if(func.dataTypeList==null)
             func.init();
-        System.out.println("getFrameType: "+ Encoding.printHexString(frame.getFrameType()));
-        System.out.println("EQUID: "+frame.getId());
+//        System.out.println("getFrameType: "+ Encoding.printHexString(frame.getFrameType()));
+//        System.out.println("EQUID: "+frame.getId());
 
         switch(frame.getFrameType()){
             case Command.TimeSynchronization://0x15

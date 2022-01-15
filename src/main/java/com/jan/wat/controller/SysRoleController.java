@@ -338,8 +338,8 @@ public class SysRoleController {
         String usercode = (String) json.get("usercode");
         List<String> add = (List<String>) json.get("add");
         List<String> delete = (List<String>) json.get("delete");
-        System.out.println(add);
-        System.out.println(delete);
+//        System.out.println(add);
+//        System.out.println(delete);
         for (String str : add){
             LambdaUpdateWrapper<SysUsermenumap> wrapper = new LambdaUpdateWrapper<>();
             wrapper.eq(SysUsermenumap::getUsercode,usercode);

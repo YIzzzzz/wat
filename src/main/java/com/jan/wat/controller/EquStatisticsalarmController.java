@@ -47,7 +47,7 @@ public class EquStatisticsalarmController {
     @PutMapping("/updateequipmentgroupname")
     public RespBean updateEquEquipmentgroupename(@RequestBody EquEquipmentgroup equEquipmentgroup){
         LambdaUpdateWrapper<EquEquipmentgroup> wrapper = new LambdaUpdateWrapper<>();
-        System.out.println(equEquipmentgroup);
+//        System.out.println(equEquipmentgroup);
         wrapper.eq(EquEquipmentgroup::getId,equEquipmentgroup.getId());
         wrapper.set(EquEquipmentgroup::getName,equEquipmentgroup.getName());
         if (iEquEquipmentgroupService.update(wrapper)){
@@ -60,7 +60,7 @@ public class EquStatisticsalarmController {
     @PutMapping("/updateequipmentgroupparentid")
     public RespBean updateEquEquipmentgroupeparentid(@RequestBody EquEquipmentgroup equEquipmentgroup){
         LambdaUpdateWrapper<EquEquipmentgroup> wrapper = new LambdaUpdateWrapper<>();
-        System.out.println(equEquipmentgroup);
+//        System.out.println(equEquipmentgroup);
         wrapper.eq(EquEquipmentgroup::getId,equEquipmentgroup.getId());
         wrapper.set(EquEquipmentgroup::getParentid,equEquipmentgroup.getParentid());
         if (iEquEquipmentgroupService.update(wrapper)){

@@ -268,7 +268,7 @@ public class DatabaseHandle {
             updateEquPara.set("ParaValue", item.getValue());
             updateEquPara.set("UploadTime", DateTime.DateNow());
             returnValue = iEquEquipmentparaService.update(null,updateEquPara);
-            System.out.println(item);
+//            System.out.println(item);
         }
         return returnValue;
     }

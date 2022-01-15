@@ -72,7 +72,7 @@ public class SendHandle {
         //构成要发送的数据
         CommandParameterHandle cph = new CommandParameterHandle();
         byte[] data = cph.GetCommandData(model, frame);
-        System.out.println("data: "+ Encoding.printHexString(data));
+//        System.out.println("data: "+ Encoding.printHexString(data));
         if (data != null)
         {
             sendData(ctx, data, sender);

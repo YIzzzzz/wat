@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.jan.wat.WatApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 40, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.751 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
+Tests run: 40, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.529 s <<< FAILURE! - in com.jan.wat.WatApplicationTests
 testGetData  Time elapsed: 0.001 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 
@@ -16,7 +16,7 @@ org.springframework.jdbc.BadSqlGrammarException:
 Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'
 	at com.jan.wat.WatApplicationTests.testGetData(WatApplicationTests.java:505)
 
-testGetServerList  Time elapsed: 0.001 s  <<< ERROR!
+testGetServerList  Time elapsed: 0 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
@@ -30,7 +30,7 @@ org.springframework.jdbc.BadSqlGrammarException:
 Caused by: java.sql.SQLSyntaxErrorException: Table 'rdas.equ_Server' doesn't exist
 	at com.jan.wat.WatApplicationTests.testGetServerList(WatApplicationTests.java:114)
 
-insertTest  Time elapsed: 0.007 s  <<< ERROR!
+insertTest  Time elapsed: 0.005 s  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: 
 
 ### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Unknown database 'rdasdata202106'

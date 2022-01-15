@@ -132,8 +132,8 @@ public class GlobalParameter {
 //        udpPort_Equipment2 = 8002;
 //        udpPort_Equipment3 = 8003;
 //        udpPort_Equipment4 = 8010;
-        System.out.println(udpPort_Equipment4);
-        System.out.println(udpPort_Equipment1);
+//        System.out.println(udpPort_Equipment4);
+//        System.out.println(udpPort_Equipment1);
 
         udpPort_Equipment5 = 8011;
         udpPort_Equipment6 = 8012;

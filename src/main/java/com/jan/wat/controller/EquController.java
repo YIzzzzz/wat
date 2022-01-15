@@ -65,7 +65,7 @@ public class EquController {
         if(null != dataList){
             redisTemplate.delete("equList");
         }
-        System.out.println(dataList);
+//        System.out.println(dataList);
         if(null != dataList){
             iEquEquipmentService.saveBatch(dataList);
         }

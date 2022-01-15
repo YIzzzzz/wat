@@ -34,7 +34,7 @@ public class EquSetflowController {
     @ResponseBody
     public List<EquEquipmentQuery> getallEquipment(@RequestBody JSONObject json){
 
-        System.out.println(json.toJSONString());
+//        System.out.println(json.toJSONString());
         String usercode = (String) json.get("usercode");
         String equipment_id = (String) json.get("equipment_id");
         String equipmentgroup_id = (String) json.get("equipmentgroup_id");

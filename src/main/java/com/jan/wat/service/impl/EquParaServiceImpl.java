@@ -151,7 +151,7 @@ public class EquParaServiceImpl extends ServiceImpl<EquParaMapper, EquPara> impl
         }
         ids.append(")");
         List<MulEquipparaQuery> mulEquipmentPara = mapper.getMulEquipmentPara(from.toString());
-//        System.out.println(mulEquipmentPara);
+//        (mulEquipmentPara);
         for(MulEquipparaQuery item : mulEquipmentPara){
             int paraId = item.getPara_ID();
             if(item.getPType() == 1){
