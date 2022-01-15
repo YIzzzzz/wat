@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="EquHistoryAccumulateMonthReportController">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/service/impl/EquEquipmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,7 +484,8 @@
       <workItem from="1639201441318" duration="1039000" />
       <workItem from="1639285160043" duration="37687000" />
       <workItem from="1639619046905" duration="592000" />
-      <workItem from="1640843187785" duration="732000" />
+      <workItem from="1640843187785" duration="1406000" />
+      <workItem from="1642244018464" duration="533000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
