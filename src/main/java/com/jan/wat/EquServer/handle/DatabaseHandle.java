@@ -281,11 +281,13 @@ public class DatabaseHandle {
         paraMap.put("Equipment_ID", equipment_ID);
         iEquEquipmentparaService.removeByMap(paraMap);
         iEquEquipmentparavaluerangeService.removeByMap(paraMap);
-
+        List<EquEquipmentpara> memory = new ArrayList<>();
+        List<EquEquipmentparavaluerange> vaule_mem = new ArrayList<>();
         for (ParaCell item : cph.getParaCells())
         {
             EquEquipmentpara equEquipmentpara = new EquEquipmentpara();
 //            System.out.println(item);
+//            System.out.println(item.getType());
             switch (item.getType())
             {
                 case 1://置数型
@@ -296,7 +298,8 @@ public class DatabaseHandle {
                     equEquipmentpara.setUnitId(item.getUnitId());
                     equEquipmentpara.setUplimit(item.getUpLimit());
                     equEquipmentpara.setDownlimit(item.getDownLimit());
-                    returnValue = iEquEquipmentparaService.save(equEquipmentpara);
+                    memory.add(equEquipmentpara);
+//                    returnValue = iEquEquipmentparaService.save(equEquipmentpara);
                     break;
                 case 2://选择型
                     equEquipmentpara.setEquipmentId(equipment_ID);
@@ -304,14 +307,15 @@ public class DatabaseHandle {
                     equEquipmentpara.setParavalue(item.getValue());
                     equEquipmentpara.setUploadtime(DateTime.DateNow());
                     equEquipmentpara.setUnitId(item.getUnitId());
-                    returnValue = iEquEquipmentparaService.save(equEquipmentpara);
+                    memory.add(equEquipmentpara);
+//                    returnValue = iEquEquipmentparaService.save(equEquipmentpara);
                     EquEquipmentparavaluerange equEquipmentparavaluerange = new EquEquipmentparavaluerange();
                     equEquipmentparavaluerange.setEquipmentId(equipment_ID);
                     equEquipmentparavaluerange.setParaId(item.getParaId());
                     for (int i : item.getValueRange()){
-
                         equEquipmentparavaluerange.setParavalueId(i);
-                        iEquEquipmentparavaluerangeService.save(equEquipmentparavaluerange);
+//                        iEquEquipmentparavaluerangeService.save(equEquipmentparavaluerange);
+                        vaule_mem.add(equEquipmentparavaluerange);
                     }
                     break;
                 case 3://字符型
@@ -320,7 +324,8 @@ public class DatabaseHandle {
                     equEquipmentpara.setParavalue(item.getValue());
                     equEquipmentpara.setUploadtime(DateTime.DateNow());
 //                    System.out.println("===="+equEquipmentpara);
-                    returnValue = iEquEquipmentparaService.save(equEquipmentpara);
+                    memory.add(equEquipmentpara);
+//                    returnValue = iEquEquipmentparaService.save(equEquipmentpara);
                     //如果是CCID_SIM参数，就更新equ_SIM表
                     if (String.valueOf(item.getParaId()).trim().equals("15"))
                     {
@@ -335,6 +340,9 @@ public class DatabaseHandle {
                     break;
             }
         }
+        returnValue = iEquEquipmentparaService.saveBatch(memory);
+        if(!vaule_mem.isEmpty() && returnValue)
+            returnValue = iEquEquipmentparavaluerangeService.saveBatch(vaule_mem);
         return returnValue;
     }
 
