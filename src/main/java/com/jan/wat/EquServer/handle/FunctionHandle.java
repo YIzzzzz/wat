@@ -328,6 +328,7 @@ public class FunctionHandle {
         //校正时间
         CommandParameterHandle cph = new CommandParameterHandle();
         byte[] data = cph.GetTimeByte(frame, false, (byte)Command.TimeSynchronizationResponse);
+//        byte[] data = {1,2,3,4,5,6};
         if (data != null)
         {
             sendHandle.sendData(ctx, data, sender);

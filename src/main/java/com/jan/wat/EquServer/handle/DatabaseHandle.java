@@ -18,6 +18,7 @@ import com.jan.wat.service.*;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
@@ -94,11 +95,13 @@ public class DatabaseHandle {
 
         //设备表添加数据
         boolean returnValue = Equipment_Update(dh, powerType, sender, frame.getVersion(), frame.getId(),port);
-
-        updateRealData(dh, frame.getId(), returnValue);
-        insertEquData(dh, frame.getId(), port, returnValue);
-        if(flag == 1 && returnValue){
-            findCommand(sender, ctx, frame);
+        if (returnValue)//更新成功再进行以下步骤，也就是数据库中有这个设备
+        {
+            updateRealData(dh, frame.getId());
+            insertEquData(dh, frame.getId(), port);
+            if (flag == 1) {
+                findCommand(sender, ctx, frame);
+            }
         }
         return returnValue;
     }
@@ -124,7 +127,7 @@ public class DatabaseHandle {
         return returnValue;
     }
 
-//    @Async("doSomethingExecutor")
+    @Async("doSomethingExecutor")
     public void findCommand(InetSocketAddress sender,ChannelHandlerContext ctx, FrameStructure frame){
         boolean flag = false;
 
@@ -158,86 +161,83 @@ public class DatabaseHandle {
         }
     }
 
-//    @Async("doSomethingExecutor")
-    public void insertEquData(DataHandle dh, String id,int port, boolean returnValue){
+    @Async("doSomethingExecutor")
+    public void insertEquData(DataHandle dh, String id,int port){
 
-        if (returnValue)//更新成功再进行以下步骤，也就是数据库中有这个设备
+        //判断RDASData******数据库是否存在
+        String uploadMonth = DateTime.getMonthStr(dh.getCollectTime());
+
+        EquipmentData_Insert(uploadMonth, dh, dh.getCollectTime(), id, "");//20180817，不管成不成功都应答
+        //处理报警
+        HandleEquipmentAlarmRecord(dh, id);
+        if ( port == GlobalParameter.udpPort_Equipment2)//2018-5-27，只有这一个端口支持数据转发
         {
-            //判断RDASData******数据库是否存在
-            String uploadMonth = DateTime.getMonthStr(dh.getCollectTime());
-
-            EquipmentData_Insert(uploadMonth, dh, dh.getCollectTime(), id, "");//20180817，不管成不成功都应答
-            //处理报警
-            HandleEquipmentAlarmRecord(dh, id);
-            if ( port == GlobalParameter.udpPort_Equipment2)//2018-5-27，只有这一个端口支持数据转发
-            {
-                //转给客户端
-                sendHandle.client(id, dh);
-            }
-            else if (idListForTransform.contains(id))
-            { sendHandle.client(id, dh); }
-
+            //转给客户端
+            sendHandle.client(id, dh);
+        }
+        else if (idListForTransform.contains(id))
+        {
+            sendHandle.client(id, dh);
         }
 
     }
 
-//    @Async("doSomethingExecutor")
-    public void updateRealData(DataHandle dh,  String id, boolean returnValue){
-        if (returnValue)//更新成功，再往下进行，也即是数据库中有这个设备，才插入实时数据
+
+
+    @Async("doSomethingExecutor")
+    public void updateRealData(DataHandle dh,  String id){
+        if (dh.getDataCells().length < 7)//这时候不能完全删除数据类型，再插入，如果这么操作，会造成查询历史数据错误，查询不出其他的数据类型
         {
+            //20180811，先把所有实时数据清零，再更新真实数据，目的是为了解决变送器与GPRS模块通讯中断时，只上传GPRS信号强度
+            clearEquipmentRealData(id, dh.getCollectTime());
 
-            if (dh.getDataCells().length < 7)//这时候不能完全删除数据类型，再插入，如果这么操作，会造成查询历史数据错误，查询不出其他的数据类型
+            //20180815，只更新这几项，而且不用判断是否存在，直接update
+            List<EquEquipmentrealdata> listRealData = new ArrayList<>();
+            for (var item : dh.getDataCells())
             {
-                //20180811，先把所有实时数据清零，再更新真实数据，目的是为了解决变送器与GPRS模块通讯中断时，只上传GPRS信号强度
-                clearEquipmentRealData(id, dh.getCollectTime());
-
-                //20180815，只更新这几项，而且不用判断是否存在，直接update
-                List<EquEquipmentrealdata> listRealData = new ArrayList<>();
-                for (var item : dh.getDataCells())
-                {
-                    EquEquipmentrealdata dataCell = new EquEquipmentrealdata();
-                    dataCell.setEquipmentId(id);
-                    dataCell.setDatatypeId(item.getDataTypeId());
-                    dataCell.setValue(item.getValue());
-                    dataCell.setUnitId(item.getUnitId());
-                    dataCell.setPosition(item.getPosition());
-                    dataCell.setIfrecord(item.getIfRecord() == 1 ? true : false);
-                    dataCell.setIfcurve(item.getIfCurve() == 1 ? true : false);
-                    dataCell.setIfalarm(item.getIfAlarm() == 1 ? true : false);
-                    dataCell.setIfaccumulate(item.getIfaccumulate() == 1 ? true : false);
-                    dataCell.setLastupdatetime(dh.getCollectTime());
-                    listRealData.add(dataCell);
-                }
-                //5ms
-                iEquEquipmentrealdataService.updateBatchById(listRealData);
-
+                EquEquipmentrealdata dataCell = new EquEquipmentrealdata();
+                dataCell.setEquipmentId(id);
+                dataCell.setDatatypeId(item.getDataTypeId());
+                dataCell.setValue(item.getValue());
+                dataCell.setUnitId(item.getUnitId());
+                dataCell.setPosition(item.getPosition());
+                dataCell.setIfrecord(item.getIfRecord() == 1 ? true : false);
+                dataCell.setIfcurve(item.getIfCurve() == 1 ? true : false);
+                dataCell.setIfalarm(item.getIfAlarm() == 1 ? true : false);
+                dataCell.setIfaccumulate(item.getIfaccumulate() == 1 ? true : false);
+                dataCell.setLastupdatetime(dh.getCollectTime());
+                listRealData.add(dataCell);
             }
-            else
-            {
-                DeleteEquipmentRealData(id);//先删除，然后批量插入
-                List<EquEquipmentrealdata> listRealData = new ArrayList<>();
-                for (var item : dh.getDataCells())
-                {
-                    EquEquipmentrealdata realData = new EquEquipmentrealdata();
+            //5ms
+            iEquEquipmentrealdataService.updateBatchById(listRealData);
 
-                    realData.setEquipmentId(id);
-                    realData.setDatatypeId(item.getDataTypeId());
-                    realData.setValue(item.getValue());
-                    realData.setUnitId(item.getUnitId());
-                    realData.setPosition(item.getPosition());
-                    realData.setIfrecord(item.getIfRecord() == 1 ? true : false);
-                    realData.setIfcurve(item.getIfCurve() == 1 ? true : false);
-                    realData.setIfalarm(item.getIfAlarm() == 1 ? true : false);
-                    realData.setIfaccumulate(item.getIfaccumulate() == 1 ? true : false);
-                    realData.setUplimit((double) 0);
-                    realData.setDownlimit((double) 0);
-                    listRealData.add(realData);
-
-                }
-                //5ms
-                iEquEquipmentrealdataService.updateBatchById(listRealData);
-            }
         }
+        else
+        {
+            DeleteEquipmentRealData(id);//先删除，然后批量插入
+            List<EquEquipmentrealdata> listRealData = new ArrayList<>();
+            for (var item : dh.getDataCells())
+            {
+                EquEquipmentrealdata realData = new EquEquipmentrealdata();
+
+                realData.setEquipmentId(id);
+                realData.setDatatypeId(item.getDataTypeId());
+                realData.setValue(item.getValue());
+                realData.setUnitId(item.getUnitId());
+                realData.setPosition(item.getPosition());
+                realData.setIfrecord(item.getIfRecord() == 1 ? true : false);
+                realData.setIfcurve(item.getIfCurve() == 1 ? true : false);
+                realData.setIfalarm(item.getIfAlarm() == 1 ? true : false);
+                realData.setIfaccumulate(item.getIfaccumulate() == 1 ? true : false);
+                realData.setUplimit((double) 0);
+                realData.setDownlimit((double) 0);
+                listRealData.add(realData);
+
+            }
+            //5ms
+            iEquEquipmentrealdataService.updateBatchById(listRealData);
+        }
+
 
     }
 

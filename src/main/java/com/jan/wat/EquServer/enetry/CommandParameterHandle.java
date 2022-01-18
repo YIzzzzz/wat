@@ -13,6 +13,7 @@ import lombok.Data;
 import org.dom4j.*;
 
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -55,14 +56,21 @@ public class CommandParameterHandle
 
     public byte[] GetTimeByte(FrameStructure frame, boolean response, byte frameType)
     {
-        DateTime.Now();
+//        DateTime.Now();
         byte[] data = new byte[7];
-        data[0] = (byte)DateTime.getYear();
-        data[1] = (byte)DateTime.getMonth();
-        data[2] = (byte)DateTime.getDay();
-        data[3] = (byte)DateTime.getHour();
-        data[4] = (byte)DateTime.getMinute();
-        data[5] = (byte)DateTime.getSecond();
+//        data[0] = (byte)DateTime.getYear();
+//        data[1] = (byte)DateTime.getMonth();
+//        data[2] = (byte)DateTime.getDay();
+//        data[3] = (byte)DateTime.getHour();
+//        data[4] = (byte)DateTime.getMinute();
+//        data[5] = (byte)DateTime.getSecond();
+        LocalDateTime now = LocalDateTime.now();
+        data[0] = (byte) ((byte)now.getYear() & 0xFF);
+        data[1] = (byte) ((byte)now.getMonthValue() & 0xFF);
+        data[2] = (byte) ((byte)now.getDayOfMonth() & 0xFF);
+        data[3] = (byte) ((byte)now.getHour() & 0xFF);
+        data[4] = (byte) ((byte)now.getMinute() & 0xFF);
+        data[5] = (byte) ((byte)now.getSecond() & 0xFF);
 
         if(response)
             data[6] = 0x00;//表示需要应答
