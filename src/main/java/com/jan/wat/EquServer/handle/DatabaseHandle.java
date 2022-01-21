@@ -127,7 +127,7 @@ public class DatabaseHandle {
         return returnValue;
     }
 
-    @Async("doSomethingExecutor")
+//    @Async("doSomethingExecutor")
     public void findCommand(InetSocketAddress sender,ChannelHandlerContext ctx, FrameStructure frame){
         boolean flag = false;
 
@@ -161,7 +161,7 @@ public class DatabaseHandle {
         }
     }
 
-    @Async("doSomethingExecutor")
+//    @Async("doSomethingExecutor")
     public void insertEquData(DataHandle dh, String id,int port){
 
         //判断RDASData******数据库是否存在
@@ -184,7 +184,7 @@ public class DatabaseHandle {
 
 
 
-    @Async("doSomethingExecutor")
+//    @Async("doSomethingExecutor")
     public void updateRealData(DataHandle dh,  String id){
         if (dh.getDataCells().length < 7)//这时候不能完全删除数据类型，再插入，如果这么操作，会造成查询历史数据错误，查询不出其他的数据类型
         {
