@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fdc0c849-082b-4ec5-be2e-87c28b4ca278" name="Default Changelist" comment="优化上传数据参数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DatabaseHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/handle/DatabaseHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/config/AsyncConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/config/AsyncConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/handle/DatabaseHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/handle/DatabaseHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/config/AsyncConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/config/AsyncConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jan/wat/EquServer/udpNetty/BootNettyUdpServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.WatApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.WatApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.controller.SysUserControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.jan.wat.controller.SysUserControllerTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.jan.wat.WatApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.jan.wat.WatApplicationTests.txt" afterDir="false" />
@@ -505,6 +503,12 @@
       <workItem from="1642510113467" duration="13000" />
       <workItem from="1642511999385" duration="6231000" />
       <workItem from="1642519439614" duration="614000" />
+      <workItem from="1642915509561" duration="3564000" />
+      <workItem from="1643109917489" duration="2527000" />
+      <workItem from="1643123844841" duration="612000" />
+      <workItem from="1643445441996" duration="58000" />
+      <workItem from="1643453175028" duration="16000" />
+      <workItem from="1644550979312" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="workspace error">
       <created>1626429719584</created>
